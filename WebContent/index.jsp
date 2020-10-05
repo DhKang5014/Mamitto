@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index page입니다.
+	index page입니다.ㄴ
 </body>
 </html>
