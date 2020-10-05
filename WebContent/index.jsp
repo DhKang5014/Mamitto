@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	index page입니다.ㄴ
+	<input type="button" value="login" id='login' name='login'>
+	<input type="button" value="join">
+	<input type="button" value="res_baby">
+	
+	
 </body>
 </html>
