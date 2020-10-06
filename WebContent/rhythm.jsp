@@ -23,9 +23,9 @@
 </script>
 
 <body>
-	<p>우리아이 생활리j듬</p>
-	<form id='toilet_upload' class="toilet_upload" action="rhythm.jsp" method="get"><button type="button" id='btn_tu' onclick="toilet_upload()" >배변시간 등록하기</button> </form>
-	<form id='meal_upload' class="meal_upload" action="rhythm.jsp" method="get" ><button type="button" id='btn_mu' onclick="meal_upload()">식사시간 등록하기</button></form>
-	<form id='sleep_upload' class="sleep_upload" action="rhythm.jsp" method="get" ><button type="button" id='btn_su' onclick="sleep_upload()">취침시간 등록하기</button></form>
+	<p>우리아이 생활리듬</p>
+	<form id='toilet_upload' class="toilet_upload" action="life_poo.jsp" method="get"><button type="button" id='btn_tu' onclick="toilet_upload()" >배변시간 등록하기</button> </form>
+	<form id='meal_upload' class="meal_upload" action="life_meal.jsp" method="get" ><button type="button" id='btn_mu' onclick="meal_upload()">식사시간 등록하기</button></form>
+	<form id='sleep_upload' class="sleep_upload" action="life_sleep.jsp" method="get" ><button type="button" id='btn_su' onclick="sleep_upload()">취침시간 등록하기</button></form>
 </body>
 </html>
