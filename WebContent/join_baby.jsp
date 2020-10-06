@@ -11,9 +11,9 @@
 <p>baby_join Page</p>
 <form action="index.jsp">
 <!-- 이미 폰번호랑 생일은 받았는데 다시 받아야할까? -->
-	<label for="id">PHON_NUM</label>
+	<label for="phon_num">PHON_NUM</label>
 	<input type="text" id='phon_num' name='phon_num' value="" ><br/>
-	<label for="pw">BIRTH</label>
+	<label for="birth">BIRTH</label>
 	<input type="password" id='birth' name='birth' value="" ><br/>
 	
 	<p>우리아기 등록하기</p>

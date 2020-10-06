@@ -8,9 +8,9 @@
 </head>
 <body>
 <p>LOGIN PAGE</p>
-<form action="index.jsp">
-	<label for="id">ID</label>
-	<input type="text" id='id' name='id' value="" ><br/>
+<form action="LoginServiceCon.do">
+	<label for="email">ID</label>
+	<input type="text" id='email' name='email' value="" ><br/>
 	<label for="pw">PW</label>
 	<input type="text" id='pw' name='pw' value="" >
 	<input type="submit" value="login">

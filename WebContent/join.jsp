@@ -8,9 +8,9 @@
 </head>
 <body>
 <p>join Page</p>
-<form action="index.jsp">
-	<label for="id">ID</label>
-	<input type="text" id='id' name='id' value="" ><br/>
+<form action="JoinServiceCon.do" method='post'>
+	<label for="email">ID</label>
+	<input type="text" id='email' name='email' value="" ><br/>
 	<label for="pw">PW</label>
 	<input type="password" id='pw' name='pw' value="" ><br/>
 	<label for="name">NAME</label>
