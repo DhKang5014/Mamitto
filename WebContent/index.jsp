@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<input type="button" value="login" id='login' name='login'>
-	<input type="button" value="join">
-	<input type="button" value="res_baby">
-	
+	<a id='login' href="login.jsp">login</a>
+	<a id='join' href="join.jsp">join</a>
+	<a id='res_baby' href="join_baby.jsp">res_baby</a>
 	
 </body>
 </html>

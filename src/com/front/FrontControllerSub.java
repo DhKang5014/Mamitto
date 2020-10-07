@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Member.JoinServiceCon;
-import Member.LoginServiceCon;
+import Member.JoinBabyServiceCon;
 
 /**
  * Servlet implementation class FrontControllerSub
@@ -30,9 +29,9 @@ public class FrontControllerSub extends HttpServlet {
 		
 		Command command = null;
 		String moveURL = null;
-		
+		System.out.println("FrontControllerSub >> ");
 		if (resultURI.equals("JoinBabyServiceCon.dot")) {
-			command = new JoinServiceCon();
+			command = new JoinBabyServiceCon();
 		}
 		moveURL = command.execute(request,response);
 		

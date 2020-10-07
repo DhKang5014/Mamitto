@@ -3,6 +3,7 @@ package Member;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -39,8 +40,22 @@ public class LoginServiceCon implements Command{
 			//HttpSession session = request.getSession();
 			request.setAttribute("user", dto_out);
 			//request.setAttribute("msg", html);
+			// 회원번호
+		    // 회원번호를 쿠키에 지정한다
+		    Cookie c = new Cookie("email", dto_out.getEmail()) ;
+		     
+		    // 쿠키에 설명을 추가한다
+		    c.setComment("email") ;
+		     
+		    // 쿠키 유효기간을 설정한다. 초단위 : 60*60*24= 1일
+		    c.setMaxAge(60*60*24) ;
+		     
+		    // 응답헤더에 쿠키를 추가한다.
+		    response.addCookie(c) ;
+		    return "index.jsp";
+
 		} 
-		return "index.jsp";
+		return "fail.jsp";
 		
 	}
 

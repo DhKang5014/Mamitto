@@ -38,7 +38,8 @@ public class FrontController extends HttpServlet {
 			command = new JoinServiceCon();
 		}else if(resultURI.equals("LoginServiceCon.do")) {
 			command = new LoginServiceCon();
-		}s
+			
+		}
 		moveURL = command.execute(request,response);
 		
 		response.sendRedirect(moveURL);

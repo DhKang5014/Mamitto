@@ -18,8 +18,8 @@ public class JoinServiceCon implements Command {
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("age"));
-		String[] gender = request.getParameterValues("gender");
+		int age = Integer.parseInt(request.getParameter("baby_age"));
+		String[] gender = request.getParameterValues("baby_gender");
 		for(int i=0;i<gender.length;i++) {
 			System.out.println("gender >> "+gender[i]);
 		}

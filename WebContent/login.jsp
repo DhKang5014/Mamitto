@@ -10,9 +10,9 @@
 <p>LOGIN PAGE</p>
 <form action="LoginServiceCon.do">
 	<label for="email">ID</label>
-	<input type="text" id='email' name='email' value="" ><br/>
+	<input type="text" id='email' name='email' ><br/>
 	<label for="pw">PW</label>
-	<input type="text" id='pw' name='pw' value="" >
+	<input type="text" id='pw' name='pw'>
 	<input type="submit" value="login">
 </form>
 </body>
