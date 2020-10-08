@@ -26,7 +26,7 @@ public class JoinServiceCon implements Command {
 		joinDAO dao = new joinDAO();
 		int cnt = dao.join(dto.getSql_join(), dto.getEmail(), dto.getPw(), dto.getName(), dto.getAge(),dto.getGender());
 		if (cnt == 0) {
-			moveURL = "fail";
+			moveURL = "fail.jsp";
 		} else {
 			moveURL = "index.jsp";
 		}
