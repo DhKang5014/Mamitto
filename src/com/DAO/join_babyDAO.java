@@ -10,6 +10,8 @@ public class join_babyDAO extends DAO{
 		psmt(sql);
 		int cnt = 0;
 		try {
+			System.out.println("join_babyDAO");
+			System.out.println(sql + " / " + baby_name + " / " + birth + " / " + baby_gender + " / " + email);
 			getPsmt().setString(1, phon_num);
 			getPsmt().setString(2, baby_name);
 			getPsmt().setString(3, birth);

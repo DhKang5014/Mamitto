@@ -6,7 +6,7 @@ public class join_babyDTO {
 	String birth;
 	String baby_name;
 	String baby_gender;
-	String sql_insert_baby_info = "insert into babys values ( baby_num_sequence.nextval , ?, ?, ?, ?, ? ) ";
+	String sql_insert_baby_info = "insert into babys(baby_num,tel,baby_name,baby_birth,baby_gender,email) values ( baby_num_sequence.nextval , ?, ?, ?, ?, ? ) ";
 	
 	
 	public join_babyDTO(String phon_num, String baby_name,String birth, String baby_gender) {

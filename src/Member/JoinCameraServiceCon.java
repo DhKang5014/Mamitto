@@ -1,25 +1,21 @@
 package Member;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+import com.DAO.join_cameraDAO;
+import com.DTO.join_cameraDTO;
 import com.front.Command;
-import com.DAO.join_babyDAO;
-//import com.model.function.dao.MessageFunctionDAO;
-import com.DAO.loginDAO;
-import com.DTO.join_babyDTO;
-import com.model.master.DTO;
 
-public class JoinBabyServiceCon implements Command{
+public class JoinCameraServiceCon implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String moveURL = null;
+		System.out.println("IN JoinCameraServiceCon");
 		// GET email.pw,tel,addr
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -28,16 +24,14 @@ public class JoinBabyServiceCon implements Command{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String phon_num = request.getParameter("phon_num");
-		String birth = request.getParameter("birth");
+		
 		String baby_name = request.getParameter("baby_name");
-		String baby_gender = request.getParameter("baby_gender");
+		String ip = request.getParameter("ip");
 		
 		
-		System.out.println(phon_num + " / " + birth + " / " + baby_name + " / " + baby_gender);
 		
-		join_babyDTO dto = new join_babyDTO(phon_num, baby_name, birth , baby_gender);
-		join_babyDAO dao = new join_babyDAO();
+		System.out.println("ip >> "+ ip);
+		
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies() ;
 	    String email = "";
@@ -58,12 +52,14 @@ public class JoinBabyServiceCon implements Command{
 	             
 	        }
 	    }
-			
-		int cnt = dao.join_baby(dto.getSql_insert_baby_info(), dto.getPhon_num(), dto.getBaby_name(), dto.getBirth(), dto.getBaby_gender(), email);
+	    join_cameraDTO dto = new join_cameraDTO(baby_name, ip, email);
+		join_cameraDAO dao = new join_cameraDAO();
+		
+		int cnt = dao.join_camera(dto.getSql_insert_camera_info(), dto.getBaby_name(), dto.getIp(), dto.getEmail());
 		if (cnt == 0) {
 			moveURL = "fail";
 		} else {
-			moveURL = "index.jsp";
+			moveURL = "join_baby.jsp";
 		}
 		return moveURL;
 		
