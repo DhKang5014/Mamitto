@@ -25,10 +25,12 @@ public class FrontController extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
+		System.out.println("프론트 접속");
 
 		String reqURI = request.getRequestURI();
 		String path = request.getContextPath();
 		String resultURI = reqURI.substring(path.length() + 1);
+		System.out.println(resultURI);
 
 		
 		Command command = null;
@@ -38,7 +40,8 @@ public class FrontController extends HttpServlet {
 			command = new JoinServiceCon();
 		}else if(resultURI.equals("LoginServiceCon.do")) {
 			command = new LoginServiceCon();
-			
+		}else if(resultURI.equals("LogoutServiceCon.do")) {
+			command = new LogoutServiceCon();
 		}
 		moveURL = command.execute(request,response);
 		

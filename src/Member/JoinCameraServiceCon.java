@@ -57,7 +57,7 @@ public class JoinCameraServiceCon implements Command {
 		
 		int cnt = dao.join_camera(dto.getSql_insert_camera_info(), dto.getBaby_name(), dto.getIp(), dto.getEmail());
 		if (cnt == 0) {
-			moveURL = "fail";
+			moveURL = "fail.jsp";
 		} else {
 			moveURL = "index.jsp";
 		}
