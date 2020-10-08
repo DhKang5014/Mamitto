@@ -18,17 +18,11 @@ public class JoinServiceCon implements Command {
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
-		int age = Integer.parseInt(request.getParameter("baby_age"));
-		String[] gender = request.getParameterValues("baby_gender");
-		for(int i=0;i<gender.length;i++) {
-			System.out.println("gender >> "+gender[i]);
-		}
-		System.out.println(email + " / " + pw + " / " + name + " / " + age + " / " );
-		int gender_num = 0;//남자
-		if(!gender[0].equals("male")) {
-			gender_num = 1;//여자
-		}
-		DTO dto = new DTO(email, pw, name, age, gender_num);
+		int age = Integer.parseInt(request.getParameter("age"));
+		String gender = request.getParameter("gender");
+		System.out.println(email + " / " + pw + " / " + name + " / " + age + " / " + gender );
+		
+		DTO dto = new DTO(email, pw, name, age, gender);
 		joinDAO dao = new joinDAO();
 		int cnt = dao.join(dto.getSql_join(), dto.getEmail(), dto.getPw(), dto.getName(), dto.getAge(),dto.getGender());
 		if (cnt == 0) {

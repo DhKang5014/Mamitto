@@ -16,7 +16,7 @@ public class loginDAO extends DAO {
 			
 			String name = null;
 			int age = 0;
-			int gender = 0;
+			String gender = null;
 			System.out.println(sql);
 			System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 1");
 			
@@ -25,7 +25,7 @@ public class loginDAO extends DAO {
 				pw = rs.getString(2);
 				name = rs.getString(3);
 				age = rs.getInt(4);
-				gender = rs.getInt(5);
+				gender = rs.getString(5);
 				System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 2");
 				dto_out = new DTO(email, pw, name, age, gender);
 			}
@@ -49,7 +49,7 @@ public class loginDAO extends DAO {
 			
 			String name = null;
 			int age = 0;
-			int gender = 0;
+			String gender = null;
 			String pw = null;
 			System.out.println(sql);
 			System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 1");
@@ -59,7 +59,7 @@ public class loginDAO extends DAO {
 				pw = rs.getString(2);
 				name = rs.getString(3);
 				age = rs.getInt(4);
-				gender = rs.getInt(5);
+				gender = rs.getString(5);
 				System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 2");
 				dto_out = new DTO(email, pw, name, age, gender);
 			}

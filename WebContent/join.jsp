@@ -18,7 +18,7 @@
 	<label for="age">AGE</label>
 	<input type="text" id='age' name='age' value="" ><br/>
 	<label for="gender">GENDER</label>
-	<input type="text" id='gender' name='gender' value="" ><br/>	
+	<input type="radio" id='gender_male' name='gender' value="남자">남자<input type="radio" id='gender_woman' name='gender' value="여자">여자<br/>
 	<input type="submit" value="join">
 </form>
 </body>

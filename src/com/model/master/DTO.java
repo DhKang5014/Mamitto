@@ -11,10 +11,21 @@ public class DTO {
 	String pw;
 	String name;
 	int age;
-	int gender;
+	String gender;
+	int tel;
+	String baby_name;
+	String baby_birth;
+	String baby_gender;
+	int cam_ip;
+	
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
 	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
+	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
+	String sql_insert_post = "insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
+	String sql_insert_sensor = "insert into sensors(ch_num, temperature, humidity, baby_num) values (ch_num_sequence.nextval, ?, ?, ?)";
+	String sql_insert_history = "insert into history(act_num, email, action) values (act_num_sequence.nextval, ?, ?)";
+	String sql_insert_rhythm = "insert into rhythm(rh_num, baby_num, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, ?, ?, ?, ?)";
 	
 	//String img_path = "C:/Users/SMHRD/git/MZProject/MZ/WebContent/upload";
 	//String sql_join = "insert into USERS values ( ? , ? , ? , ? , ? )";
@@ -24,7 +35,7 @@ public class DTO {
 		return sql_login;
 	}
 
-	public DTO(String email, String pw, String name, int age, int gender) {
+	public DTO(String email, String pw, String name, int age, String gender) {
 		super();
 		this.email = email;
 		this.pw = pw;
@@ -46,7 +57,6 @@ public class DTO {
 		this.email = email;
 		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " dto 생성 small");
 	}
-
 
 	public String getDb_url() {
 		return db_url;
@@ -112,11 +122,11 @@ public class DTO {
 		this.age = age;
 	}
 
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
