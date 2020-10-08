@@ -61,7 +61,7 @@ public class JoinBabyServiceCon implements Command{
 			
 		int cnt = dao.join_baby(dto.getSql_insert_baby_info(), dto.getPhon_num(), dto.getBaby_name(), dto.getBirth(), dto.getBaby_gender(), email);
 		if (cnt == 0) {
-			moveURL = "fail";
+			moveURL = "fails";
 		} else {
 			moveURL = "index.jsp";
 		}
