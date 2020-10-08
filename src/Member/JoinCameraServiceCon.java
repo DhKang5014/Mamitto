@@ -59,7 +59,7 @@ public class JoinCameraServiceCon implements Command {
 		if (cnt == 0) {
 			moveURL = "fail";
 		} else {
-			moveURL = "join_baby.jsp";
+			moveURL = "index.jsp";
 		}
 		return moveURL;
 		

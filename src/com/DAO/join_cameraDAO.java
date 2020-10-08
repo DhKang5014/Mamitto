@@ -9,9 +9,11 @@ public class join_cameraDAO extends DAO{
 		psmt(sql);
 		int cnt = 0;
 		try {
+			System.out.println("join_cameraDAO");
+			System.out.println(sql + " / " + ip + " / " + name + " / " + email);
 			getPsmt().setString(1, ip);
-			getPsmt().setString(1, ip);
-			getPsmt().setString(1, ip);
+			getPsmt().setString(2, name);
+			getPsmt().setString(3, email);
 			cnt = getPsmt().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
