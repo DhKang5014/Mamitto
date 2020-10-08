@@ -10,7 +10,8 @@ public class join_cameraDAO extends DAO{
 		int cnt = 0;
 		try {
 			getPsmt().setString(1, ip);
-			
+			getPsmt().setString(1, ip);
+			getPsmt().setString(1, ip);
 			cnt = getPsmt().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

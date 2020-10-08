@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+\<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
 	<label for="birth">BIRTH</label>
 	<input type="date" id='birth' name='birth' value="" ><br/>
 	<label for="gender">BABY_GENDER</label>
-	<input type="radio" id='baby_gender_male' name='baby_gender' value="1">남자<input type="radio" id='baby_gender_woman' name='baby_gender' value="2">여자<br/>	
+	<input type="radio" id='baby_gender_male' name='baby_gender' value="남자">남자<input type="radio" id='baby_gender_woman' name='baby_gender' value="여자">여자<br/>	
 	<input type="submit" value="join">
 </form>
 
