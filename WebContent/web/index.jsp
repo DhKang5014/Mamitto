@@ -52,13 +52,13 @@
             <ul>
             <% if (email != null) { %>
             	<li><a href="my_page.jsp"><%= email %>님</a></li>
-				<li><a id='login' href="LogoutServiceCon.do">logout</a></li>
-				<li><a id='res_baby' href="join_baby.jsp">res_baby</a></li>
-				<li><a id='res_camera' href="join_camera.jsp">res_camera</a></li>
+				<li><a id='login' href="LogoutServiceCon.do">로그아웃</a></li>
+				<li><a id='res_baby' href="join_baby.jsp">아이 등록하기</a></li>
+				<li><a id='res_camera' href="join_camera.jsp">카메라 등록</a></li>
 			<%} else { %>
 				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
-				<li><a id='login' href="login_page.jsp">login</a></li>
-				<li><a id='join' href="join.jsp">join</a></li>
+				<li><a id='login' href="login_page.jsp">로그인</a></li>
+				<li><a id='join' href="join_page.jsp">회원가입</a></li>
 			<%} %>
                 
                 <li><a href="video.jsp">실시간 영상</a></li>
