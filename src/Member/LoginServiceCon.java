@@ -53,6 +53,16 @@ public class LoginServiceCon implements Command{
 		     
 		    // 응답헤더에 쿠키를 추가한다.
 		    response.addCookie(c) ;
+
+			DTO ip_out = dao.login_cam(dto.getSql_login_cam(), dto.getEmail());
+		    if (ip_out != null) {
+		    	System.out.println("LoginServiceCon >> ip >>" + ip_out.getCam_ip());
+		    	request.setAttribute("cam_ip", ip_out);
+		    	Cookie coo = new Cookie("cam_ip", ip_out.getCam_ip()) ;
+		    	coo.setComment("cam_ip") ;
+		    	coo.setMaxAge(60*60*24) ;
+		    	response.addCookie(coo) ;
+		    }
 		    return "index.jsp";
 
 		} 

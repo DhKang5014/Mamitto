@@ -149,3 +149,7 @@ insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'a
 insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '아침식사' , '아침을 잘 먹었어요');
 
 update babys set cam_ip = 111 where email = 'admin'
+
+select *
+from members m, babys b
+where m.email = b.email
