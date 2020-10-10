@@ -56,6 +56,19 @@ public class LoginServiceCon implements Command{
 
 			DTO ip_out = dao.login_cam(dto.getSql_login_cam(), dto.getEmail());
 		    if (ip_out != null) {
+		    	System.out.println("LoginServiceCon >> baby_name >>" + ip_out.getBaby_name());
+		    	request.setAttribute("baby_name", ip_out);
+		    	Cookie co;
+				try {
+					co = new Cookie("baby_name", URLEncoder.encode(ip_out.getBaby_name(), "utf-8"));  // 한글값 쿠키 저장을 위해 Encording
+			    	co.setComment("baby_name") ;
+			    	co.setMaxAge(60*60*24) ;
+			    	response.addCookie(co) ;
+				} catch (UnsupportedEncodingException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		    	
 		    	System.out.println("LoginServiceCon >> ip >>" + ip_out.getCam_ip());
 		    	request.setAttribute("cam_ip", ip_out);
 		    	Cookie coo = new Cookie("cam_ip", ip_out.getCam_ip()) ;
