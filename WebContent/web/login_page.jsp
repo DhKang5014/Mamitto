@@ -22,8 +22,8 @@
         <div class="menu_bar">
            <ul>
 				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
-				<li><a id='login' href="login_page.jsp">login</a></li>
-				<li><a id='join' href="join_page.jsp">join</a></li>
+				<li><a id='login' href="login_page.jsp">로그인</a></li>
+				<li><a id='join' href="join_page.jsp">회원가입</a></li>
                 <li><a href="video.jsp">실시간 영상</a></li>
                 <li><a href="baby_life.jsp">육아생활</a></li>
                 <li><a href="statistic.jsp">통계</a></li>
@@ -35,9 +35,9 @@
         <div id="main_header">
             <div class="left_icon">
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
-                <a href="index.html" class="logo"><img src="../img/logo.png" width="150px"></a>
+                <a href="index.jsp" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
-            <div class="right_icon"><a href="login_page.html"></a></div>
+            <div class="right_icon"><a href="login_page.jsp"></a></div>
         </div>
         <!-- content -->
         <div id="content" class="page">
@@ -50,7 +50,7 @@
                 </div>
                 <div>
                     <label for="pw">PW</label>
-                    <input type="text" id='pw' name='pw' value="" >
+                    <input type="password" id='pw' name='pw' value="" >
                 </div>
                 <input type="submit" value="Login" class="btn">
             </form>

@@ -28,15 +28,14 @@ public class JoinBabyServiceCon implements Command{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String phon_num = request.getParameter("phon_num");
 		String birth = request.getParameter("birth");
 		String baby_name = request.getParameter("baby_name");
 		String baby_gender = request.getParameter("baby_gender");
 		
 		
-		System.out.println(phon_num + " / " + birth + " / " + baby_name + " / " + baby_gender);
+		System.out.println(birth + " / " + baby_name + " / " + baby_gender);
 		
-		join_babyDTO dto = new join_babyDTO(phon_num, baby_name, birth , baby_gender);
+		join_babyDTO dto = new join_babyDTO(baby_name, birth , baby_gender);
 		join_babyDAO dao = new join_babyDAO();
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies() ;
@@ -59,7 +58,7 @@ public class JoinBabyServiceCon implements Command{
 	        }
 	    }
 			
-		int cnt = dao.join_baby(dto.getSql_insert_baby_info(), dto.getPhon_num(), dto.getBaby_name(), dto.getBirth(), dto.getBaby_gender(), email);
+		int cnt = dao.join_baby(dto.getSql_insert_baby_info(), dto.getBaby_name(), dto.getBirth(), dto.getBaby_gender(), email);
 		if (cnt == 0) {
 			moveURL = "fail.jsp";
 		} else {

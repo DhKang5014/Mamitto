@@ -13,13 +13,15 @@ public class DTO {
 	int age;
 	String gender;
 	int tel;
+
+
 	String baby_name;
 	String baby_birth;
 	String baby_gender;
 	int cam_ip;
 	
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
-	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?)";
+	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?, ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
 	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
 	String sql_insert_post = "insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
@@ -35,14 +37,15 @@ public class DTO {
 		return sql_login;
 	}
 
-	public DTO(String email, String pw, String name, int age, String gender) {
+	public DTO(String email, String pw, String name, int age, String gender, int tel) {
 		super();
 		this.email = email;
 		this.pw = pw;
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
-		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " dto 생성 full");
+		this.tel = tel;
+		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " " + tel + " dto 생성 full");
 	}
 
 	public DTO(String email, String pw) {
@@ -138,5 +141,43 @@ public class DTO {
 		this.sql_join = sql_join;
 	}
 
+	public int getTel() {
+		return tel;
+	}
 
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public String getBaby_name() {
+		return baby_name;
+	}
+
+	public void setBaby_name(String baby_name) {
+		this.baby_name = baby_name;
+	}
+
+	public String getBaby_birth() {
+		return baby_birth;
+	}
+
+	public void setBaby_birth(String baby_birth) {
+		this.baby_birth = baby_birth;
+	}
+
+	public String getBaby_gender() {
+		return baby_gender;
+	}
+
+	public void setBaby_gender(String baby_gender) {
+		this.baby_gender = baby_gender;
+	}
+
+	public int getCam_ip() {
+		return cam_ip;
+	}
+
+	public void setCam_ip(int cam_ip) {
+		this.cam_ip = cam_ip;
+	}
 }

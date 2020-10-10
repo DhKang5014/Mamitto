@@ -36,6 +36,7 @@ public class LoginServiceCon implements Command{
 			System.out.println("LoginServiceCon >> name >>" + dto_out.getName());
 			System.out.println("LoginServiceCon >> age >>" + dto_out.getAge());
 			System.out.println("LoginServiceCon >> gender >>" + dto_out.getGender());
+			System.out.println("LoginServiceCon >> tel >>" + dto_out.getTel());
 			//html = dao_msg.select(email);
 			//HttpSession session = request.getSession();
 			request.setAttribute("user", dto_out);

@@ -23,8 +23,8 @@
         <div class="menu_bar">
             <ul>
                 <li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
-				<li><a id='login' href="login_page.jsp">login</a></li>
-				<li><a id='join' href="join_page.jsp">join</a></li>
+				<li><a id='login' href="login_page.jsp">로그인</a></li>
+				<li><a id='join' href="join_page.jsp">회원가입</a></li>
                 <li><a href="video.jsp">실시간 영상</a></li>
                 <li><a href="baby_life.jsp">육아생활</a></li>
                 <li><a href="statistic.jsp">통계</a></li>
@@ -68,10 +68,10 @@
                     <label for="gender" class="last_label">GENDER</label>
                     <input type="text" id='gender' name='gender' value="" >
                 </div>
+                <input type="submit" value="join" class="btn">
             </form>
 
             
-                <input type="submit" value="join" class="btn">
          
         </div>
         <!-- footer -->
