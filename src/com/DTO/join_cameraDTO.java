@@ -4,11 +4,10 @@ public class join_cameraDTO {
 	String baby_name;
 	String ip;
 	String email;
-	String sql_insert_camera_info = "update babys set cam_ip = ? where baby_name = ? and email = ? ";
+	String sql_insert_camera_info = "update babys set cam_ip = ? where email = ? ";
 	
-	public join_cameraDTO(String baby_name, String ip, String email) {
+	public join_cameraDTO(String ip, String email) {
 		super();
-		this.baby_name = baby_name;
 		this.ip = ip;
 		this.email = email;
 	}

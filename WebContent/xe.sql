@@ -147,3 +147,5 @@ insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_se
 insert into sensors(ch_num, temperature, humidity) values (ch_num_sequence.nextval, 20, 20);
 insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'admin', '울음발생');
 insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '아침식사' , '아침을 잘 먹었어요');
+
+update babys set cam_ip = 111 where email = 'admin'

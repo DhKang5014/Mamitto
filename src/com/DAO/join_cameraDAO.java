@@ -5,15 +5,14 @@ import com.model.master.*;
 
 public class join_cameraDAO extends DAO{
 	
-	public int join_camera(String sql, String name, String ip, String email) {
+	public int join_camera(String sql, String ip, String email) {
 		psmt(sql);
 		int cnt = 0;
 		try {
 			System.out.println("join_cameraDAOs");
-			System.out.println(sql + " / " + ip + " / " + name + " / " + email);
+			System.out.println(sql + " / " + ip + " / " + " / " + email);
 			getPsmt().setString(1, ip);
-			getPsmt().setString(2, name);
-			getPsmt().setString(3, email);
+			getPsmt().setString(2, email);
 			cnt = getPsmt().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
