@@ -34,6 +34,8 @@ public class FrontControllerSub extends HttpServlet {
 			command = new JoinBabyServiceCon();
 		}else if(resultURI.equals("JoinCameraServiceCon.dot")) {
 			command = new JoinCameraServiceCon();
+		}else if(resultURI.equals("WriteServiceCon.dot")) {
+			command = new WriteServiceCon();
 		}
 		moveURL = command.execute(request,response);
 		
