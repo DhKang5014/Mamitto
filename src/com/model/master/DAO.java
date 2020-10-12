@@ -54,6 +54,18 @@ public class DAO {
 		}
 	}
 	
+	public void psmt(String sql, String email) {
+		conn();
+		try {
+			setPsmt(conn.prepareStatement(sql));
+			getPsmt().setString(1, email);
+			System.out.println("psmt" + email);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void close() {
 		try {
 			if(getPsmt() != null) {

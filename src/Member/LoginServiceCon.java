@@ -54,7 +54,7 @@ public class LoginServiceCon implements Command{
 		    // 응답헤더에 쿠키를 추가한다.
 		    response.addCookie(c) ;
 
-			DTO ip_out = dao.login_cam(dto.getSql_login_cam(), dto.getEmail());
+			DTO ip_out = dao.login_cam(dto.getSql_login_baby(), dto.getEmail());
 		    if (ip_out != null) {
 		    	System.out.println("LoginServiceCon >> baby_name >>" + ip_out.getBaby_name());
 		    	request.setAttribute("baby_name", ip_out);

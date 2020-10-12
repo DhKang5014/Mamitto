@@ -23,7 +23,7 @@ public class DTO {
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
 	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?, ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
-	String sql_login_cam = "select * from members m, babys b where m.email = b.email and m.email = ?";
+	String sql_login_baby = "select * from members m, babys b where m.email = b.email and m.email = ?";
 	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
 	String sql_insert_post = "insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
 	String sql_insert_sensor = "insert into sensors(ch_num, temperature, humidity, baby_num) values (ch_num_sequence.nextval, ?, ?, ?)";
@@ -152,12 +152,12 @@ public class DTO {
 	}
 
 	
-	public String getSql_login_cam() {
-		return sql_login_cam;
+	public String getSql_login_baby() {
+		return sql_login_baby;
 	}
 
-	public void setSql_login_cam(String sql_login_cam) {
-		this.sql_login_cam = sql_login_cam;
+	public void setSql_login_baby(String sql_login_baby) {
+		this.sql_login_baby = sql_login_baby;
 	}
 
 	public int getTel() {

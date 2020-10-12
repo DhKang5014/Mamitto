@@ -20,6 +20,8 @@
 <body>
 	<% Cookie[] cookies = request.getCookies();
     String email = null;
+    String baby = null;
+    String cam_ip = null;
     if(cookies != null){
          
         for(int i=0; i < cookies.length; i++){
@@ -32,10 +34,12 @@
             String cValue = c.getValue() ;
             if(cName.equals("email")) {
             	email = cValue;
-            	break;
+            }else if(cName.equals("baby")) {
+            	baby = cValue;
+            }else if(cName.equals("cam_ip")) {
+            	cam_ip = cValue;
             }
         }
-        
     }
 	 %>
     <!-- content  -->

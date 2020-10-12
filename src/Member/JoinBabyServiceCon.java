@@ -37,7 +37,6 @@ public class JoinBabyServiceCon implements Command{
 		
 		join_babyDTO dto = new join_babyDTO(baby_name, birth , baby_gender);
 		join_babyDAO dao = new join_babyDAO();
-		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies() ;
 	    String email = "";
 	    if(cookies != null){
@@ -45,10 +44,8 @@ public class JoinBabyServiceCon implements Command{
 	        for(int i=0; i < cookies.length; i++){
 	            Cookie c = cookies[i] ;
 	             
-	            // 저장된 쿠키 이름을 가져온다
 	            String cName = c.getName();
 	             
-	            // 쿠키값을 가져온다
 	            String cValue = c.getValue() ;
 	            if(cName.equals("email")) {
 	            	email = cValue;
