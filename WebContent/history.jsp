@@ -25,7 +25,7 @@
 		<p>날짜</p>
 		<% while (num < array.length) {%>
 			<!-- 가져온 리스트에서 일자별알람내역 출력 array[i].getContent-->
-			<form action="history.jsp" id="alarm<%=num %>" method="get" onclick="alarm_update()" >
+			<form action="history.jsp" id="alarm<%=num %>" method="get" onclick="alarm_update(<%=i %>>)" >
 				<div id="number">알람</div>
 			</form><br>
 	<% num += 1; }} %>
