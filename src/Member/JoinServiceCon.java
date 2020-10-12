@@ -20,11 +20,12 @@ public class JoinServiceCon implements Command {
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
 		String gender = request.getParameter("gender");
-		System.out.println(email + " / " + pw + " / " + name + " / " + age + " / " + gender );
+		int tel = Integer.parseInt(request.getParameter("tel"));
+		System.out.println(email + " / " + pw + " / " + name + " / " + age + " / " + gender + " / " + tel );
 		
-		DTO dto = new DTO(email, pw, name, age, gender);
+		DTO dto = new DTO(email, pw, name, age, gender, tel);
 		joinDAO dao = new joinDAO();
-		int cnt = dao.join(dto.getSql_join(), dto.getEmail(), dto.getPw(), dto.getName(), dto.getAge(),dto.getGender());
+		int cnt = dao.join(dto.getSql_join(), dto.getEmail(), dto.getPw(), dto.getName(), dto.getAge(), dto.getGender(), dto.getTel());
 		if (cnt == 0) {
 			moveURL = "fail.jsp";
 		} else {

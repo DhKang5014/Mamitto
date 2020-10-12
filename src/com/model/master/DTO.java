@@ -13,14 +13,17 @@ public class DTO {
 	int age;
 	String gender;
 	int tel;
+
+
 	String baby_name;
 	String baby_birth;
 	String baby_gender;
-	int cam_ip;
+	String cam_ip = "";
 	
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
-	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?)";
+	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?, ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
+	String sql_login_cam = "select * from members m, babys b where m.email = b.email and m.email = ?";
 	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
 	String sql_insert_post = "insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
 	String sql_insert_sensor = "insert into sensors(ch_num, temperature, humidity, baby_num) values (ch_num_sequence.nextval, ?, ?, ?)";
@@ -35,14 +38,24 @@ public class DTO {
 		return sql_login;
 	}
 
-	public DTO(String email, String pw, String name, int age, String gender) {
+	public DTO(String email, String pw, String name, int age, String gender, int tel) {
 		super();
 		this.email = email;
 		this.pw = pw;
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
-		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " dto 생성 full");
+		this.tel = tel;
+		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " " + tel + " dto 생성 full");
+	}
+
+	public DTO(String email, String baby_name, String baby_birth, String baby_gender, String cam_ip) {
+		super();
+		this.email = email;
+		this.baby_name = baby_name;
+		this.baby_birth = baby_birth;
+		this.baby_gender = baby_gender;
+		this.cam_ip = cam_ip;
 	}
 
 	public DTO(String email, String pw) {
@@ -138,5 +151,52 @@ public class DTO {
 		this.sql_join = sql_join;
 	}
 
+	
+	public String getSql_login_cam() {
+		return sql_login_cam;
+	}
 
+	public void setSql_login_cam(String sql_login_cam) {
+		this.sql_login_cam = sql_login_cam;
+	}
+
+	public int getTel() {
+		return tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
+	public String getBaby_name() {
+		return baby_name;
+	}
+
+	public void setBaby_name(String baby_name) {
+		this.baby_name = baby_name;
+	}
+
+	public String getBaby_birth() {
+		return baby_birth;
+	}
+
+	public void setBaby_birth(String baby_birth) {
+		this.baby_birth = baby_birth;
+	}
+
+	public String getBaby_gender() {
+		return baby_gender;
+	}
+
+	public void setBaby_gender(String baby_gender) {
+		this.baby_gender = baby_gender;
+	}
+
+	public String getCam_ip() {
+		return cam_ip;
+	}
+
+	public void setCam_ip(String cam_ip) {
+		this.cam_ip = cam_ip;
+	}
 }

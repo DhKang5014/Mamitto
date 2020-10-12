@@ -29,7 +29,7 @@ public class FrontController extends HttpServlet {
 
 		String reqURI = request.getRequestURI();
 		String path = request.getContextPath();
-		String resultURI = reqURI.substring(path.length() + 1);
+		String resultURI = reqURI.substring(path.length() + 5);
 		System.out.println(resultURI);
 
 		

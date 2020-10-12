@@ -7,7 +7,7 @@ import com.model.master.DTO;
 
 public class joinDAO extends DAO {
 
-	public int join(String sql, String email, String pw,String name,int age, String gender) {
+	public int join(String sql, String email, String pw,String name,int age, String gender, int tel) {
 		psmt(sql);
 		int cnt = 0;
 		try {
@@ -16,6 +16,7 @@ public class joinDAO extends DAO {
 			getPsmt().setString(3, name);
 			getPsmt().setInt(4, age);
 			getPsmt().setString(5, gender);
+			getPsmt().setInt(6, tel);
 			cnt = getPsmt().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -39,6 +40,7 @@ public class joinDAO extends DAO {
 			String pw = null;
 			int age = 0;
 			String gender = null;
+			int tel = 0;
 			System.out.println(sql);
 			System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 1");
 			
@@ -48,8 +50,9 @@ public class joinDAO extends DAO {
 				name = rs.getString(3);
 				age = rs.getInt(4);
 				gender = rs.getString(5);
+				tel = rs.getInt(6);
 				System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 2");
-				dto_out = new DTO(email, pw, name, age, gender);
+				dto_out = new DTO(email, pw, name, age, gender, tel);
 			}
 			
 		} catch (SQLException e) {

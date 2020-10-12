@@ -25,8 +25,7 @@ public class JoinCameraServiceCon implements Command {
 			e.printStackTrace();
 		}
 		
-		String baby_name = request.getParameter("baby_name");
-		String ip = request.getParameter("ip");
+		String ip = request.getParameter("ip_num");
 		
 		
 		
@@ -52,10 +51,10 @@ public class JoinCameraServiceCon implements Command {
 	             
 	        }
 	    }
-	    join_cameraDTO dto = new join_cameraDTO(baby_name, ip, email);
+	    join_cameraDTO dto = new join_cameraDTO(ip, email);
 		join_cameraDAO dao = new join_cameraDAO();
 		
-		int cnt = dao.join_camera(dto.getSql_insert_camera_info(), dto.getBaby_name(), dto.getIp(), dto.getEmail());
+		int cnt = dao.join_camera(dto.getSql_insert_camera_info(), dto.getIp(), dto.getEmail());
 		if (cnt == 0) {
 			moveURL = "fail.jsp";
 		} else {

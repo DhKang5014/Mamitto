@@ -6,26 +6,13 @@ drop table posts cascade constraint;
 drop table sensors cascade constraint;
 drop table history cascade constraint;
 drop table babys cascade constraint;
-drop table cameras cascade constraint;
 drop table rhythm cascade constraint;
-drop sequence baby_num_sequence;
 drop sequence act_num_sequence;
-drop sequence ca_num_sequence;
 drop sequence po_num_sequence;
 drop sequence ch_num_sequence;
 drop sequence rh_num_sequence;
 
-create sequence baby_num_sequence
-increment by 1
-start with 1
-maxvalue 9999;
-
 create sequence act_num_sequence
-increment by 1
-start with 1
-maxvalue 9999;
-
-create sequence ca_num_sequence
 increment by 1
 start with 1
 maxvalue 9999;
@@ -119,6 +106,23 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "PK_BABYS" PRIMARY KEY (
 
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "PK_RHYTHM" PRIMARY KEY (
 	"RH_NUM"
+<<<<<<< HEAD
+=======
+);
+
+ALTER TABLE "POSTS" ADD CONSTRAINT "FK_MEMBERS_TO_POSTS_1" FOREIGN KEY (
+	"EMAIL"
+)
+REFERENCES "MEMBERS" (
+	"EMAIL"
+);
+
+ALTER TABLE "HISTORY" ADD CONSTRAINT "FK_BABYS_TO_HISTORY_1" FOREIGN KEY (
+	"EMAIL"
+)
+REFERENCES "BABYS" (
+	"EMAIL"
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 );
 
 ALTER TABLE "BABYS" ADD CONSTRAINT "FK_MEMBERS_TO_BABYS_1" FOREIGN KEY (
@@ -127,13 +131,39 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "FK_MEMBERS_TO_BABYS_1" FOREIGN KEY (
 REFERENCES "MEMBERS" (
 	"EMAIL"
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
+<<<<<<< HEAD
+=======
+ALTER TABLE "RHYTHM" ADD CONSTRAINT "FK_BABYS_TO_RHYTHM_1" FOREIGN KEY (
+	"EMAIL"
+)
+REFERENCES "BABYS" (
+	"EMAIL"
+);
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
+<<<<<<< HEAD
 insert into members values ('admin', 123, '관리자', 20, '남자');
 insert into babys values ('admin' 'baby', '2020-10-07' , '남자');
+=======
+
+
+
+
+insert into members values ('admin', 123, '관리자', 20, '남자', 56987234);
+insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07' , '남자');
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, 'test', 'test', 0, 'admin');
-insert into sensors(ch_num, temperature, humidity, baby_num) values (ch_num_sequence.nextval, 20, 20, 1);
+insert into sensors(ch_num, temperature, humidity) values (ch_num_sequence.nextval, 20, 20);
 insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'admin', '울음발생');
-insert into cameras values (ca_num_sequence.nextval, 127000000001, 'admin');
-insert into rhythm(rh_num, baby_num, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 1, '식사', '아침식사' , '아침을 잘 먹었어요');
+insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '아침식사' , '아침을 잘 먹었어요');
+
+update babys set cam_ip = 111 where email = 'admin'
+
+select *
+from members m, babys b
+where m.email = b.email

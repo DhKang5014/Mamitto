@@ -6,10 +6,10 @@ public class join_babyDTO {
 	String birth;
 	String baby_name;
 	String baby_gender;
-	String sql_insert_baby_info = "insert into babys(baby_num,tel,baby_name,baby_birth,baby_gender,email) values ( baby_num_sequence.nextval , ?, ?, ?, ?, ? ) ";
+	String sql_insert_baby_info = "insert into babys(email,baby_name,baby_birth,baby_gender) values (?, ?, ?, ? ) ";
 	
 	
-	public join_babyDTO(String phon_num, String baby_name,String birth, String baby_gender) {
+	public join_babyDTO(String baby_name,String birth, String baby_gender) {
 		this.phon_num = phon_num;
 		this.birth = birth;
 		this.baby_name = baby_name;
