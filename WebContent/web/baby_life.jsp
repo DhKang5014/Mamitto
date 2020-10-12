@@ -1,3 +1,6 @@
+<%@page import="com.DAO.selectDAO"%>
+<%@page import="com.model.master.DTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,8 +20,10 @@
 <body>
 	<% Cookie[] cookies = request.getCookies();
     String email = null;
-    String baby = null;
+    String baby_name = null;
     String cam_ip = null;
+    ArrayList<DTO> dto_array = null;
+    
     if(cookies != null){
          
         for(int i=0; i < cookies.length; i++){
@@ -31,23 +36,43 @@
             String cValue = c.getValue() ;
             if(cName.equals("email")) {
             	email = cValue;
-            }else if(cName.equals("baby")) {
-            	baby = cValue;
-            }else if(cName.equals("cam_ip")) {
-            	cam_ip = cValue;
             }
         }
     }
+    
+    DTO dto = new DTO(email);
+    selectDAO dao = new selectDAO();
+    // email값을 가지고 baby에 있는 내용들 DB접속해서 가져오기
+    dto_array = dao.select(dto.getSql_login_baby(), email);
+    try {
+    	if (dto_array.size() > 0){
+    	
+    		for (int i=0; i<dto_array.size(); i++){
+    			System.out.println(dto_array.get(i).getBaby_name());
+    			System.out.println(dto_array.get(i).getBaby_birth());
+    			System.out.println(dto_array.get(i).getBaby_gender());
+    			System.out.println(dto_array.get(i).getCam_ip());
+    	    	baby_name=dto_array.get(i).getBaby_name();
+    	    	cam_ip = dto_array.get(i).getCam_ip();
+   			}
+  		}
+    } catch (NullPointerException e) {
+  		System.out.print(e);
+  	}
+    
 	 %>
     <!-- content  -->
     <div id="bk">
         <div class="menu_bar">
-            <ul>
+		<ul>
             <% if (email != null) { %>
             	<li><a href="my_page.jsp"><%= email %>님</a></li>
 				<li><a id='login' href="LogoutServiceCon.do">로그아웃</a></li>
+				<% if (baby_name != null) { %>
+				<li><a id='res_baby' href="join_baby_page.jsp"><%= baby_name %></a></li>
+				<%} else { %>
 				<li><a id='res_baby' href="join_baby_page.jsp">아이 등록하기</a></li>
-			<%} else { %>
+			<%}} else { %>
 				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
 				<li><a id='login' href="login_page.jsp">로그인</a></li>
 				<li><a id='join' href="join_page.jsp">회원가입</a></li>
@@ -67,14 +92,29 @@
         <div id="main_header">
             <div class="left_icon">
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
-                <a href="index.jsp" class="logo"><img src="../img/logo.png" width="150px"></a>
+                <a href="index.html" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
-            <div class="right_icon"><a href="my_page.jsp"></a></div>
+            <div class="right_icon"><a href="my_page.html"></a></div>
         </div>
         <!-- content -->
         <div id="content" class="page video_con">
             <h1>육아생활</h1>
-            
+            <ul class="life_icon">
+                <li><img src="../img/life1.png" alt="" width="80px"></li>
+                <li><img src="../img/life2.png" alt="" width="80px"></li>
+                <li><img src="../img/life3.png" alt="" width="80px"></li>
+            </ul>
+            <div class="alam life_con">
+                <!-- 알람 팝업메세지 -->
+                <h4 id="date"></h4>
+                <ul class="life_list">
+                    <!-- icon_size: 30x30 -->
+                    <!-- <li class="life_remove">  
+                        <span>PM 1:00 식사</span> 
+                        <span class="test4"><a class="alam_icon"></a></span>
+                    </li> -->
+                </ul>
+            </div>
         </div>
         <!-- footer -->
         <div id="footer">
@@ -83,4 +123,5 @@
     </div>
 </body>
 </html>
+
 

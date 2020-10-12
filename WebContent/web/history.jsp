@@ -1,24 +1,24 @@
-<%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.selectDAO"%>
 <%@page import="com.model.master.DTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="java.util.ArrayList"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ¿©±â º¹»ç -->
+    <!-- ì—¬ê¸° ë³µì‚¬ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script.js"></script>
-    <title>my_page</title>
+    <title>History</title>
 </head>
 <body>
-	<% Cookie[] cookies = request.getCookies();
+<% Cookie[] cookies = request.getCookies();
     String email = null;
     String baby_name = null;
     String cam_ip = null;
@@ -29,10 +29,10 @@
         for(int i=0; i < cookies.length; i++){
             Cookie c = cookies[i] ;
              
-            // ÀúÀåµÈ ÄíÅ° ÀÌ¸§À» °¡Á®¿Â´Ù
+            // ì €ìž¥ëœ ì¿ í‚¤ ì´ë¦„ì„ ê°€ì ¸ì˜¨ë‹¤
             String cName = c.getName();
              
-            // ÄíÅ°°ªÀ» °¡Á®¿Â´Ù
+            // ì¿ í‚¤ê°’ì„ ê°€ì ¸ì˜¨ë‹¤
             String cValue = c.getValue() ;
             if(cName.equals("email")) {
             	email = cValue;
@@ -42,7 +42,7 @@
     
     DTO dto = new DTO(email);
     selectDAO dao = new selectDAO();
-    // email°ªÀ» °¡Áö°í baby¿¡ ÀÖ´Â ³»¿ëµé DBÁ¢¼ÓÇØ¼­ °¡Á®¿À±â
+    // emailê°’ì„ ê°€ì§€ê³  babyì— ìžˆëŠ” ë‚´ìš©ë“¤ DBì ‘ì†í•´ì„œ ê°€ì ¸ì˜¤ê¸°
     dto_array = dao.select(dto.getSql_login_baby(), email);
     try {
     	if (dto_array.size() > 0){
@@ -66,23 +66,26 @@
         <div class="menu_bar">
             <ul>
             <% if (email != null) { %>
-            	<li><a href="my_page.jsp"><%= email %>´Ô</a></li>
-				<li><a id='login' href="LogoutServiceCon.do">·Î±×¾Æ¿ô</a></li>
-				<li><a id='res_baby' href="join_baby_page.jsp">¾ÆÀÌ µî·ÏÇÏ±â</a></li>
-			<%} else { %>
-				<li><a href="my_page.jsp">·Î±×ÀÎÀÌ ÇÊ¿äÇÕ´Ï´Ù.</a></li>
-				<li><a id='login' href="login_page.jsp">·Î±×ÀÎ</a></li>
-				<li><a id='join' href="join_page.jsp">È¸¿ø°¡ÀÔ</a></li>
+            	<li><a href="my_page.jsp"><%= email %>ë‹˜</a></li>
+				<li><a id='login' href="LogoutServiceCon.do">ë¡œê·¸ì•„ì›ƒ</a></li>
+				<% if (baby_name != null) { %>
+				<li><a id='res_baby' href="join_baby_page.jsp"><%= baby_name %></a></li>
+				<%} else { %>
+				<li><a id='res_baby' href="join_baby_page.jsp">ì•„ì´ ë“±ë¡í•˜ê¸°</a></li>
+			<%}} else { %>
+				<li><a href="my_page.jsp">ë¡œê·¸ì¸ì´ í•„ìš”í•©ë‹ˆë‹¤.</a></li>
+				<li><a id='login' href="login_page.jsp">ë¡œê·¸ì¸</a></li>
+				<li><a id='join' href="join_page.jsp">íšŒì›ê°€ìž…</a></li>
 			<%} %>
                 <% if (cam_ip != null) { %>
-                <li><a href="video.jsp">½Ç½Ã°£ ¿µ»ó</a></li>
+                <li><a href="video.jsp">ì‹¤ì‹œê°„ ì˜ìƒ</a></li>
                 <%} else { %>
-                <li><a href="video.jsp">Ä«¸Þ¶ó µî·ÏÇÏ±â</a></li>
+                <li><a href="video.jsp">ì¹´ë©”ë¼ ë“±ë¡í•˜ê¸°</a></li>
                 <%} %>
-                <li><a href="baby_life.jsp">À°¾Æ»ýÈ°</a></li>
-                <li><a href="statistic.jsp">Åë°è</a></li>
+                <li><a href="baby_life.jsp">ìœ¡ì•„ìƒí™œ</a></li>
+                <li><a href="statistic.jsp">í†µê³„</a></li>
                 <li><a href="history.jsp">History</a></li>
-                <li><a href="commu.jsp">Ä¿¹Â´ÏÆ¼</a></li>
+                <li><a href="commu.jsp">ì»¤ë®¤ë‹ˆí‹°</a></li>
             </ul>
         </div>
         <!-- nav -->
@@ -94,44 +97,16 @@
             <div class="right_icon"><a href="my_page.jsp"></a></div>
         </div>
         <!-- content -->
-        <div id="content" class="page my_page">
-            <h1>My Page</h1>
-            <div class="my">
-                <h3><%= baby_name %></h3>
-            </div>
-            <!--  -->
-            <!-- action °ª Á¶À²ÇÊ¿ä -->
-            <!--  -->
-            <form action="index.jsp" class="login_con join_con">
-                <input type="submit" value="ÇÁ·ÎÇÊ¼öÁ¤" class="btn my_btn">
-            </form>
-            <br>
-            <div class="my_baby">
-                <div>
-                    <h4>¾Æ±â ±â³äÀÏ</h4>
-                    <h4><a href="#">´õº¸±â</a></h4>
-                </div>
-                <ul class="my_day">
-                    <li>D+50</li>
-                    <li>2020. 11. 23 (¿ù)</li>
-                </ul>
-                <ul class="my_day">
-                    <li>D+100</li>
-                    <li>2020. 01. 12 (È­)</li>
+        <div id="content" class="page video_con">
+            <h1>History</h1>
+            <div class="alam">
+                <!-- ì•ŒëžŒ íŒì—…ë©”ì„¸ì§€ -->
+                <ul>
+                    <!-- icon_size: 30x30 -->
+                    <li><a class="alam_icon"></a>2020. 10.10 ì•ŒëžŒ</li>
+                    <li><a class="alam_icon"></a>2020. 10.11 ì•ŒëžŒ </li>
                 </ul>
             </div>
-            <div class="mom">
-                <h4>¾çÀ°ÀÚ¸ñ·Ï</h4>
-                <h5>¾çÀ°ÀÚ ÀÌ¸§¾²±â</h5>
-            </div>
-            <!--  -->
-            <!-- action °ª Á¶À²ÇÊ¿ä -->
-            <!--  -->
-        
-        	<form action="join_baby_page.jsp" class="login_con join_con">
-                <input type="submit" value="¾ÆÀÌÃß°¡" class="btn my_btn">
-            </form>
-            <div class="my_footer"></div>
         </div>
         <!-- footer -->
         <div id="footer">

@@ -43,17 +43,22 @@
     selectDAO dao = new selectDAO();
     // email값을 가지고 baby에 있는 내용들 DB접속해서 가져오기
     dto_array = dao.select(dto.getSql_login_baby(), email);
-    if (dto_array.size() > 0){
+    try {
+    	if (dto_array.size() > 0){
     	
-    	for (int i=0; i<dto_array.size(); i++){
-    		System.out.println(dto_array.get(i).getBaby_name());
-    		System.out.println(dto_array.get(i).getBaby_birth());
-    		System.out.println(dto_array.get(i).getBaby_gender());
-    		System.out.println(dto_array.get(i).getCam_ip());
-   		}
+    		for (int i=0; i<dto_array.size(); i++){
+    			System.out.println(dto_array.get(i).getBaby_name());
+    			System.out.println(dto_array.get(i).getBaby_birth());
+    			System.out.println(dto_array.get(i).getBaby_gender());
+    			System.out.println(dto_array.get(i).getCam_ip());
+    	    	baby_name=dto_array.get(i).getBaby_name();
+    	    	cam_ip = dto_array.get(i).getCam_ip();
+   			}
+  		}
+    } catch (NullPointerException e) {
+  		System.out.print(e);
   	}
-    baby_name=dto_array.get(0).getBaby_name();
-    cam_ip = dto_array.get(0).getCam_ip();
+    
 	 %>
 
 
@@ -73,7 +78,7 @@
             	<li><a href="my_page.jsp"><%= email %>님</a></li>
 				<li><a id='login' href="LogoutServiceCon.do">로그아웃</a></li>
 				<% if (baby_name != null) { %>
-				<li><a id='res_baby' href="join_baby_page.jsp"><%= baby_name %></a></li>
+				<li><a id='res_baby' href="baby_life.jsp"><%= baby_name %></a></li>
 				<%} else { %>
 				<li><a id='res_baby' href="join_baby_page.jsp">아이 등록하기</a></li>
 			<%}} else { %>
@@ -82,7 +87,7 @@
 				<li><a id='join' href="join_page.jsp">회원가입</a></li>
 			<%} %>
                 <% if (cam_ip != null) { %>
-                <li><a href="video.jsp">실시간 영상</a></li>
+                <li><a href="video2.jsp">실시간 영상</a></li>
                 <%} else { %>
                 <li><a href="video.jsp">카메라 등록하기</a></li>
                 <%} %>

@@ -12,8 +12,8 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- script -->
-    <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
+    <script src="../script/jquery-3.5.1.min.js"></script>
+    <script src="../script/script.js"></script>
     <!-- title명칭 수정할 것 -->
     <title>join_page</title>
 </head>
@@ -61,15 +61,18 @@
                     <input type="text" id='age' name='age' value="" >
                 </div>
                 <div>
-                    <label for="tel">TEL</label>
-                    <input type="text" id='tel' name='tel' value="" >
-                </div>
-                <div>
-                    <label for="gender" class="last_label">GENDER</label>
-                    <input type="text" id='gender' name='gender' value="" >
-                </div>
+                    <label for="gender" class="last_label">TEL</label>
+                   <div class=tel>
+                        <input type="text" id='gender' name='gender' value="" >
+                        <span>ㅡ</span>
+                        <input type="text" id='gender' name='gender' value="" >
+                        <span>ㅡ</span>
+                        <input type="text" id='gender' name='gender' value="" >
+                   </div>
+                </div>	
                 <input type="submit" value="join" class="btn">
             </form>
+        </div>
 
             
          
