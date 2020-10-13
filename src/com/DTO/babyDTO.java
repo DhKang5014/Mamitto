@@ -1,6 +1,6 @@
 package com.DTO;
 
-public class join_babyDTO {
+public class babyDTO {
 	
 	String phon_num;
 	String birth;
@@ -9,7 +9,7 @@ public class join_babyDTO {
 	String sql_insert_baby_info = "insert into babys(email,baby_name,baby_birth,baby_gender) values (?, ?, ?, ? ) ";
 	
 	
-	public join_babyDTO(String baby_name,String birth, String baby_gender) {
+	public babyDTO(String baby_name,String birth, String baby_gender) {
 		this.phon_num = phon_num;
 		this.birth = birth;
 		this.baby_name = baby_name;

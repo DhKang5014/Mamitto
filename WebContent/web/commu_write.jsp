@@ -17,20 +17,28 @@
 <body>
     <!-- content  -->
     <div id="bk">
- <%@ include file = "menu.jsp" %>
-
+        <div class="menu_bar">
+            <ul>
+                <li><a href="my_page.html"> oo님 </a></li>
+                <li><a href="video.html">실시간 영상</a></li>
+                <li><a href="baby_life.html">육아생활</a></li>
+                <li><a href="statistic .html">통계</a></li>
+                <li><a href="history.html">History</a></li>
+                <li><a href="commu.html">커뮤니티</a></li>
+            </ul>
+        </div>
         <!-- nav -->
         <div id="main_header">
             <div class="left_icon">
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
-                <a href="index.jsp" class="logo"><img src="../img/logo.png" width="150px"></a>
+                <a href="index.html" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
-            <div class="right_icon"><a href="my_page.jsp"></a></div>
+            <div class="right_icon"><a href="my_page.html"></a></div>
         </div>
         <!-- content -->
         <div id="content" class="page commu commu_write">
             <h1>게시글 등록</h1>
-            <form method="POST" action="CommuServiceCon.do">
+            <form method="POST" action="BoardServlet">
                 <table class="write_radio">
                     <tr>
                         <th>제목</th>

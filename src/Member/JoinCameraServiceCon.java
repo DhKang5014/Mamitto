@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.join_cameraDAO;
-import com.DTO.join_cameraDTO;
+import com.DTO.cameraDTO;
 import com.front.Command;
 
 public class JoinCameraServiceCon implements Command {
@@ -51,7 +51,7 @@ public class JoinCameraServiceCon implements Command {
 	             
 	        }
 	    }
-	    join_cameraDTO dto = new join_cameraDTO(ip, email);
+	    cameraDTO dto = new cameraDTO(ip, email);
 		join_cameraDAO dao = new join_cameraDAO();
 		
 		int cnt = dao.join_camera(dto.getSql_insert_camera_info(), dto.getIp(), dto.getEmail());

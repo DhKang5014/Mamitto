@@ -3,6 +3,7 @@ package com.ajax;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,22 +13,26 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.insert_mealDAO;
+import com.DAO.select_mealDAO;
+import com.DTO.mealDTO;
 import com.google.gson.Gson;
 
 /**
- * Servlet implementation class WriteServiceCon
+ * Servlet implementation class SelectMeal
  */
-@WebServlet("/SaveMeal")
-public class SaveMeal extends HttpServlet {
-	
+@WebServlet("/SelectMeal")
+public class SelectMeal extends HttpServlet {
+	/**
+	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get in the the Save Meal\
-		System.out.println("In com.ajax/SaveMeal Service ");
+		System.out.println("In com.ajax/SelectMeal Service ");
 		
 		// Encoding
 		try {
 			request.setCharacterEncoding("UTF-8");
-			response.setCharacterEncoding("utf-8");
+			response.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -42,22 +47,16 @@ public class SaveMeal extends HttpServlet {
 		System.out.println("curtime >> " + curtime);
 		
 		// Save Historys
-		String sql = "insert into RHYTHM(rh_num, rh_category, email) values( rh_num_sequence.nextval , 'meal' , ?) ";
-		insert_mealDAO dao = new insert_mealDAO();
-		int cnt = dao.insert(sql, email);
 		
-		// 
-		if(cnt!=0) {
-			System.out.println("insert success");
-		}else {
-			System.out.println("insert fail");
-		}
+		String sql = "select rh_num,rh_category,rh_time,email from RHYTHM where email = ? ";
+		select_mealDAO dao = new select_mealDAO();
+		ArrayList<mealDTO> arr = dao.select(sql, email);
 		
-		
+		int cnt = arr.size();
 		// Get User Email Login
 		HttpSession session = request.getSession();
-		
-		//output json
+				
+		// output json
 		PrintWriter out = null;
 		try {
 			out = response.getWriter();
@@ -65,11 +64,21 @@ public class SaveMeal extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		// 
+		if(cnt>0) {
+			System.out.println("select success");
+			String json = new Gson().toJson(arr);
+			out.print(json);
+		}else {
+			System.out.println("select fail");
+		}
+		
+		
+		
+		
 		
 		//json 
-		String ar="{" + " email : " + email +" , " + " curtime : " + curtime + " } " ;
-		String json = new Gson().toJson(ar);
-		out.println(json);
+		
 	}
 
 }

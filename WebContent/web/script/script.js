@@ -130,100 +130,137 @@ $.clock = function(){
         }
         return result;
     }
-    $(".life_icon > li:nth-child(1) > img").on("click",function(){
-        // a tag에 직접 onclick 이벤트를 걸어서 카운팅
-        // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-        $("<li class='meal' id='meal" + i + "'><span id='m_ck" + i + "'>식사 시간</span><span><a class='alam_icon' onclick='meal(" + i + ")'></a></span></li>").appendTo(".life_list");
-        var m_ck = $("ck"+i);
-        $("#m_ck"+i).text($.clock()+" 식사시간");
-        curtime = '' + $.clock();
-        i++;
-        email = getCookieValue('email');
-        console.log(email, curtime);
-        $.ajax(
-            { 
-                url: "../../project1/SaveMeal", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                data: {
-                    email : email,
-                    curtime : curtime
-                }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-            .done(function(data) { 
-                   console.log(data);
-                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-            .fail(function(xhr, status, errorThrown) { 
-                    alert("실패");
-        }) //;
 
-    });
+//select * from rhythm where email = ? ;
+arrayList_history = null;
+
+$.select_history = function(){
+
+    email = getCookieValue('email');
+    curtime = '' + $.clock();
+
+    $.ajax(
+        { 
+            url: "../../project1/SelectMeal", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+            data: {
+                email : email,
+                curtime : curtime
+            }, // HTTP 요청과 함께 서버로 보낼 데이터 
+            method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+            //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+            }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+        .done(function(data) { 
+               console.log('select history done',data);
+               data = JSON.parse(data);
+               arrayList_history = data;
+               console.log('length',arrayList_history.length);
+               
+               for(var q=0; q<arrayList_history.length; q++){
+                    console.log(arrayList_history[q]['rh_category']);
+                    if(arrayList_history[q]['rh_category'] == 'meal'){
+                        $.create_li_1();
+                    }
+               }
+            }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+        .fail(function(xhr, status, errorThrown) { 
+                alert("실패");
+    }) //;
+}
+$.select_history();
+// END
 
 
 
-    var i = 0;
-    $(".life_icon > li:nth-child(1) > img").on("click",function(){
-        // a tag에 직접 onclick 이벤트를 걸어서 카운팅
-        // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-        $("<li class='meal' id='meal"+i+"'><span id='m_ck"+i+"'>식사 시간</span><span><a class='alam_icon' onclick='meal("+i+")'></a></span></li>").appendTo(".life_list");
-        var m_ck = $("ck"+i);
-        $("#m_ck"+i).text($.clock()+" 식사시간");
-        curtime = '' + $.clock();
-        i++;
-        email = getCookieValue('email');
-        console.log(email, curtime);
-        $.ajax(
-            { 
-                url: "../../project1/SaveMeal", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                data: {
-                    email : email,
-                    curtime : curtime
-                }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-            .done(function(data) { 
-                   console.log(data);
-                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-            .fail(function(xhr, status, errorThrown) { 
-                    alert("실패");
-        }) //;
+var i = 0;
+$.create_li_1 = function(){
+    // a tag에 직접 onclick 이벤트를 걸어서 카운팅
+    // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
+    $("<li class='meal' id='meal" + i + "'><span id='m_ck" + i + "'>식사 시간</span><span><a class='alam_icon' onclick='meal(" + i + ")'></a></span></li>").appendTo(".life_list");
+    var m_ck = $("ck"+i);
+    $("#m_ck"+i).text($.clock()+" 식사시간");
+    curtime = '' + $.clock();
+    i++;
+    email = getCookieValue('email');
+    console.log(email, curtime);
+   
+}
 
-    });
-    //;
-    var j = 0;
-    $(".life_icon > li:nth-child(2) > img").on("click",function(){
-        $("<li class='sleep' id='sleep"+j+"'><span id='s_ck"+j+"'>취침 시간</span><span><a class='alam_icon' onclick='sleep("+j+")'></a></span></li>").appendTo(".life_list");
-        var s_ck = $("ck"+j);
-        $("#s_ck"+j).text($.clock() +" 취침시간");
-        curtime = '' + $.clock();
-        j++;
-        email = getCookieValue('email');
-        console.log(email, curtime);
-        $.ajax(
-            { 
-                url: "../../project1/SaveSleep", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                data: {
-                    email : email,
-                    curtime : curtime
-                }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-            .done(function(data) { 
-                   console.log(data);
-                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-            .fail(function(xhr, status, errorThrown) { 
-                    alert("실패");
-        }) //;
-    });
-    var k = 0;
-    $(".life_icon > li:nth-child(3) > img").on("click",function(){
-        $("<li class='defecate' id='defecate"+k+"'><span id='d_ck"+k+"'>배변 시간</span><span><a class='alam_icon' onclick='defecate("+k+")'></a></span></li>").appendTo(".life_list");
-        var d_ck = $("ck"+k);
-        $("#d_ck"+k).text($.clock()+ " 배변시간");
-        k++;
-    });
+$.create_li_2 = function(){
+    $("<li class='sleep' id='sleep"+i+"'><span id='s_ck"+i+"'>취침 시간</span><span><a class='alam_icon' onclick='sleep("+i+")'></a></span></li>").appendTo(".life_list");
+    var s_ck = $("ck"+i);
+    $("#s_ck"+i).text($.clock() +" 취침시간");
+    curtime = '' + $.clock();
+    i++;
+    email = getCookieValue('email');
+    console.log(email, curtime);
+    
+}
+
+
+$(".life_icon > li:nth-child(1) > img").on("click",function(){
+    // a tag에 직접 onclick 이벤트를 걸어서 카운팅
+    // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
+    $("<li class='meal' id='meal" + i + "'><span id='m_ck" + i + "'>식사 시간</span><span><a class='alam_icon' onclick='meal(" + i + ")'></a></span></li>").appendTo(".life_list");
+    var m_ck = $("ck"+i);
+    $("#m_ck"+i).text($.clock()+" 식사시간");
+    curtime = '' + $.clock();
+    i++;
+    email = getCookieValue('email');
+    console.log(email, curtime);
+    $.ajax(
+        { 
+            url: "../../project1/SaveMeal", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+            data: {
+                email : email,
+                curtime : curtime
+            }, // HTTP 요청과 함께 서버로 보낼 데이터 
+            method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+            //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+            }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+        .done(function(data) { 
+               console.log(data);
+            }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+        .fail(function(xhr, status, errorThrown) { 
+                alert("실패");
+    }) //;
+});
+
+
+$(".life_icon > li:nth-child(2) > img").on("click",function(){
+    $("<li class='sleep' id='sleep"+i+"'><span id='s_ck"+i+"'>취침 시간</span><span><a class='alam_icon' onclick='sleep("+i+")'></a></span></li>").appendTo(".life_list");
+    var s_ck = $("ck"+i);
+    $("#s_ck"+i).text($.clock() +" 취침시간");
+    curtime = '' + $.clock();
+    i++;
+    email = getCookieValue('email');
+    console.log(email, curtime);
+    
+    $.ajax(
+        { 
+            url: "../../project1/SaveSleep", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+            data: {
+                email : email,
+                curtime : curtime
+            }, // HTTP 요청과 함께 서버로 보낼 데이터 
+            method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+            //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+            }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+        .done(function(data) { 
+               console.log(data);
+            }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+        .fail(function(xhr, status, errorThrown) { 
+                alert("실패");
+    }) //;
+});
+
+
+var k = 0;
+$(".life_icon > li:nth-child(3) > img").on("click",function(){
+    $("<li class='defecate' id='defecate"+k+"'><span id='d_ck"+k+"'>배변 시간</span><span><a class='alam_icon' onclick='defecate("+k+")'></a></span></li>").appendTo(".life_list");
+    var d_ck = $("ck"+k);
+    $("#d_ck"+k).text($.clock()+ " 배변시간");
+    k++;
+});
    
     
     

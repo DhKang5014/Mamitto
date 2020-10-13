@@ -12,7 +12,7 @@ import com.front.Command;
 import com.DAO.join_babyDAO;
 //import com.model.function.dao.MessageFunctionDAO;
 import com.DAO.loginDAO;
-import com.DTO.join_babyDTO;
+import com.DTO.babyDTO;
 import com.model.master.DTO;
 
 public class JoinBabyServiceCon implements Command{
@@ -35,7 +35,7 @@ public class JoinBabyServiceCon implements Command{
 		
 		System.out.println(birth + " / " + baby_name + " / " + baby_gender);
 		
-		join_babyDTO dto = new join_babyDTO(baby_name, birth , baby_gender);
+		babyDTO dto = new babyDTO(baby_name, birth , baby_gender);
 		join_babyDAO dao = new join_babyDAO();
 	    Cookie[] cookies = request.getCookies() ;
 	    String email = "";
