@@ -136,7 +136,7 @@ $.clock = function(){
     $(".life_icon > li:nth-child(1) > img").on("click",function(){
         // a tag에 직접 onclick 이벤트를 걸어서 카운팅
         // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-        $("<li class='meal' id='meal"+i+"'><span id='m_ck"+i+"'>식사 시간</span><span><a class='alam_icon' onclick='meal("+i+--")'></a></span></li>").appendTo(".life_list");
+        $("<li class='meal' id='meal"+i+"'><span id='m_ck"+i+"'>식사 시간</span><span><a class='alam_icon' onclick='meal("+i+")'></a></span></li>").appendTo(".life_list");
         var m_ck = $("ck"+i);
         $("#m_ck"+i).text($.clock()+" 식사시간");
         curtime = '' + $.clock();
@@ -217,16 +217,5 @@ $.clock = function(){
         
     });
    
-    
-    
-        
-        
-      
-
  
-
-
-
-
-
 });
