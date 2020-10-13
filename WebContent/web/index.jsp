@@ -45,7 +45,33 @@
         <!-- content -->
         <div id="content">
             <div class="meno">
-    
+                <!-- baby img -->
+            </div>
+            <div class="meno_con my_baby">
+                <h4>기념일</h4>
+                <ul class="my_day">
+                    <li>D+50</li>
+                    <li>2020. 11. 23 (월)</li>
+                </ul>
+                <ul class="my_day">
+                    <li>D+100</li>
+                    <li>2020. 01. 12 (화)</li>
+                </ul>
+            </div>
+            <div class="meno_con today">
+                <h4>Today List</h4>
+                <ul class="my_day">
+                    <li>식사</li>
+                    <li>n회</li>
+                </ul>
+                <ul class="my_day">
+                    <li>취침</li>
+                    <li>n회</li>
+                </ul>
+                <ul class="my_day">
+                    <li>배변</li>
+                    <li>n회</li>
+                </ul>
             </div>
         </div>
         <!-- footer -->
