@@ -1,14 +1,12 @@
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.DAO.selectDAO"%>
-<%@page import="com.model.master.DTO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- ø©±‚ ∫πªÁ -->
+    <!-- Ïó¨Í∏∞ Î≥µÏÇ¨ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
     <!-- font -->
@@ -36,36 +34,36 @@
                 <h3><%= baby_name %></h3>
             </div>
             <!--  -->
-            <!-- action ∞™ ¡∂¿≤« ø‰ -->
+            <!-- action Í∞í Ï°∞Ïú®ÌïÑÏöî -->
             <!--  -->
             <form action="index.jsp" class="login_con join_con">
-                <input type="submit" value="«¡∑Œ« ºˆ¡§" class="btn my_btn">
+                <input type="submit" value="ÌîÑÎ°úÌïÑÏàòÏ†ï" class="btn my_btn">
             </form>
             <br>
             <div class="my_baby">
                 <div>
-                    <h4>æ∆±‚ ±‚≥‰¿œ</h4>
-                    <h4><a href="#">¥ı∫∏±‚</a></h4>
+                    <h4>ÏïÑÍ∏∞ Í∏∞ÎÖêÏùº</h4>
+                    <h4><a href="#">ÎçîÎ≥¥Í∏∞</a></h4>
                 </div>
                 <ul class="my_day">
                     <li>D+50</li>
-                    <li>2020. 11. 23 (ø˘)</li>
+                    <li>2020. 11. 23 (Ïõî)</li>
                 </ul>
                 <ul class="my_day">
                     <li>D+100</li>
-                    <li>2020. 01. 12 (»≠)</li>
+                    <li>2020. 01. 12 (Ìôî)</li>
                 </ul>
             </div>
             <div class="mom">
-                <h4>æÁ¿∞¿⁄∏Ò∑œ</h4>
+                <h4>ÏñëÏú°ÏûêÎ™©Î°ù</h4>
                 <h5><%= email %></h5>
             </div>
             <!--  -->
-            <!-- action ∞™ ¡∂¿≤« ø‰ -->
+            <!-- action Í∞í Ï°∞Ïú®ÌïÑÏöî -->
             <!--  -->
         
         	<form action="join_baby_page.jsp" class="login_con join_con">
-                <input type="submit" value="æ∆¿Ã√ﬂ∞°" class="btn my_btn">
+                <input type="submit" value="ÏïÑÏù¥Ï∂îÍ∞Ä" class="btn my_btn">
             </form>
             <div class="my_footer"></div>
         </div>
