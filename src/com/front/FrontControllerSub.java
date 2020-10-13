@@ -38,7 +38,6 @@ public class FrontControllerSub extends HttpServlet {
 			command = new WriteServiceCon();
 		}
 		moveURL = command.execute(request,response);
-		
 		response.sendRedirect(moveURL);
 	}
 
