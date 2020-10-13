@@ -53,12 +53,5 @@
     
         </div>
     </div>
-<<<<<<< HEAD
-    
-=======
-    <script>
-    	
-    </script>
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 </body>
 </html>
