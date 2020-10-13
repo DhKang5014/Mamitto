@@ -16,20 +16,18 @@ public class loginDAO extends DAO {
 			
 			String name = null;
 			int age = 0;
-			int tel = 0;
-			String gender = null;
+			String tel = null;
 			System.out.println(sql);
-			System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 1");
+			System.out.println(email +" " + pw + " " + name +" " + age + " 로그인 절차 1");
 			
 			while (rs.next()) {
 				email = rs.getString(1);
 				pw = rs.getString(2);
 				name = rs.getString(3);
 				age = rs.getInt(4);
-				gender = rs.getString(5);
-				tel = rs.getInt(6);
-				System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 2");
-				dto_out = new DTO(email, pw, name, age, gender, tel);
+				tel = rs.getString(5);
+				System.out.println(email +" " + pw + " " + name +" " + age + " 로그인 절차 2");
+				dto_out = new DTO(email, pw, name, age, tel);
 			}
 			
 		} catch (SQLException e) {
@@ -50,21 +48,19 @@ public class loginDAO extends DAO {
 			
 			String name = null;
 			int age = 0;
-			String gender = null;
 			String pw = null;
-			int tel = 0;
+			String tel = null;
 			System.out.println(sql);
-			System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 1");
+			System.out.println(email +" " + pw + " " + name +" " + age + " 로그인 절차 1");
 			
 			while (rs.next()) {
 				email = rs.getString(1);
 				pw = rs.getString(2);
 				name = rs.getString(3);
 				age = rs.getInt(4);
-				gender = rs.getString(5);
-				tel = rs.getInt(6);
-				System.out.println(email +" " + pw + " " + name +" " + age + " " + gender +"로그인 절차 2");
-				dto_out = new DTO(email, pw, name, age, gender, tel);
+				tel = rs.getString(5);
+				System.out.println(email +" " + pw + " " + name +" " + age + " 로그인 절차 2");
+				dto_out = new DTO(email, pw, name, age, tel);
 			}
 			
 			

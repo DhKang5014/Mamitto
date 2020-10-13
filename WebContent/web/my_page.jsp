@@ -48,10 +48,6 @@
     	if (dto_array.size() > 0){
     	
     		for (int i=0; i<dto_array.size(); i++){
-    			System.out.println(dto_array.get(i).getBaby_name());
-    			System.out.println(dto_array.get(i).getBaby_birth());
-    			System.out.println(dto_array.get(i).getBaby_gender());
-    			System.out.println(dto_array.get(i).getCam_ip());
     	    	baby_name=dto_array.get(i).getBaby_name();
     	    	cam_ip = dto_array.get(i).getCam_ip();
    			}
@@ -122,7 +118,7 @@
             </div>
             <div class="mom">
                 <h4>양육자목록</h4>
-                <h5>양육자 이름쓰기</h5>
+                <h5><%= email %></h5>
             </div>
             <!--  -->
             <!-- action 값 조율필요 -->

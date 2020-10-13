@@ -11,8 +11,7 @@ public class DTO {
 	String pw;
 	String name;
 	int age;
-	String gender;
-	int tel;
+	String tel;
 
 
 	String baby_name;
@@ -21,7 +20,7 @@ public class DTO {
 	String cam_ip = "";
 	
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
-	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?, ?)";
+	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
 	String sql_login_baby = "select * from members m, babys b where m.email = b.email and m.email = ?";
 	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
@@ -38,15 +37,14 @@ public class DTO {
 		return sql_login;
 	}
 
-	public DTO(String email, String pw, String name, int age, String gender, int tel) {
+	public DTO(String email, String pw, String name, int age, String tel) {
 		super();
 		this.email = email;
 		this.pw = pw;
 		this.name = name;
 		this.age = age;
-		this.gender = gender;
 		this.tel = tel;
-		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " " + tel + " dto 생성 full");
+		System.out.println(email + " " + pw + " " + name + " " + age + " " + tel + " dto 생성 full");
 	}
 
 	public DTO(String email, String baby_name, String baby_birth, String baby_gender, String cam_ip) {
@@ -62,13 +60,13 @@ public class DTO {
 		super();
 		this.email = email;
 		this.pw = pw;
-		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " dto 생성 small");
+		System.out.println(email + " " + pw + " " + name + " " + age + " dto 생성 small");
 	}
 
 	public DTO(String email) {
 		super();
 		this.email = email;
-		System.out.println(email + " " + pw + " " + name + " " + age + " " + gender + " dto 생성 small");
+		System.out.println(email + " " + pw + " " + name + " " + age + " dto 생성 small");
 	}
 
 	public String getDb_url() {
@@ -135,14 +133,6 @@ public class DTO {
 		this.age = age;
 	}
 
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
 	public String getSql_join() {
 		return sql_join;
 	}
@@ -160,11 +150,11 @@ public class DTO {
 		this.sql_login_baby = sql_login_baby;
 	}
 
-	public int getTel() {
+	public String getTel() {
 		return tel;
 	}
 
-	public void setTel(int tel) {
+	public void setTel(String tel) {
 		this.tel = tel;
 	}
 

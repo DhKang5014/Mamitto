@@ -28,7 +28,7 @@ public class JoinBabyServiceCon implements Command{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String birth = request.getParameter("birth");
+		String birth = request.getParameter("baby_age");
 		String baby_name = request.getParameter("baby_name");
 		String baby_gender = request.getParameter("baby_gender");
 		

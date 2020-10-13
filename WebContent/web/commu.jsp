@@ -48,10 +48,6 @@
     	if (dto_array.size() > 0){
     	
     		for (int i=0; i<dto_array.size(); i++){
-    			System.out.println(dto_array.get(i).getBaby_name());
-    			System.out.println(dto_array.get(i).getBaby_birth());
-    			System.out.println(dto_array.get(i).getBaby_gender());
-    			System.out.println(dto_array.get(i).getCam_ip());
     	    	baby_name=dto_array.get(i).getBaby_name();
     	    	cam_ip = dto_array.get(i).getCam_ip();
    			}
