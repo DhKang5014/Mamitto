@@ -1,5 +1,6 @@
 select * from members
 select * from babys
+select * from posts
 
 drop table members cascade constraint;
 drop table posts cascade constraint;
@@ -43,10 +44,8 @@ CREATE TABLE "MEMBERS" (
 CREATE TABLE "POSTS" (
 	"PO_NUM"	NUMBER		NOT NULL,
 	"PO_TITLE"	VARCHAR2(100)		NULL,
-	"PO_IMG"	VARCHAR2(100)		NULL,
 	"PO_CONTENT"	VARCHAR2(500)		NULL,
-	"IMG_URLS"	VARCHAR2(500)		NULL,
-	"OPENYN"	NUMBER		NULL,
+	"PO_PW"	VARCHAR2(100)		NULL,
 	"EMAIL"	VARCHAR2(100)		NOT NULL,
 	"PO_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL
 );
@@ -128,6 +127,7 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "FK_MEMBERS_TO_BABYS_1" FOREIGN KEY (
 REFERENCES "MEMBERS" (
 	"EMAIL"
 );
+
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "FK_BABYS_TO_RHYTHM_1" FOREIGN KEY (
 	"EMAIL"
 )
@@ -135,13 +135,15 @@ REFERENCES "BABYS" (
 	"EMAIL"
 );
 
+
+
 insert into members values ('admin', 123, '관리자', 20, '남자');
 insert into babys values ('admin' 'baby', '2020-10-07' , '남자');
 
 insert into members values ('admin', 123, '관리자', 20, 56987234);
 insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07', '남자');
 insert into babys(email, baby_name, baby_birth, baby_gender) values ('ssss', 'baby', '20201007' , '남자');
-insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, 'test', 'test', 0, 'admin');
+insert into posts(po_num, po_title, po_content, po_pw, email) values (po_num_sequence.nextval, 'test', 'test', '1', 'admin');
 insert into sensors(ch_num, temperature, humidity) values (ch_num_sequence.nextval, 20, 20);
 insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'admin', '울음발생');
 insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '아침식사' , '아침을 잘 먹었어요');

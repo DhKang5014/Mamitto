@@ -1,5 +1,3 @@
-<%@page import="com.DAO.selectDAO"%>
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,56 +12,50 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script.js"></script>
-    <title>commu</title>
+    <title>commu_writes</title>
 </head>
 <body>
     <!-- content  -->
     <div id="bk">
  <%@ include file = "menu.jsp" %>
+
         <!-- nav -->
         <div id="main_header">
             <div class="left_icon">
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
                 <a href="index.jsp" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
-            <% if (email != null) { %>
             <div class="right_icon"><a href="my_page.jsp"></a></div>
-            <%} else { %>
-            <div class="right_icon"><a href="login_page.jsp"></a></div>
-            <%} %>
         </div>
         <!-- content -->
-        <div id="content" class="page commu">
-            <h1>커뮤니티</h1>
-            <table>
-                <thead>
+        <div id="content" class="page commu commu_write">
+            <h1>게시글 등록</h1>
+            <form method="POST" action="CommuServiceCon.do">
+                <table class="write_radio">
                     <tr>
-                        <th>번호</th>
                         <th>제목</th>
-                        <th>작성자</th>
-                        <th>날짜</th>
-                        <th>조회수</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th>1</th>
-                        <th>제목제목제목</th>
-                        <th>유유</th>
-                        <th>날짜날짜</th>
-                        <th>1</th>
+                        <td><input type="text" name="title" class="write_width"></td>
                     </tr>
                     <tr>
-                        <th>2</th>
-                        <th>제목제목제목</th>
-                        <th>유유</th>
-                        <th>날짜날짜</th>
-                        <th>1</th>
+                        <th>이름</th>
+                        <td><input type="text" name="name" class="write_width"></td>
                     </tr>
-                </tbody>
-            </table>
-            <br>
-            <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
+                    <tr>
+                        <th>내용</th>
+                        <td><input type="text" name="content" class="td_write write_width"></td>
+                    </tr>
+                    <tr>
+                        <th>공개여부</th>
+                        <td>
+                            공개<input type="radio" id='po_pw' name="password" value="공개">&nbsp;&nbsp;  
+                            비공개<input type="radio" id='po_pw' name="password" value="비공개">
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <input class="commu_btn commu_write_btn" type="submit" value="등록">
+                <input class="commu_btn commu_write_btn commu_write_btn2" type="reset" value="다시작성하기">
+            </form>
         </div>
         <!-- footer -->
         <div id="footer">

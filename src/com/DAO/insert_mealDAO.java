@@ -10,7 +10,7 @@ public class insert_mealDAO extends DAO{
 		int cnt = 0;
 		try {
 			getPsmt().setString(1, email);
-			
+	
 			cnt = getPsmt().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

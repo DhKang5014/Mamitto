@@ -28,7 +28,7 @@ public class DTO {
 	String sql_login = "select * from members where email = ? and pw = ? ";
 	String sql_login_baby = "select m.email, b.baby_name, b.cam_ip, to_char(b.baby_birth, 'yyyy-mm-dd') as birth, to_char(b.baby_birth+50, 'yyyy-mm-dd') as fifty, to_char(b.baby_birth+100, 'yyyy-mm-dd') as hundred from members m, babys b where m.email = b.email and m.email = ?";
 	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
-	String sql_insert_post = "insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
+	String sql_insert_post = "insert into posts(po_num, po_title, po_content, po_pw, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
 	String sql_insert_sensor = "insert into sensors(ch_num, temperature, humidity, baby_num) values (ch_num_sequence.nextval, ?, ?, ?)";
 	String sql_insert_history = "insert into history(act_num, email, action) values (act_num_sequence.nextval, ?, ?)";
 	String sql_insert_rhythm = "insert into rhythm(rh_num, baby_num, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, ?, ?, ?, ?)";
