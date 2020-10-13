@@ -26,7 +26,11 @@
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
                 <a href="index.jsp" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
+            <% if (email != null) { %>
             <div class="right_icon"><a href="my_page.jsp"></a></div>
+            <%} else { %>
+            <div class="right_icon"><a href="login_page.jsp"></a></div>
+            <%} %>
         </div>
         <!-- content -->
         <div id="content" class="page video_con">

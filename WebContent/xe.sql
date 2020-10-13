@@ -184,7 +184,7 @@ insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_
 
 update babys set cam_ip = 111 where email = 'admin'
 
-select *
+select baby_name, baby_birth+50 as fifty, baby_birth+100 as hundred
 from members m, babys b
 where m.email = b.email
 
