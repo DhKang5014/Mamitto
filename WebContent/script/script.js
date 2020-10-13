@@ -262,16 +262,5 @@ $(".life_icon > li:nth-child(3) > img").on("click",function(){
     k++;
 });
    
-    
-    
-        
-        
-      
-
  
-
-
-
-
-
 });

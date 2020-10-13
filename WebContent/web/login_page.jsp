@@ -45,7 +45,11 @@
                     <label for="pw">PW</label>
                     <input type="password" id='pw' name='pw' value="" >
                 </div>
-                <input type="submit" value="Login" class="btn">
+                <div class="login_btn_box">
+                    <input type="submit" value="Join" class="btn">
+                    <input type="submit" value="Login" class="btn">
+               
+                </div>
             </form>
 
         </div>
