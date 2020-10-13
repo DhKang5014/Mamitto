@@ -51,11 +51,11 @@
                 </div>
                 <ul class="my_day">
                     <li>D+50</li>
-                    <li>2020. 11. 23 (월)</li>
+                    <li><%= baby_birth_fifty %></li>
                 </ul>
                 <ul class="my_day">
                     <li>D+100</li>
-                    <li>2020. 01. 12 (화)</li>
+                    <li><%= baby_birth_hundred %></li>
                 </ul>
             </div>
             <div class="mom">

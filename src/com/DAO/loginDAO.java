@@ -1,6 +1,7 @@
 package com.DAO;
 
 import java.sql.SQLException;
+import java.sql.Date;
 import java.sql.ResultSet;
 
 import com.model.master.*;
@@ -82,19 +83,21 @@ public class loginDAO extends DAO {
 			
 			String baby_name = null;
 			String baby_birth = null;
-			String baby_gender = null;
+			String baby_birth_fifty = null;
+			String baby_birth_hundred = null;
 			String cam_ip = null;
 			System.out.println(sql);
-			System.out.println(email +" " + baby_name + " " + baby_birth +" " + baby_gender + " " + cam_ip +"로그인 절차 1");
+			System.out.println(email +" " + baby_name + " " + baby_birth +" " + baby_birth_fifty +" " +baby_birth_hundred + " " + cam_ip +"로그인 절차 1");
 			
 			while (rs.next()) {
 				email = rs.getString(1);
 				baby_name = rs.getString("baby_name");
-				baby_birth = rs.getString("baby_birth");
-				baby_gender = rs.getString("baby_gender");
+				baby_birth = rs.getDate("baby_birth").toString();
+				baby_birth_fifty = rs.getString("fifty");
+				baby_birth_hundred = rs.getString("hundred");
 				cam_ip = rs.getString("cam_ip");
-				System.out.println(email +" " + baby_name + " " + baby_birth +" " + baby_gender + " " + cam_ip +"로그인 절차 2");
-				dto_out = new DTO(email, baby_name, baby_birth, baby_gender, cam_ip);
+				System.out.println(email +" " + baby_name + " " + baby_birth +" " + baby_birth_fifty +" "+ baby_birth_hundred + " " + cam_ip +"로그인 절차 2");
+				dto_out = new DTO(email, baby_name, baby_birth, baby_birth_fifty, baby_birth_hundred, cam_ip);
 			}
 			
 			

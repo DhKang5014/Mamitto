@@ -1,5 +1,7 @@
 package com.model.master;
 
+import java.sql.Date;
+
 public class DTO {
 
 	String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -16,13 +18,15 @@ public class DTO {
 
 	String baby_name;
 	String baby_birth;
+	String baby_birth_fifty;
+	String baby_birth_hundred;
 	String baby_gender;
 	String cam_ip = "";
 	
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
 	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
-	String sql_login_baby = "select * from members m, babys b where m.email = b.email and m.email = ?";
+	String sql_login_baby = "select m.email, b.baby_name, b.cam_ip, to_char(b.baby_birth, 'yyyy-mm-dd') as birth, to_char(b.baby_birth+50, 'yyyy-mm-dd') as fifty, to_char(b.baby_birth+100, 'yyyy-mm-dd') as hundred from members m, babys b where m.email = b.email and m.email = ?";
 	String sql_join_baby = "insert into babys(baby_num, tel, baby_name, baby_birth, baby_gender, email) values (baby_num_sequence.nextval, ?, ?, ?, ? , ?)";
 	String sql_insert_post = "insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, ?, ?, ?, ?)";
 	String sql_insert_sensor = "insert into sensors(ch_num, temperature, humidity, baby_num) values (ch_num_sequence.nextval, ?, ?, ?)";
@@ -67,6 +71,25 @@ public class DTO {
 		super();
 		this.email = email;
 		System.out.println(email + " " + pw + " " + name + " " + age + " dto 생성 small");
+	}
+
+	public DTO(String email, String baby_name, String cam_ip, String baby_birth2, String baby_birth_fifty2,
+			String baby_birth_hundred2) {
+		// TODO Auto-generated constructor stub
+		this.email = email;
+		this.baby_name = baby_name;
+		this.baby_birth = baby_birth2;
+		this.baby_birth_fifty = baby_birth_fifty2;
+		this.baby_birth_hundred = baby_birth_hundred2;
+		this.cam_ip = cam_ip;
+	}
+
+	public DTO(String email2, String baby_name2, String baby_birth2, String cam_ip2) {
+		// TODO Auto-generated constructor stub
+		this.email = email2;
+		this.baby_name = baby_name2;
+		this.baby_birth = baby_birth2;
+		this.cam_ip = cam_ip2;
 	}
 
 	public String getDb_url() {
@@ -189,4 +212,22 @@ public class DTO {
 	public void setCam_ip(String cam_ip) {
 		this.cam_ip = cam_ip;
 	}
+
+	public String getBaby_birth_fifty() {
+		return baby_birth_fifty;
+	}
+
+	public void setBaby_birth_fifty(String baby_birth_fifty) {
+		this.baby_birth_fifty = baby_birth_fifty;
+	}
+
+	public String getBaby_birth_hundred() {
+		return baby_birth_hundred;
+	}
+
+	public void setBaby_birth_hundred(String baby_birth_hundred) {
+		this.baby_birth_hundred = baby_birth_hundred;
+	}
+	
+	
 }

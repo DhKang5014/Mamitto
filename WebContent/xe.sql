@@ -106,11 +106,6 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "PK_BABYS" PRIMARY KEY (
 
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "PK_RHYTHM" PRIMARY KEY (
 	"RH_NUM"
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 );
 
 ALTER TABLE "POSTS" ADD CONSTRAINT "FK_MEMBERS_TO_POSTS_1" FOREIGN KEY (
@@ -125,10 +120,6 @@ ALTER TABLE "HISTORY" ADD CONSTRAINT "FK_BABYS_TO_HISTORY_1" FOREIGN KEY (
 )
 REFERENCES "BABYS" (
 	"EMAIL"
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 );
 
 ALTER TABLE "BABYS" ADD CONSTRAINT "FK_MEMBERS_TO_BABYS_1" FOREIGN KEY (
@@ -137,46 +128,19 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "FK_MEMBERS_TO_BABYS_1" FOREIGN KEY (
 REFERENCES "MEMBERS" (
 	"EMAIL"
 );
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
-
-<<<<<<< HEAD
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
-
-<<<<<<< HEAD
-=======
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "FK_BABYS_TO_RHYTHM_1" FOREIGN KEY (
 	"EMAIL"
 )
 REFERENCES "BABYS" (
 	"EMAIL"
 );
-<<<<<<< HEAD
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
-<<<<<<< HEAD
 insert into members values ('admin', 123, '관리자', 20, '남자');
 insert into babys values ('admin' 'baby', '2020-10-07' , '남자');
-=======
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
-
-<<<<<<< HEAD
-
-
-insert into members values ('admin', 123, '관리자', 20, '남자', 56987234);
-insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07' , '남자');
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
-=======
 insert into members values ('admin', 123, '관리자', 20, 56987234);
-insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07' , '남자');
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
+insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07', '남자');
+insert into babys(email, baby_name, baby_birth, baby_gender) values ('ssss', 'baby', '20201007' , '남자');
 insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, 'test', 'test', 0, 'admin');
 insert into sensors(ch_num, temperature, humidity) values (ch_num_sequence.nextval, 20, 20);
 insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'admin', '울음발생');
@@ -184,7 +148,13 @@ insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_
 
 update babys set cam_ip = 111 where email = 'admin'
 
-select baby_name, baby_birth+50 as fifty, baby_birth+100 as hundred
+b.baby_birth+50 as fifty, b.baby_birth+100 as hundred
+
+select m.email, b.baby_name, b.cam_ip, to_date(b.baby_birth, 'yyyy-mm-dd') from members m, babys b where m.email = b.email and m.email = 'admin';
+
+select m.email, b.baby_name, b.cam_ip, to_char(b.baby_birth, 'yyyy-mm-dd') as birth, to_char(b.baby_birth+50, 'yyyy-mm-dd') as fifty, to_char(b.baby_birth+100, 'yyyy-mm-dd') as hundred from members m, babys b where m.email = b.email and m.email = 'admin';
+
+select m.email, b.baby_name, b.cam_ip, b.baby_birth
 from members m, babys b
 where m.email = b.email
 

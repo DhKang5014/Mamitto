@@ -1,4 +1,5 @@
 
+<%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.selectDAO"%>
 <%@page import="com.model.master.DTO"%>
@@ -14,6 +15,9 @@
 <% Cookie[] cookies = request.getCookies();
     String email = null;
     String baby_name = null;
+    String baby_birth = null;
+    String baby_birth_fifty = null;
+    String baby_birth_hundred = null;
     String cam_ip = null;
     ArrayList<DTO> dto_array = null;
     
@@ -43,9 +47,13 @@
     		for (int i=0; i<dto_array.size(); i++){
     			System.out.println(dto_array.get(i).getBaby_name());
     			System.out.println(dto_array.get(i).getBaby_birth());
-    			System.out.println(dto_array.get(i).getBaby_gender());
+    			System.out.println(dto_array.get(i).getBaby_birth_fifty());
+    			System.out.println(dto_array.get(i).getBaby_birth_hundred());
     			System.out.println(dto_array.get(i).getCam_ip());
     	    	baby_name=dto_array.get(i).getBaby_name();
+    	    	baby_birth = dto_array.get(i).getBaby_birth();
+    	    	baby_birth_fifty = dto_array.get(i).getBaby_birth_fifty();
+    	    	baby_birth_hundred = dto_array.get(i).getBaby_birth_hundred();
     	    	cam_ip = dto_array.get(i).getCam_ip();
    			}
   		}

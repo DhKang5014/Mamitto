@@ -2,6 +2,7 @@ package com.DAO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Date;
 import java.sql.ResultSet;
 
 import com.model.master.*;
@@ -20,16 +21,22 @@ public class selectDAO extends DAO {
 			String email = mail;
 			String baby_name = null;
 			String baby_birth = null;
-			String baby_gender = null;
+			String baby_birth_fifty = null;
+			String baby_birth_hundred = null;
 			String cam_ip = null;
 			getPsmt().setString(1, email);
+			System.out.println("psmt 세팅");
 			rs = getPsmt().executeQuery();
+			System.out.println("sql execute");
 			while (rs.next()) {
-				baby_name = rs.getString(7);
-				baby_birth = rs.getString(8);
-				baby_gender = rs.getString(9);
-				cam_ip = rs.getString(10);
-				dto_out = new DTO(email, baby_name, baby_birth, baby_gender, cam_ip);
+				baby_name = rs.getString(2);
+				System.out.println("birth 가져오기 전");
+				baby_birth = rs.getString(4);
+				baby_birth_fifty = rs.getString(5);
+				baby_birth_hundred = rs.getString(6);
+				cam_ip = rs.getString(3);
+				System.out.println("birth 가져온 후");
+				dto_out = new DTO(email, baby_name, baby_birth, cam_ip, baby_birth_fifty, baby_birth_hundred);
 				dto_array.add(dto_out);
 			}
 			
