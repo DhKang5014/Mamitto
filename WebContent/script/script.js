@@ -75,10 +75,12 @@ $(function(){
     if(mm<10) {
         mm='0'+mm
     } 
-    today = yyyy+'. '+mm+'. '+dd;
-    // document.write(today);
-    var element = document.getElementById("date");
-    element.innerText = today;
+    $.today = function() {
+        today = yyyy+'. '+mm+'. '+dd;
+        // document.write(today);
+        var element = document.getElementById("date");
+        element.innerText = today;
+    }
 //------------------------------------------------------------
 $.clock = function(){
     var now = new Date();
