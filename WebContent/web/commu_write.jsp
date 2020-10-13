@@ -47,8 +47,8 @@
                     <tr>
                         <th>공개여부</th>
                         <td>
-                            공개<input type="radio" name="password" vlaue="공개">&nbsp;&nbsp;  
-                            비공개<input type="radio" name="password" vlaue="비공개">
+                            공개<input type="radio" id='po_pw' name="password" value="공개">&nbsp;&nbsp;  
+                            비공개<input type="radio" id='po_pw' name="password" value="비공개">
                         </td>
                     </tr>
                 </table>
