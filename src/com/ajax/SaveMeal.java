@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.DAO.insert_mealDAO;
 import com.google.gson.Gson;
 
 /**
@@ -40,10 +41,16 @@ public class SaveMeal extends HttpServlet {
 		System.out.println("curtime >> " + curtime);
 		
 		
-		// Save History
-		String sql = "insert into history values( act_num_sequence.nextval , 'meal' , ? , ? ) ";
+		// Save Historys
+		String sql = "insert into history(act_num, action, email) values( act_num_sequence.nextval , 'meal' , ?) ";
+		insert_mealDAO dao = new insert_mealDAO();
+		int cnt = dao.insert(sql, email);
 		
-		
+		if(cnt!=0) {
+			System.out.println("insert success");
+		}else {
+			System.out.println("insert fail");
+		}
 		
 		
 		// Get User Email Login
