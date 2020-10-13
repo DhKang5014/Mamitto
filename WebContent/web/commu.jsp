@@ -17,7 +17,6 @@
     <title>commu</title>
 </head>
 <body>
-
     <!-- content  -->
     <div id="bk">
  <%@ include file = "menu.jsp" %>

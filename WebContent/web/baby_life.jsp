@@ -48,10 +48,6 @@
     	if (dto_array.size() > 0){
     	
     		for (int i=0; i<dto_array.size(); i++){
-    			System.out.println(dto_array.get(i).getBaby_name());
-    			System.out.println(dto_array.get(i).getBaby_birth());
-    			System.out.println(dto_array.get(i).getBaby_gender());
-    			System.out.println(dto_array.get(i).getCam_ip());
     	    	baby_name=dto_array.get(i).getBaby_name();
     	    	cam_ip = dto_array.get(i).getCam_ip();
    			}
@@ -92,9 +88,9 @@
         <div id="main_header">
             <div class="left_icon">
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
-                <a href="index.html" class="logo"><img src="../img/logo.png" width="150px"></a>
+                <a href="index.jsp" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
-            <div class="right_icon"><a href="my_page.html"></a></div>
+            <div class="right_icon"><a href="my_page.jsp"></a></div>
         </div>
         <!-- content -->
         <div id="content" class="page video_con">

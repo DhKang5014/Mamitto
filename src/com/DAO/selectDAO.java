@@ -25,10 +25,10 @@ public class selectDAO extends DAO {
 			getPsmt().setString(1, email);
 			rs = getPsmt().executeQuery();
 			while (rs.next()) {
-				baby_name = rs.getString(8);
-				baby_birth = rs.getString(9);
-				baby_gender = rs.getString(10);
-				cam_ip = rs.getString(11);
+				baby_name = rs.getString(7);
+				baby_birth = rs.getString(8);
+				baby_gender = rs.getString(9);
+				cam_ip = rs.getString(10);
 				dto_out = new DTO(email, baby_name, baby_birth, baby_gender, cam_ip);
 				dto_array.add(dto_out);
 			}
@@ -52,11 +52,9 @@ public class selectDAO extends DAO {
 			str += "<tr>";
 			str += "<td>" + dto_array.get(i).getEmail() + "</td>";
 			str += "<td>" + dto_array.get(i).getName() + "</td>";
-			str += "<td>" + dto_array.get(i).getGender() + "</td>";
 			str += "</tr>";
 			System.out.println(dto_array.get(i).getEmail());
 			System.out.println(dto_array.get(i).getName());
-			System.out.println(dto_array.get(i).getGender());
 		}
 
 		return str;

@@ -30,14 +30,17 @@
     <!-- content  -->
     
     <div id="bk">
-       <%@ include file = "menu.jsp" %>
         <!-- nav -->
         <div id="main_header">
             <div class="left_icon">
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
                 <a href="#" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
+            <% if (email != null) { %>
+            <div class="right_icon"><a href="my_page.jsp"></a></div>
+            <%} else { %>
             <div class="right_icon"><a href="login_page.jsp"></a></div>
+            <%} %>
         </div>
         <!-- content -->
         <div id="content">
@@ -50,6 +53,12 @@
     
         </div>
     </div>
+<<<<<<< HEAD
     
+=======
+    <script>
+    	
+    </script>
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 </body>
 </html>

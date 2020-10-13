@@ -31,13 +31,13 @@ create sequence rh_num_sequence
 increment by 1
 start with 1
 maxvalue 9999;
+
 CREATE TABLE "MEMBERS" (
 	"EMAIL"	VARCHAR2(100)		NOT NULL,
 	"PW"	VARCHAR2(100)		NULL,
 	"NAME"	VARCHAR2(100)		NULL,
 	"AGE"	NUMBER		NULL,
-	"GENDER"	VARCHAR2(100)		NULL,
-	"TEL"	NUMBER		NULL
+	"TEL"	VARCHAR2(100)		NULL
 );
 
 CREATE TABLE "POSTS" (
@@ -107,7 +107,10 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "PK_BABYS" PRIMARY KEY (
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "PK_RHYTHM" PRIMARY KEY (
 	"RH_NUM"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 );
 
 ALTER TABLE "POSTS" ADD CONSTRAINT "FK_MEMBERS_TO_POSTS_1" FOREIGN KEY (
@@ -122,6 +125,9 @@ ALTER TABLE "HISTORY" ADD CONSTRAINT "FK_BABYS_TO_HISTORY_1" FOREIGN KEY (
 )
 REFERENCES "BABYS" (
 	"EMAIL"
+<<<<<<< HEAD
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
+=======
 >>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 );
 
@@ -132,29 +138,43 @@ REFERENCES "MEMBERS" (
 	"EMAIL"
 );
 <<<<<<< HEAD
-
+<<<<<<< HEAD
 =======
 >>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
 <<<<<<< HEAD
 =======
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
+
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "FK_BABYS_TO_RHYTHM_1" FOREIGN KEY (
 	"EMAIL"
 )
 REFERENCES "BABYS" (
 	"EMAIL"
 );
+<<<<<<< HEAD
 >>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
 <<<<<<< HEAD
 insert into members values ('admin', 123, '관리자', 20, '남자');
 insert into babys values ('admin' 'baby', '2020-10-07' , '남자');
 =======
+=======
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 
 
+<<<<<<< HEAD
 
 
 insert into members values ('admin', 123, '관리자', 20, '남자', 56987234);
+insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07' , '남자');
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
+=======
+insert into members values ('admin', 123, '관리자', 20, 56987234);
 insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07' , '남자');
 >>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
 insert into posts(po_num, po_title, po_content, openyn, email) values (po_num_sequence.nextval, 'test', 'test', 0, 'admin');

@@ -16,8 +16,6 @@
     <title>video</title>
 </head>
 <body>
-
-    <!-- content  -->
     <div id="bk">
   <%@ include file = "menu.jsp" %>
         <!-- nav -->

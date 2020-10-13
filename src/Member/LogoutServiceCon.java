@@ -16,11 +16,8 @@ public class LogoutServiceCon implements Command {
 		System.out.println("쿠키값 삭제 시도");
 		
 		Cookie cookie = new Cookie("email", null);
-		Cookie coo = new Cookie("cam_ip", null);
 		cookie.setMaxAge(0);
-		coo.setMaxAge(0);
 		response.addCookie(cookie);
-		response.addCookie(coo);
 		Cookie[] cookies = request.getCookies();
 		
 		moveURL = "index.jsp";

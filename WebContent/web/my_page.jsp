@@ -18,7 +18,6 @@
     <title>my_page</title>
 </head>
 <body>
-
     <!-- content  -->
     <div id="bk">
 	<%@ include file = "menu.jsp" %>
@@ -59,7 +58,7 @@
             </div>
             <div class="mom">
                 <h4>양육자목록</h4>
-                <h5>양육자 이름쓰기</h5>
+                <h5><%= email %></h5>
             </div>
             <!--  -->
             <!-- action 값 조율필요 -->

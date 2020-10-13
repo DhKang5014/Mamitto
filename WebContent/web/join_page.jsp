@@ -50,13 +50,13 @@
                     <input type="text" id='age' name='age' value="" >
                 </div>
                 <div>
-                    <label for="gender" class="last_label">TEL</label>
+                    <label for="tel" class="last_label">TEL</label>
                    <div class=tel>
-                        <input type="text" id='gender' name='gender' value="" >
+                        <input type="text" id='tel1' name='tel1' value="" >
                         <span>ㅡ</span>
-                        <input type="text" id='gender' name='gender' value="" >
+                        <input type="text" id='tel2' name='tel2' value="" >
                         <span>ㅡ</span>
-                        <input type="text" id='gender' name='gender' value="" >
+                        <input type="text" id='tel3' name='tel3' value="" >
                    </div>
                 </div>	
                 <input type="submit" value="join" class="btn">
