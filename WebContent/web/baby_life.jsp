@@ -16,7 +16,7 @@
     <title>baby_life</title>
 </head>
 <body>
-
+ 
     <!-- content  -->
     <div id="bk">
 <%@ include file = "menu.jsp" %>
