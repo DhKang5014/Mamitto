@@ -41,7 +41,7 @@ public class SaveMeal extends HttpServlet {
 		System.out.println("curtime >> " + curtime);
 		
 		
-		// Save History
+		// Save Historys
 		String sql = "insert into history(act_num, action, email) values( act_num_sequence.nextval , 'meal' , ?) ";
 		insert_mealDAO dao = new insert_mealDAO();
 		int cnt = dao.insert(sql, email);
