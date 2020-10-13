@@ -16,9 +16,7 @@
     <title>mamiddo</title>
 </head>
 <body>
-
-
-<%@ include file = "menu.jsp" %>
+	<%@ include file = "menu.jsp" %>
     <!-- open -->
     <div class="open">
         <ul>
