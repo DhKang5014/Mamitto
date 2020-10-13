@@ -464,7 +464,7 @@ h4{color:#726973;}
     border-radius: 0.5em;
 }
 /* commu_write------------------------------- */
-.commu_write form > table input{
+.write_width{
     width: 20em;
 }
 .commu_write_btn{
@@ -477,7 +477,9 @@ h4{color:#726973;}
 .td_write{
     height: 10em;
 }
-
+.write_radio th{
+   margin-right:3em;
+}
 /* ---------------------------------------- */
 #footer{
     min-width: 100%;
