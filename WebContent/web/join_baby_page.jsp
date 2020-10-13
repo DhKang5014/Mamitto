@@ -18,51 +18,10 @@
     <title>join_baby_page</title>
 </head>
 <body>
-	<% Cookie[] cookies = request.getCookies();
-    String email = null;
-    String baby = null;
-    String cam_ip = null;
-    if(cookies != null){
-         
-        for(int i=0; i < cookies.length; i++){
-            Cookie c = cookies[i] ;
-             
-            // 저장된 쿠키 이름을 가져온다
-            String cName = c.getName();
-             
-            // 쿠키값을 가져온다
-            String cValue = c.getValue() ;
-            if(cName.equals("email")) {
-            	email = cValue;
-            }else if(cName.equals("baby")) {
-            	baby = cValue;
-            }else if(cName.equals("cam_ip")) {
-            	cam_ip = cValue;
-            }
-        }
-    }
-	 %>
+
     <!-- content  -->
     <div id="bk">
-        <div class="menu_bar">
-            <ul>
-            <% if (email != null) { %>
-            	<li><a href="my_page.jsp"><%= email %>님</a></li>
-				<li><a id='login' href="LogoutServiceCon.do">로그아웃</a></li>
-				<li><a id='res_baby' href="join_baby_page.jsp">아이 등록하기</a></li>
-			<%} else { %>
-				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
-				<li><a id='login' href="login_page.jsp">로그인</a></li>
-				<li><a id='join' href="join_page.jsp">회원가입</a></li>
-			<%} %>
-                
-                <li><a href="video.jsp">실시간 영상</a></li>
-                <li><a href="baby_life.jsp">육아생활</a></li>
-                <li><a href="statistic.jsp">통계</a></li>
-                <li><a href="history.jsp">History</a></li>
-                <li><a href="commu.jsp">커뮤니티</a></li>
-            </ul>
-        </div>
+ <%@ include file = "menu.jsp" %>
         <!-- nav -->
         <div id="main_header">
             <div class="left_icon">

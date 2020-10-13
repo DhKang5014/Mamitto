@@ -19,18 +19,7 @@
     <!-- 복사 -->
      <!-- content  -->
      <div id="bk">
-        <div class="menu_bar">
-           <ul>
-				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
-				<li><a id='login' href="login_page.jsp">로그인</a></li>
-				<li><a id='join' href="join_page.jsp">회원가입</a></li>
-                <li><a href="video.jsp">실시간 영상</a></li>
-                <li><a href="baby_life.jsp">육아생활</a></li>
-                <li><a href="statistic.jsp">통계</a></li>
-                <li><a href="history.jsp">History</a></li>
-                <li><a href="commu.jsp">커뮤니티</a></li>
-            </ul>
-        </div>
+<%@ include file = "menu.jsp" %>
         <!-- nav -->
         <div id="main_header">
             <div class="left_icon">
