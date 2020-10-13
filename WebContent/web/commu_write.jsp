@@ -42,7 +42,7 @@
                     </tr>
                     <tr>
                         <th>내용</th>
-                        <td><input type="text" name="content" class="td_write write_width"></td>
+                        <td><textarea name="content" class="td_write write_width"></textarea></td>
                     </tr>
                     <tr>
                         <th>공개여부</th>

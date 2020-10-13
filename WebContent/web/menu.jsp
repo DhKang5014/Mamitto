@@ -5,6 +5,7 @@
 <%@page import="com.model.master.DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -62,25 +63,25 @@
   	}
     
 	 %>
-<div class="menu_bar">
+	<div class="menu_bar">
             <ul>
             <% if (email != null) { %>
             	<li><a href="my_page.jsp"><%= email %>님</a></li>
 			<%} else { %>
 				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
 			<%} %>
-                <% if (cam_ip != null && cam_ip != "") { %>
+            <% if (cam_ip != null && cam_ip != "") { %>
                 <li><a href="video2.jsp">실시간 영상</a></li>
-                <%} else { %>
+            <%} else { %>
                 <li><a href="video.jsp">실시간 영상</a></li>
-                <%} %>
+            <%} %>
                 <li><a href="baby_life.jsp">육아생활</a></li>
                 <li><a href="statistic.jsp">통계</a></li>
                 <li><a href="history.jsp">History</a></li>
                 <li><a href="commu.jsp">커뮤니티</a></li>
             <% if (email != null) { %>
             	<li><a id='login' href="LogoutServiceCon.do">로그아웃</a></li>
-            <% } %>
+            <%} %>
             </ul>
         </div>
 </html>
