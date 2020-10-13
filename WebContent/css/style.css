@@ -23,9 +23,9 @@ label{
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 2em;
-    width: 7em;
+    width: 5em;
     height: 2em;
-    font-size: 2em;
+    font-size: 1.5em;
     border-radius: 0.5em;  
     border-style: none;
     background: linear-gradient(to left, #fcc4d1, #d7c0f8);
@@ -191,6 +191,10 @@ h4{color:#726973;}
     color: #726973;
     text-align: center;
 }
+/* index_before ------------------------------------------- */
+/* .index_before_con > h2 */
+
+
 /* index ---------------------------------------------------*/
 .meno{
     width: 70%;
@@ -201,6 +205,7 @@ h4{color:#726973;}
     margin-bottom: 3em;
     margin-top: 3em;
 }
+.index_con > h2{text-align: center;}
 .meno_con{
     padding:1em;
     color: #726973;
@@ -231,6 +236,11 @@ h4{color:#726973;}
     text-align: center;
     height: 2em;
 }
+.login_btn_box{
+    margin: 0 auto;
+}
+.login_btn_box > input:first-child{margin-right: 1em;}
+
 /* join_page ----------------------------------------------------------*/
 .join_con > div{
     padding: 1em 3em 1em 0em;
