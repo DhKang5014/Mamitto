@@ -18,7 +18,7 @@
 <body>
 
 
-
+<%@ include file = "menu.jsp" %>
     <!-- open -->
     <div class="open">
         <ul>
