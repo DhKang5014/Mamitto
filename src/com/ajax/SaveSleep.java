@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.DAO.insert_mealDAO;
 import com.google.gson.Gson;
 
 /**
  * Servlet implementation class WriteServiceCon
  */
-@WebServlet("/SaveMeal")
-public class SaveMeal extends HttpServlet {
+@WebServlet("/SaveSleep")
+public class SaveSleep extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Get in the the Save Meal\
-		System.out.println("In com.ajax/SaveMeal Service ");
+		// Get in the the Save Sleep\
+		System.out.println("In com.ajax/SaveSleep Service ");
 		
 		// Encoding
 		try {
@@ -41,16 +40,10 @@ public class SaveMeal extends HttpServlet {
 		System.out.println("curtime >> " + curtime);
 		
 		
-		// Save Historys
-		String sql = "insert into history(act_num, action, email) values( act_num_sequence.nextval , 'meal' , ?) ";
-		insert_mealDAO dao = new insert_mealDAO();
-		int cnt = dao.insert(sql, email);
+		// Save History
+		String sql = "insert into history values( act_num_sequence.nextval , 'Sleep' , ? , ? ) ";
 		
-		if(cnt!=0) {
-			System.out.println("insert success");
-		}else {
-			System.out.println("insert fail");
-		}
+		
 		
 		
 		// Get User Email Login
