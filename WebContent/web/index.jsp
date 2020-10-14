@@ -44,6 +44,8 @@
         <div id="content">
             <div class="meno">
                 <!-- baby img -->
+                <div></div>
+    			<div></div>
             </div>
             <% if (email != null && email!= "") { %>
             <div class="meno_con my_baby">
