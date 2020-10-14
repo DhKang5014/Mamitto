@@ -80,7 +80,7 @@ h4{color:#726973;}
 .open2{
     background: url(../img/open_2.png) no-repeat center;
     width:380px;
-    z-index: 99;
+    z-index: 999;
     left:0em;
     top:30em;
 }
@@ -88,7 +88,7 @@ h4{color:#726973;}
     background: url(../img/open_3.png) no-repeat center;
     width:380px;
     z-index: 99;
-    left:2em;
+    left:1em;
     top:32em;
    
 }
@@ -181,7 +181,7 @@ h4{color:#726973;}
 #content{
     /* background-color: #fdfdfd; */
     /* exam  */
-    height: 80em;
+    height: 100%;
 }
 .page{
     background-color: #fdfdfd;
@@ -257,6 +257,7 @@ h4{color:#726973;}
 .meno_con{
     padding:1em;
     color: #726973;
+    height: 60em;
     
 }
 .meno_con > h4{
