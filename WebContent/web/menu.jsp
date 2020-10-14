@@ -68,10 +68,10 @@
 	 %>
 	<div class="menu_bar">
             <ul>
-            <% if (email != null) { %>
+            <% if (email != null && email!= "") { %>
             	<li><a href="my_page.jsp"><%= email %>님</a></li>
 			<%} else { %>
-				<li><a href="my_page.jsp">로그인이 필요합니다.</a></li>
+				<li><a href="login_page.jsp">로그인이 필요합니다.</a></li>
 			<%} %>
             <% if (cam_ip != null && cam_ip != "") { %>
                 <li><a href="video2.jsp">실시간 영상</a></li>
@@ -83,7 +83,7 @@
                 <li><a href="history.jsp">History</a></li>
                 <li><a href="commu.jsp">커뮤니티</a></li>
             <% if (email != null) { %>
-            	<li><a id='login' href="LogoutServiceCon.do">로그아웃</a></li>
+            	<li><a id='logout' href="LogoutServiceCon.do">로그아웃</a></li>
             <%} %>
             </ul>
         </div>
