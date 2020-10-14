@@ -161,3 +161,6 @@ from members m, babys b
 where m.email = b.email
 
 select * from members m, babys b where m.email = b.email and m.email = 'admin'
+
+
+select * from rhythm;
