@@ -167,4 +167,9 @@ where m.email = b.email
 
 select * from members m, babys b where m.email = b.email and m.email = 'admin'
 
+<<<<<<< HEAD
+
+select * from rhythm;
+=======
 select count(rh_category) from rhythm where email = 'admin' and rh_category = '식사';
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
