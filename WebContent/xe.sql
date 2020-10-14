@@ -1,6 +1,7 @@
 select * from members
 select * from babys
 select * from posts
+select * from rhythm
 
 drop table members cascade constraint;
 drop table posts cascade constraint;
@@ -147,6 +148,10 @@ insert into posts(po_num, po_title, po_content, po_pw, email) values (po_num_seq
 insert into sensors(ch_num, temperature, humidity) values (ch_num_sequence.nextval, 20, 20);
 insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'admin', '울음발생');
 insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '아침식사' , '아침을 잘 먹었어요');
+insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '수면', '낮잠' , '낮잠을 잤어요');
+insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '대변' , '기저귀를 갈았어요');
+
+
 
 update babys set cam_ip = 111 where email = 'admin'
 
@@ -162,5 +167,9 @@ where m.email = b.email
 
 select * from members m, babys b where m.email = b.email and m.email = 'admin'
 
+<<<<<<< HEAD
 
 select * from rhythm;
+=======
+select count(rh_category) from rhythm where email = 'admin' and rh_category = '식사';
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git

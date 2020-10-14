@@ -46,7 +46,7 @@
                     <input type="password" id='pw' name='pw' value="" >
                 </div>
                 <div class="login_btn_box">
-                    <input type="submit" value="Join" class="btn">
+                    <input type="button" value="Join" class="btn" onclick="location.href='join_page.jsp'">
                     <input type="submit" value="Login" class="btn">
                
                 </div>

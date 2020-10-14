@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.DAO.commuDAO;
 import com.DAO.join_babyDAO;
 import com.DTO.commuDTO;
-import com.DTO.join_babyDTO;
+import com.DTO.babyDTO;
 import com.front.Command;
 
 public class CommuServiceCon implements Command {

@@ -34,7 +34,7 @@
                 <div class="menu"><img src="../img/menu.png" width="50px"></div>
                 <a href="#" class="logo"><img src="../img/logo.png" width="150px"></a>
             </div>
-            <% if (email != null) { %>
+            <% if (email != null && email!= "") { %>
             <div class="right_icon"><a href="my_page.jsp"></a></div>
             <%} else { %>
             <div class="right_icon"><a href="login_page.jsp"></a></div>
@@ -45,6 +45,7 @@
             <div class="meno">
                 <!-- baby img -->
             </div>
+            <% if (email != null && email!= "") { %>
             <div class="meno_con my_baby">
                 <h4>기념일</h4>
                 <ul class="my_day">
@@ -71,6 +72,7 @@
                     <li>n회</li>
                 </ul>
             </div>
+            <%} %>
         </div>
         <!-- footer -->
         <div id="footer">
