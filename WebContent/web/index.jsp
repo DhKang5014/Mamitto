@@ -47,8 +47,8 @@
                 <div></div>
     			<div></div>
             </div>
-            <% if (email != null && email!= "") { %>
             <div class="meno_con my_baby">
+            <% if (email != null && email!= "") { %>
                 <h4>기념일</h4>
                 <ul class="my_day">
                     <li>D+50</li>
@@ -73,8 +73,8 @@
                     <li>배변</li>
                     <li>n회</li>
                 </ul>
-            </div>
             <%} %>
+            </div>
         </div>
         <!-- footer -->
         <div id="footer">
