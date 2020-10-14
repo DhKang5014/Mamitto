@@ -20,6 +20,7 @@
     String baby_birth_fifty = null;
     String baby_birth_hundred = null;
     String cam_ip = null;
+    int rhy_meal = 0;
     ArrayList<DTO> dto_array = null;
     
     if(cookies != null){
@@ -61,6 +62,8 @@
     } catch (NullPointerException e) {
   		System.out.print(e);
   	}
+    
+    
     
 	 %>
 	<div class="menu_bar">
