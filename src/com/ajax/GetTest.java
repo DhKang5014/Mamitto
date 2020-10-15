@@ -7,13 +7,10 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.DAO.select_mealDAO;
 import com.DAO.statisticDAO;
 import com.DTO.*;
 import com.google.gson.Gson;
@@ -23,10 +20,6 @@ public class GetTest extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ArrayList<statisticDTO> arr = new ArrayList<statisticDTO>();
-		statisticDTO dto2 = new statisticDTO("화",4);
-		statisticDTO dto3 = new statisticDTO("수",8);
-		arr.add(dto2);
-		arr.add(dto3);
 		// Get in the the Save Meal\
 			System.out.println("In com.ajax/GetTest Service ");
 			
@@ -43,28 +36,18 @@ public class GetTest extends HttpServlet {
 			statisticDAO dao = new statisticDAO();
 
 			// Get User Email Login
-			HttpSession session = request.getSession();
-			Cookie[] cookies = request.getCookies(); 
-			String email = null;
-		    String rh_category = "meal";
-		    if(cookies != null){
-		         
-		        for(int i=0; i < cookies.length; i++){
-		            Cookie c = cookies[i] ;
-		             
-		            // 저장된 쿠키 이름을 가져온다
-		            String cName = c.getName();
-		             
-		            // 쿠키값을 가져온다
-		            String cValue = c.getValue() ;
-		            if(cName.equals("email")) {
-		            	email = cValue;
-		            }
-		        }
-		    }
+			String email = request.getParameter("email");
+		    String rh_category = request.getParameter("rh_category");
 
+		    // email과 rh_category 값으로 통계에 표시할 데이터들 뽑아오기
 		    ArrayList<statisticDTO> ar = dao.select_count(sql, email, rh_category);
-			arr.add(ar.get(0));
+		    
+		    // 불러온 ar에서 필요한 정보들을 뽑아 dto로 작성 -> dto값 json에 보내기 위해 arr 추가
+		    for (int i = 0; i < ar.size(); i++) {
+			    statisticDTO dto = new statisticDTO(ar.get(i).getRh_time(), ar.get(i).getRh_count());
+				arr.add(dto);
+			}
+		    
 					
 			// output json
 			PrintWriter out = null;
