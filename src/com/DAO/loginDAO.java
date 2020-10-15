@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 
 import com.model.master.*;
 
-public class loginDAO extends DAO {
+public class loginDAO extends DAO { 
+//	extends = import
 	ResultSet rs = null;
 	
 	public DTO login(String sql, String email, String pw) {

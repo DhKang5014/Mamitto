@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
     <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
+    <script src="script/script_sh.js"></script>
     <title>statistic</title>
 </head>
 <body>
@@ -34,279 +35,109 @@
         <!-- content -->
         <div id="content" class="page statistic">
             <h1>통계</h1>
-            <table border="1" cellspacing="0">
-            <h2>오전</h2>
-                <tr class="chart">
-                    <td></td>
-                    <td>월</td>
-                    <td>화</td>
-                    <td>수</td>
-                    <td>목</td>
-                    <td>금</td>
-                    <td>토</td>
-                    <td>일</td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 12:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 1:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 2:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 3:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 4:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 5:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 6:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 7:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 8:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 9:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 10:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>AM 11:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-            </table>
-            <table>
-            <h2 class="st_title">오후</h2>
-                <tr class="chart">
-                    <td></td>
-                    <td>월</td>
-                    <td>화</td>
-                    <td>수</td>
-                    <td>목</td>
-                    <td>금</td>
-                    <td>토</td>
-                    <td>일</td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 12:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 1:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 2:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 3:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 4:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 5:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 6:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 7:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 8:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 9:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 10:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr class="chart">
-                    <td>PM 11:00</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
+            <ul>
+                <li>배변통계</li>
+                <li>수유통계</li>
+                <li>숙면통계</li>
+            </ul>
+            <div class="chart">
+              <div id="columnchart_material1" style="width: 30em; height: 20em;"></div>
+              <div id="columnchart_material2" style="width: 30em; height: 20em;"></div>
+              <div id="columnchart_material3" style="width: 30em; height: 20em;"></div>
+            </div>
         </div>
         <!-- footer -->
         <div id="footer">
-    
         </div>
     </div>
+     <script>
+    //columnchart_material1 배변----------------------------------------
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart1);
+
+      function drawChart1() {
+        var data = google.visualization.arrayToDataTable([
+          ['Week','횟수'],
+       	//[날짜,횟수]
+          ['월', 1],
+          ['화', 3],
+          ['수', 4],
+          ['목', 1],
+          ['금', 2],
+          ['토', 3],
+          ['일', 1]
+        ]);
+
+        var options1 = {
+          chart: {
+            title: '우리아이 통계자료',
+            subtitle: 'weekly 배변횟수 10/14 ~ 10/',
+          }
+        };
+
+        var chart1 = new google.charts.Bar(document.getElementById('columnchart_material1'));
+
+        chart1.draw(data, google.charts.Bar.convertOptions(options1));
+      }
+
+       //columnchart_material2 수유----------------------------------------
+   		google.charts.load('current', {'packages':['bar']});
+    	google.charts.setOnLoadCallback(drawChart2);
+
+      function drawChart2() {
+        var data2 = google.visualization.arrayToDataTable([
+          ['Week','횟수'],
+          ['월', 1],
+          ['화', 3],
+          ['수', 4],
+          ['목', 1],
+          ['금', 2],
+          ['토', 3],
+          ['일', 1]
+        ]);
+
+        var options2 = {
+          chart: {
+            title: '우리아이 통계자료',
+            subtitle: 'weekly 수유횟수 10/14 ~ 10/',
+          }
+        };
+
+        var chart2 = new google.charts.Bar(document.getElementById('columnchart_material2'));
+
+        chart2.draw(data2, google.charts.Bar.convertOptions(options2));
+      }
+
+
+         //columnchart_material3 숙면----------------------------------------
+    google.charts.load('current', {'packages':['bar']});
+    google.charts.setOnLoadCallback(drawChart3);
+
+      function drawChart3() {
+        var data3 = google.visualization.arrayToDataTable([
+          ['Week','횟수'],
+          ['월', 1],
+          ['화', 3],
+          ['수', 4],
+          ['목', 1],
+          ['금', 2],
+          ['토', 3],
+          ['일', 1]
+        ]);
+
+        var options3 = {
+          chart: {
+            title: '우리아이 통계자료',
+            subtitle: 'weekly 취침횟수 10/14 ~ 10/',
+          }
+        };
+
+        var chart3 = new google.charts.Bar(document.getElementById('columnchart_material3'));
+
+        chart3.draw(data3, google.charts.Bar.convertOptions(options3));
+      }
+
+    </script>
 </body>
 </html>
 

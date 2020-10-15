@@ -1,6 +1,7 @@
 package com.DAO;
 
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.model.master.*;
 
@@ -25,4 +26,12 @@ public class commuDAO extends DAO{
 		}
 		return cnt;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

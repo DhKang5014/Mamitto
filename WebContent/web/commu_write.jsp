@@ -11,7 +11,7 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
+    <script src="script/script_sh.js"></script>
     <title>commu_writes</title>
 </head>
 <body>
@@ -38,7 +38,7 @@
         <!-- content -->
         <div id="content" class="page commu commu_write">
             <h1>게시글 등록</h1>
-            <form method="POST" action="BoardServlet">
+            <form method="POST" action="CommuServiceCon.do">
                 <table class="write_radio">
                     <tr>
                         <th>제목</th>

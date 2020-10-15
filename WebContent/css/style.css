@@ -52,7 +52,7 @@ h4{color:#726973;}
     background-color:#fff;
     position: fixed;
     z-index: 999;
-    background: url(../img/open.png) no-repeat center #fff;
+    background: url(/img/open.png) no-repeat center #fff;
     top:-28em;
     display: block;
 }
@@ -80,7 +80,7 @@ h4{color:#726973;}
 .open2{
     background: url(../img/open_2.png) no-repeat center;
     width:380px;
-    z-index: 99;
+    z-index: 999;
     left:0em;
     top:30em;
 }
@@ -88,7 +88,7 @@ h4{color:#726973;}
     background: url(../img/open_3.png) no-repeat center;
     width:380px;
     z-index: 99;
-    left:2em;
+    left:1em;
     top:32em;
    
 }
@@ -149,8 +149,8 @@ h4{color:#726973;}
     position: fixed;
     width: 15em;
     height: 40em;
-    background-color: rgba(255,255,255,0.9);
-    top:1em;
+    background-color: rgba(255,255,255,0.91);
+    top:65px;
     border-radius: 0 1em 1em 0;
     border: 0.5em solid #fff;
     /* display: none; */
@@ -218,7 +218,7 @@ h4{color:#726973;}
     left:-53px;
     top:-2em;
     position: absolute;
-    background: url(../img/main1.png) no-repeat;
+    background: url(/img/main1.png) no-repeat;
     animation: main1 1s ease-in infinite alternate-reverse; 
     /* alternate-reverse 오른쪽->왼쪽 실행 */
 }
@@ -237,7 +237,7 @@ h4{color:#726973;}
     height: 400%;
     left:0;
     position: absolute;
-    background: url(../img/main2.png) no-repeat;
+    background: url(/img/main2.png) no-repeat;
     animation: main2 1s ease-in infinite alternate;
 }
 @keyframes main2{
@@ -288,6 +288,14 @@ h4{color:#726973;}
 .login_btn_box{
     margin: 0 auto;
 }
+.login_btn_box > a{
+    position: relative;
+    float:left;
+    line-height: 2em;
+    text-align: center;
+    margin-right: 1em;
+}
+
 .login_btn_box > input:first-child{margin-right: 1em;}
 
 /* join_page ----------------------------------------------------------*/
@@ -452,7 +460,7 @@ h4{color:#726973;}
     background-color: #fcc4d1;
     border-radius: 0.5em;
     margin-right: 1em;
-    color: fdfdfd;
+    color: #fdfdfd;
     cursor: pointer;
 }
 .chart{
