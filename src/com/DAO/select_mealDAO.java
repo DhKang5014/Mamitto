@@ -32,16 +32,16 @@ public class select_mealDAO extends DAO{
 				// 
 				rh_num = rs.getInt(1);
 				rh_category = rs.getString(2);
-				rh_content = rs.getString(3);
-				rh_time = rs.getString(4);
+				rh_time = rs.getString(3);
+				rh_content = rs.getString(4);
 				
 				// 
 				System.out.println("select_mealDAO >> rh_num >> " + rh_num);
 				System.out.println("select_mealDAO >> rh_category >> " + rh_category);
-				System.out.println("select_mealDAO >> rh_content >> " + rh_content);
 				System.out.println("select_mealDAO >> rh_time >> " + rh_time);
+				System.out.println("select_mealDAO >> rh_content >> " + rh_content);
 				//
-				mealDTO dto = new mealDTO(rh_num, rh_category, rh_content, rh_time);
+				mealDTO dto = new mealDTO(rh_num, rh_category, rh_time, email);
 				i++;
 				// 
 				ar.add(dto);
