@@ -230,8 +230,8 @@ $.create_li_1 = function(q, t){
     // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
     $("<li class='meal' id='meal" + q + "'><span id='m_ck" + q + "'>식사 시간</span><span><a class='alam_icon' onclick='meal(" + q + ")'></a></span></li>").appendTo(".life_list");
     var m_ck = $("ck"+q);
-    $("#m_ck"+q).text($.clock()+" 식사시간");
-    curtime = t;
+    $("#m_ck"+q).text(t+" 식사시간");
+    //curtime = t;
     i = q+1;
     email = getCookieValue('email');
     console.log(email, curtime);

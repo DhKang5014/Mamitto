@@ -20,7 +20,7 @@ import com.google.gson.Gson;
 /**
  * Servlet implementation class SelectMeal
  */
-@WebServlet("/SelectMeal")
+@WebServlet("/SelectTime")
 public class SelectTime extends HttpServlet {
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
