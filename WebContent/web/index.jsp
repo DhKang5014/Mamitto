@@ -56,7 +56,7 @@
                 </ul>
                 <ul class="my_day">
                     <li>D+100</li>
-                    <li>2020. 01. 12 (화)</li>
+                    <li>2020. 01. 12 (화)</li> 
                 </ul>
             </div>
             <div class="meno_con today">
