@@ -22,12 +22,14 @@ public class JoinBabyServiceCon implements Command{
 		String moveURL = null;
 		// GET email.pw,tel,addr
 		try {
+			response.setCharacterEncoding("UTF-8");
 			request.setCharacterEncoding("UTF-8");
-			response.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
 		String birth = request.getParameter("baby_age");
 		String baby_name = request.getParameter("baby_name");
 		String baby_gender = request.getParameter("baby_gender");

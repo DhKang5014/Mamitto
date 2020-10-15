@@ -12,10 +12,10 @@ public class join_babyDAO extends DAO{
 		try {
 			System.out.println("join_babyDAO");
 			System.out.println(sql + " / " + baby_name + " / " + birth + " / " + baby_gender + " / " + email);
+			getPsmt().setString(1, email);
 			getPsmt().setString(2, baby_name);
 			getPsmt().setString(3, birth);
 			getPsmt().setString(4, baby_gender);
-			getPsmt().setString(1, email);
 			cnt = getPsmt().executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

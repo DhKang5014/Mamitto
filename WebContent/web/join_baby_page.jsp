@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="UTF-8">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +37,7 @@
         <!-- content -->
         <div id="content" class="page">
             <h1> 우리아기 등록하기 </h1>
-            <form action="JoinBabyServiceCon.dot" class="login_con join_con">
+            <form action="JoinBabyServiceCon.dot" class="login_con join_con" method="post">
                 <div>
                     <label for="name">NAME</label>
                     <input type="text" id='baby_name' name='baby_name' value="" ><br/>

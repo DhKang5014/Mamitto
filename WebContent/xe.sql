@@ -5,13 +5,13 @@ select * from rhythm
 
 drop table members cascade constraint;
 drop table posts cascade constraint;
-drop table sensors cascade constraint;
+drop table bodycheck cascade constraint;
 drop table history cascade constraint;
 drop table babys cascade constraint;
 drop table rhythm cascade constraint;
 drop sequence act_num_sequence;
 drop sequence po_num_sequence;
-drop sequence ch_num_sequence;
+drop sequence bd_num_sequence;
 drop sequence rh_num_sequence;
 
 create sequence act_num_sequence
@@ -24,7 +24,7 @@ increment by 1
 start with 1
 maxvalue 9999;
 
-create sequence ch_num_sequence
+create sequence bd_num_sequence
 increment by 1
 start with 1
 maxvalue 9999;
@@ -51,13 +51,6 @@ CREATE TABLE "POSTS" (
 	"PO_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL
 );
 
-CREATE TABLE "SENSORS" (
-	"CH_NUM"	NUMBER		NOT NULL,
-	"TEMPERATURE"	NUMBER		NULL,
-	"HUMIDITY"	NUMBER		NULL,
-	"CHECK_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL
-);
-
 CREATE TABLE "HISTORY" (
 	"ACT_NUM"	NUMBER		NOT NULL,
 	"ACTION"	VARCHAR2(100)		NULL,
@@ -76,13 +69,20 @@ CREATE TABLE "BABYS" (
 CREATE TABLE "RHYTHM" (
 	"RH_NUM"	NUMBER		NOT NULL,
 	"RH_CATEGORY"	VARCHAR2(100)		NULL,
-	"RH_TITLE"	VARCHAR2(100)		NULL,
-	"RH_CONTENT"	VARCHAR2(100)		NULL,
+	"RH_MEAL"	VARCHAR2(100)		NULL,
+	"RH_DEFECATE"	VARCHAR2(100)		NULL,
+	"RH_SLEEP"	TIMESTAMP		NULL,
 	"RH_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL,
 	"EMAIL"	VARCHAR2(100)		NOT NULL
 );
 
-COMMENT ON COLUMN "RHYTHM"."RH_CATEGORY" IS '수면, 배변, 취침 선택저장';
+CREATE TABLE "BODYCHECK" (
+	"BD_NUM"	NUMBER		NOT NULL,
+	"BD_HEIGHT"	VARCHAR2(100)		NULL,
+	"BD_WEIGHT"	VARCHAR2(100)		NULL,
+	"BD_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL,
+	"EMAIL"	VARCHAR2(100)		NOT NULL
+);
 
 ALTER TABLE "MEMBERS" ADD CONSTRAINT "PK_MEMBERS" PRIMARY KEY (
 	"EMAIL"
@@ -92,9 +92,6 @@ ALTER TABLE "POSTS" ADD CONSTRAINT "PK_POSTS" PRIMARY KEY (
 	"PO_NUM"
 );
 
-ALTER TABLE "SENSORS" ADD CONSTRAINT "PK_SENSORS" PRIMARY KEY (
-	"CH_NUM"
-);
 
 ALTER TABLE "HISTORY" ADD CONSTRAINT "PK_HISTORY" PRIMARY KEY (
 	"ACT_NUM"
@@ -106,6 +103,10 @@ ALTER TABLE "BABYS" ADD CONSTRAINT "PK_BABYS" PRIMARY KEY (
 
 ALTER TABLE "RHYTHM" ADD CONSTRAINT "PK_RHYTHM" PRIMARY KEY (
 	"RH_NUM"
+);
+
+ALTER TABLE "BODYCHECK" ADD CONSTRAINT "PK_BODYCHECK" PRIMARY KEY (
+	"BD_NUM"
 );
 
 ALTER TABLE "POSTS" ADD CONSTRAINT "FK_MEMBERS_TO_POSTS_1" FOREIGN KEY (
@@ -136,6 +137,14 @@ REFERENCES "BABYS" (
 	"EMAIL"
 );
 
+ALTER TABLE "BODYCHECK" ADD CONSTRAINT "FK_BABYS_TO_BODYCHECK_1" FOREIGN KEY (
+	"EMAIL"
+)
+REFERENCES "BABYS" (
+	"EMAIL"
+);
+
+
 
 
 insert into members values ('admin', 123, '관리자', 20, '남자');
@@ -143,17 +152,17 @@ insert into babys values ('admin' 'baby', '2020-10-07' , '남자');
 
 insert into members values ('admin', 123, '관리자', 20, 56987234);
 insert into babys(email, baby_name, baby_birth, baby_gender) values ('admin', 'baby', '2020-10-07', '남자');
-insert into babys(email, baby_name, baby_birth, baby_gender) values ('ssss', 'baby', '20201007' , '남자');
 insert into posts(po_num, po_title, po_content, po_pw, email) values (po_num_sequence.nextval, 'test', 'test', '1', 'admin');
-insert into sensors(ch_num, temperature, humidity) values (ch_num_sequence.nextval, 20, 20);
+insert into bodycheck(bd_num, bd_height, bd_weight, email) values (bd_num_sequence.nextval, '30cm', '6kg', 'admin');
 insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'admin', '울음발생');
-insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '아침식사' , '아침을 잘 먹었어요');
-insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '수면', '낮잠' , '낮잠을 잤어요');
-insert into rhythm(rh_num, email, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, 'admin', '식사', '대변' , '기저귀를 갈았어요');
+insert into rhythm(rh_num, rh_category, rh_meal, email) values (rh_num_sequence.nextval, 'meal', '아침 100ml', 'admin');
+insert into rhythm(rh_num, rh_category, rh_defecate, email) values (rh_num_sequence.nextval, 'defecate', '대변', 'admin');
+insert into rhythm(rh_num, rh_category, email) values (rh_num_sequence.nextval, 'sleep', 'admin');
 
-
+delete babys where email = 'aaaa';
 
 update babys set cam_ip = 111 where email = 'admin'
+update rhythm set rh_sleep = systimestamp where email = 'admin' and rh_num = 5;
 
 b.baby_birth+50 as fifty, b.baby_birth+100 as hundred
 

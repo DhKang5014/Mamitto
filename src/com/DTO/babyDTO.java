@@ -9,12 +9,11 @@ public class babyDTO {
 	String sql_insert_baby_info = "insert into babys(email,baby_name,baby_birth,baby_gender) values (?, ?, ?, ? ) ";
 	
 	
-	public babyDTO(String baby_name,String birth, String baby_gender) {
-		this.phon_num = phon_num;
-		this.birth = birth;
+	public babyDTO(String baby_name, String birth, String baby_gender) {
 		this.baby_name = baby_name;
+		this.birth = birth;
 		this.baby_gender = baby_gender;
-		System.out.println("making constructor >> " + phon_num + " / " + birth + " / " + baby_name + " / "  + baby_gender);
+		System.out.println("making constructor >> " + baby_name + " / " + birth + " / "  + baby_gender);
 	}
 
 

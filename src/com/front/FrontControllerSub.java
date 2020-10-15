@@ -20,12 +20,14 @@ public class FrontControllerSub extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setCharacterEncoding("UTF-8");
 		request.setCharacterEncoding("UTF-8");
+
 		PrintWriter out = response.getWriter();
 
 		String reqURI = request.getRequestURI();
 		String path = request.getContextPath();
 		String resultURI = reqURI.substring(path.length() + 5);
-
+		
+		System.out.println("FrontControllerSub >> "+ request.getParameter("baby_name"));
 		
 		Command command = null;
 		String moveURL = null;
