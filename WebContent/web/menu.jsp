@@ -11,12 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>In </title>
-<!-- 핵심 Firebase JS SDK가 항상 필요하며 먼저 나열되어야합니다.--> 
-<script src = "/ __ / firebase / 7.23.0 / firebase-app.js" > </script> 
-<!-- TODO :      https://firebase.google.com/docs/web/setup#available-libraries --> 
-<script src = "/__/firebase/7.23.0/firebase-analytics 를 사용하려는 Firebase 제품 용 SDK 추가 .js " > </script> 
-<!--Firebase 초기화--> 
-<script src = " / __ / firebase / init.js " > </script>
+
 </head>
 <body>
 <% Cookie[] cookies = request.getCookies();
