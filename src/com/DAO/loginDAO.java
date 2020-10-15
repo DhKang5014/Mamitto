@@ -93,7 +93,7 @@ public class loginDAO extends DAO {
 			while (rs.next()) {
 				email = rs.getString(1);
 				baby_name = rs.getString("baby_name");
-				baby_birth = rs.getDate("baby_birth").toString();
+				baby_birth = rs.getDate("birth").toString();
 				baby_birth_fifty = rs.getString("fifty");
 				baby_birth_hundred = rs.getString("hundred");
 				cam_ip = rs.getString("cam_ip");
