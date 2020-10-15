@@ -28,11 +28,12 @@ public class statisticDAO extends DAO{
 		String rh_time = null;
 		System.out.println("IN select_countDAO sql >> " + sql);
 		System.out.println("IN select_countDAO email >> " + email);
-		System.out.println("IN select_countDAO email >> " + rh_category);
+		System.out.println("IN select_countDAO rh_category >> " + rh_category);
 		//
 		try {
 			getPsmt().setString(1, email);
 			getPsmt().setString(2, rh_category);
+			System.out.println("psmt 세팅");
 			rs = getPsmt().executeQuery();
 			while (rs.next()) {
 				// 
