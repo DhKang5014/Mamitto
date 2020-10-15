@@ -52,7 +52,7 @@ h4{color:#726973;}
     background-color:#fff;
     position: fixed;
     z-index: 999;
-    background: url(/img/open.png) no-repeat center #fff;
+    background: url(../img/open.png) no-repeat center #fff;
     top:-28em;
     display: block;
 }
@@ -218,7 +218,7 @@ h4{color:#726973;}
     left:-53px;
     top:-2em;
     position: absolute;
-    background: url(/img/main1.png) no-repeat;
+    background: url(../img/main1.png) no-repeat;
     animation: main1 1s ease-in infinite alternate-reverse; 
     /* alternate-reverse 오른쪽->왼쪽 실행 */
 }
@@ -237,7 +237,7 @@ h4{color:#726973;}
     height: 400%;
     left:0;
     position: absolute;
-    background: url(/img/main2.png) no-repeat;
+    background: url(../img/main2.png) no-repeat;
     animation: main2 1s ease-in infinite alternate;
 }
 @keyframes main2{
