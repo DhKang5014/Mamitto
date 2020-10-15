@@ -39,7 +39,7 @@
             <form action="LoginServiceCon.do" class="login_con con">
                 <div>
                     <label for="email">ID</label>
-                    <input type="text" id='email' name='email' value="" ><br/>
+                    <input type="text" id='email' name='email' value="" ><br/> 
                 </div>
                 <div>
                     <label for="pw">PW</label>
