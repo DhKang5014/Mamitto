@@ -11,6 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>In </title>
+
 </head>
 <body>
 <% Cookie[] cookies = request.getCookies();
