@@ -13,7 +13,7 @@ const getCookieValue = (key) => {
         result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
         return result;
       }
-    }
+    } 
     return result;
 }
 // baby life remove ---------------------------------------d---
