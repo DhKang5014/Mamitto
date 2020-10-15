@@ -2,29 +2,34 @@ package com.DTO;
 
 public class statisticDTO {
 	
-	String date;
-	int num;
+	String rh_time;
+	int rh_count;
 
-	public String getDate() {
-		return date;
+	public String getRh_time() {
+		return rh_time;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setRh_time(String rh_time) {
+		this.rh_time = rh_time;
 	}
 
-	public int getNum() {
-		return num;
+	public int getRh_count() {
+		return rh_count;
 	}
 
-	public void setNum(int num) {
-		this.num = num;
+	public void setRh_count(int rh_count) {
+		this.rh_count = rh_count;
 	}
 
-	public statisticDTO(String date, int num) {
+	public statisticDTO(String rh_time, int rh_count) {
 		super();
-		this.date = date;
-		this.num = num;
+		this.rh_count = rh_count;
+		this.rh_time = rh_time;
+	}
+
+	public statisticDTO(int rh_count, String rh_time) {
+		this.rh_count = rh_count;
+		this.rh_time = rh_time;
 	}
 
 }
