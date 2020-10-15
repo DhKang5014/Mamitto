@@ -48,7 +48,7 @@
                 <div class="login_btn_box">
                     <a  href="join_page.html" class="btn">Join</a>
                     <input type="submit" value="Login" class="btn">
-               
+              
                 </div>
             </form>
 
