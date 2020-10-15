@@ -68,13 +68,19 @@ $(function(){
         cnt++;
     });
 
-
-
     // content-page----------------------------------------------
     setInterval(function(){
         $(".page").animate({"margin-top":"3em"},"slow");
     });
   
+    //my_page ---------------------------------------------------
+    $(".popup").on("click",function(){
+        $(".pop_bg").css("display","block");
+    });
+
+    $(".pop_bg").on("click",function(){
+        $(".pop_bg").css("display","none");
+    });
 
 
     // baby_life------------------------------------------------
