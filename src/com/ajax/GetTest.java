@@ -44,7 +44,7 @@ public class GetTest extends HttpServlet {
 
 			// Get User Email Login
 			HttpSession session = request.getSession();
-			Cookie[] cookies = request.getCookies();
+			Cookie[] cookies = request.getCookies(); 
 			String email = null;
 		    String rh_category = "meal";
 		    if(cookies != null){
