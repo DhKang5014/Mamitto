@@ -10,38 +10,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script type="text/javascript" src="http://www.gstatic.com/charts/loader.js"></script>
     <script src="script/jquery-3.5.1.min.js"></script>
-
+    <script src="script/script.js"></script>
     <script src="script/script_sh.js"></script>
     <title>statistic</title>
 </head>
 <body>
     <!-- content  -->
     <div id="bk">
-        <div class="menu_bar">
-            <ul>
-                <li><a href="my_page.html"> oo님 </a></li>
-                <li><a href="video.html">실시간 영상</a></li>
-                <li><a href="baby_life.html">육아생활</a></li>
-                <li><a href="statistic.html">통계</a></li>
-                <li><a href="history.html">History</a></li>
-                <li><a href="commu.html">커뮤니티</a></li>
-            </ul>
-        </div>
         <!-- nav -->
         <div id="main_header">
-            <div class="left_icon">
-                <div class="menu"><img src="../img/menu.png" width="50px"></div>
-                <a href="index.html" class="logo"><img src="../img/logo.png" width="150px"></a>
-            </div>
-            <div class="right_icon"><a href="my_page.html"></a></div>
-        </div>
+          <div class="left_icon">
+              <div class="menu"><img src="img/left_icon.png" width="50px"></div>
+              <a href="index.html" class="logo"><img src="img/sub_title2.png" width="100px"></a>
+          </div>
+          <div class="right_icon"><a href="my_page.html"></a></div>
+      </div>
+      <!-- bottom_nav -->
+      <div class="bottom_nav">
+        <ul>
+            <li><a href="statistic.html">통계</a></li>
+            <li><a href="baby_life.html">육아리듬</a></li>
+            <li><a href="commu.html">커뮤니티</a></li>
+        </ul>
+    </div>
         <!-- content -->
+        <div class="life_title">
+          <a class="title"></a>
+          <h1>우리아이 통계</h1>
+        </div>
         <div id="content" class="page statistic">
-            <h1>통계</h1>
             <ul>
                 <li>배변통계</li>
                 <li>수유통계</li>
-                <li>숙면통계</li>
+                <li>취침통계</li>
             </ul>
             <div class="chart">
               <div id="columnchart_material1" style="width: 30em; height: 20em;"></div>
@@ -55,61 +56,11 @@
         </div>
     </div>
     <script>
-    const getCookieValue = (key) => {
-        let cookieKey = key + "="; 
-        let result = "";
-        const cookieArr = document.cookie.split(";");
-        
-        for(let i = 0; i < cookieArr.length; i++) {
-          if(cookieArr[i][0] === " ") {
-            cookieArr[i] = cookieArr[i].substring(1);
-          }
-          
-          if(cookieArr[i].indexOf(cookieKey) === 0) {
-            result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
-            return result;
-          }
-        }
-        return result;
-    }
-    
-    var email = getCookieValue('email');
-    $.ajax(
-            { 
-                url: "../../project1/GetTest", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                data: {
-                    email : email,
-                    rh_category : "meal"
-                }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-        }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-        
-        .done(function(data) { 
-            data=JSON.parse(data);
-            console.log(data);
-            console.log(JSON.stringify(data));
-                   
-            for(var i=0;i<data.length;i++){
-               console.log(data[i]);
-               $('#mon'+i).text(data[i]['rh_count'])
-            }
-        }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-        
-        .fail(function(xhr, status, errorThrown) { 
-            alert("실패");
-      }) //;
-    
-    
-    
-    
-    
     //columnchart_material1----------------------------------------
     google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart1);
-	
-	
-     function drawChart1() {
+
+      function drawChart1() {
         var data = google.visualization.arrayToDataTable([
           ['Week','횟수'],
           ['월', 1],

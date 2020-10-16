@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
+    <link rel="manifest" href="manifest.json">
     <title>mamiddo</title>
 </head>
 <body>
@@ -79,20 +80,17 @@
         <!-- footer -->
         <div id="footer">
     	<script>
-    	var isServiceWorkerSupported = 'serviceWorker' in navigator;
-    	if (isServiceWorkerSupported)
-    	{
-    	  //브라우저에 Service Worker를 등록
-    	  navigator.serviceWorker.register('service-worker.js', { scope: '/'})
-    	    .then(function(registration)
-    	    {
-    	       console.log('[ServiceWorker] 등록 성공: ', registration.scope);
-    	    })
-    	    .catch(function(err)
-    	    {
-    	       console.log('[ServiceWorker] 등록 실패: ', err);
-    	    });
+    	if ('serviceWorker' in navigator) {
+    		  navigator.serviceWorker.register('/service-worker.js')
+    		    .then(function(success) {
+    		      console.log('Service Worker register success', success);
+    		    })
+    		    .catch(function(error) {
+    		      console.log('Service Worker register fail', error);
+    		    });
     	}
+    	
+    	
     	</script>
         </div>
     </div>

@@ -1,0 +1,105 @@
+/* css초기화 */
+*{
+    margin:0;
+    padding:0;
+    font-family: "Roboto",sans-serif;
+}
+a{
+    text-decoration: none;
+    display:block;
+}
+li{
+    list-style: none;
+}
+input{
+    display: block;
+}
+
+/* open -----------------------------------------------------------------------*/
+.open{
+    /* <android>
+        photoshop: 720x1280 px
+        720x1280(웹)
+        1080x1920(앱)
+    */
+    min-width: 100%;
+    width: 100%;
+    height: 710px;
+    background: url(/img/open.png) no-repeat center;
+    background-size: cover;
+    /* 화면 크기에 맞게 크기조절 */
+    /* background-attachment: fixed; */
+    /* 배경이미지 화면에 고정 */
+    /* display: block; */
+}
+.bg{
+    min-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+/* 기본세팅 끝------------------------------------------------ */
+/* color:#0f0f0f; */
+/* border-color: #ffb9dd; */
+/* button-color: #ff4a91; */
+/* #ff4a6f */
+
+#benner{
+    background: url(/img/banner.png) no-repeat center;
+    min-width: 100%;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+}
+#content{
+    color:#0f0f0f;
+    margin-left: 40%;
+    transform: translate(-40%);
+    text-align: center;
+    position: relative;
+
+}
+
+#content>div>h2{
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left:1em;
+}
+#content>div{
+    width: 100%;
+
+}
+
+#email, #pw, #name, #age, #tel{
+    width: 20em;
+    height: 3em;
+    padding-left:1em;
+    border-style: none;
+    border: solid 1px #ffb9dd;
+    border-radius: 0.5em;
+    margin-bottom: 1em; 
+    box-sizing: border-box;
+}
+.form_box{
+    margin-bottom: 3em;
+}
+
+.btn{
+    margin: 0 auto;
+    width: 20em;
+    background-color:#ff4a91;
+    /* background: linear-gradient(to left, #fcc4d1, #d7c0f8); */
+    border-style: none;
+    height: 3em;
+    color: #fdfdfd;
+    border-radius: 0.5em;
+}
+.a_btn{
+    margin-top:1em;
+    width: 16.7em;
+    text-align: center;
+    height: 2.5em;
+    line-height: 2.5em;
+}
+
+
