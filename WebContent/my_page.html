@@ -9,7 +9,6 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
     <script src="script/script_sh.js"></script>
     <title>my_page</title>
 </head>
@@ -21,7 +20,7 @@
                 <li><a href="my_page.html"> oo님 </a></li>
                 <li><a href="video.html">실시간 영상</a></li>
                 <li><a href="baby_life.html">육아생활</a></li>
-                <li><a href="statistic .html">통계</a></li>
+                <li><a href="statistic.html">통계</a></li>
                 <li><a href="history.html">History</a></li>
                 <li><a href="commu.html">커뮤니티</a></li>
             </ul>
@@ -46,9 +45,22 @@
             <form action="index.jsp" class="login_con join_con">
                 <input type="submit" value="프로필수정" class="btn my_btn">
             </form>
-            <br>
             <div class="my_baby">
-                <div>
+                <div class="my_day">
+                    <h4>성장</h4>
+                    <h4 class="popup"><a>수정하기</a></h4>
+                </div>
+                <ul class="my_day">
+                    <li>키(Cm)</li>
+                    <li>2 Cm</li>
+                </ul>
+                <ul class="my_day">
+                    <li>몸무게(Kg)</li>
+                    <li>1 Kg</li>
+                </ul>
+            </div>
+            <div class="my_baby">
+                <div class="my_day">
                     <h4>아기 기념일</h4>
                     <h4><a href="#">더보기</a></h4>
                 </div>
@@ -68,12 +80,28 @@
             <!--  -->
             <!-- action 값 조율필요 -->
             <!--  -->
-        
             <form action="join_baby_page.html" class="login_con join_con">
                 <input type="submit" value="아이추가" class="btn my_btn">
             </form>
             <div class="my_footer"></div>
         </div>
+        <div class="pop_bg">
+            <div>
+                <h2>성장 수정하기</h2>
+                <form action="">
+                    <div>
+                        <label for="email">키(Cm)</label>
+                        <input type="text" value="0" class="pop_con1">
+                    </div>
+                    <div>
+                        <label for="email">몸무게(Kg)</label>
+                        <input type="text" value="0" class="pop_con2">
+                    </div>
+                    <input type="submit" value="수정" class="btn my_btn">
+                </form>
+            </div>
+        </div>
+
         <!-- footer -->
         <div id="footer">
     

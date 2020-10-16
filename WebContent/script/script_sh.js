@@ -131,33 +131,10 @@ $.clock = function(){
 
     return now;
 }
-    
-// creat
-    var i = 0;
-    $(".life_icon > li:nth-child(1) > img").on("click",function(){
-        // a tag에 직접 onclick 이벤트를 걸어서 카운팅
-        // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-        $("<li class='meal' id='meal"+i+"'><span id='m_ck"+i+"'>식사 시간</span><span><a class='alam_icon' onclick='meal("+i+")'></a></span></li>").appendTo(".life_list");
-        var m_ck = $("ck"+i);
-        $("#m_ck"+i).text($.clock()+" 식사시간");
-        i++;
-    });
-    var j = 0;
-    $(".life_icon > li:nth-child(2) > img").on("click",function(){
-        $("<li class='sleep' id='sleep"+j+"'><span id='s_ck"+j+"'>취침 시간</span><span><a class='alam_icon' onclick='sleep("+j+")'></a></span></li>").appendTo(".life_list");
-        var s_ck = $("ck"+j);
-        $("#s_ck"+j).text($.clock() +" 취침시간");
-        j++;
-    });
-    var k = 0;
-    $(".life_icon > li:nth-child(3) > img").on("click",function(){
-        $("<li class='defecate' id='defecate"+k+"'><span id='d_ck"+k+"'>배변 시간</span><span><a class='alam_icon' onclick='defecate("+k+")'></a></span></li>").appendTo(".life_list");
-        var d_ck = $("ck"+k);
-        $("#d_ck"+k).text($.clock()+ " 배변시간");
-        k++;
-    });
-    
-    
+
+
+ 
+ 
 // BarChart ------------------------------------------------------
 
     $(".statistic > ul > li:nth-child(1)").on("click",function(){

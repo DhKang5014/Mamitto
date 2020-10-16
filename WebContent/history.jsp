@@ -1,33 +1,54 @@
+<%@page import="com.DAO.selectDAO"%>
+<%@page import="com.model.master.DTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<script type="text/javascript">
-	<%
-	// db에서 가져올 리스트 들을 배열 형태로 저장
-	ArrayList array[] = new ArrayList[5];
-	int num = 0;
-	%>
-	function alarm_update() {
-		$('this').submit()
-	}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 여기 복사 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="script/jquery-3.5.1.min.js"></script>
+    <script src="script/script.js"></script>
+    <title>History</title>
 </head>
 <body>
-	<p>알람 히스토리 페이지</p>
-	<!-- 일자 먼저 나오고 그 뒤로 나온 시간 순으로 역순정렬필요 -->
-	<% for (int i=0; i<array.length; i++){ %>
-		<!-- 가져온 리스트에서 시간 먼저 출력 array[i].getTime() -->
-		<p>날짜</p>
-		<% while (num < array.length) {%>
-			<!-- 가져온 리스트에서 일자별알람내역 출력 array[i].getContent-->
-			<form action="history.jsp" id="alarm<%=num %>" method="get" onclick="alarm_update(<%=i %>>)" >
-				<div id="number">알람</div>
-			</form><br>
-	<% num += 1; }} %>
+    <!-- content  -->
+    <div id="bk">
+ <%@ include file = "menu.jsp" %>
+        <!-- nav -->
+        <div id="main_header">
+            <div class="left_icon">
+                <div class="menu"><img src="img/menu.png" width="50px"></div>
+                <a href="index.jsp" class="logo"><img src="img/logo.png" width="150px"></a>
+            </div>
+            <% if (email != null) { %>
+            <div class="right_icon"><a href="my_page.jsp"></a></div>
+            <%} else { %>
+            <div class="right_icon"><a href="login_page.jsp"></a></div>
+            <%} %>
+        </div>
+        <!-- content -->
+        <div id="content" class="page video_con">
+            <h1>History</h1>
+            <div class="alam">
+                <!-- 알람 팝업메세지 -->
+                <ul>
+                    <!-- icon_size: 30x30 -->
+                    <li><a class="alam_icon"></a>2020. 10.10 알람</li>
+                    <li><a class="alam_icon"></a>2020. 10.11 알람 </li>
+                </ul>
+            </div>
+        </div>
+        <!-- footer -->
+        <div id="footer">
+    
+        </div>
+    </div>
 </body>
 </html>
