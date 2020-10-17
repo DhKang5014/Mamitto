@@ -62,7 +62,7 @@
         <!-- footer -->
         <div id="footer">
     
-        </div>
+        </div> 
     </div>
     <script>
         $(function(){
