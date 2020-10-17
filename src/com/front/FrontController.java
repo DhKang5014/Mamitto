@@ -29,8 +29,6 @@ public class FrontController extends HttpServlet {
 
 		String reqURI = request.getRequestURI();
 
-		System.out.println(reqURI);
-
 		
 		Command command = null;
 		String moveURL = null;

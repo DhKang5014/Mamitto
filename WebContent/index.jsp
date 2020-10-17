@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
-    <link rel="manifest" href="manifest.json">
+
     <title>mamiddo</title>
 </head>
 <body>
@@ -79,19 +79,7 @@
         </div>
         <!-- footer -->
         <div id="footer">
-    	<script>
-    	if ('serviceWorker' in navigator) {
-    		  navigator.serviceWorker.register('/service-worker.js')
-    		    .then(function(success) {
-    		      console.log('Service Worker register success', success);
-    		    })
-    		    .catch(function(error) {
-    		      console.log('Service Worker register fail', error);
-    		    });
-    	}
-    	
-    	
-    	</script>
+
         </div>
     </div>
 </body>
