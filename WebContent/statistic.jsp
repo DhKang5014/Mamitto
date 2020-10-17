@@ -73,7 +73,7 @@
     var email = getCookieValue('email');
     $.ajax(
             { 
-                url: "project1/GetTest", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+                url: "../../GetTest", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
                 data: {
                     email : email,
                     rh_category : "meal"

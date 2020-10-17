@@ -1,13 +1,25 @@
+@font-face {
+    font-family: 'BBTreeGB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_nine_@1.1/BBTreeGB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'S-CoreDream-3Light';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 /* 초기화 */
 /* backgrounc-color: fdfdfd; */
 /* font-color: #998c9b;  #726973; */
 *{
     margin: 0; padding: 0;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'BBTreeGB';
     /* font color */
-    color:rgb(54, 54, 54); 
-    
+    color:#888;
 }
+
 li{list-style: none;}
 a{
     text-decoration: none;
@@ -23,19 +35,21 @@ label{
     margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 2em;
-    width: 5em;
+    width: 16em;
     height: 2em;
     font-size: 1.5em;
     border-radius: 0.5em;  
     border-style: none;
-    background: linear-gradient(to left, #fcc4d1, #d7c0f8);
-    /* background: linear-gradient(to left, #fcd2dc, #e3d5f7); */
+    /* background: linear-gradient(to left, #fcc4d1, #d7c0f8); */
+    background-color:#ff4a91;
+    
     cursor: pointer;
     color: #fdfdfd;
  }
 h1{
     margin-top:0em;
-    margin-bottom: 2em;
+    margin-bottom: 1em;
+    text-align: center;
 }
 h3{color: #726973;}
 h4{color:#726973;}
@@ -71,21 +85,21 @@ h4{color:#726973;}
     position: absolute;
 }
 .open1{
-    background: url(../img/open_1.png) no-repeat center;
+    background: url(/img/open_1.png) no-repeat center;
     width:380px;
     left:0em;
     top:32em;
 
 }
 .open2{
-    background: url(../img/open_2.png) no-repeat center;
+    background: url(/img/open_2.png) no-repeat center;
     width:380px;
     z-index: 999;
     left:0em;
     top:30em;
 }
 .open3{
-    background: url(../img/open_3.png) no-repeat center;
+    background: url(/img/open_3.png) no-repeat center;
     width:380px;
     z-index: 99;
     left:1em;
@@ -95,10 +109,12 @@ h4{color:#726973;}
 
 /* ---------------------------------------- */
 #bk{
-    background: url(../img/bkbk.jpg) no-repeat;
+    /* background: url(../img/bk.jpg) no-repeat; */
     /* background-size: 100% 100%; */
     width: 100%;
-    height: 100%;
+    /* height:100%; */
+    height: 800px;
+    /* 모바일 환경 높이 */
     position: relative;
     max-width: 568px;
     margin-left: auto;
@@ -110,6 +126,7 @@ h4{color:#726973;}
     /* exam  */
     position: relative;
     height: 80px;
+    background: url(/img/menu_top.png) no-repeat;
 }
 
 #main_header > .left_icon{
@@ -124,57 +141,27 @@ h4{color:#726973;}
     line-height: 7em;
     float:left;
     cursor: pointer;
+    margin-left:1em;
+    margin-right:1em;
 }
 .left_icon > .logo{
     display: block;
     float: left;
     height: 80px;
     text-align: center;
-    line-height: 7em;
+    line-height: 6em;
 }
 
 .right_icon{
     float:right;
     width: 60px;
     height: 80px;
-    background: url(../img/my.png) no-repeat center;
+    background: url(/img/icon_right.png) no-repeat center;
     background-size: 50PX;
     cursor: pointer;
 }
 .right_icon > a{
     height:80px;
-}
-/* manu_bar */
-.menu_bar{
-    position: fixed;
-    width: 15em;
-    height: 40em;
-    background-color: rgba(255,255,255,0.91);
-    top:65px;
-    border-radius: 0 1em 1em 0;
-    border: 0.5em solid #fff;
-    /* display: none; */
-    left:-25em;
-    z-index: 99;
-}
-
-.menu_bar > ul{
-    padding: 2em;
-    padding-top:5em;
-    display:block;
-    height: 100%;
-}
-.menu_bar > ul > li{
-    display:block;
-    height: 2em;
-    font-size: 1.5em;
-}
-.menu_bar > ul >li:first-child{
-    margin-bottom:4em;
-    font-weight: bold;
-}
-.menu_bar > ul > li:nth-child(5){
-    margin-bottom:1em;
 }
 
 /* ---------------------------------------- */
@@ -189,15 +176,53 @@ h4{color:#726973;}
     margin-top:15em;
     /* exam  */
     height: 800px;
-    border-radius: 5em 5em 0 0;
     padding: 2em 1em;
 }
 .page > h1 {
     color: #726973;
     text-align: center;
 }
-/* index_before ------------------------------------------- */
-/* .index_before_con > h2 */
+
+/* bottom_nav -----------------------------------------------------------*/
+/* --------------------------------------------------------------------- */
+.bottom_nav{
+    position: fixed;
+    display:block;
+    width: 100%;
+    height: 70px;
+    bottom:0;
+    background-color: #ff4a91;
+    margin-top:10em;
+    z-index: 9999;
+}
+.bottom_nav > ul{
+    width: 100%;
+    height:100%;
+}
+.bottom_nav > ul::after{clear: both;content: "";display:block;}
+.bottom_nav >  ul > li{
+    float: left;
+    display: block;
+    width: 33%;
+    text-align: center;
+    line-height: 70px;
+    font-size: 1.5em;
+}
+.bottom_nav > ul > li >a{
+    color: #fdfdfd;
+
+}
+/* title=a -------------------------------------------------------------*/
+/* -------------------------------------------------------------------- */
+.title{
+    background: url(/img/sub_title2.png) center no-repeat;
+    width: 100px;
+    background-size: cover;
+    height: 1.4em;
+    /* margin-left: -50%; */
+    margin: 0 auto;
+    margin-bottom:0.5em;
+}
 
 /* pop_con 팝업메시지창------------------------------------------------- */
 .popup{cursor: pointer;}
@@ -214,7 +239,7 @@ h4{color:#726973;}
     top: 40%;
     margin-left: 50%;
     transform: translate(-50%);
-    background-color: rgba(210, 152, 222, 0.9);
+    background-color:#fcd2dc;
     width: 20em;
     height: 11em;
     padding: 2em;
@@ -251,56 +276,10 @@ h4{color:#726973;}
 
 /* index ---------------------------------------------------*/
 .meno{
-    width: 70%;
-    height: 18em;
-    border-radius: 130%;
-    background-color: #adc9fa;
-    margin: 0 auto;
-    margin-bottom: 3em;
-    margin-top: 3em;
-    position: relative;
-    overflow: hidden;
+    width: 100%;
+    height: 20em;
+    background-color:#ddd;
 }
-.meno > div:first-child{
-    width: 400%;
-    height: 400%;
-    left:-53px;
-    top:-2em;
-    position: absolute;
-    background: url(../img/main1.png) no-repeat;
-    animation: main1 1s ease-in infinite alternate-reverse; 
-    /* alternate-reverse 오른쪽->왼쪽 실행 */
-}
-@keyframes main1{
-    0%{
-        left: 1em;
-        
-    }
-    100%{
-        left:-1em;
-      
-    }
-}
-.meno > div:last-child{
-    width: 400%;
-    height: 400%;
-    left:0;
-    position: absolute;
-    background: url(../img/main2.png) no-repeat;
-    animation: main2 1s ease-in infinite alternate;
-}
-@keyframes main2{
-    0%{
-        left: 1em;
-        
-    }
-    100%{
-        left:-1em;
-      
-    }
-}
-
-
 
 .index_con > h2{text-align: center;}
 .meno_con{
@@ -420,11 +399,12 @@ h4{color:#726973;}
    text-align: center;
 }
 .my_btn{
-    font-size: 1em;
-    width: 18em;
+    font-size: 1.2em;
+    width: 16em;
+    height: 2.3em;
     font-weight: bold;
     color:#fdfdfd;
-  
+    background: linear-gradient(to left, #fcc4d1, #d7c0f8);
 }
 .my_baby{
     position: relative;
@@ -533,31 +513,79 @@ h4{color:#726973;}
 }
 .alam > ul{
     width: 100%;
-    height:100%;
     position: relative
 }
 .alam > ul > li{
     width: 100%;
-    height: 4em;
-    background-color:#de87ac;
-    margin:1em 0em;
-    text-align: center;
-    line-height: 4em;
     border-radius: 1em;
-    color: #fdfdfd
+    margin-top: 2em;
+
+}
+.alam_left_p{
+    background-color: #ff4a91;
+    color:#fdfdfd;
+    text-align: center;
+    line-height: 1.2em;
+    border-radius: 0.5em;
+    height:1.2em;
+    width:4em;
+    float:left;
+    margin-right: 1em;
+    margin-top:0.5em;
+}
+.alam_left_b{
+    background-color: #1a60b1;
+    color:#fdfdfd;
+    text-align: center;
+    line-height: 1.2em;
+    border-radius: 0.5em;
+    height:1.2em;
+    width:4em;
+    float:left;
+    margin-right: 1em;
+    margin-top:0.5em;
+}
+.alam_left_y{
+    background-color: #fbb554;
+    color:#fdfdfd;
+    text-align: center;
+    line-height: 1.2em;
+    border-radius: 0.5em;
+    height:1.2em;
+    width:4em;
+    float:left;
+    margin-right: 1em;
+    margin-top:0.5em;
+}
+.alam_icon{
+    background: url(/img/close.png) no-repeat center;
+    height:1.2em;
+    width:4em;
+    float:right;
+    
 }
 
-/* baby_life ---------------------------------*/
 
+/* baby_life ---------------------------------*/
+.life_title_box{
+    background-color:rgb(250, 244, 244);
+    height: 16em;
+    padding-top:4em;
+}
+.life_title{
+    margin-top: 5em;
+}
 .life_icon{
     width: 100%;
     height: 100%;
     position: relative;
+    margin-left:10%;
+ 
 }
 .life_icon > li{
     float:left;
     cursor: pointer;
-    margin-left: 2em;
+    margin-left: 1em;
 }
 .life_icon > li > img{display: block;}
 .life_icon::after{clear: both; content:""; display:block;}
@@ -567,22 +595,49 @@ h4{color:#726973;}
 .life_list > li > span{
     width: 10em;
     height: 100%;
-    color:#fdfdfd;
+
 }
 .life_list > li > span:last-child > a{
     display: block;
     width: 30px;
     height: 100%;
-    background: url(../img/close.png) center no-repeat;
+    background: url(/img/close.png) center no-repeat;
     float: right;
     margin-right:1em;
     cursor: pointer;
+    font-size: bold;
 }
+.meal_color{
+    color:#ff4a91;
+    font-weight: bold;
+    display:block;
+    font-size: 1.2em;
+    margin-top:0.3em;
+    margin-left: 3em;
+}
+.sleep_color{
+    color:#1a60b1;
+    font-weight: bold;
+    display:block;
+    font-size: 1.2em;
+    margin-top: 0.3em;
+    margin-left: 3em;
+}
+.defecate_color{
+    color:#fbb554;
+    font-weight: bold;
+    display:block;
+    font-size: 1.2em;
+    margin-top: 0.3em;
+    margin-left: 3em;
+}
+
+
 /* ------------------------------------------ */
 .commu table{
     border: solid 0px #ddd;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     color: #726973;
 }
 .commu thead{
@@ -592,7 +647,8 @@ h4{color:#726973;}
     margin-top: 1em;
     width: 4em;
     height: 2em;
-    background-color: #de87ac;
+    /* background-color: #de87ac; */
+    background-color:#ff4a91;
     color: #fdfdfd;
     text-align: center;
     line-height: 2em;
