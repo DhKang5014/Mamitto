@@ -28,21 +28,19 @@ public class FrontController extends HttpServlet {
 		System.out.println("프론트 접속");
 
 		String reqURI = request.getRequestURI();
-		String path = request.getContextPath();
-		String resultURI = reqURI.substring(path.length() + 5);
-		System.out.println(resultURI);
+
 
 		
 		Command command = null;
 		String moveURL = null;
 		
-		if (resultURI.equals("JoinServiceCon.do")) {
+		if (reqURI.equals("/JoinServiceCon.do")) {
 			command = new JoinServiceCon();
-		}else if(resultURI.equals("LoginServiceCon.do")) {
+		}else if(reqURI.equals("/LoginServiceCon.do")) {
 			command = new LoginServiceCon();
-		}else if(resultURI.equals("LogoutServiceCon.do")) {
+		}else if(reqURI.equals("/LogoutServiceCon.do")) {
 			command = new LogoutServiceCon();
-		}else if(resultURI.equals("CommuServiceCon.do")) {
+		}else if(reqURI.equals("/CommuServiceCon.do")) {
 			command = new CommuServiceCon();
 		}
 		moveURL = command.execute(request,response);

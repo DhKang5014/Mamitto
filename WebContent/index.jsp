@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
+    <script src="script/main.js"></script>
     <title>mamiddo</title>
 </head>
 <body>
@@ -78,22 +79,7 @@
         </div>
         <!-- footer -->
         <div id="footer">
-    	<script>
-    	var isServiceWorkerSupported = 'serviceWorker' in navigator;
-    	if (isServiceWorkerSupported)
-    	{
-    	  //브라우저에 Service Worker를 등록
-    	  navigator.serviceWorker.register('service-worker.js', { scope: '/'})
-    	    .then(function(registration)
-    	    {
-    	       console.log('[ServiceWorker] 등록 성공: ', registration.scope);
-    	    })
-    	    .catch(function(err)
-    	    {
-    	       console.log('[ServiceWorker] 등록 실패: ', err);
-    	    });
-    	}
-    	</script>
+
         </div>
     </div>
 </body>
