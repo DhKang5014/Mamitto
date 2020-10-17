@@ -1,39 +1,46 @@
-const sCacheName = 'hello-pwa'; // 캐시제목 선언
-const aFilesToCache = [ // 캐시할 파일 선언
-  './',
-  './index.html',
-  './manifest.json',
-  './images/hello-pwa.png'
-];
+/*
+*
+*  Push Notifications codelab
+*  Copyright 2015 Google Inc. All rights reserved.
+*
+*  Licensed under the Apache License, Version 2.0 (the "License");
+*  you may not use this file except in compliance with the License.
+*  You may obtain a copy of the License at
+*
+*      https://www.apache.org/licenses/LICENSE-2.0
+*
+*  Unless required by applicable law or agreed to in writing, software
+*  distributed under the License is distributed on an "AS IS" BASIS,
+*  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+*  See the License for the specific language governing permissions and
+*  limitations under the License
+*
+*/
 
-// 2.서비스워커를 설치하고 캐시를 저장함
-self.addEventListener('install', pEvent => {
-  console.log('서비스워커 설치함!');
-  pEvent.waitUntil(
-    caches.open(sCacheName)
-    .then(pCache => {
-      console.log('파일을 캐시에 저장함!');
-      return pCache.addAll(aFilesToCache);
-    })
-  );
+/* eslint-env browser, serviceworker, es6 */
+
+'use strict';
+
+self.addEventListener('push', function(event) {
+  console.log('[Service Worker] Push Received.');
+  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  const title = 'Push Codelab';
+  const options = {
+    body: 'Yay it works.',
+    icon: 'images/icon.png',
+    badge: 'images/badge.png'
+  };
+
+  event.waitUntil(self.registration.showNotification(title, options));
 });
 
-// 3. 고유번호 할당받은 서비스 워커 동작 시작
-self.addEventListener('activate', pEvent => {
-  console.log('서비스워커 동작 시작됨!');
-});
+self.addEventListener('notificationclick', function(event) {
+  console.log('[Service Worker] Notification click Received.');
 
-// 4.데이터 요청시 네트워크 또는 캐시에서 찾아 반환 
-self.addEventListener('fetch', pEvent => {
-  pEvent.respondWith(
-    caches.match(pEvent.request)
-    .then(response => {
-      if (!response) {
-        console.log("네트워크에서 데이터 요청!", pEvent.request)
-        return fetch(pEvent.request);
-      }
-      console.log("캐시에서 데이터 요청!", pEvent.request)
-      return response;
-    }).catch(err => console.log(err))
+  event.notification.close();
+
+  event.waitUntil(
+    clients.openWindow('https://developers.google.com/web/')
   );
 });
