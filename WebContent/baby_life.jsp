@@ -58,7 +58,7 @@
                     </li> -->
                 </ul>
             </div>
-        </div>
+        </div> 
         <!-- footer -->
         <div id="footer">
     
