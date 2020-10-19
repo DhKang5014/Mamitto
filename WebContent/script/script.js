@@ -267,7 +267,7 @@ $.ajax(
 $.create_li_1 = function(q, t){
     // a tag에 직접 onclick 이벤트를 걸어서 카운팅
     // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-	$("<li class='meal' id='meal"+q+"'><a class='alam_left_p'>식사</a><span id='m_ck"+q+"'><br></span><spna class='meal_color'>식사 시간<a onclick='meal_pop()'>check</a></span><a class='alam_icon' onclick='meal("+q+")'></a></li>").prependTo(".life_list");
+	$("<li class='meal' id='meal"+q+"'><a class='alam_left_p'>식사</a><span id='m_ck"+q+"'><br></span><spna class='meal_color'>식사 시간<a onclick='meal_pop("+q+")'>check</a></span><a class='alam_icon' onclick='meal("+q+")'></a></li>").prependTo(".life_list");
     var m_ck = $("ck"+q);
     $("#m_ck"+q).text($.clockChange(t)+" 식사시간");
     curtime = '' + $.clockChange(t);
@@ -277,7 +277,7 @@ $.create_li_1 = function(q, t){
 }
 
 $.create_li_2 = function(q, t){
-	$("<li class='defecate' id='defecate"+q+"'><a class='alam_left_b'>배변</a><span id='s_ck"+q+"'></span><spna class='defecate_color'>배변 시간<a onclick='defe_pop()'>check</a></span><a class='alam_icon' onclick='defecate("+q+")'></a></li>").prependTo(".life_list");
+	$("<li class='defecate' id='defecate"+q+"'><a class='alam_left_b'>배변</a><span id='s_ck"+q+"'></span><spna class='defecate_color'>배변 시간<a onclick='defe_pop("+q+")'>check</a></span><a class='alam_icon' onclick='defecate("+q+")'></a></li>").prependTo(".life_list");
     var s_ck = $("ck"+q);
     $("#s_ck"+q).text($.clockChange(t) +" 취침시간");
     curtime = '' + $.clockChange(t);
@@ -288,7 +288,7 @@ $.create_li_2 = function(q, t){
 }
 
 $.create_li_3 = function(q, t) {
-	$("<li class='sleep' id='sleep"+q+"'><a class='alam_left_y'>수면</a><span id='d_ck"+q+"'></span><spna class='sleep_color'>취침 시간<a onclick='sleep_pop()'>check</a></span><a class='alam_icon' onclick='sleep("+q+")'></a></li>").prependTo(".life_list");
+	$("<li class='sleep' id='sleep"+q+"'><a class='alam_left_y'>수면</a><span id='d_ck"+q+"'></span><spna class='sleep_color'>취침 시간<a onclick='sleep_pop("+q+")'>check</a></span><a class='alam_icon' onclick='sleep("+q+")'></a></li>").prependTo(".life_list");
     var d_ck = $("ck"+q);
     $("#d_ck"+q).text($.clockChange(t)+ " 배변시간");
     curtime = '' + $.clockChange(t);
@@ -328,7 +328,7 @@ $(".life_icon > li:nth-child(1) > img").on("click",function(){
 
 
 $(".life_icon > li:nth-child(2) > img").on("click",function(){
-    $("<li class='sleep' id='sleep"+i+"'><span id='s_ck"+i+"'>취침 시간</span><span><a class='alam_icon' onclick='sleep("+i+")'></a></span></li>").prependTo(".life_list");
+	$("<li class='defecate' id='defecate"+i+"'><a class='alam_left_b'>배변</a><span id='s_ck"+i+"'></span><spna class='defecate_color'>배변 시간<a onclick='defe_pop()'>check</a></span><a class='alam_icon' onclick='defecate("+i+")'></a></li>").prependTo(".life_list");
     var s_ck = $("ck"+i);
     $("#s_ck"+i).text($.clock() +" 취침시간");
     curtime = '' + $.clock();

@@ -1,3 +1,8 @@
+
+
+
+
+
 // baby life remove ------------------------------------------
 /*function meal(i){
     $('li#meal'+i).remove();
@@ -10,18 +15,68 @@ function sleep(j){
 function defecate(k){
    $('li#defecate'+k).remove();
 }*/
-// -------------------------------
-function meal_pop(){
+// -------------------------------------------------
+
+
+
+
+//pop meal------------------------------------------------
+temp = 0;
+function meal_pop(num){
     $(".meal_bg").css("display","block");
+    temp = num;
     $(".meal_con").css("display","block");
 }
-function defe_pop(){
+function meal_bg_save(){
+	email = getCookieValue('email');
+    curtime = '' + $.clock();
+    func_ajax(email,curtime,temp,"meal");
+}
+//pop defecate------------------------------------------------
+function defe_pop(num){
     $(".defe_bg").css("display","block");
+    temp = num;
     $(".defe_con").css("display","block");
 }
-function sleep_pop(){
+function defe_bg_save(){
+	email = getCookieValue('email');
+    curtime = '' + $.clock();
+    func_ajax(email,curtime,temp,"defecate");
+}
+//pop sleep------------------------------------------------
+function sleep_pop(num){
     $(".sleep_bg").css("display","block");
+    temp = num;
     $(".sleep_con").css("display","block");
+}
+function sleep_bg_save(){
+	email = getCookieValue('email');
+    curtime = '' + $.clock();
+    func_ajax(email,curtime,temp,"sleep");
+}
+
+//------------------------------------------------------
+
+
+function func_ajax(email,curtime,num,category){
+	$.ajax(
+            { 
+                url: "../../SaveMealBG", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+                data: {
+                    email : email,
+                    curtime : curtime,
+                    num : num,
+                    category : category
+                }, // HTTP 요청과 함께 서버로 보낼 데이터 
+                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+            .done(function(data) { 
+                   console.log(data);
+                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+            .fail(function(xhr, status, errorThrown) { 
+                    alert("실패");
+        }) //;
 }
 
 

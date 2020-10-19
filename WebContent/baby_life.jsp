@@ -50,6 +50,48 @@
         <div id="footer">
     
         </div> 
+        
+        <!-- ------------------------------------------------------------------ -->
+        <div class="defe_bg">
+            <div class="defe_con">
+                <h2>배변</h2>
+                <form action="">
+                    <label>많다</label>
+                    <input type="radio" name="volume" value="많다">
+                    <label>적당하다</label>
+                    <input type="radio" name="volume" value="적당하다">
+                    <label>적다</label>
+                    <input type="radio" name="volume" value="적다">
+                    <input type="submit" value="입력" class="btn btn_color_linear" onclick="defe_bg_save()">
+                </form>
+            </div>
+        </div>
+
+        <div class="meal_bg">
+            <div class="meal_con">
+                <h2>수유</h2>
+                <form action="">
+                    <label>수유</label>
+                    <input type="number" name="mL" value="">
+                    <label>mL</label>
+                    <input type="submit" value="입력" class="btn btn_color_linear" onclick="meal_bg_save()" >
+                </form>
+            </div>
+        </div>
+
+        <div class="sleep_bg">
+            <div class="sleep_con">
+                <h2>수면시간 설정</h2>
+                <form action="">
+                    <label>기상시간</label>
+                    <input type="time" name="time" value="">
+                    <input type="submit" value="입력" class="btn btn_color_linear" onclick="sleep_bg_save()">
+                </form>
+            </div>
+        </div>
+        
+        
+        
     </div>
     <script>
         $(function(){
