@@ -494,6 +494,7 @@ h4{color:#726973;}
 .my_day{
     height: 2em;
     line-height: 2em;
+    
 }
 .my_day::after{display:"block"; content: ""; clear: "both";} 
 .my_day > li:first-child{

@@ -23,11 +23,11 @@
         <!-- content -->
         <div class="life_title_box">
             <a class="title"></a>
-            <h1>내 아이 성장기록</h1>
+            <h1>내 아이 성장기록</h1> 
         </div>
         <div id="content" class="page my_page">
             <div class="my">
-                <h3>아기이름</h3>
+                <h3><%=baby_name %></h3>
             </div>
             <!--  -->
             <!-- action 값 조율필요 -->
@@ -42,11 +42,11 @@
                 </div>
                 <ul class="my_day">
                     <li>키(Cm)</li>
-                    <li>2 Cm</li>
+                    <li><%=height %>Cm</li>
                 </ul>
                 <ul class="my_day">
                     <li>몸무게(Kg)</li>
-                    <li>1 Kg</li>
+                    <li><%=weight %>Kg</li>
                 </ul>
             </div>
             <div class="my_baby">
@@ -56,16 +56,16 @@
                 </div>
                 <ul class="my_day">
                     <li>D+50</li>
-                    <li>2020. 11. 23 (월)</li>
+                    <li><%=baby_birth_fifty %></li>
                 </ul>
                 <ul class="my_day">
                     <li>D+100</li>
-                    <li>2020. 01. 12 (화)</li>
+                    <li><%=baby_birth_hundred %></li>
                 </ul>
             </div>
             <div class="mom">
                 <h4>양육자목록</h4>
-                <h5>양육자 이름쓰기</h5>
+                <h5><%=email %></h5>
             </div>
             <!--  -->
             <!-- action 값 조율필요 -->
@@ -78,14 +78,14 @@
         <div class="pop_bg">
             <div>
                 <h2>성장 수정하기</h2>
-                <form action="" method="post">
+                <form action="BodyCheckServiceCon.do" method="post">
                     <div>
                         <label for="height">키(Cm)</label>
-                        <input type="text" value="0" name="height" class="pop_con1">
+                        <input type="text" value="<%=height %>" name="height" class="pop_con1">
                     </div>
                     <div>
                         <label for="weight">몸무게(Kg)</label>
-                        <input type="text" value="0" name="weight" class="pop_con2">
+                        <input type="text" value="<%=weight %>" name="weight" class="pop_con2">
                     </div>
                     <input type="submit" value="수정" class="btn my_btn">
                 </form>

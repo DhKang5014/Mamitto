@@ -1,4 +1,5 @@
 
+<%@page import="com.DTO.bodycheckDTO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.selectDAO"%>
@@ -26,6 +27,10 @@
     int rhy_sleep = 0;
     int rhy_defecate = 0;
     ArrayList<DTO> dto_array = null;
+    String height = "0";
+    String weight = "0";
+    String day = null;
+    ArrayList<bodycheckDTO> to_array = null;
     
     if(cookies != null){
          
@@ -80,6 +85,19 @@
 			}
     	}
     }
+    // email값을 가지고 bodycheck에 있는 내용들 DB접속해서 가져오기
+    bodycheckDTO to = new bodycheckDTO(email);
+    to_array = dao.selectBody(to.getSql_select_bodycheck(), email);
+    try {
+    	if (to_array.size() > 0){
+    	
+    		height=to_array.get(0).getHeight();
+    	    weight = to_array.get(0).getWeight();
+    	    day = to_array.get(0).getDay();
+  		}
+    } catch (NullPointerException e) {
+  		System.out.print(e);
+  	}
 	 %>
         <div id="main_header">
             <div class="left_icon">

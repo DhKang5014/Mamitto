@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.sql.ResultSet;
 
+import com.DTO.bodycheckDTO;
 import com.model.master.*;
 
 public class selectDAO extends DAO {
@@ -87,6 +88,40 @@ public class selectDAO extends DAO {
 			close();
 		}
 		return co;
+	}
+	
+	public ArrayList<bodycheckDTO> selectBody(String sql, String mail) {
+		psmt(sql);
+		ArrayList<bodycheckDTO> dto_array = new ArrayList<bodycheckDTO>();
+		ArrayList<bodycheckDTO> result = null;
+		try {
+			bodycheckDTO dto_out = null;
+			String email = mail;
+			String height = null;
+			String weight = null;
+			String day = null;
+			getPsmt().setString(1, email);
+			System.out.println("psmt 세팅");
+			rs = getPsmt().executeQuery();
+			System.out.println("sql execute");
+			while (rs.next()) {
+				height = rs.getString(1);
+				weight = rs.getString(2);
+				day = rs.getString(3);
+				dto_out = new bodycheckDTO(email, height, weight, day);
+				dto_array.add(dto_out);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+			if(dto_array.size()>0) {
+				result = dto_array;
+			}
+		}
+		return result;
 	}
 	
 	// 리스트에 있는 값을 html형태로 수정작업

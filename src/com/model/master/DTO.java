@@ -25,6 +25,7 @@ public class DTO {
 	
 	int count_rhythm;
 	
+	
 	String html_path = "C:/Users/SMHRD/git/Mamitto/";
 	String sql_join = "insert into MEMBERS values (?, ?, ? , ? , ?)";
 	String sql_login = "select * from members where email = ? and pw = ? ";
@@ -35,6 +36,7 @@ public class DTO {
 	String sql_insert_history = "insert into history(act_num, email, action) values (act_num_sequence.nextval, ?, ?)";
 	String sql_insert_rhythm = "insert into rhythm(rh_num, baby_num, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, ?, ?, ?, ?)";
 	String sql_select_rhythm = "select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = ? and rh_category = ? group by to_char(rh_time, 'mm-dd') order by day desc";
+
 	
 	//String img_path = "C:/Users/SMHRD/git/MZProject/MZ/WebContent/upload";
 	//String sql_join = "insert into USERS values ( ? , ? , ? , ? , ? )";
@@ -45,7 +47,6 @@ public class DTO {
 	}
 
 	public DTO(String email, String pw, String name, int age, String tel) {
-		super();
 		this.email = email;
 		this.pw = pw;
 		this.name = name;
@@ -55,7 +56,6 @@ public class DTO {
 	}
 
 	public DTO(String email, String baby_name, String baby_birth, String baby_gender, String cam_ip) {
-		super();
 		this.email = email;
 		this.baby_name = baby_name;
 		this.baby_birth = baby_birth;
@@ -64,14 +64,12 @@ public class DTO {
 	}
 
 	public DTO(String email, String pw) {
-		super();
 		this.email = email;
 		this.pw = pw;
 		System.out.println(email + " " + pw + " " + name + " " + age + " dto 생성 small");
 	}
 
 	public DTO(String email) {
-		super();
 		this.email = email;
 		System.out.println(email + " " + pw + " " + name + " " + age + " dto 생성 small");
 	}
@@ -94,6 +92,8 @@ public class DTO {
 		this.baby_birth = baby_birth2;
 		this.cam_ip = cam_ip2;
 	}
+	
+
 
 	public DTO(String email2, int count_rhythm) {
 		// TODO Auto-generated constructor stub
@@ -244,6 +244,7 @@ public class DTO {
 	public void setSql_select_rhythm(String sql_select_rhythm) {
 		this.sql_select_rhythm = sql_select_rhythm;
 	}
-	
+
+
 	
 }

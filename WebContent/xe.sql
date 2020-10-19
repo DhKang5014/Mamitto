@@ -158,6 +158,7 @@ insert into history(act_num, email, Action) values (act_num_sequence.nextval, 'a
 insert into rhythm(rh_num, rh_category, rh_meal, email) values (rh_num_sequence.nextval, 'meal', '아침 100ml', 'admin');
 insert into rhythm(rh_num, rh_category, rh_defecate, email) values (rh_num_sequence.nextval, 'defecate', '대변', 'admin');
 insert into rhythm(rh_num, rh_category, email) values (rh_num_sequence.nextval, 'sleep', 'admin');
+insert into bodycheck(bd_num, bd_height, bd_weight, email) values (bd_num_sequence.nextval, '30', '30', 'admin');
 
 delete babys where email = 'aaaa';
 
@@ -177,5 +178,7 @@ where m.email = b.email
 select * from members m, babys b where m.email = b.email and m.email = 'admin'
 
 select * from rhythm;
+
+select max(bd_height),max(bd_weight), to_char(bd_time, 'mm-dd') as day from bodycheck where email='admin' group by to_char(bd_time, 'mm-dd') order by day desc;
 
 select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'admin' and rh_category = 'meal' group by to_char(rh_time, 'mm-dd') order by day desc;
