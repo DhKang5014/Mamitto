@@ -32,7 +32,7 @@ public class FrontController extends HttpServlet {
 		
 		Command command = null;
 		String moveURL = null;
-		
+		System.out.println("reqURI url >> " + reqURI);
 		if (reqURI.equals("/JoinServiceCon.do")) {
 			command = new JoinServiceCon();
 		}else if(reqURI.equals("/LoginServiceCon.do")) {
@@ -42,6 +42,7 @@ public class FrontController extends HttpServlet {
 		}else if(reqURI.equals("/CommuServiceCon.do")) {
 			command = new CommuServiceCon();
 		}
+		System.out.println("move url >> " + moveURL);
 		moveURL = command.execute(request,response);
 		
 		response.sendRedirect(moveURL);
