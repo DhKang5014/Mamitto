@@ -43,11 +43,13 @@
                 <li>배변통계</li>
                 <li>수유통계</li>
                 <li>취침통계</li>
+                <li>연습통계</li>
             </ul>
             <div class="chart">
               <div id="columnchart_material1" style="width: 30em; height: 20em;"></div>
               <div id="columnchart_material2" style="width: 30em; height: 20em;"></div>
               <div id="columnchart_material3" style="width: 30em; height: 20em;"></div>
+              <div id="columnchart_material4" style="width: 30em; height: 20em;"></div>
             </div>
         </div>
         
@@ -140,8 +142,44 @@
 
         chart3.draw(data3, google.charts.Bar.convertOptions(options3));
       }
+      
+      //
+
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart4);
+
+      function drawChart4() {
+        var data4 = google.visualization.arrayToDataTable([
+          ['Year', 'Sales', 'Expenses'],
+          ['2004',  1000,      400],
+          ['2005',  1170,      460],
+          ['2006',  660,       1120],
+          ['2007',  1030,      540]
+        ]);
+
+        var options4 = {
+          title: 'Company Performance',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart4 = new google.visualization.LineChart(document.getElementById('columnchart_material4'));
+
+        chart4.draw(data4, options4);
+      }
 
     </script>
+    
+        <!--  <html>  라인차트에 사용되었던 html 부분 참조
+    	  <head>
+    	    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    	    <script type="text/javascript">
+    	    </script>
+      	  </head>
+      	  <body>
+      	    <div id="curve_chart" style="width: 900px; height: 500px"></div>
+      	  </body>
+      	</html> -->
 </body>
 </html>
 

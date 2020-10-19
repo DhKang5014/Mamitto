@@ -132,16 +132,26 @@ $.clock = function(){
         $("#columnchart_material1").css("display","block");
         $("#columnchart_material2").css("display","none");
         $("#columnchart_material3").css("display","none");
+        $("#columnchart_material4").css("display","none");
     });
     $(".statistic > ul > li:nth-child(2)").on("click",function(){
         $("#columnchart_material1").css("display","none");
-        $("#columnchart_material3").css("display","none");
         $("#columnchart_material2").css("display","block");
+        $("#columnchart_material3").css("display","none");
+        $("#columnchart_material4").css("display","none");
     });
     $(".statistic > ul > li:nth-child(3)").on("click",function(){
         $("#columnchart_material1").css("display","none");
         $("#columnchart_material2").css("display","none");
         $("#columnchart_material3").css("display","block");
+        $("#columnchart_material4").css("display","none");
+
+    });
+    $(".statistic > ul > li:nth-child(4)").on("click",function(){
+        $("#columnchart_material1").css("display","none");
+        $("#columnchart_material2").css("display","none");
+        $("#columnchart_material3").css("display","none");
+        $("#columnchart_material4").css("display","block");
 
     });
         
