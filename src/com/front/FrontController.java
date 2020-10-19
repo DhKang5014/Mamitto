@@ -41,6 +41,8 @@ public class FrontController extends HttpServlet {
 			command = new LogoutServiceCon();
 		}else if(reqURI.equals("/CommuServiceCon.do")) {
 			command = new CommuServiceCon();
+		}else if(reqURI.equals("/BodyCheckServiceCon.do")) {
+			command = new BodyCheckServiceCon();
 		}
 		System.out.println("move url >> " + moveURL);
 		moveURL = command.execute(request,response);
