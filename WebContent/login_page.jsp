@@ -21,7 +21,7 @@
             <div>
                 <a href="#"></a>
                 <h2>로그인</h2>
-            </div>
+            </div> 
             <div>
                 <form action="LoginServiceCon.do" method="post" class="login_box">
                     <div class="form_box">
