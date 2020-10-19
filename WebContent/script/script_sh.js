@@ -10,7 +10,7 @@ function sleep(j){
 function defecate(k){
    $('li#defecate'+k).remove();
 }
-// -------------------------------
+// -------------------------------d
 function meal_pop(){
     $(".meal_bg").css("display","block");
     $(".meal_con").css("display","block");
