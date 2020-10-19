@@ -78,9 +78,17 @@ $(function(){
         $(".pop_bg").css("display","block");
     });
 
-    $(".pop_bg").on("click",function(){
+    $(".btn").on("click",function(){
         $(".pop_bg").css("display","none");
     });
+
+    //index_pop -------------------------------------------------
+    $(".play_btn").on("click",function(){
+        $(".pop_bg").css("display","block");
+    });
+
+
+
 
 
     // baby_life------------------------------------------------
@@ -145,14 +153,14 @@ $.clock = function(){
     });
     var j = 0;
     $(".life_icon > li:nth-child(2) > img").on("click",function(){
-        $("<li class='sleep' id='sleep"+j+"'><a class='alam_left_b'>배변</a><span id='s_ck"+j+"'></span><spna class='sleep_color'>취침 시간</span><a class='alam_icon' onclick='sleep("+j+")'></a></li>").prependTo(".life_list");
+        $("<li class='sleep' id='sleep"+j+"'><a class='alam_left_b'>배변</a><span id='s_ck"+j+"'></span><spna class='sleep_color'>배변 시간</span><a class='alam_icon' onclick='sleep("+j+")'></a></li>").prependTo(".life_list");
         var s_ck = $("ck"+j);
         $("#s_ck"+j).text($.clock());
         j++;
     });
     var k = 0;
     $(".life_icon > li:nth-child(3) > img").on("click",function(){
-        $("<li class='defecate' id='defecate"+k+"'><a class='alam_left_y'>수면</a><span id='d_ck"+k+"'></span><spna class='defecate_color'>배변 시간</span><a class='alam_icon' onclick='defecate("+k+")'></a></li>").prependTo(".life_list");
+        $("<li class='defecate' id='defecate"+k+"'><a class='alam_left_y'>수면</a><span id='d_ck"+k+"'></span><spna class='defecate_color'>취침 시간</span><a class='alam_icon' onclick='defecate("+k+")'></a></li>").prependTo(".life_list");
         var d_ck = $("ck"+k);
         $("#d_ck"+k).text($.clock());
         k++;
