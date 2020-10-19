@@ -1,7 +1,10 @@
 
 
+
+
+
 // baby life remove ------------------------------------------
-function meal(i){
+/*function meal(i){
     $('li#meal'+i).remove();
 }
 
@@ -11,7 +14,71 @@ function sleep(j){
 
 function defecate(k){
    $('li#defecate'+k).remove();
+}*/
+// -------------------------------------------------
+
+
+
+
+//pop meal------------------------------------------------
+temp = 0;
+function meal_pop(num){
+    $(".meal_bg").css("display","block");
+    temp = num;
+    $(".meal_con").css("display","block");
 }
+function meal_bg_save(){
+	email = getCookieValue('email');
+    curtime = '' + $.clock();
+    func_ajax(email,curtime,temp,"meal");
+}
+//pop defecate------------------------------------------------
+function defe_pop(num){
+    $(".defe_bg").css("display","block");
+    temp = num;
+    $(".defe_con").css("display","block");
+}
+function defe_bg_save(){
+	email = getCookieValue('email');
+    curtime = '' + $.clock();
+    func_ajax(email,curtime,temp,"defecate");
+}
+//pop sleep------------------------------------------------
+function sleep_pop(num){
+    $(".sleep_bg").css("display","block");
+    temp = num;
+    $(".sleep_con").css("display","block");
+}
+function sleep_bg_save(){
+	email = getCookieValue('email');
+    curtime = '' + $.clock();
+    func_ajax(email,curtime,temp,"sleep");
+}
+
+//------------------------------------------------------
+
+
+function func_ajax(email,curtime,num,category){
+	$.ajax(
+            { 
+                url: "../../SaveMealBG", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+                data: {
+                    email : email,
+                    curtime : curtime,
+                    num : num,
+                    category : category
+                }, // HTTP 요청과 함께 서버로 보낼 데이터 
+                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+            .done(function(data) { 
+                   console.log(data);
+                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+            .fail(function(xhr, status, errorThrown) { 
+                    alert("실패");
+        }) //;
+}
+
 
 //statistic -------------------------------------------------
  
@@ -89,8 +156,6 @@ $(function(){
 
 
 
-
-
     // baby_life------------------------------------------------
     // date-------------------
     var today = new Date();
@@ -140,33 +205,34 @@ $.clock = function(){
     return now;
 }
     
-// creat
-    var i = 0;
+// creat life
+/*    var i = 0;
     $(".life_icon > li:nth-child(1) > img").on("click",function(){
         // a tag에 직접 onclick 이벤트를 걸어서 카운팅
         // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
     
-        $("<li class='meal' id='meal"+i+"'><a class='alam_left_p'>식사</a><span id='m_ck"+i+"'><br></span><spna class='meal_color'>식사 시간</span><a class='alam_icon' onclick='meal("+i+")'></a></li>").prependTo(".life_list");
+        $("<li class='meal' id='meal"+i+"'><a class='alam_left_p'>식사</a><span id='m_ck"+i+"'><br></span><spna class='meal_color'>식사 시간<a onclick='meal_pop()'>check</a></span><a class='alam_icon' onclick='meal("+i+")'></a></li>").prependTo(".life_list");
         var m_ck = $("ck"+i);
         $("#m_ck"+i).text($.clock());
         i++;
     });
     var j = 0;
     $(".life_icon > li:nth-child(2) > img").on("click",function(){
-        $("<li class='sleep' id='sleep"+j+"'><a class='alam_left_b'>배변</a><span id='s_ck"+j+"'></span><spna class='sleep_color'>배변 시간</span><a class='alam_icon' onclick='sleep("+j+")'></a></li>").prependTo(".life_list");
+        $("<li class='defecate' id='defecate"+j+"'><a class='alam_left_b'>배변</a><span id='s_ck"+j+"'></span><spna class='defecate_color'>배변 시간<a onclick='defe_pop()'>check</a></span><a class='alam_icon' onclick='defecate("+j+")'></a></li>").prependTo(".life_list");
         var s_ck = $("ck"+j);
         $("#s_ck"+j).text($.clock());
         j++;
     });
     var k = 0;
     $(".life_icon > li:nth-child(3) > img").on("click",function(){
-        $("<li class='defecate' id='defecate"+k+"'><a class='alam_left_y'>수면</a><span id='d_ck"+k+"'></span><spna class='defecate_color'>취침 시간</span><a class='alam_icon' onclick='defecate("+k+")'></a></li>").prependTo(".life_list");
+        $("<li class='sleep' id='sleep"+k+"'><a class='alam_left_y'>수면</a><span id='d_ck"+k+"'></span><spna class='sleep_color'>취침 시간<a onclick='sleep_pop()'>check</a></span><a class='alam_icon' onclick='sleep("+k+")'></a></li>").prependTo(".life_list");
         var d_ck = $("ck"+k);
         $("#d_ck"+k).text($.clock());
         k++;
     });
+*/
     
-    
+
 // BarChart ------------------------------------------------------
 
     $(".statistic > ul > li:nth-child(1)").on("click",function(){
@@ -184,7 +250,11 @@ $.clock = function(){
         $("#columnchart_material2").css("display","none");
         $("#columnchart_material3").css("display","block");
 
-    }); 
+    });
+        
+      
+
+ 
 
 
 });

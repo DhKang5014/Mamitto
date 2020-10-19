@@ -58,7 +58,7 @@ public class DeleteSleep extends HttpServlet {
 			}
 			
 			String sql2 = "select max(rh_num) from rhythm";
-			int max_size = dao.select(sql);
+			int max_size = dao.select(sql2);
 			
 			
 			// Get User Email Login
