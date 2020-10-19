@@ -143,7 +143,7 @@ h4{color:#726973;}
     float:left;
     cursor: pointer;
     margin-left:1em;
-    margin-right:1em;
+    /* margin-right:1em; */
 }
 .left_icon > .logo{
     display: block;
@@ -494,7 +494,6 @@ h4{color:#726973;}
 .my_day{
     height: 2em;
     line-height: 2em;
-    
 }
 .my_day::after{display:"block"; content: ""; clear: "both";} 
 .my_day > li:first-child{
@@ -627,11 +626,17 @@ h4{color:#726973;}
     margin-top:0.5em;
 }
 .alam_icon{
-    background: url(/img/close.png) no-repeat center;
-    height:1.2em;
-    width:4em;
+    background: url(/img/close.png) no-repeat left;
+    height:30px;
+    width:3em;
     float:right;
     
+}
+.correction{
+    background: url(/img/re1.png) no-repeat right;
+    height:31px;
+    width:2em;
+    float:right; 
 }
 
 
@@ -748,7 +753,7 @@ h4{color:#726973;}
     text-align: center;
     margin-bottom: 1em;
 }
-.meal_bg > div > forms > div{
+.meal_bg > div > form > div{
     margin-left: 50%;
     transform: translate(-50%);
     width:18em;
@@ -761,11 +766,11 @@ h4{color:#726973;}
     display:none;
     z-index: 9999;
 }
-.meal_con > forms{
+.meal_con > form{
     text-align: center;
     line-height: 3em;
 }
-.meal_con> forms > input:last-child{
+.meal_con> form > input:last-child{
     width:13em;
 }
 /* defe_pop------ */
@@ -799,7 +804,7 @@ h4{color:#726973;}
     text-align: center;
     margin-bottom: 1em;
 }
-.defe_bg > div > forms > div{
+.defe_bg > div > form > div{
     margin-left: 50%;
     transform: translate(-50%);
     width:18em;
@@ -811,11 +816,11 @@ h4{color:#726973;}
     position:fixed;
     display:none;
 }
-.defe_con > forms{
+.defe_con > form{
     text-align: center;
     line-height: 3em;
 }
-.defe_con> forms > input:last-child{
+.defe_con> form > input:last-child{
     width:13em;
 }
 /* sleep_pop------ */
@@ -849,7 +854,7 @@ h4{color:#726973;}
     text-align: center;
     margin-bottom: 1em;
 }
-.sleep_bg > div > forms > div{
+.sleep_bg > div > form > div{
     margin-left: 50%;
     transform: translate(-50%);
     width:18em;
@@ -861,11 +866,11 @@ h4{color:#726973;}
     position:fixed;
     display:none;
 }
-.sleep_con > forms{
+.sleep_con > form{
     text-align: center;
     line-height: 3em;
 }
-.sleep_con> forms > input:last-child{
+.sleep_con> form > input:last-child{
     width:13em;
 }
 
