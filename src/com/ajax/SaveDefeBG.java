@@ -36,10 +36,13 @@ public class SaveDefeBG extends HttpServlet {
 		System.out.println("email >> " + email);
 		System.out.println("curtime >> " + curtime);
 		System.out.println("category >> " + category);
-
+		System.out.println("input_text >> " + input_text);
+		
 		// Save Meal BG
-		String sql = "sadf";
+		String sql = "update rhythm(rh_num,rh_defecate) set rh = ? ";
 		System.out.println("sql >> " + sql);
+		
+		
 
 	}
 

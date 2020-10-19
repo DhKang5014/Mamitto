@@ -39,7 +39,7 @@ public class SaveSleepBG extends HttpServlet {
 		System.out.println("input_text >> " + input_text);
 		
 		// Save Meal BG
-		String sql = "sadf";
+		String sql = "select * from email where email = ? ";
 		System.out.println("sql >> " + sql);
 
 	}
