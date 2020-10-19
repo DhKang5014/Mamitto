@@ -17,7 +17,6 @@ function defecate(k){
 }*/
 // -------------------------------------------------
 
-// baby life remove ------------------------------------------
 function meal(i){
     $('li#meal'+i).remove();
 }
