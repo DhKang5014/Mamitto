@@ -12,7 +12,7 @@ public class commuDTO {
 	String sql_select_commu_info = "select po_num, po_title, po_content, po_pw, email, to_char(po_time, 'MM/dd/YY HH24:mi') as day from posts where email=? or po_pw='공개' order by day desc";
 	
 	
-	public commuDTO(String title,String content, String po_pw) {
+	public commuDTO(String title,String content, String po_pw) { 
 		this.title = title;
 		this.content = content;
 		this.po_pw = po_pw;
