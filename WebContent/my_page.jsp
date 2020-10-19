@@ -23,7 +23,7 @@
         <!-- content -->
         <div class="life_title_box">
             <a class="title"></a>
-            <h1>내 아이 성장기록</h1>
+            <h1>내 아이 성장기록</h1> 
         </div>
         <div id="content" class="page my_page">
             <div class="my">
