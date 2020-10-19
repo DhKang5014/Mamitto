@@ -1,28 +1,3 @@
-// baby life remove ------------------------------------------
-function meal(i){
-    $('li#meal'+i).remove();
-}
-
-function sleep(j){
-    $('li#sleep'+j).remove();
-}
-
-function defecate(k){
-   $('li#defecate'+k).remove();
-}
-// -------------------------------d
-function meal_pop(){
-    $(".meal_bg").css("display","block");
-    $(".meal_con").css("display","block");
-}
-function defe_pop(){
-    $(".defe_bg").css("display","block");
-    $(".defe_con").css("display","block");
-}
-function sleep_pop(){
-    $(".sleep_bg").css("display","block");
-    $(".sleep_con").css("display","block");
-}
 
 
 //statistic -------------------------------------------------

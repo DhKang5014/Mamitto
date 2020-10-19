@@ -17,6 +17,18 @@ function defecate(k){
 }*/
 // -------------------------------------------------
 
+// baby life remove ------------------------------------------
+function meal(i){
+    $('li#meal'+i).remove();
+}
+
+function sleep(j){
+    $('li#sleep'+j).remove();
+}
+
+function defecate(k){
+   $('li#defecate'+k).remove();
+}
 
 
 
