@@ -38,20 +38,15 @@
                     </tr>
                 </thead>
                 <tbody>
+                	<%for (int i=0; i<commu_array.size(); i++){ %>
                     <tr>
-                        <th>1</th>
-                        <th>제목제목제목</th>
-                        <th>유유</th>
-                        <th>날짜날짜</th>
+                        <th><%=i+1 %></th>
+                        <th><%=commu_array.get(i).getTitle() %></th>
+                        <th><%=commu_array.get(i).getEmail() %></th>
+                        <th><%=commu_array.get(i).getTime() %></th>
                         <th>1</th>
                     </tr>
-                    <tr>
-                        <th>2</th>
-                        <th>제목제목제목</th>
-                        <th>유유</th>
-                        <th>날짜날짜</th>
-                        <th>1</th>
-                    </tr>
+                    <%} %>
                 </tbody>
             </table>
             <br>

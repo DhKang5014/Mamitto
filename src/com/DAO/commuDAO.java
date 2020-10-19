@@ -3,9 +3,15 @@ package com.DAO;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.DTO.commuDTO;
 import com.model.master.*;
 
 public class commuDAO extends DAO{
+	ResultSet rs = null;
+	ArrayList<commuDTO> dto_array = null;
+	ArrayList<commuDTO> result = null;
 	
 	public int insert_commu(String sql, String title,String content, String po_pw, String email) {
 		psmt(sql);
@@ -28,10 +34,43 @@ public class commuDAO extends DAO{
 	}
 	
 	
+	public ArrayList<commuDTO> selectCommu(String sql, String email) {
+		psmt(sql);
+		dto_array = new ArrayList<commuDTO>();
+		ArrayList<commuDTO> result = null;
+		try {
+			int po_num =0;
+			String title = null;
+			String content = null;
+			String po_pw = null;
+			String time = null;
+			commuDTO dto_out = null;
+			getPsmt().setString(1, email);
+			System.out.println("psmt 세팅");
+			rs = getPsmt().executeQuery();
+			System.out.println("sql execute");
+			while (rs.next()) {
+				po_num = rs.getInt(1);
+				title = rs.getString(2);
+				content = rs.getString(3);
+				po_pw = rs.getString(4);
+				email = rs.getString(5);
+				time = rs.getString(6);
+				dto_out = new commuDTO(po_num, title, content, po_pw, email, time);
+				dto_array.add(dto_out);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+			if(dto_array.size()>0) {
+				result = dto_array;
+			}
+		}
+		return result;
+	}
 	
-	
-	
-	
-	
-	
+		
 }

@@ -1,4 +1,6 @@
 
+<%@page import="com.DAO.commuDAO"%>
+<%@page import="com.DTO.commuDTO"%>
 <%@page import="com.DTO.bodycheckDTO"%>
 <%@page import="java.sql.Date"%>
 <%@page import="java.util.ArrayList"%>
@@ -31,6 +33,7 @@
     String weight = "0";
     String day = null;
     ArrayList<bodycheckDTO> to_array = null;
+    ArrayList<commuDTO> commu_array = null;
     
     if(cookies != null){
          
@@ -98,6 +101,10 @@
     } catch (NullPointerException e) {
   		System.out.print(e);
   	}
+    
+    commuDTO comDTO = new commuDTO(email);
+    commuDAO comDAO = new commuDAO();
+    commu_array = comDAO.selectCommu(comDTO.getSql_select_commu_info(), email);
 	 %>
         <div id="main_header">
             <div class="left_icon">
