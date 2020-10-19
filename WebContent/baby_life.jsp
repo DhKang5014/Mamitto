@@ -55,7 +55,7 @@
         <div class="defe_bg">
             <div class="defe_con">
                 <h2>배변</h2>
-                <form action="">
+                <forms>
                     <label>많다</label>
                     <input type="radio" name="volume" value="많다">
                     <label>적당하다</label>
@@ -63,30 +63,30 @@
                     <label>적다</label>
                     <input type="radio" name="volume" value="적다">
                     <input type="submit" value="입력" class="btn btn_color_linear" onclick="defe_bg_save()">
-                </form>
+                </forms>
             </div>
         </div>
 
         <div class="meal_bg">
             <div class="meal_con">
                 <h2>수유</h2>
-                <form action="">
+                <forms>
                     <label>수유</label>
-                    <input type="number" name="mL" value="">
+                    <input type="number" name="mL" value="" id="mL">
                     <label>mL</label>
-                    <input type="submit" value="입력" class="btn btn_color_linear" onclick="meal_bg_save()" >
-                </form>
+                    <input type="submit" value="입력" class="btn btn_color_linear" onclick="meal_bg_save()">
+                </forms>
             </div>
         </div>
 
         <div class="sleep_bg">
             <div class="sleep_con">
                 <h2>수면시간 설정</h2>
-                <form action="">
+                <forms>
                     <label>기상시간</label>
-                    <input type="time" name="time" value="">
+                    <input type="time" name="time" value="" id="time">
                     <input type="submit" value="입력" class="btn btn_color_linear" onclick="sleep_bg_save()">
-                </form>
+                </forms>
             </div>
         </div>
         

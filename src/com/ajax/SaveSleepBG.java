@@ -30,12 +30,14 @@ public class SaveSleepBG extends HttpServlet {
 		String email = request.getParameter("email");
 		String curtime = request.getParameter("curtime");
 		String category = request.getParameter("category");
+		String input_text = request.getParameter("input_text");
 
 		// check email, curtime
 		System.out.println("email >> " + email);
 		System.out.println("curtime >> " + curtime);
 		System.out.println("category >> " + category);
-
+		System.out.println("input_text >> " + input_text);
+		
 		// Save Meal BG
 		String sql = "sadf";
 		System.out.println("sql >> " + sql);

@@ -30,6 +30,7 @@ public class SaveDefeBG extends HttpServlet {
 		String email = request.getParameter("email");
 		String curtime = request.getParameter("curtime");
 		String category = request.getParameter("category");
+		String input_text = request.getParameter("input_text");
 
 		// check email, curtime
 		System.out.println("email >> " + email);
