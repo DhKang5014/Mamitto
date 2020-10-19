@@ -1,5 +1,5 @@
 // baby life remove ------------------------------------------
-function meal(i){
+/*function meal(i){
     $('li#meal'+i).remove();
 }
 
@@ -9,7 +9,7 @@ function sleep(j){
 
 function defecate(k){
    $('li#defecate'+k).remove();
-}
+}*/
 // -------------------------------
 function meal_pop(){
     $(".meal_bg").css("display","block");
@@ -151,7 +151,7 @@ $.clock = function(){
 }
     
 // creat life
-    var i = 0;
+/*    var i = 0;
     $(".life_icon > li:nth-child(1) > img").on("click",function(){
         // a tag에 직접 onclick 이벤트를 걸어서 카운팅
         // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
@@ -175,7 +175,7 @@ $.clock = function(){
         $("#d_ck"+k).text($.clock());
         k++;
     });
-
+*/
     
 
 // BarChart ------------------------------------------------------
