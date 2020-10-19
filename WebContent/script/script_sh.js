@@ -184,11 +184,7 @@ $.clock = function(){
         $("#columnchart_material2").css("display","none");
         $("#columnchart_material3").css("display","block");
 
-    });
-        
-      
-
- 
+    }); 
 
 
 });
