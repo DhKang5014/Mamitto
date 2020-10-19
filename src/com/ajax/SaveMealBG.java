@@ -39,6 +39,7 @@ public class SaveMealBG extends HttpServlet {
 		System.out.println("email >> " + email);
 		System.out.println("curtime >> " + curtime);
 		System.out.println("category >> " + category);
+		System.out.println("input_text >> " + input_text);
 		
 		
 
