@@ -20,21 +20,7 @@
     <!-- content  -->
     <div id="bk">
         <!-- nav -->
-        <div id="main_header">
-            <div class="left_icon">
-                <div class="menu"><img src="img/left_icon.png" width="50px"></div>
-                <a href="index.jsp" class="logo"><img src="img/sub_title2.png" width="100px"></a>
-            </div>
-            <div class="right_icon"><a href="my_page.jsp"></a></div>
-        </div>
-        <!-- bottom_nav -->
-        <div class="bottom_nav">
-            <ul>
-                <li><a href="statistic.jsp">통계</a></li>
-                <li><a href="baby_life.jsp">육아리듬</a></li>
-                <li><a href="commu.jsp">커뮤니티</a></li>
-            </ul>
-        </div>
+		<%@ include file = "menu.jsp" %>
         <!-- content -->
         <div class="life_title">
             <a class="title"></a>

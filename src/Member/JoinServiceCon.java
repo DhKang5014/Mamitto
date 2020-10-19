@@ -1,5 +1,7 @@
 package Member;
 
+import java.io.UnsupportedEncodingException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,16 +15,20 @@ public class JoinServiceCon implements Command {
 
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
+		try {
+			request.setCharacterEncoding("UTF-8");
+			response.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		String moveURL = null;
 		// GET email.pw,tel,addr
 		String email = request.getParameter("email");
 		String pw = request.getParameter("pw");
 		String name = request.getParameter("name");
 		int age = Integer.parseInt(request.getParameter("age"));
-		String tel1 = request.getParameter("tel1");
-		String tel2 = request.getParameter("tel2");
-		String tel3 = request.getParameter("tel3");
-		String tel = tel1 + tel2 + tel3;
+		String tel = request.getParameter("tel");
 		System.out.println(email + " / " + pw + " / " + name + " / " + age + " / " + tel );
 		
 		DTO dto = new DTO(email, pw, name, age, tel);
@@ -31,7 +37,7 @@ public class JoinServiceCon implements Command {
 		if (cnt == 0) {
 			moveURL = "fail.jsp";
 		} else {
-			moveURL = "index.jsp";
+			moveURL = "login_page.jsp";
 		}
 		return moveURL;
 	}

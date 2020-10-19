@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="UTF-8">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,31 +13,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <!-- script -->
     <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
+    <script src="script/script_sh.js"></script>
     <!-- title명칭 수정할 것 -->
     <title>join_baby_page</title>
 </head>
 <body>
-
     <!-- content  -->
     <div id="bk">
- <%@ include file = "menu.jsp" %>
-        <!-- nav -->
-        <div id="main_header">
-            <div class="left_icon">
-                <div class="menu"><img src="img/menu.png" width="50px"></div>
-                <a href="index.jsp" class="logo"><img src="img/logo.png" width="150px"></a>
-            </div>
-            <% if (email != null) { %>
-            <div class="right_icon"><a href="my_page.jsp"></a></div>
-            <%} else { %>
-            <div class="right_icon"><a href="login_page.jsp"></a></div>
-            <%} %>
-        </div>
+       <!-- nav -->
+		<%@ include file = "menu.jsp" %>
         <!-- content -->
         <div id="content" class="page">
-            <h1> 우리아기 등록하기 </h1>
-            <form action="JoinBabyServiceCon.dot" class="login_con join_con" method="post">
+            <div class="life_title">
+                <a class="title"></a>
+                <h1>아이 등록하기</h1>
+            </div>
+            <form action="JoinBabyServiceCon.dot" method="post" class="login_con join_con">
                 <div>
                     <label for="name">NAME</label>
                     <input type="text" id='baby_name' name='baby_name' value="" ><br/>

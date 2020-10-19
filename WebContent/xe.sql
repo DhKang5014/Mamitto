@@ -182,3 +182,6 @@ select * from rhythm;
 select max(bd_height),max(bd_weight), to_char(bd_time, 'mm-dd') as day from bodycheck where email='admin' group by to_char(bd_time, 'mm-dd') order by day desc;
 
 select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'admin' and rh_category = 'meal' group by to_char(rh_time, 'mm-dd') order by day desc;
+
+select * from posts;
+select * from posts where email='admin' or po_pw='공개';

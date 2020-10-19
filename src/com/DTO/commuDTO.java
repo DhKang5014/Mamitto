@@ -2,10 +2,12 @@ package com.DTO;
 
 public class commuDTO {
 	
+	String email;
 	String title;
 	String content;
 	String po_pw;
 	String sql_insert_commu_info = "insert into posts(po_num,po_title,po_content,po_pw,email) values (po_num_sequence.nextval, ?, ?, ?, ?) ";
+	String sql_select_commu_info = "insert into posts(po_num,po_title,po_content,po_pw,email) values (po_num_sequence.nextval, ?, ?, ?, ?) ";
 	
 	
 	public commuDTO(String title,String content, String po_pw) {
@@ -13,6 +15,14 @@ public class commuDTO {
 		this.content = content;
 		this.po_pw = po_pw;
 		System.out.println("making constructor >> " + title + " / " + content + " / " + po_pw);
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getTitle() {
