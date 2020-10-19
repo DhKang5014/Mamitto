@@ -7,59 +7,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="css/style.css">
     <!-- font -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
     <script src="script/script_sh.js"></script>
-    <title>commu_write</title>
+    <title>baby_life</title>
 </head>
 <body>
     <!-- content  -->
     <div id="bk">
-        <!-- nav -->
-        <div id="main_header">
-            <div class="left_icon">
-                <div class="menu"><img src="img/left_icon.png" width="50px"></div>
-                <a href="index.html" class="logo"><img src="img/sub_title2.png" width="100px"></a>
-            </div>
-            <div class="right_icon"><a href="my_page.html"></a></div>
+       <!-- nav -->
+       <div id="main_header">
+        <div class="left_icon">
+            <div class="menu"><img src="img/left_icon.png" width="50px"></div>
+            <a href="index.html" class="logo"><img src="img/sub_title2.png" width="100px"></a>
+        </div>
+        <div class="right_icon"><a href="my_page.html"></a></div>
+        </div>
+        <!-- bottom_nav -->
+        <div class="bottom_nav">
+            <ul>
+                <li><a href="statistic.html">통계</a></li>
+                <li><a href="baby_life.html">육아리듬</a></li>
+                <li><a href="commu.html">커뮤니티</a></li>
+            </ul>
         </div>
         <!-- content -->
-        <div id="content" class="page commu commu_write">
-            <h1>게시글 등록</h1>
-            <form method="POST" action="BoardServlet">
-                <table class="write_radio">
-                    <tr>
-                        <th>제목</th>
-                        <td><input type="text" name="title" class="write_width"></td>
-                    </tr>
-                    <tr>
-                        <th>이름</th>
-                        <td><input type="text" name="name" class="write_width"></td>
-                    </tr>
-                    <tr>
-                        <th>내용</th>
-                        <td><textarea name="content" class="td_write write_width"></textarea></td>
-                    </tr>
-                    <tr>
-                        <th>공개여부</th>
-                        <td>
-                            공개<input type="radio" name="password" vlaue="공개">&nbsp;&nbsp;  
-                            비공개<input type="radio" name="password" vlaue="비공개">
-                        </td>
-                    </tr>
-                </table>
-                <br>
-                <input class="commu_btn commu_write_btn" type="submit" value="등록">
-                <input class="commu_btn commu_write_btn commu_write_btn2" type="reset" value="다시작성하기">
-            </form>
+        <div id="content" class="video_con">
+            <div class="life_title_box">
+                <div>
+                    <a class="title"></a>
+                    <h1>육아리듬 체크</h1>
+                </div>
+                <ul class="life_icon">
+                <li><img src="../img/new_life1.png" alt="" width="80px"></li>
+                <li><img src="../img/new_life2.png" alt="" width="80px"></li>
+                <li><img src="../img/new_life3.png" alt="" width="80px"></li>
+            </ul>
+            </div>
+            <div class="alam life_con page">
+                <!-- 알람 팝업메세지 -->
+                <h4 id="date"></h4><!--날짜값 가져오는 부분(script이용)-->
+                <ul class="life_list">
+                    <!-- icon_size: 30x30 -->
+                    <!-- <li class="life_remove">  
+                        <span>PM 1:00 식사</span> 
+                        <span class="test4"><a class="alam_icon"></a></span>
+                    </li> -->
+                </ul>
+            </div>
         </div>
-        <!-- footer -->
-        <div id="footer">
-    
+        <!-- ------------------------------------------------------------------ -->
+        <div class="defe_bg">
+            <div class="defe_con">
+                <h2>배변</h2>
+                <form action="">
+                    <label>많다</label>
+                    <input type="radio" name="volume" value="많다">
+                    <label>적당하다</label>
+                    <input type="radio" name="volume" value="적당하다">
+                    <label>적다</label>
+                    <input type="radio" name="volume" value="적다">
+                    <input type="submit" value="입력" class="btn btn_color_linear">
+                </form>
+            </div>
         </div>
+
+        <div class="meal_bg">
+            <div class="meal_con">
+                <h2>수유</h2>
+                <form action="">
+                    <label>수유</label>
+                    <input type="number" name="mL" value="">
+                    <label>mL</label>
+                    <input type="submit" value="입력" class="btn btn_color_linear">
+                </form>
+            </div>
+        </div>
+
+        <div class="sleep_bg">
+            <div class="sleep_con">
+                <h2>수면시간 설정</h2>
+                <form action="">
+                    <label>시간</label>
+                    <input type="time" name="time" value="">
+                    <input type="submit" value="입력" class="btn btn_color_linear">
+                </form>
+            </div>
+        </div>
+
+
+
     </div>
+    <script>
+        $(function(){
+        $.today()
+    });
+    </script>
 </body>
 </html>
-
 
