@@ -19,21 +19,7 @@
     <!-- content  -->
     <div id="bk">
        <!-- nav -->
-       <div id="main_header">
-        <div class="left_icon">
-            <div class="menu"><img src="img/left_icon.png" width="50px"></div>
-            <a href="index.html" class="logo"><img src="img/sub_title2.png" width="100px"></a>
-        </div>
-        <div class="right_icon"><a href="login_page.html"></a></div>
-        </div>
-        <!-- bottom_nav -->
-        <div class="bottom_nav">
-            <ul>
-                <li><a href="statistic.html">통계</a></li>
-                <li><a href="baby_life.html">육아리듬</a></li>
-                <li><a href="commu.html">커뮤니티</a></li>
-            </ul>
-        </div>
+		<%@ include file = "menu.jsp" %>
         <!-- content -->
         <div id="content" class="video_con">
             <div class="life_title_box">

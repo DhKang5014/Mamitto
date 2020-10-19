@@ -1,5 +1,8 @@
 
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.DAO.selectDAO"%>
+<%@page import="com.model.master.DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,75 +14,81 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <script src="script/jquery-3.5.1.min.js"></script>
+    <script src="../script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
-
     <title>mamiddo</title>
 </head>
 <body>
-	<%@ include file = "menu.jsp" %>
-    <!-- open -->
-    <div class="open">
-        <ul>
-            <li class="open1"></li>
-            <li class="open2"></li>
-            <li class="open3"></li>
-        </ul>
-    </div>
+
     <!-- content  -->
-    
     <div id="bk">
         <!-- nav -->
-        <div id="main_header">
-            <div class="left_icon">
-                <div class="menu"><img src="img/menu.png" width="50px"></div>
-                <a href="#" class="logo"><img src="img/logo.png" width="150px"></a>
-            </div>
-            <% if (email != null && email!= "") { %>
-            <div class="right_icon"><a href="my_page.jsp"></a></div>
-            <%} else { %>
-            <div class="right_icon"><a href="login_page.jsp"></a></div>
-            <%} %>
-        </div>
+		<%@ include file = "menu.jsp" %>
         <!-- content -->
-        <div id="content">
+        <div id="content" class="index_con">
             <div class="meno">
-                <!-- baby img -->
-                <div></div>
-    			<div></div> 
+                <!-- 영상 부분 -->
+                <a class="my_btn play_btn btn_color_linear">IP 입력이 필요합니다.</a>
             </div>
-            <div class="meno_con my_baby">
-            <% if (email != null && email!= "") { %>
-                <h4>기념일</h4>
-                <ul class="my_day">
-                    <li>D+50</li>
-                    <li>2020. 11. 23 (월)</li>
+            <div class="page">
+                <ul class="life_list index_alam">
+                    <li class="defecate">
+                        <a class="alam_left_p" id="index_red">위험</a>
+                        <spna>2020.10.17</spna>
+                        <spna class='meal_color'id="index_red2">위험 합니다.</spna>
+                    </li>
+                    <li class="defecate">
+                        <a class="alam_left_y">주의</a>
+                        <spna>2020.10.17</spna>
+                        <spna class='defecate_color'>주의가 필요 합니다.</spna>
+                    </li>
+                    <li class="defecate">
+                        <a class="alam_left_y" id="index_green">안전</a>
+                        <spna>2020.10.17</spna>
+                        <spna class='meal_color' id="index_green2">위험 합니다.</spna>
+                    </li>  
                 </ul>
-                <ul class="my_day">
-                    <li>D+100</li>
-                    <li>2020. 01. 12 (화)</li> 
-                </ul>
-            </div>
-            <div class="meno_con today">
-                <h4>Today List</h4>
-                <ul class="my_day">
-                    <li>식사</li>
-                    <li>n회</li>
-                </ul>
-                <ul class="my_day">
-                    <li>취침</li>
-                    <li>n회</li>
-                </ul>
-                <ul class="my_day">
-                    <li>배변</li>
-                    <li>n회</li>
-                </ul>
+                <br>
+                <hr>
+            <% if (baby_birth != null && baby_birth!= "") { %>
+                <div class="meno_con my_baby">
+                    <h4>기념일</h4>
+                    <ul class="my_day">
+                        <li>D+50</li>
+                        <li><%= baby_birth_fifty %></li>
+                    </ul>
+                    <ul class="my_day">
+                        <li>D+100</li>
+                        <li><%= baby_birth_hundred %></li>
+                    </ul>
+                </div>
+                <div class="meno_con today">
+                    <h4>Today List</h4>
+                    <ul class="my_day">
+                        <li>식사</li>
+                        <li><%= rhy_meal %>회</li>
+                    </ul>
+                    <ul class="my_day">
+                        <li>취침</li>
+                        <li><%= rhy_sleep %>회</li>
+                    </ul>
+                    <ul class="my_day">
+                        <li>배변</li>
+                        <li><%= rhy_defecate %>회</li>
+                    </ul>
+                </div>
             <%} %>
-            </div>
+            </div>     
         </div>
-        <!-- footer -->
-        <div id="footer">
-
+        <div class="pop_bg pop_ip_box">
+            <div>
+                <form action="JoinCameraServiceCon.dot" method="post">
+                    <div>
+                        <input type="text" name="ip_num" value="" class="pop_con1 pop_ip" placeholder="IP 입력이 필요합니다.">
+                    </div>
+                    <input type="submit" value="전송" class="btn my_btn btn_color">
+                </form>
+            </div>
         </div>
     </div>
 </body>

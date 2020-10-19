@@ -10,6 +10,7 @@ import com.model.master.*;
 public class selectDAO extends DAO {
 	ResultSet rs = null;
 	ArrayList<DTO> dto_array = null;
+	String data[] = {"meal", "sleep", "defecate"};
 
 	// email을 통한 아이 정보값 찾기
 	public ArrayList<DTO> select(String sql, String mail) {
@@ -36,7 +37,7 @@ public class selectDAO extends DAO {
 				baby_birth_hundred = rs.getString(6);
 				cam_ip = rs.getString(3);
 				System.out.println("birth 가져온 후");
-				dto_out = new DTO(email, baby_name, baby_birth, cam_ip, baby_birth_fifty, baby_birth_hundred);
+				dto_out = new DTO(email, baby_name, cam_ip, baby_birth, baby_birth_fifty, baby_birth_hundred);
 				dto_array.add(dto_out);
 			}
 			
@@ -52,6 +53,42 @@ public class selectDAO extends DAO {
 		return result;
 	}
 
+	public int[] count(String sql, String mail) {
+		psmt(sql);
+		int co[] = new int[3];
+		try {
+			String email = mail;
+		    int rhy_meal = 0;
+		    int rhy_sleep = 0;
+		    int rhy_defecate = 0;
+		    
+		    for (int i = 0; i < data.length; i++) {
+		    	getPsmt().setString(1, email);
+		    	getPsmt().setString(2, data[i]);
+		    	rs = getPsmt().executeQuery();
+				while (rs.next()) {
+				if (i == 0) {
+					rhy_meal = rs.getInt(1);
+					co[i] = rhy_meal;
+				}else if (i == 1) {
+					rhy_sleep = rs.getInt(1);
+					co[i] = rhy_sleep;					
+				}else if (i == 2) {
+					rhy_defecate = rs.getInt(1);
+					co[i] = rhy_defecate;					
+				}
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return co;
+	}
+	
 	// 리스트에 있는 값을 html형태로 수정작업
 	public String getHtml(ArrayList<DTO> dto_array) {
 		String str = null;

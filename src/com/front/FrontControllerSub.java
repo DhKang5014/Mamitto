@@ -24,19 +24,17 @@ public class FrontControllerSub extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		String reqURI = request.getRequestURI();
-		String path = request.getContextPath();
-		String resultURI = reqURI.substring(path.length() + 5);
 		
 		System.out.println("FrontControllerSub >> "+ request.getParameter("baby_name"));
 		
 		Command command = null;
 		String moveURL = null;
-		System.out.println("FrontControllerSub >> "+resultURI);
-		if (resultURI.equals("JoinBabyServiceCon.dot")) {
+		System.out.println("FrontControllerSub >> "+reqURI);
+		if (reqURI.equals("/JoinBabyServiceCon.dot")) {
 			command = new JoinBabyServiceCon();
-		}else if(resultURI.equals("JoinCameraServiceCon.dot")) {
+		}else if(reqURI.equals("/JoinCameraServiceCon.dot")) {
 			command = new JoinCameraServiceCon();
-		}else if(resultURI.equals("WriteServiceCon.dot")) {
+		}else if(reqURI.equals("/WriteServiceCon.dot")) {
 			command = new WriteServiceCon();
 		}
 		moveURL = command.execute(request,response);

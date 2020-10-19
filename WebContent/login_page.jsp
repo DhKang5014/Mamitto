@@ -23,10 +23,10 @@
                 <h2>로그인</h2>
             </div>
             <div>
-                <form action="LoginServiceCon.do" class="login_box">
+                <form action="LoginServiceCon.do" method="post" class="login_box">
                     <div class="form_box">
-                        <input type="text" id="email" value="" placeholder="아이디를 입력해주세요.">
-                        <input type="text" id="pw" value="" placeholder="비밀번호를 입력해주세요.">
+                        <input type="text" id="email" name="email" value="" placeholder="아이디를 입력해주세요.">
+                        <input type="text" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
                     </div>
                     <div>
                         <input type="submit" value="Login" class="btn">

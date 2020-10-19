@@ -13,28 +13,34 @@
     <!-- font -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
-    <script src="script/script.js"></script>
+    <script src="script/script_sh.js"></script>
     <title>commu</title>
 </head>
 <body>
     <!-- content  -->
     <div id="bk">
- <%@ include file = "menu.jsp" %>
         <!-- nav -->
         <div id="main_header">
             <div class="left_icon">
-                <div class="menu"><img src="img/menu.png" width="50px"></div>
-                <a href="index.jsp" class="logo"><img src="img/logo.png" width="150px"></a>
+                <div class="menu"><img src="img/left_icon.png" width="50px"></div>
+                <a href="index.jsp" class="logo"><img src="img/sub_title2.png" width="100px"></a>
             </div>
-            <% if (email != null) { %>
             <div class="right_icon"><a href="my_page.jsp"></a></div>
-            <%} else { %>
-            <div class="right_icon"><a href="login_page.jsp"></a></div>
-            <%} %>
+        </div>
+        <!-- bottom_nav -->
+        <div class="bottom_nav">
+            <ul>
+                <li><a href="statistic.jsp">통계</a></li>
+                <li><a href="baby_life.jsp">육아리듬</a></li>
+                <li><a href="commu.jsp">커뮤니티</a></li>
+            </ul>
         </div>
         <!-- content -->
-        <div id="content" class="page commu">
+        <div class="life_title">
+            <a class="title"></a>
             <h1>커뮤니티</h1>
+        </div>
+        <div id="content" class="page commu">
             <table>
                 <thead>
                     <tr>
@@ -72,5 +78,3 @@
     </div>
 </body>
 </html>
-
-

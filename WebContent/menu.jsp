@@ -21,7 +21,10 @@
     String baby_birth_fifty = null;
     String baby_birth_hundred = null;
     String cam_ip = null;
+    int count[] = null;
     int rhy_meal = 0;
+    int rhy_sleep = 0;
+    int rhy_defecate = 0;
     ArrayList<DTO> dto_array = null;
     
     if(cookies != null){
@@ -63,30 +66,34 @@
     } catch (NullPointerException e) {
   		System.out.print(e);
   	}
-    
-    
-    
+    // email값 가지고 rhythm에 있는 내용을 DB 접속해서 가져오기
+    count = dao.count(dto.getSql_select_rhythm(), email);
+    if (count.length > 0){
+    	for (int i=0; i<count.length; i++){
+    		System.out.println(count[i]);
+			if (i == 0) {
+				rhy_meal = count[i];
+			}else if (i == 1) {
+				rhy_sleep = count[i];					
+			}else if (i == 2) {
+				rhy_defecate = count[i];					
+			}
+    	}
+    }
 	 %>
-	<div class="menu_bar">
+        <div id="main_header">
+            <div class="left_icon">
+                <div class="menu"><img src="img/left_icon.png" width="50px"></div>
+                <a href="index.jsp" class="logo"><img src="img/sub_title2.png" width="100px"></a>
+            </div>
+            <div class="right_icon"><a href="index.jsp"></a></div>
+        </div>
+         <!-- bottom_nav -->
+         <div class="bottom_nav">
             <ul>
-            <% if (email != null && email!= "") { %>
-            	<li><a href="my_page.jsp"><%= email %>님</a></li>
-			<%} else { %>
-				<li><a href="login_page.jsp">로그인이 필요합니다.</a></li>
-			<%} %>
-            <% if (cam_ip != null && cam_ip != "") { %>
-                <li><a href="video2.jsp">실시간 영상</a></li>
-            <%} else { %>
-                <li><a href="video.jsp">실시간 영상</a></li>
-            <%} %>
-                <li><a href="baby_life.jsp">육아생활</a></li>
                 <li><a href="statistic.jsp">통계</a></li>
-                <li><a href="history.jsp">History</a></li>
+                <li><a href="baby_life.jsp">육아리듬</a></li>
                 <li><a href="commu.jsp">커뮤니티</a></li>
-            <% if (email != null) { %>
-            	<li><a id='logout' href="LogoutServiceCon.do">로그아웃</a></li>
-            <%} %>
             </ul>
         </div>
-
 </html>
