@@ -26,7 +26,7 @@ public class SaveSleepBG extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		// get email, cur time
+		// get email, cur times
 		String email = request.getParameter("email");
 		String curtime = request.getParameter("curtime");
 		String category = request.getParameter("category");
