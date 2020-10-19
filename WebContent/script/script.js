@@ -72,7 +72,7 @@ function sleep_bg_save(){
     $(".sleep_con").css("display","none");
 }
 
-//------------------------------------------------------sfd
+//------------------------------------------------------
 
 
 function func_ajax(email,curtime,num,category){

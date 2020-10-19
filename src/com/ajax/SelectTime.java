@@ -17,9 +17,6 @@ import com.DAO.select_mealDAO;
 import com.DTO.mealDTO;
 import com.google.gson.Gson;
 
-/**
- * Servlet implementation class SelectMeal
- */
 @WebServlet("/SelectTime")
 public class SelectTime extends HttpServlet {
 	/**
