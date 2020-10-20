@@ -91,22 +91,22 @@ public class selectDAO extends DAO {
 		return co;
 	}
 	
-	public ArrayList<DTO> count_range(String sql, String mail, String category) {
+	public ArrayList<DTO> count_range(String sql, String email, String category) {
 		psmt(sql);
+		ArrayList<DTO> to_array = null;
 		try {
 			DTO dto_out = null;
-			String email = mail;
 		    int rhy_count = 0;
 		    String day = null;
 		    
-		    	getPsmt().setString(1, email);
-		    	getPsmt().setString(2, category);
-		    	rs = getPsmt().executeQuery();
-				while (rs.next()) {
-					rhy_count = rs.getInt(1);
-					day = rs.getString(2);
-					dto_out = new DTO(rhy_count, day);
-					dto_array.add(dto_out);
+	    	getPsmt().setString(1, email);
+	    	getPsmt().setString(2, category);
+	    	rs = getPsmt().executeQuery();
+			while (rs.next()) {
+				rhy_count = rs.getInt(1);
+				day = rs.getString(2);
+				dto_out = new DTO(rhy_count, day);
+				to_array.add(dto_out);
 			}
 			
 		} catch (SQLException e) {
@@ -115,7 +115,7 @@ public class selectDAO extends DAO {
 		} finally {
 			close();
 		}
-		return dto_array;
+		return to_array;
 	}
 	
 	public ArrayList<bodycheckDTO> selectBody(String sql, String mail) {
