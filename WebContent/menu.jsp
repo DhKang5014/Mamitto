@@ -33,7 +33,6 @@
     String weight = "0";
     String day = null;
     ArrayList<bodycheckDTO> to_array = null;
-    ArrayList<commuDTO> commu_array = null;
     
     if(cookies != null){
          
@@ -103,9 +102,6 @@
   		System.out.print(e);
   	}
     
-    commuDTO comDTO = new commuDTO(email);
-    commuDAO comDAO = new commuDAO();
-    commu_array = comDAO.selectCommu(comDTO.getSql_select_commu_info(), email);
 	 %>
         <div id="main_header">
             <div class="left_icon">
