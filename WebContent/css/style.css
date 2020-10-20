@@ -49,8 +49,12 @@ label{
  }
 h1{
     margin-top:0em;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     text-align: center;
+}
+#move{ /*통계 hr*/
+    width:1em;
+    margin: 0 auto;
 }
 h3{color: #726973;}
 h4{color:#726973;}
@@ -554,7 +558,7 @@ h4{color:#726973;}
 .statistic > ul{
     width: 100%;
     display: block;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
     height: 70px;
     margin-left: 5%;
   
