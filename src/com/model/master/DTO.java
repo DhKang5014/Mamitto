@@ -102,6 +102,12 @@ public class DTO {
 		this.count_rhythm = count_rhythm;
 	}
 
+	public DTO(int count_rhythm, String day) {
+		// TODO Auto-generated constructor stub
+		this.day = day;
+		this.count_rhythm = count_rhythm;
+	}
+
 	public String getDb_url() {
 		return db_url;
 	}
