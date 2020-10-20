@@ -20,4 +20,6 @@ public class insert_mealDAO extends DAO{
 		}
 		return cnt;
 	}
+
+	
 }

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.insert_mealDAO;
+import com.DAO.update_mealDAO;
 
 @WebServlet("/SaveMealBG")
 public class SaveMealBG extends HttpServlet {
@@ -33,6 +34,7 @@ public class SaveMealBG extends HttpServlet {
 		String curtime = request.getParameter("curtime");
 		String category = request.getParameter("category");
 		String input_text = request.getParameter("input_text");
+		int num = Integer.parseInt(request.getParameter("num"));
 		
 		
 		// check email, curtime
@@ -40,13 +42,23 @@ public class SaveMealBG extends HttpServlet {
 		System.out.println("curtime >> " + curtime);
 		System.out.println("category >> " + category);
 		System.out.println("input_text >> " + input_text);
+		System.out.println("num >> " + num);
 		
 		
 
-		// Save Meal BG
-		String sql = "sadf";
+		// check sql query
+		String sql = "update rhythm set rh_meal = ? where email = ? and rh_num = ? ";
 		System.out.println("sql >> " + sql);
 		
+		// DAO
+		update_mealDAO dao = new update_mealDAO();
+		int cnt = dao.update(sql,input_text,email,num);
+		
+		if(cnt == 0) {
+			System.out.println("update fail ! ");
+		}else {
+			System.out.println("update success ! ");
+		}
 
 	}
 
