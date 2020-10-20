@@ -14,6 +14,7 @@
     <!-- script -->
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
+        <script src="script/redirect_login.js"></script>
     <!-- title명칭 수정할 것 -->
     <title>join_baby_page</title>
 </head>

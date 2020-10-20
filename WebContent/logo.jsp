@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="../web/images/icons/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../web/images/icons/favicon-32x32.png">
 
+
 <title>안녕하세요! PWA by JS</title>
 <style>
   html,

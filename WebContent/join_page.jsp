@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
+        <script src="script/redirect_login.js"></script>
     <title>join</title>
 </head>
 <body>
