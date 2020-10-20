@@ -4,6 +4,8 @@ public class statisticDTO {
 	
 	String rh_time;
 	int rh_count;
+	
+	String Sql_select_statistic = "select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = ? and rh_category = ? group by to_char(rh_time, 'mm-dd') order by day desc";
 
 	public String getRh_time() {
 		return rh_time;
@@ -19,6 +21,10 @@ public class statisticDTO {
 
 	public void setRh_count(int rh_count) {
 		this.rh_count = rh_count;
+	}
+
+	public String getSql_select_statistic() {
+		return Sql_select_statistic;
 	}
 
 	public statisticDTO(String rh_time, int rh_count) {

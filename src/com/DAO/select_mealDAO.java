@@ -48,6 +48,8 @@ public class select_mealDAO extends DAO{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		return ar;
 	}
@@ -66,6 +68,8 @@ public class select_mealDAO extends DAO{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			close();
 		}
 		return cnt;
 	}

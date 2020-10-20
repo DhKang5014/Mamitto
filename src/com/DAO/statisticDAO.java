@@ -50,6 +50,8 @@ public class statisticDAO extends DAO{
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			close();
 		}
 		return ar;
 	}

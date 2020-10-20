@@ -59,9 +59,29 @@
     </div>
     <script>
     //columnchart_material1----------------------------------------
+    var chh1 = [[]]
+$.ajax(
+        { 
+            url: "../../DeleteMeal", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+            data: {
+                email : email,
+                curtime : curtime,
+                
+                
+            }, // HTTP 요청과 함께 서버로 보낼 데이터 
+            method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+            //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+            }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+        .done(function(data) { 
+               console.log(data);
+               chh1[][] = safd;
+            }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+        .fail(function(xhr, status, errorThrown) { 
+                alert("실패");
+    }) //;
     google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart1);
-
+	
       function drawChart1() {
         var data = google.visualization.arrayToDataTable([
           ['Week','횟수'],
@@ -118,18 +138,19 @@
          //columnchart_material3----------------------------------------
     google.charts.load('current', {'packages':['bar']});
     google.charts.setOnLoadCallback(drawChart3);
-
+	var chg1 = [
+        ['Week','횟수'],
+        ['월', 1],
+        ['화', 3],
+        ['수', 4],
+        ['목', 1],
+        ['금', 2],
+        ['토', 3],
+        ['일', 1]
+      ]
+	console.log('asdf',chg1[1][1]);
       function drawChart3() {
-        var data3 = google.visualization.arrayToDataTable([
-          ['Week','횟수'],
-          ['월', 1],
-          ['화', 3],
-          ['수', 4],
-          ['목', 1],
-          ['금', 2],
-          ['토', 3],
-          ['일', 1]
-        ]);
+        var data3 = google.visualization.arrayToDataTable(chg1);
 
         var options3 = {
           chart: {
