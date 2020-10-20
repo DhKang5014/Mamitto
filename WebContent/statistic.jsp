@@ -157,13 +157,14 @@
 /* 				dataset4 = dataset4.split(',,'); */	
 				console.log('result',dataset4);
 				console.log('result2',dataset4.toString(),'size',dataset4.length,"1,1 찍어",dataset4[1][1]);
-				const len = Array(Array(), Array(), Array(), Array())
+				const len = Array()
 /* 				const len = [parseInt(dataset4.length/3)][3]; */
 				console.log('len create', len, 'length', parseInt(dataset4.length/3))
  				for(var q=0;q<dataset4.length/3;q++){ 
-				len[q].splice(0, 1, dataset4[0+3*q]);
+/* 				len[q].splice(0, 1, dataset4[3*q]);
 				len[q].splice(1, 1, dataset4[3*q+1]);
-				len[q].splice(2, 1, dataset4[3*q+2]);
+				len[q].splice(2, 1, dataset4[3*q+2]); */
+				len.push(Array(dataset4[3*q], dataset4[3*q+1], dataset4[3*q+2]))
 				/* 	len.push(dataset4[q]); */
 				} 
 				
