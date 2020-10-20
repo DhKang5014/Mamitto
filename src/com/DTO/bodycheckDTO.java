@@ -8,7 +8,7 @@ public class bodycheckDTO {
 	String day;
 	
 	String sql_insert_bodycheck = "insert into bodycheck(bd_num, bd_height, bd_weight, email) values (bd_num_sequence.nextval, ?, ?, ?)";
-	String sql_select_bodycheck = "select max(bd_height),max(bd_weight), to_char(bd_time, 'mm-dd') as day from bodycheck where email=? group by to_char(bd_time, 'mm-dd') order by day desc";
+	String sql_select_bodycheck = "select max(bd_height),max(bd_weight), to_char(bd_time, 'mm-dd') as day from bodycheck where email=? group by to_char(bd_time, 'mm-dd') order by day";
 
 	public bodycheckDTO(String email, String height, String weight, String day) {
 		this.email=email;
