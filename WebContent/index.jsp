@@ -42,14 +42,14 @@
                         <spna>2020.10.17</spna>
                         <spna class='sleep_color'>주의가 필요 합니다.</spna>
                     </li>
-                    <li class="defecate">
+                    <li class="defecate"> 
                         <a class="alam_left_y" id="index_green">안전</a>
                         <spna>2020.10.17</spna>
                         <spna class='meal_color' id="index_green2">위험 합니다.</spna>
                     </li>  
                 </ul>
                 <br> 
-                <hr>
+                <hr> 
             <% if (baby_birth != null && baby_birth!= "") { %>
                 <div class="meno_con my_baby">
                     <h4>기념일</h4>
