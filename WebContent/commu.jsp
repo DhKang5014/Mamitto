@@ -39,7 +39,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                	<%for (int i=0; i<commu_array.size(); i++){ %>
+                	<% if (commu_array.size()>0){
+                	for (int i=0; i<commu_array.size(); i++){ %>
                     <tr>
                         <th><%=i+1 %></th>
                         <th><%=commu_array.get(i).getTitle() %></th>
@@ -47,7 +48,7 @@
                         <th><%=commu_array.get(i).getTime() %></th>
                         <th>1</th>
                     </tr>
-                    <%} %>
+                    <%}} %>
                 </tbody>
             </table>
             <br>
