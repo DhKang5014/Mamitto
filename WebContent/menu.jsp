@@ -14,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <title>In </title>
-    <script src="script/redirect_login.js"></script>
+    
 </head>
 <body>
 <% Cookie[] cookies = request.getCookies();

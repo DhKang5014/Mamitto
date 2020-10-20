@@ -17,7 +17,6 @@
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
     <script src='script/script_dh.js'></script>
-    <script src="script/redirect_login.js"></script>
     <title>mamiddo</title>
 </head>
 <body>
@@ -30,7 +29,8 @@
         <div id="content" class="index_con">
             <div class="meno">
                 <!-- 영상 부분 -->
-                <a class="my_btn play_btn btn_color_linear">IP 입력이 필요합니다.</a>
+                <iframe id="myFrame" src="" style="height:100%;width:100%"></iframe>
+                <a class="my_btn play_btn btn_color_linear" id="asdf">IP 입력이 필요합니다.</a>
             </div>
             <div class="page">
                 <ul class="life_list index_alam">
@@ -96,7 +96,7 @@
     </div>
     <p>
       <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
-        Enable Push Messaging
+        Enable Push Messagings
       </button>
     </p>
     <section class="subscription-details js-subscription-details is-invisible">
@@ -110,7 +110,11 @@
   <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   
   <script>
-
+$(".play_btn").on("click",function(){
+  console.log("play_btn");
+  $('#email').css('display','block');
+  $('#email').val(email);
+});
   </script>
 </body>
 </html>
