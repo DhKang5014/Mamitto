@@ -105,34 +105,7 @@ $(function(){
             element.innerText = today;
         }
     //------------------------------------------------------------
-    $.clock = function(){
-        var now = new Date();
-        var hours = now.getHours();
-        var minutes = now.getMinutes();
-        var seconds = now.getSeconds();
-    
-        if(hours > 12){
-            hours -= 12;
-             var ampm = "오후";
-        }else{
-            var ampm = "오전";
-        }
-        if(hours < 10){
-            hours = "0"+hours;
-        }
-        if(minutes < 10){
-            minutes = "0"+minutes;
-        }
-        if(seconds < 10){
-            seconds = "0"+seconds;
-        }
-    
-        // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-        now = ampm + hours +":"+minutes;
-    
-        return now;
-    }
-
+  
     // BarChart ------------------------------------------------------
     
         $(".statistic > ul > li:nth-child(1)").on("click",function(){

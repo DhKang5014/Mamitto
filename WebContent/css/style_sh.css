@@ -87,8 +87,8 @@ input{
 .btn{
     margin: 0 auto;
     width: 20em;
-    background-color:#ff4a91;
-    /* background: linear-gradient(to left, #fcc4d1, #d7c0f8); */
+    /*background-color:#ff4a91;*/
+    background: linear-gradient(to left, #fcc4d1, #d7c0f8);
     border-style: none;
     height: 3em;
     color: #fdfdfd;
