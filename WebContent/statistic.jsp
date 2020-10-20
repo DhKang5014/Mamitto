@@ -160,7 +160,7 @@
 				const len = Array(Array(), Array(), Array(), Array())
 /* 				const len = [parseInt(dataset4.length/3)][3]; */
 				console.log('len create', len, 'length', parseInt(dataset4.length/3))
- 				for(var q=0;q<dataset4.length/3;q++){
+ 				for(var q=0;q<dataset4.length/3;q++){ 
 				len[q].splice(0, 1, dataset4[0+3*q]);
 				len[q].splice(1, 1, dataset4[3*q+1]);
 				len[q].splice(2, 1, dataset4[3*q+2]);
