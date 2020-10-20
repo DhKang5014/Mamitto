@@ -41,8 +41,8 @@ label{
     font-size: 1.5em;
     border-radius: 0.5em;  
     border-style: none;
-    /* background: linear-gradient(to left, #fcc4d1, #d7c0f8); */
-    background-color:#ff4a91;
+    background: linear-gradient(to left, #fcc4d1, #d7c0f8);
+    /* background-color:#ff4a91; */
     
     cursor: pointer;
     color: #fdfdfd;
@@ -462,6 +462,11 @@ h4{color:#726973;}
 .my > h3{
    text-align: center;
 }
+
+.photo > img{
+    display: block;
+    margin: 0 auto;
+}
 .my_btn{
     font-size: 1.2em;
     width: 16em;
@@ -653,7 +658,7 @@ h4{color:#726973;}
 /* baby_life ---------------------------------*/
 .life_title_box{
     background-color:rgb(250, 244, 244);
-    height: 16em;
+    height: 17em;
     padding-top:4em;
 }
 .life_title{
