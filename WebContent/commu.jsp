@@ -15,6 +15,7 @@
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
         <script src="script/redirect_login.js"></script>
+        <script src="script/script_commu.js"></script>
     <title>commu</title>
 </head>
 <body>
@@ -77,7 +78,7 @@
         </div>
         <!-- footer -->
         <div id="footer">
-    
+    		
         </div>
     </div>
 </body>

@@ -61,7 +61,6 @@ public class SelectMeal extends HttpServlet {
 		try {
 			out = response.getWriter();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		// 

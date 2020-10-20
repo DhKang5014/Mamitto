@@ -30,7 +30,7 @@ public class JoinCameraServiceCon implements Command {
 		
 		
 		System.out.println("ip >> "+ ip);
-		
+		System.out.println("email >> "+ email);
 	    String sql = "update babys set cam_ip = ? where email = ? ";
 	    
 		join_cameraDAO dao = new join_cameraDAO();
