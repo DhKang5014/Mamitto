@@ -178,6 +178,8 @@ where m.email = b.email
 select * from members m, babys b where m.email = b.email and m.email = 'admin'
 
 select * from rhythm;
+select * from bodycheck;
+update bodycheck set bd_weight=6 where bd_num=1;
 
 select max(bd_height),max(bd_weight), to_char(bd_time, 'mm-dd') as day from bodycheck where email='admin' group by to_char(bd_time, 'mm-dd') order by day desc;
 

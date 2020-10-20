@@ -14,6 +14,10 @@ function defecate(k){
 function meal_pop(){
     $(".meal_bg").css("display","block");
     $(".meal_con").css("display","block");
+    // $(".meal_bg").fadeIn();
+    // $(".meal_con").fadeIn();
+    
+
 }
 function defe_pop(){
     $(".defe_bg").css("display","block");
@@ -34,31 +38,8 @@ $(function(){
         });
     
         // open --------------------------------------------------
-        setInterval(function(){     
-            $(".open1").animate({top:"31em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            };    
-            $(".open2").animate({top:"31em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            }; 
-            $(".open3").animate({top:"31em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            }; 
-        });
-        setInterval(function(){     
-            $(".open1").animate({top:"32em"},"slow"),function(){
-                $(this).animate({top:"31em"},"slow")
-            };    
-            $(".open2").animate({top:"30em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            }; 
-            $(".open3").animate({top:"32em"},"slow"),function(){
-                $(this).animate({top:"31em"},"slow")
-            }; 
-        });  
-    
         setInterval(function(){
-            $(".open").fadeOut();
+            $("#open").fadeOut();
         },1000);
     
         // menu  ---------------------------------------------------
@@ -81,20 +62,24 @@ $(function(){
         // content-page----------------------------------------------
         setInterval(function(){
             $(".page").animate({"margin-top":"0em"},"slow");
+            $("#move").animate({"width":"8em"},"slow")
         });
       
         //my_page ---------------------------------------------------
         $(".popup").on("click",function(){
-            $(".pop_bg").css("display","block");
+            // $(".pop_bg").css("display","block");
+            $(".pop_bg").fadeIn();
         });
     
         $(".btn").on("click",function(){
             $(".pop_bg").css("display","none");
+
         });
     
         //index_pop -------------------------------------------------
         $(".play_btn").on("click",function(){
-            $(".pop_bg").css("display","block");
+            // $(".pop_bg").css("display","block");
+            $(".pop_bg").fadeIn();
         });
     
     
@@ -148,6 +133,12 @@ $(function(){
         return now;
     }
         
+<<<<<<< HEAD
+=======
+    // creat
+       
+        
+>>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
     
     // BarChart ------------------------------------------------------
     

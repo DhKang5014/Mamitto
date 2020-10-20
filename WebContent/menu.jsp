@@ -91,6 +91,7 @@
     // email값을 가지고 bodycheck에 있는 내용들 DB접속해서 가져오기
     bodycheckDTO to = new bodycheckDTO(email);
     to_array = dao.selectBody(to.getSql_select_bodycheck(), email);
+    
     try {
     	if (to_array.size() > 0){
     	

@@ -24,6 +24,7 @@
         <div class="life_title_box">
             <a class="title"></a>
             <h1>내 아이 성장기록</h1> 
+            <div class="photo"><img src="img/photo.png" width="150px"></div>
         </div>
         <div id="content" class="page my_page">
             <div class="my">

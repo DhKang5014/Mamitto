@@ -14,6 +14,9 @@
     <title>login</title>
 </head>
 <body>
+	<div id="open">
+        <img src="img/open2.png" width="100%">
+    </div>
     <div class="bg">
         <div id="benner">
         </div>
