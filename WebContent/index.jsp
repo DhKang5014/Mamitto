@@ -91,5 +91,19 @@
             </div>
         </div>
     </div>
+    <p>
+      <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+        Enable Push Messaging
+      </button>
+    </p>
+    <section class="subscription-details js-subscription-details is-invisible">
+      
+     <a href="https://web-push-codelab.glitch.me/">Push Companion</a>
+      <pre><code class="js-subscription-json"></code></pre>
+    </section>
+  
+  <script src="scripts/main.js"></script>
+  <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </body>
 </html>
