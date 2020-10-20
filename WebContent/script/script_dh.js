@@ -1,3 +1,5 @@
+
+
 window.onload = function(){
   go();
 }
@@ -21,7 +23,7 @@ function go(){
   }
   var email = getCookieValue('email');
   console.log(typeof(email));
-  $('#email').val(email);
+  
   console.log(window.location.href.split('/')[2]+'/'+'login_page.jsp');
 }
 
