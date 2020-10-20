@@ -50,7 +50,7 @@
                         <spna class='meal_color' id="index_green2">위험 합니다.</spna>
                     </li>  
                 </ul>
-                <br>  
+
                 <hr> 
             <% if (baby_birth != null && baby_birth!= "") { %>
                 <div class="meno_con my_baby">
