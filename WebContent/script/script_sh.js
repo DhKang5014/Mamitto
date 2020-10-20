@@ -38,31 +38,8 @@ $(function(){
         });
     
         // open --------------------------------------------------
-        setInterval(function(){     
-            $(".open1").animate({top:"31em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            };    
-            $(".open2").animate({top:"31em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            }; 
-            $(".open3").animate({top:"31em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            }; 
-        });
-        setInterval(function(){     
-            $(".open1").animate({top:"32em"},"slow"),function(){
-                $(this).animate({top:"31em"},"slow")
-            };    
-            $(".open2").animate({top:"30em"},"slow"),function(){
-                $(this).animate({top:"32em"},"slow")
-            }; 
-            $(".open3").animate({top:"32em"},"slow"),function(){
-                $(this).animate({top:"31em"},"slow")
-            }; 
-        });  
-    
         setInterval(function(){
-            $(".open").fadeOut();
+            $("#open").fadeOut();
         },1000);
     
         // menu  ---------------------------------------------------
@@ -166,7 +143,6 @@ $(function(){
             $("#columnchart_material1").css("display","block");
             $("#columnchart_material2").css("display","none");
             $("#columnchart_material3").css("display","none");
-            $("#columnchart_material4").css("display","none");
             $(this).children("img").attr("src","../img/meal2.png");
             $(".statistic > ul > li:nth-child(2) > img ").attr("src","../img/defe1.png");
             $(".statistic > ul > li:nth-child(3) > img ").attr("src","../img/sleep1.png");
@@ -175,20 +151,17 @@ $(function(){
         });
         $(".statistic > ul > li:nth-child(2)").on("click",function(){
             $("#columnchart_material1").css("display","none");
-            $("#columnchart_material2").css("display","block");
             $("#columnchart_material3").css("display","none");
-            $("#columnchart_material4").css("display","none");
+            $("#columnchart_material2").css("display","block");
             $(this).children("img").attr("src","../img/defe2.png");
             $(".statistic > ul > li:nth-child(1) > img ").attr("src","../img/meal1.png");
             $(".statistic > ul > li:nth-child(3) > img ").attr("src","../img/sleep1.png");
             $(".statistic > ul > li:nth-child(4) > img ").attr("src","../img/kg1.png");
         });
-        
         $(".statistic > ul > li:nth-child(3)").on("click",function(){
             $("#columnchart_material1").css("display","none");
             $("#columnchart_material2").css("display","none");
             $("#columnchart_material3").css("display","block");
-            $("#columnchart_material4").css("display","none");
             $(this).children("img").attr("src","../img/sleep2.png");
             $(".statistic > ul > li:nth-child(1) > img ").attr("src","../img/meal1.png");
             $(".statistic > ul > li:nth-child(2) > img ").attr("src","../img/defe1.png");
@@ -197,10 +170,7 @@ $(function(){
         });
             
         $(".statistic > ul > li:nth-child(4)").on("click",function(){
-            $("#columnchart_material1").css("display","none");
-            $("#columnchart_material2").css("display","none");
-            $("#columnchart_material3").css("display","none");
-            $("#columnchart_material4").css("display","block");
+            
             $(this).children("img").attr("src","../img/kg2.png");
             $(".statistic > ul > li:nth-child(1) > img ").attr("src","../img/meal1.png");
             $(".statistic > ul > li:nth-child(2) > img ").attr("src","../img/defe1.png");
