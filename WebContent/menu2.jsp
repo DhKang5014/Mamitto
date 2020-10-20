@@ -95,9 +95,9 @@
     try {
     	if (to_array.size() > 0){
     	
-    		height=to_array.get(0).getHeight();
-    	    weight = to_array.get(0).getWeight();
-    	    day = to_array.get(0).getDay();
+    		height=to_array.get(to_array.size()-1).getHeight();
+    	    weight = to_array.get(to_array.size()-1).getWeight();
+    	    day = to_array.get(to_array.size()-1).getDay();
   		}
     } catch (NullPointerException e) {
   		System.out.print(e);
