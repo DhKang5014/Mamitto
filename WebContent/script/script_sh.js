@@ -133,12 +133,9 @@ $(function(){
         return now;
     }
         
-<<<<<<< HEAD
-=======
     // creat
        
         
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
     
     // BarChart ------------------------------------------------------
     

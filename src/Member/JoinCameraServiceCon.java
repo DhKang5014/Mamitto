@@ -15,7 +15,7 @@ public class JoinCameraServiceCon implements Command {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String moveURL = null;
-		System.out.println("IN JoinCameraServiceCon");
+		System.out.println("IN JoinCameraServiceCon.dot");
 		// GET email.pw,tel,addr
 		try {
 			request.setCharacterEncoding("UTF-8");
@@ -26,35 +26,16 @@ public class JoinCameraServiceCon implements Command {
 		}
 		
 		String ip = request.getParameter("ip_num");
-		
+		String email = request.getParameter("email");
 		
 		
 		System.out.println("ip >> "+ ip);
 		
-		// 쿠키값 가져오기
-	    Cookie[] cookies = request.getCookies() ;
-	    String email = "";
-	    if(cookies != null){
-	         
-	        for(int i=0; i < cookies.length; i++){
-	            Cookie c = cookies[i] ;
-	             
-	            // 저장된 쿠키 이름을 가져온다
-	            String cName = c.getName();
-	             
-	            // 쿠키값을 가져온다
-	            String cValue = c.getValue() ;
-	            if(cName.equals("email")) {
-	            	email = cValue;
-	            	break;
-	            }
-	             
-	        }
-	    }
-	    cameraDTO dto = new cameraDTO(ip, email);
+	    String sql = "update babys set cam_ip = ? where email = ? ";
+	    
 		join_cameraDAO dao = new join_cameraDAO();
 		
-		int cnt = dao.join_camera(dto.getSql_insert_camera_info(), dto.getIp(), dto.getEmail());
+		int cnt = dao.join_camera(sql, ip, email);
 		if (cnt == 0) {
 			moveURL = "fail.jsp";
 		} else {
