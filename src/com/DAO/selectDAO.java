@@ -96,28 +96,17 @@ public class selectDAO extends DAO {
 		try {
 			DTO dto_out = null;
 			String email = mail;
-		    int rhy_meal = 0;
-		    int rhy_sleep = 0;
-		    int rhy_defecate = 0;
+		    int rhy_count = 0;
 		    String day = null;
 		    
 		    	getPsmt().setString(1, email);
 		    	getPsmt().setString(2, category);
 		    	rs = getPsmt().executeQuery();
 				while (rs.next()) {
-				if (category == "meal") {
-					rhy_meal = rs.getInt(1);
-					dto_out = new DTO(rhy_meal, day);
+					rhy_count = rs.getInt(1);
+					day = rs.getString(2);
+					dto_out = new DTO(rhy_count, day);
 					dto_array.add(dto_out);
-				}else if (category == "sleep") {
-					rhy_sleep = rs.getInt(1);
-					dto_out = new DTO(rhy_sleep, day);
-					dto_array.add(dto_out);
-				}else if (category == "defecate") {
-					rhy_defecate = rs.getInt(1);
-					dto_out = new DTO(rhy_defecate, day);
-					dto_array.add(dto_out);
-				}
 			}
 			
 		} catch (SQLException e) {

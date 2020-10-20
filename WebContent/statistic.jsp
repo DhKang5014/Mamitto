@@ -25,8 +25,12 @@
         <!-- nav -->
 		<%@ include file = "menu.jsp" %>
 		<%
-			ArrayList<DTO> count_range = null;
-    	    count_range = dao.count_range(dto.getSql_select_rhythm_range(), email, "meal");
+			ArrayList<DTO> count_range1 = null;
+			ArrayList<DTO> count_range2 = null;
+			ArrayList<DTO> count_range3 = null;
+    	    count_range1 = dao.count_range(dto.getSql_select_rhythm_range(), email, "meal");
+    	    count_range2 = dao.count_range(dto.getSql_select_rhythm_range(), email, "defecate");
+    	    count_range3 = dao.count_range(dto.getSql_select_rhythm_range(), email, "sleep");
     	    %>
         <!-- content -->
         <div class="life_title">
@@ -58,29 +62,18 @@
  
     window.onload = pageLoad;
     function pageLoad(){
-    	var chh1 = [[]]
-	    email = getCookieValue('email');
-	   var chh = Array();
-	   for (var i = 0; i < 7; i++) {
-	  	    curtime = '' + $.clock();
-		   chh.push(Array('<%=count_range.get(0).getDay() %>', <%= count_range.get(0).getCount_rhythm()%>))
-		}
-	   console.log('chh', chh);
+	    var chh1 = Array();
+		chh1.push(Array('day', 'count'));
+		chh1.push(Array('<%=count_range1.get(0).getDay() %>', <%=count_range1.get(0).getCount_rhythm() %>));
+		chh1.push(Array('<%=count_range1.get(1).getDay() %>', <%=count_range1.get(1).getCount_rhythm() %>));
+		chh1.push(Array('<%=count_range1.get(2).getDay() %>', <%=count_range1.get(2).getCount_rhythm() %>));
+	   console.log('chh1', chh1);
     	   
     	    google.charts.load('current', {'packages':['bar']});
     	    google.charts.setOnLoadCallback(drawChart1);
     		
     	      function drawChart1() {
-    	        var data = google.visualization.arrayToDataTable([
-    	          ['Week','횟수'],
-    	          ['월', 1],
-    	          ['화', 3],
-    	          ['수', 4],
-    	          ['목', 1],
-    	          ['금', 2],
-    	          ['토', 3],
-    	          ['일', 1]
-    	        ]);
+    	        var data = google.visualization.arrayToDataTable(chh1);
 
     	        var options1 = {
     	          chart: {
@@ -95,20 +88,17 @@
     	      }
 
     	       //columnchart_material2----------------------------------------
+    	var chh2 = Array();
+		chh2.push(Array('day', 'count'));
+		chh2.push(Array('<%=count_range2.get(0).getDay() %>', <%= count_range2.get(0).getCount_rhythm()%>))
+		chh2.push(Array('<%=count_range2.get(1).getDay() %>', <%= count_range2.get(1).getCount_rhythm()%>))
+		chh2.push(Array('<%=count_range2.get(2).getDay() %>', <%= count_range2.get(2).getCount_rhythm()%>))
+	   console.log('chh2', chh2);
     	    google.charts.load('current', {'packages':['bar']});
     	    google.charts.setOnLoadCallback(drawChart2);
 
     	      function drawChart2() {
-    	        var data2 = google.visualization.arrayToDataTable([
-    	          ['Week','횟수'],
-    	          ['월', 1],
-    	          ['화', 3],
-    	          ['수', 4],
-    	          ['목', 1],
-    	          ['금', 2],
-    	          ['토', 3],
-    	          ['일', 1]
-    	        ]);
+    	        var data2 = google.visualization.arrayToDataTable(chh2);
 
     	        var options2 = {
     	          chart: {
