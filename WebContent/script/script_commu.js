@@ -10,18 +10,18 @@ function tableCreate(dt){
             <th>날짜</th>
            
         </tr>
-    </thead>`;
+    </thead><tbody>`;
    
 
     for(var q=0;q<dt.length;q++){
-        html += '<thread><tr>';
+        html += '<tr>';
         html += '<td>'+dt[q].po_num+'</td>';
         html += '<td>'+dt[q].po_title+'</td>';
         html += '<td>'+dt[q].email+'</td>';
         html += '<td>'+dt[q].time.substring(0,16)+'</td>';
-        html += '</tr></thread>';
+        html += '</tr>';
     }
-    html += `</html>`;
+    html += `</tbody></html>`;
                 
     $("#content").empty();
     $("#content").append(html);
