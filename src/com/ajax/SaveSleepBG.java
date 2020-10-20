@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.DAO.update_sleepDAO;
+
 @WebServlet("/SaveSleepBG")
 public class SaveSleepBG extends HttpServlet {
 
@@ -30,17 +32,30 @@ public class SaveSleepBG extends HttpServlet {
 		String email = request.getParameter("email");
 		String curtime = request.getParameter("curtime");
 		String category = request.getParameter("category");
-		String input_text = request.getParameter("input_text");
-
+		int num = Integer.parseInt(request.getParameter("num"));
+		String input_text1 = request.getParameter("input_text1");
+		String input_text2 = request.getParameter("input_text2");
 		// check email, curtime
 		System.out.println("email >> " + email);
 		System.out.println("curtime >> " + curtime);
-		System.out.println("category >> " + category);
-		System.out.println("input_text >> " + input_text);
+		System.out.println("num >> " + num);
+		System.out.println("input_text1 >> " + input_text1);
+		System.out.println("input_text2 >> " + input_text2);
+		
 		
 		// Save Meal BG
-		String sql = "select * from email where email = ? ";
+		String sql = "update rhythm set rh_time = ?, rh_sleep = ? where email = ? and rh_num = ? ";
 		System.out.println("sql >> " + sql);
+		
+		// update dao
+		update_sleepDAO dao = new update_sleepDAO();
+		int cnt = dao.update(sql, input_text1, input_text2, email, num);
+		
+		if(cnt==0) {
+			System.out.println("update fail !! ");
+		}else {
+			System.out.println("update success !! ");
+		}
 
 	}
 

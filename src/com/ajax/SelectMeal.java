@@ -48,7 +48,7 @@ public class SelectMeal extends HttpServlet {
 		
 		// Save Historys
 		
-		String sql = "select rh_num,rh_category,rh_time,email from RHYTHM where email = ? order by rh_num";
+		String sql = "select * from RHYTHM where email = ? order by rh_num";
 		select_mealDAO dao = new select_mealDAO();
 		ArrayList<mealDTO> arr = dao.select(sql, email);
 		

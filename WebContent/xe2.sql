@@ -112,4 +112,5 @@ REFERENCES "MEMBERS" (
 	"EMAIL"
 );
 
+select * from rhythm;
 

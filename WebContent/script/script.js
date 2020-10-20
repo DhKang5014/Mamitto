@@ -67,9 +67,10 @@ function sleep_pop(num){
 function sleep_bg_save(){
 	email = getCookieValue('email');
     curtime = '' + $.clock();
-    func_ajax(email,curtime,temp,"sleep");
+    func_ajax2(email,curtime,temp,"sleep");
     $(".sleep_bg").css("display","none");
     $(".sleep_con").css("display","none");
+    
 }
 
 //------------------------------------------------------
@@ -81,15 +82,29 @@ function func_ajax(email,curtime,num,category){
 	if(category=="meal"){
 		ajax_category = "Meal";
 		input_text = $('#mL').val();
+		$("#meal_pop"+num).text(input_text+" ml");
 	}else if(category == "sleep"){
 		ajax_category = "Sleep";
 		input_text = $('#time').val();
-	}else if(category == "defe"){
+		
+	}else if(category == "defecate"){
 		ajax_category = "Defe";
-		input_text = $('#vol').val();
+		//input_text = $('#volume').val();
+		input_text = $('input[name="volume"]:checked').val();
+		var volu = '';
+		if(input_text == '많다'){
+			volu = '많음';
+		}else if(input_text =='보통'){
+			volu = '보통';
+		}else{
+			volu ='적음';
+		}
+		$("#defe_pop"+num).text(volu);
 	}
 	console.log("ajax_category", ajax_category);
 	console.log("input_text", input_text);
+	
+	
 	$.ajax(
             { 
                 url: "../../Save"+ajax_category+"BG", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
@@ -110,7 +125,47 @@ function func_ajax(email,curtime,num,category){
                     alert("실패");
         }) //;
 }
-
+//---------------------------------
+function func_ajax2(email,curtime,num,category){
+	
+	ajax_category = "Sleep";
+	
+	input_text1 = $('input[name="time1"]').val();
+	var ktf = input_text1.split('T');
+	input_text1 = ktf[0] + ' ' +ktf[1]
+	input_text1 = input_text1.replace("-","/");
+	input_text1 = input_text1.replace("-","/");
+	
+	input_text2 = $('input[name="time2"]').val();
+	var ktf = input_text2.split('T');
+	input_text2 = ktf[0] + ' ' +ktf[1]
+	input_text2 = input_text2.replace("-","/");
+	input_text2 = input_text2.replace("-","/");
+	
+	console.log("ajax_category", ajax_category);
+	console.log("input_text", input_text1);
+	$("#sleep_pop"+num).text(input_text1 + " ~ " + input_text2);
+	$.ajax(
+            { 
+                url: "../../Save"+ajax_category+"BG", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+                data: {
+                    email : email,
+                    curtime : curtime,
+                    num : num,
+                    category : category,
+                    input_text1 : input_text1,
+                    input_text2 : input_text2
+                }, // HTTP 요청과 함께 서버로 보낼 데이터 
+                method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+            .done(function(data) { 
+                   console.log(data);
+                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+            .fail(function(xhr, status, errorThrown) { 
+                    alert("실패");
+        }) //;
+}
 
 
 
@@ -342,15 +397,32 @@ $.select_history = function(){
                console.log('length',arrayList_history.length);
                
                for(var q=0; q<arrayList_history.length; q++){
-                    console.log(arrayList_history[q]['rh_category']);
+                    console.log(q+'번째 반복',arrayList_history[q]['rh_category']);
                     if(arrayList_history[q]['rh_category'] == 'meal'){
                         $.create_li_1(arrayList_history[q]['rh_num'], arrayList_history[q]['rh_time']);
+                        console.log('for문 시간',arrayList_history[q]['rh_time']);
+                        if(arrayList_history[q]['rh_meal'] != undefined){
+                        	console.log('asdf', arrayList_history[q]['rh_num'], arrayList_history[q]['rh_meal']);
+                        	$("#meal_pop"+arrayList_history[q]['rh_num']).text(arrayList_history[q]['rh_meal'] +" mL");
+                        }
                     }
                     if(arrayList_history[q]['rh_category'] == 'sleep'){
-                        $.create_li_2(arrayList_history[q]['rh_num'], arrayList_history[q]['rh_time']);
+                        $.create_li_3(arrayList_history[q]['rh_num'], arrayList_history[q]['rh_time']);
+                        console.log('for문 시간',arrayList_history[q]['rh_time']);
+                        console.log('rh_sleep', arrayList_history[q]['rh_num'], arrayList_history[q]['rh_sleep']);
+                        if(arrayList_history[q]['rh_sleep'] != undefined){
+                        	console.log('asdf2', arrayList_history[q]['rh_num'], arrayList_history[q]['rh_sleep']);
+                    
+                        	$("#sleep_pop"+arrayList_history[q]['rh_num']).text(arrayList_history[q]['rh_time'].replace('-','/').replace('-','/').substring(0,16) + " ~ " + arrayList_history[q]['rh_sleep'].replace('-','/').replace('-','/').substring(0,16));
+                        }
                     }
                     if(arrayList_history[q]['rh_category'] == 'defecate'){
-                        $.create_li_3(arrayList_history[q]['rh_num'], arrayList_history[q]['rh_time']);
+                        $.create_li_2(arrayList_history[q]['rh_num'], arrayList_history[q]['rh_time']);
+                        console.log('for문 시간',arrayList_history[q]['rh_time']);
+                        if(arrayList_history[q]['rh_defecate'] != undefined){
+                        	console.log('asdf3', arrayList_history[q]['rh_num'],arrayList_history[q]['rh_defecate']);
+                        	$("#defe_pop"+arrayList_history[q]['rh_num']).text(arrayList_history[q]['rh_defecate']);
+                        }
                     }
                }
             }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
@@ -387,7 +459,7 @@ $.ajax(
 $.create_li_1 = function(q, t){
     // a tag에 직접 onclick 이벤트를 걸어서 카운팅
     // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-	$("<li class='meal' id='meal"+q+"'><a class='alam_left_p'>식사</a><span id='m_ck"+q+"'><br></span><spna class='meal_color'>식사 시간<a onclick='meal_pop("+q+")'>check</a></span><a class='alam_icon' onclick='meal("+q+")'></a><a class='correction' onclick='sleep_pop("+q+")'></a></li>").prependTo(".life_list");
+	$("<li class='meal' id='meal"+q+"'><a class='alam_left_p'>식사</a><span id='m_ck"+q+"'><br></span><spna class='meal_color'>식사 시간<a id='meal_pop"+q+"' onclick='meal_pop("+q+")'>check</a></span><a class='alam_icon' onclick='meal("+q+")'></a><a class='correction' onclick='meal_pop("+q+")'></a></li>").prependTo(".life_list");
     var m_ck = $("ck"+q);
     $("#m_ck"+q).text($.clockChange(t)+" 식사시간");
     curtime = '' + $.clockChange(t);
@@ -397,9 +469,9 @@ $.create_li_1 = function(q, t){
 }
 
 $.create_li_2 = function(q, t){
-	$("<li class='defecate' id='defecate"+q+"'><a class='alam_left_b'>배변</a><span id='s_ck"+q+"'></span><spna class='defecate_color'>배변 시간<a onclick='defe_pop("+q+")'>check</a></span><a class='alam_icon' onclick='defecate("+q+")'></a><a class='correction' onclick='sleep_pop("+q+")'></a></li>").prependTo(".life_list");
+	$("<li class='defecate' id='defecate"+q+"'><a class='alam_left_b'>배변</a><span id='s_ck"+q+"'></span><spna class='defecate_color'>배변 시간<a id='defe_pop" + q + "' onclick='defe_pop("+q+")'>check</a></span><a class='alam_icon' onclick='defecate("+q+")'></a><a class='correction' onclick='defe_pop("+q+")'></a></li>").prependTo(".life_list");
     var s_ck = $("ck"+q);
-    $("#s_ck"+q).text($.clockChange(t) +" 취침시간");
+    $("#s_ck"+q).text($.clockChange(t) +" 배변시간");
     curtime = '' + $.clockChange(t);
     i = q+1;
     email = getCookieValue('email');
@@ -408,9 +480,9 @@ $.create_li_2 = function(q, t){
 }
 
 $.create_li_3 = function(q, t) {
-	$("<li class='sleep' id='sleep"+q+"'><a class='alam_left_y'>수면</a><span id='d_ck"+q+"'></span><spna class='sleep_color'>취침 시간<a onclick='sleep_pop("+q+")'>check</a></span><a class='alam_icon' onclick='sleep("+q+")'></a><a class='correction' onclick='sleep_pop("+q+")'></a></li>").prependTo(".life_list");
+	$("<li class='sleep' id='sleep"+q+"'><a class='alam_left_y'>수면</a><span id='d_ck"+q+"'></span><spna class='sleep_color'>취침 시간<a id='sleep_pop" + q + "' onclick='sleep_pop("+q+")'>check</a></span><a class='alam_icon' onclick='sleep("+q+")'></a><a class='correction' onclick='sleep_pop("+q+")'></a></li>").prependTo(".life_list");
     var d_ck = $("ck"+q);
-    $("#d_ck"+q).text($.clockChange(t)+ " 배변시간");
+    $("#d_ck"+q).text($.clockChange(t)+ " 취짐시간");
     curtime = '' + $.clockChange(t);
     i = q+1;
     email = getCookieValue('email');
@@ -420,7 +492,7 @@ $.create_li_3 = function(q, t) {
 $(".life_icon > li:nth-child(1) > img").on("click",function(){
     // a tag에 직접 onclick 이벤트를 걸어서 카운팅
     // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
-	$("<li class='meal' id='meal"+i+"'><a class='alam_left_p'>식사</a><span id='m_ck"+i+"'><br></span><spna class='meal_color'>식사 시간<a onclick='meal_pop()'>check</a></span><a class='alam_icon' onclick='meal("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
+	$("<li class='meal' id='meal"+i+"'><a class='alam_left_p'>식사</a><span id='m_ck"+i+"'><br></span><spna class='meal_color'>식사 시간<a id='meal_pop"+i+"' onclick='meal_pop("+i+")'>check</a></span><a class='alam_icon' onclick='meal("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
     var m_ck = $("ck"+i);
     $("#m_ck"+i).text($.clock()+" 식사시간");
     curtime = '' + $.clock();
@@ -448,9 +520,9 @@ $(".life_icon > li:nth-child(1) > img").on("click",function(){
 
 
 $(".life_icon > li:nth-child(2) > img").on("click",function(){
-	$("<li class='defecate' id='defecate"+i+"'><a class='alam_left_b'>배변</a><span id='s_ck"+i+"'></span><spna class='defecate_color'>배변 시간<a onclick='defe_pop()'>check</a></span><a class='alam_icon' onclick='defecate("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
+	$("<li class='defecate' id='defecate"+i+"'><a class='alam_left_b'>배변</a><span id='s_ck"+i+"'></span><spna class='defecate_color'>배변 시간<a id='defe_pop" + i + "' onclick='defe_pop("+i+")'>check</a></span><a class='alam_icon' onclick='defecate("+i+")'></a><a class='correction' onclick='defe_pop("+i+")'></a></li>").prependTo(".life_list");
     var s_ck = $("ck"+i);
-    $("#s_ck"+i).text($.clock() +" 취침시간");
+    $("#s_ck"+i).text($.clock() +" 배변시간");
     curtime = '' + $.clock();
     i++;
     email = getCookieValue('email');
@@ -458,7 +530,7 @@ $(".life_icon > li:nth-child(2) > img").on("click",function(){
     
     $.ajax(
         { 
-            url: "../../SaveSleep", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+            url: "../../SaveDefecate", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
             data: {
                 email : email,
                 curtime : curtime
@@ -476,9 +548,9 @@ $(".life_icon > li:nth-child(2) > img").on("click",function(){
 
 
 $(".life_icon > li:nth-child(3) > img").on("click",function(){
-	$("<li class='sleep' id='sleep"+i+"'><a class='alam_left_y'>수면</a><span id='d_ck"+i+"'></span><spna class='sleep_color'>취침 시간<a onclick='sleep_pop()'>check</a></span><a class='alam_icon' onclick='sleep("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
-    var d_ck = $("ck"+i);
-    $("#d_ck"+i).text($.clock()+ " 배변시간");
+	$("<li class='sleep' id='sleep"+i+"'><a class='alam_left_y'>수면</a><span id='d_ck"+i+"'></span><spna class='sleep_color'>취침 시간<a id='sleep_pop" + i+ "' onclick='sleep_pop("+i+")'>check</a></span><a class='alam_icon' onclick='sleep("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
+     var d_ck = $("ck"+i);
+    $("#d_ck"+i).text($.clock()+ " 수면시간");
     curtime = '' + $.clock();
     i++;
     email = getCookieValue('email');
@@ -486,7 +558,7 @@ $(".life_icon > li:nth-child(3) > img").on("click",function(){
     
     $.ajax(
         { 
-            url: "../../SaveDefecate", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+            url: "../../SaveSleep", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
             data: {
                 email : email,
                 curtime : curtime

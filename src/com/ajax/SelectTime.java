@@ -43,7 +43,7 @@ public class SelectTime extends HttpServlet {
 		
 		// Save Historys
 		
-		String sql = "select rh_num,rh_category,rh_time,email from RHYTHM where email = ? ";
+		String sql = "select * from RHYTHM where email = ? ";
 		select_mealDAO dao = new select_mealDAO();
 		ArrayList<mealDTO> arr = dao.select(sql, email);
 		
