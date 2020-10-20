@@ -1,7 +1,5 @@
 package com.model.master;
 
-import java.sql.Date;
-
 public class DTO {
 
 	String db_url = "jdbc:oracle:thin:@localhost:1521:xe";

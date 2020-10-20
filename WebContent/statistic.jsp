@@ -15,7 +15,7 @@
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script.js"></script>
     <script src="script/script_sh.js"></script>
-        <script src="script/redirect_login.js"></script>
+    <script src="script/redirect_login.js"></script>
     <title>statistic</title>
 </head>
 <body>
@@ -25,9 +25,9 @@
         <!-- nav -->
 		<%@ include file = "menu.jsp" %>
 		<%
-			ArrayList<DTO> count_range1 = null;
-			ArrayList<DTO> count_range2 = null;
-			ArrayList<DTO> count_range3 = null;
+			ArrayList<DTO> count_range1 = new ArrayList<DTO>();
+			ArrayList<DTO> count_range2 = new ArrayList<DTO>();
+			ArrayList<DTO> count_range3 = new ArrayList<DTO>();
     	    count_range1 = dao.count_range(dto.getSql_select_rhythm_range(), email, "meal");
     	    count_range2 = dao.count_range(dto.getSql_select_rhythm_range(), email, "defecate");
     	    count_range3 = dao.count_range(dto.getSql_select_rhythm_range(), email, "sleep");
@@ -64,9 +64,9 @@
     function pageLoad(){
 	    var chh1 = Array();
 		chh1.push(Array('day', 'count'));
-		chh1.push(Array('<%=count_range1.get(0).getDay() %>', <%=count_range1.get(0).getCount_rhythm() %>));
-		chh1.push(Array('<%=count_range1.get(1).getDay() %>', <%=count_range1.get(1).getCount_rhythm() %>));
-		chh1.push(Array('<%=count_range1.get(2).getDay() %>', <%=count_range1.get(2).getCount_rhythm() %>)); 
+		<% for(int i=0; i<count_range1.size(); i++){ %>
+		chh1.push(Array('<%=count_range1.get(i).getDay() %>', <%=count_range1.get(i).getCount_rhythm() %>));
+		<% } %>
 	   console.log('chh1', chh1);
     	   
     	    google.charts.load('current', {'packages':['bar']});
@@ -90,9 +90,9 @@
     	       //columnchart_material2----------------------------------------
     	var chh2 = Array();
 		chh2.push(Array('day', 'count'));
-		chh2.push(Array('<%=count_range2.get(0).getDay() %>', <%= count_range2.get(0).getCount_rhythm()%>))
-		chh2.push(Array('<%=count_range2.get(1).getDay() %>', <%= count_range2.get(1).getCount_rhythm()%>))
-		chh2.push(Array('<%=count_range2.get(2).getDay() %>', <%= count_range2.get(2).getCount_rhythm()%>))
+		<% for(int i=0; i<count_range2.size(); i++){ %>
+		chh2.push(Array('<%=count_range2.get(i).getDay() %>', <%= count_range2.get(i).getCount_rhythm()%>))
+		<% } %>
 	   console.log('chh2', chh2);
     	    google.charts.load('current', {'packages':['bar']});
     	    google.charts.setOnLoadCallback(drawChart2);
@@ -114,21 +114,17 @@
 
 
     	         //columnchart_material3----------------------------------------
+    	    var chh3 = Array();
+			chh3.push(Array('day', 'count'));
+			<% for(int i=0; i<count_range3.size(); i++){ %>
+			chh3.push(Array('<%=count_range3.get(i).getDay() %>', <%= count_range3.get(i).getCount_rhythm()%>))
+			<% } %>
+	   		console.log('chh3', chh3);
+    	         
     	    google.charts.load('current', {'packages':['bar']});
     	    google.charts.setOnLoadCallback(drawChart3);
-    		var chg1 = [
-    	        ['Week','횟수'],
-    	        ['월', 1],
-    	        ['화', 3],
-    	        ['수', 4],
-    	        ['목', 1],
-    	        ['금', 2],
-    	        ['토', 3],
-    	        ['일', 1]
-    	      ]
-    		console.log('asdf',chg1[1][1]);
     	      function drawChart3() {
-    	        var data3 = google.visualization.arrayToDataTable(chg1);
+    	        var data3 = google.visualization.arrayToDataTable(chh3);
 
     	        var options3 = {
     	          chart: {

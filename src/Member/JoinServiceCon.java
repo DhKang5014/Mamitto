@@ -2,10 +2,8 @@ package Member;
 
 import java.io.UnsupportedEncodingException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.front.Command;
 import com.DAO.joinDAO;

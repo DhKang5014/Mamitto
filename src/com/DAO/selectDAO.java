@@ -2,7 +2,6 @@ package com.DAO;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.sql.Date;
 import java.sql.ResultSet;
 
 import com.DTO.bodycheckDTO;
@@ -12,7 +11,7 @@ public class selectDAO extends DAO {
 	ResultSet rs = null;
 	ArrayList<DTO> dto_array = null;
 	String data[] = {"meal", "sleep", "defecate"};
-
+	
 	// email을 통한 아이 정보값 찾기
 	public ArrayList<DTO> select(String sql, String mail) {
 		psmt(sql);
@@ -83,7 +82,6 @@ public class selectDAO extends DAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close();
@@ -93,7 +91,7 @@ public class selectDAO extends DAO {
 	
 	public ArrayList<DTO> count_range(String sql, String email, String category) {
 		psmt(sql);
-		ArrayList<DTO> to_array = null;
+		ArrayList<DTO> to_array = new ArrayList<DTO>();
 		try {
 			DTO dto_out = null;
 		    int rhy_count = 0;
