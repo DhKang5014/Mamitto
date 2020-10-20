@@ -58,6 +58,7 @@ public class selectDAO extends DAO {
 		psmt(sql);
 		int co[] = new int[3];
 		try {
+			
 			String email = mail;
 		    int rhy_meal = 0;
 		    int rhy_sleep = 0;
@@ -90,32 +91,32 @@ public class selectDAO extends DAO {
 		return co;
 	}
 	
-	public int[][] count_range(String sql, String mail) {
+	public ArrayList<DTO> count_range(String sql, String mail, String category) {
 		psmt(sql);
-		int co[][] = new int[7][3];
 		try {
+			DTO dto_out = null;
 			String email = mail;
 		    int rhy_meal = 0;
 		    int rhy_sleep = 0;
 		    int rhy_defecate = 0;
-		    int num = 0;
+		    String day = null;
 		    
-		    for (int i = 0; i < data.length; i++) {
 		    	getPsmt().setString(1, email);
-		    	getPsmt().setString(2, data[i]);
+		    	getPsmt().setString(2, category);
 		    	rs = getPsmt().executeQuery();
 				while (rs.next()) {
-				if (i == 0) {
+				if (category == "meal") {
 					rhy_meal = rs.getInt(1);
-					co[num][i] = rhy_meal;
-				}else if (i == 1) {
+					dto_out = new DTO(rhy_meal, day);
+					dto_array.add(dto_out);
+				}else if (category == "sleep") {
 					rhy_sleep = rs.getInt(1);
-					co[num][i] = rhy_sleep;					
-				}else if (i == 2) {
+					dto_out = new DTO(rhy_sleep, day);
+					dto_array.add(dto_out);
+				}else if (category == "defecate") {
 					rhy_defecate = rs.getInt(1);
-					co[num][i] = rhy_defecate;					
-				}
-				num++;
+					dto_out = new DTO(rhy_defecate, day);
+					dto_array.add(dto_out);
 				}
 			}
 			
@@ -125,7 +126,7 @@ public class selectDAO extends DAO {
 		} finally {
 			close();
 		}
-		return co;
+		return dto_array;
 	}
 	
 	public ArrayList<bodycheckDTO> selectBody(String sql, String mail) {

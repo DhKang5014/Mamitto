@@ -11,7 +11,7 @@ public class DTO {
 
 	String email;
 	String pw;
-	String name;
+	String name; 
 	int age;
 	String tel;
 
@@ -23,6 +23,7 @@ public class DTO {
 	String baby_gender;
 	String cam_ip = "";
 	
+	String day;
 	int count_rhythm;
 	
 	
@@ -98,6 +99,12 @@ public class DTO {
 
 	public DTO(String email2, int count_rhythm) {
 		// TODO Auto-generated constructor stub
+		this.count_rhythm = count_rhythm;
+	}
+
+	public DTO(int count_rhythm, String day) {
+		// TODO Auto-generated constructor stub
+		this.day = day;
 		this.count_rhythm = count_rhythm;
 	}
 
@@ -249,7 +256,21 @@ public class DTO {
 	public String getSql_select_rhythm_range() {
 		return sql_select_rhythm_range;
 	}
+	public int getCount_rhythm() {
+		return count_rhythm;
+	}
 
+	public void setCount_rhythm(int count_rhythm) {
+		this.count_rhythm = count_rhythm;
+	}
+
+	public String getDay() {
+		return day;
+	}
+
+	public void setDay(String day) {
+		this.day = day;
+	}
 	
 	
 }

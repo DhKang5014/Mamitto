@@ -25,23 +25,14 @@
         <!-- nav -->
 		<%@ include file = "menu.jsp" %>
 		<%
-    	    int count_range[][] = null;
-    	    count_range = dao.count_range(dto.getSql_select_rhythm_range(), email);
-    	    if (count_range[0].length > 0){
-    	    	for (int i=0; i<count.length; i++){
-    	    		System.out.println(count[i]);
-    				if (i == 0) {
-    					rhy_meal = count[i];
-    				}else if (i == 1) {
-    					rhy_sleep = count[i];					
-    				}else if (i == 2) {
-    					rhy_defecate = count[i];					
-    				}}}
+			ArrayList<DTO> count_range = null;
+    	    count_range = dao.count_range(dto.getSql_select_rhythm_range(), email, "meal");
     	    %>
         <!-- content -->
         <div class="life_title">
           <a class="title"></a>
           <h1>우리아이 통계</h1>
+          <hr id="move">
         </div>
         <div id="content" class="page statistic">
             <ul>
@@ -67,10 +58,14 @@
  
     window.onload = pageLoad;
     function pageLoad(){
-    	   var chh1 = [[]]
-    	    email = getCookieValue('email');
-    	    
-
+    	var chh1 = [[]]
+	    email = getCookieValue('email');
+	   var chh = Array();
+	   for (var i = 0; i < 7; i++) {
+	  	    curtime = '' + $.clock();
+		   chh.push(Array('<%=count_range.get(0).getDay() %>', <%= count_range.get(0).getCount_rhythm()%>))
+		}
+	   console.log('chh', chh);
     	   
     	    google.charts.load('current', {'packages':['bar']});
     	    google.charts.setOnLoadCallback(drawChart1);
