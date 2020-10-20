@@ -17,7 +17,7 @@
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
     <script src='script/script_dh.js'></script>
-        <script src="script/redirect_login.js"></script>
+    <script src="script/redirect_login.js"></script>
     <title>mamiddo</title>
 </head>
 <body>
@@ -86,8 +86,8 @@
             <div>
                 <form action="JoinCameraServiceCon.dot" method="post">
                     <div>
-                        <input type="text" name="ip_num" value="" class="pop_con1 pop_ip" placeholder="IP 입력이 필요합니다.">
-                       	<input type="text" name="email" value="" id="email" placeholder="이메일을 입력해 주세요." style='display:none'>
+                        <input type="text" name="ip_num" class="pop_con1 pop_ip" placeholder="IP 입력이 필요합니다.">
+                       	<input type="text" name="email" id="email" placeholder="이메일을 입력해 주세요.">
                     </div>
                     <input type="submit" value="전송" class="btn my_btn btn_color">
                 </form>
@@ -108,5 +108,9 @@
   <script src="scripts/main.js"></script>
   <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  
+  <script>
+
+  </script>
 </body>
 </html>

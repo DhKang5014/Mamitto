@@ -1,7 +1,7 @@
 window.onload = function(){
-  go();
+  goes();
 }
-function go(){
+function goes(){
   const getCookieValue = (key) => {
       let cookieKey = key + "="; 
       let result = "";

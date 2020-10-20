@@ -58,8 +58,8 @@
 			<div class="defe_con">
 				<h2>배변</h2>
 				<forms> <label>많다</label> <input type="radio" name="volume"
-					value="많다"> <label>적당하다</label> <input type="radio"
-					name="volume" value="적당하다"> <label>적다</label> <input
+					value="많다"> <label>보통</label> <input type="radio"
+					name="volume" value="보통"> <label>적다</label> <input
 					type="radio" name="volume" value="적다"> <input type="submit"
 					value="입력" class="btn btn_color_linear" onclick="defe_bg_save()">
 				</forms>
