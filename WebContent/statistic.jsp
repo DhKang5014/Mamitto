@@ -168,7 +168,7 @@
     	        var data4 = google.visualization.arrayToDataTable(len
     	         );
 
-    	        var options4 = {
+    	        var options4 = { 
     	          title: 'Company Performance',
     	          curveType: 'function',
     	          legend: { position: 'bottom' }
