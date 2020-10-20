@@ -57,89 +57,126 @@
     </div>
     <script>
     //columnchart_material1----------------------------------------
-    google.charts.load('current', {'packages':['bar']});
-    google.charts.setOnLoadCallback(drawChart1);
+    
+    window.onload = pageLoad;
+    function pageLoad(){
+    	   var chh1 = [[]]
+    	    email = getCookieValue('email');
+    	    
+    	    google.charts.load('current', {'packages':['bar']});
+    	    google.charts.setOnLoadCallback(drawChart1);
+    		
+    	      function drawChart1() {
+    	        var data = google.visualization.arrayToDataTable([
+    	          ['Week','횟수'],
+    	          ['월', 1],
+    	          ['화', 3],
+    	          ['수', 4],
+    	          ['목', 1],
+    	          ['금', 2],
+    	          ['토', 3],
+    	          ['일', 1]
+    	        ]);
 
-      function drawChart1() {
-        var data = google.visualization.arrayToDataTable([
-          ['Week','횟수'],
-          ['월', 1],
-          ['화', 3],
-          ['수', 4],
-          ['목', 1],
-          ['금', 2],
-          ['토', 3],
-          ['일', 1]
-        ]);
+    	        var options1 = {
+    	          chart: {
+    	            title: '우리아이 통계자료',
+    	            subtitle: 'weekly 수유횟수 10/14 ~ 10/'
+    	          }
+    	        };
 
-        var options1 = {
-          chart: {
-            title: '우리아이 통계자료',
-            subtitle: 'weekly 수유횟수 10/14 ~ 10/',
-          }
-        };
+    	        var chart1 = new google.charts.Bar(document.getElementById('columnchart_material1'));
 
-        var chart1 = new google.charts.Bar(document.getElementById('columnchart_material1'));
+    	        chart1.draw(data, google.charts.Bar.convertOptions(options1));
+    	      }
 
-        chart1.draw(data, google.charts.Bar.convertOptions(options1));
-      }
+    	       //columnchart_material2----------------------------------------
+    	    google.charts.load('current', {'packages':['bar']});
+    	    google.charts.setOnLoadCallback(drawChart2);
 
-       //columnchart_material2----------------------------------------
-    google.charts.load('current', {'packages':['bar']});
-    google.charts.setOnLoadCallback(drawChart2);
+    	      function drawChart2() {
+    	        var data2 = google.visualization.arrayToDataTable([
+    	          ['Week','횟수'],
+    	          ['월', 1],
+    	          ['화', 3],
+    	          ['수', 4],
+    	          ['목', 1],
+    	          ['금', 2],
+    	          ['토', 3],
+    	          ['일', 1]
+    	        ]);
 
-      function drawChart2() {
-        var data2 = google.visualization.arrayToDataTable([
-          ['Week','횟수'],
-          ['월', 1],
-          ['화', 3],
-          ['수', 4],
-          ['목', 1],
-          ['금', 2],
-          ['토', 3],
-          ['일', 1]
-        ]);
+    	        var options2 = {
+    	          chart: {
+    	            title: '우리아이 통계자료',
+    	            subtitle: 'weekly 배변횟수 10/14 ~ 10/'
+    	          }
+    	        };
 
-        var options2 = {
-          chart: {
-            title: '우리아이 통계자료',
-            subtitle: 'weekly 배변횟수 10/14 ~ 10/',
-          }
-        };
+    	        var chart2 = new google.charts.Bar(document.getElementById('columnchart_material2'));
 
-        var chart2 = new google.charts.Bar(document.getElementById('columnchart_material2'));
-
-        chart2.draw(data2, google.charts.Bar.convertOptions(options2));
-      }
+    	        chart2.draw(data2, google.charts.Bar.convertOptions(options2));
+    	      }
 
 
-         //columnchart_material3----------------------------------------
-    google.charts.load('current', {'packages':['bar']});
-    google.charts.setOnLoadCallback(drawChart3);
+    	         //columnchart_material3----------------------------------------
+    	    google.charts.load('current', {'packages':['bar']});
+    	    google.charts.setOnLoadCallback(drawChart3);
+    		var chg1 = [
+    	        ['Week','횟수'],
+    	        ['월', 1],
+    	        ['화', 3],
+    	        ['수', 4],
+    	        ['목', 1],
+    	        ['금', 2],
+    	        ['토', 3],
+    	        ['일', 1]
+    	      ]
+    		console.log('asdf',chg1[1][1]);
+    	      function drawChart3() {
+    	        var data3 = google.visualization.arrayToDataTable(chg1);
 
-      function drawChart3() {
-        var data3 = google.visualization.arrayToDataTable([
-          ['Week','횟수'],
-          ['월', 1],
-          ['화', 3],
-          ['수', 4],
-          ['목', 1],
-          ['금', 2],
-          ['토', 3],
-          ['일', 1]
-        ]);
+    	        var options3 = {
+    	          chart: {
+    	            title: '우리아이 통계자료',
+    	            subtitle: 'weekly 수면횟수 10/14 ~ 10/'
+    	          }
+    	        };
 
-        var options3 = {
-          chart: {
-            title: '우리아이 통계자료',
-            subtitle: 'weekly 취침횟수 10/14 ~ 10/',
-          }
-        };
+    	        var chart3 = new google.charts.Bar(document.getElementById('columnchart_material3'));
 
-        var chart3 = new google.charts.Bar(document.getElementById('columnchart_material3'));
+    	        chart3.draw(data3, google.charts.Bar.convertOptions(options3));
+    	      }
+    	      
+    	      //
 
-        chart3.draw(data3, google.charts.Bar.convertOptions(options3));
-      }
+    	      google.charts.load('current', {'packages':['corechart']});
+    	      google.charts.setOnLoadCallback(drawChart4);
+
+    	          var dataset4 = "[['day', 'height', 'weight'], ";
+    	          <% for (int i = 0; i < to_array.size(); i++) {  
+    	        	if(i != to_array.size()){%>
+    				dataset4 += "[" + to_array.get(i).getDay() +", " +to_array.get(i).getHeight() + ", " +to_array.get(i).getWeight()+"], ";
+    				<% }else { %>
+    				dataset4 += "[" + to_array.get(i).getDay() +", " +to_array.get(i).getHeight() + ", " +to_array.get(i).getWeight()+"]]";
+    				<% }} %>
+
+    	      function drawChart4() {
+    	        var data4 = google.visualization.arrayToDataTable(dataset4
+    	         );
+
+    	        var options4 = {
+    	          title: 'Company Performance',
+    	          curveType: 'function',
+    	          legend: { position: 'bottom' }
+    	        };
+
+    	        var chart4 = new google.visualization.LineChart(document.getElementById('columnchart_material4'));
+
+    	        chart4.draw(data4, options4);
+    	      }
+
+    };
 
     </script>
 </body>
