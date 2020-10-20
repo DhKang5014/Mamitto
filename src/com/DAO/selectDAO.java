@@ -90,6 +90,44 @@ public class selectDAO extends DAO {
 		return co;
 	}
 	
+	public int[][] count_range(String sql, String mail) {
+		psmt(sql);
+		int co[][] = new int[7][3];
+		try {
+			String email = mail;
+		    int rhy_meal = 0;
+		    int rhy_sleep = 0;
+		    int rhy_defecate = 0;
+		    int num = 0;
+		    
+		    for (int i = 0; i < data.length; i++) {
+		    	getPsmt().setString(1, email);
+		    	getPsmt().setString(2, data[i]);
+		    	rs = getPsmt().executeQuery();
+				while (rs.next()) {
+				if (i == 0) {
+					rhy_meal = rs.getInt(1);
+					co[num][i] = rhy_meal;
+				}else if (i == 1) {
+					rhy_sleep = rs.getInt(1);
+					co[num][i] = rhy_sleep;					
+				}else if (i == 2) {
+					rhy_defecate = rs.getInt(1);
+					co[num][i] = rhy_defecate;					
+				}
+				num++;
+				}
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return co;
+	}
+	
 	public ArrayList<bodycheckDTO> selectBody(String sql, String mail) {
 		psmt(sql);
 		ArrayList<bodycheckDTO> dto_array = new ArrayList<bodycheckDTO>();

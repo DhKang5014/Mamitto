@@ -18,10 +18,25 @@
     <title>statistic</title>
 </head>
 <body>
+
     <!-- content  -->
     <div id="bk">
         <!-- nav -->
 		<%@ include file = "menu.jsp" %>
+		<%
+    	    int count_range[][] = null;
+    	    count_range = dao.count_range(dto.getSql_select_rhythm_range(), email);
+    	    if (count_range[0].length > 0){
+    	    	for (int i=0; i<count.length; i++){
+    	    		System.out.println(count[i]);
+    				if (i == 0) {
+    					rhy_meal = count[i];
+    				}else if (i == 1) {
+    					rhy_sleep = count[i];					
+    				}else if (i == 2) {
+    					rhy_defecate = count[i];					
+    				}}}
+    	    %>
         <!-- content -->
         <div class="life_title">
           <a class="title"></a>
@@ -54,6 +69,8 @@
     	   var chh1 = [[]]
     	    email = getCookieValue('email');
     	    
+
+    	   
     	    google.charts.load('current', {'packages':['bar']});
     	    google.charts.setOnLoadCallback(drawChart1);
     		

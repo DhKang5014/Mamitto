@@ -183,7 +183,7 @@ update bodycheck set bd_weight=6 where bd_num=1;
 
 select max(bd_height),max(bd_weight), to_char(bd_time, 'mm-dd') as day from bodycheck where email='admin' group by to_char(bd_time, 'mm-dd') order by day desc;
 
-select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'admin' and rh_category = 'meal' group by to_char(rh_time, 'mm-dd') order by day desc;
+select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'admin' and rh_category = 'meal' and to_char(rh_time, 'mm-dd') between to_char(rh_time-7, 'mm-dd') and to_char(rh_time, 'mm-dd') group by to_char(rh_time, 'mm-dd') order by day desc;
 
 select * from posts;
 select po_num, po_title, po_content, po_pw, email, to_char(po_time, 'MM/dd/YY HH24:mi') as day from posts where email='admin' or po_pw='공개' order by day desc;
