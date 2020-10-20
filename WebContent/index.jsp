@@ -40,7 +40,7 @@
                     <li class="defecate">
                         <a class="alam_left_y">주의</a>
                         <spna>2020.10.17</spna>
-                        <spna class='defecate_color'>주의가 필요 합니다.</spna>
+                        <spna class='sleep_color'>주의가 필요 합니다.</spna>
                     </li>
                     <li class="defecate">
                         <a class="alam_left_y" id="index_green">안전</a>
