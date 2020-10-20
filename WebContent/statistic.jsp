@@ -66,7 +66,7 @@
 		chh1.push(Array('day', 'count'));
 		chh1.push(Array('<%=count_range1.get(0).getDay() %>', <%=count_range1.get(0).getCount_rhythm() %>));
 		chh1.push(Array('<%=count_range1.get(1).getDay() %>', <%=count_range1.get(1).getCount_rhythm() %>));
-		chh1.push(Array('<%=count_range1.get(2).getDay() %>', <%=count_range1.get(2).getCount_rhythm() %>));
+		chh1.push(Array('<%=count_range1.get(2).getDay() %>', <%=count_range1.get(2).getCount_rhythm() %>)); 
 	   console.log('chh1', chh1);
     	   
     	    google.charts.load('current', {'packages':['bar']});
