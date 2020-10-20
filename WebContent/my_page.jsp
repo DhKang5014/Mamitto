@@ -20,7 +20,7 @@
     <!-- content  -->
     <div id="bk">
         <!-- nav -->
-		<%@ include file = "menu.jsp" %>
+		<%@ include file = "menu2.jsp" %>
 		
         <!-- content -->
         <div class="life_title_box">

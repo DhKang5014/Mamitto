@@ -132,18 +132,7 @@ $(function(){
     
         return now;
     }
-<<<<<<< HEAD
-        
-=======
-        
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
-    // creat
-       
-        
-<<<<<<< HEAD
-    
-=======
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
+
     // BarChart ------------------------------------------------------
     
         $(".statistic > ul > li:nth-child(1)").on("click",function(){
