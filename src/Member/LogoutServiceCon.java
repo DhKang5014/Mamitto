@@ -20,7 +20,7 @@ public class LogoutServiceCon implements Command {
 		response.addCookie(cookie);
 		Cookie[] cookies = request.getCookies();
 		
-		moveURL = "index.jsp";
+		moveURL = "login_page.jsp";
 		return moveURL;
 	}
 

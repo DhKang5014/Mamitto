@@ -29,13 +29,6 @@
             <h1>커뮤니티</h1>
         </div>
         <div id="content" class="page commu">
-            <%
-            ArrayList<commuDTO> commu_array = new ArrayList<commuDTO>();
-            commuDTO comDTO = new commuDTO(email);
-            commuDAO comDAO = new commuDAO();
-            commu_array = comDAO.selectCommu(comDTO.getSql_select_commu_info(), email);
-            
-            if (!commu_array.isEmpty()){%>
             <table>
                 <thead>
                     <tr>
@@ -43,38 +36,23 @@
                         <th>제목</th>
                         <th>작성자</th>
                         <th>날짜</th>
-                        <th>조회수</th>
+                       
                     </tr>
                 </thead>
                 <tbody>
-                	<% for (int i=0; i<commu_array.size(); i++){ %>
+                	
                     <tr>
-                        <th><%=i+1 %></th>
-                        <th><%=commu_array.get(i).getTitle() %></th>
-                        <th><%=commu_array.get(i).getEmail() %></th>
-                        <th><%=commu_array.get(i).getTime() %></th>
-                        <th>1</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                   
                     </tr>
-                    <%} %>
+                
                 </tbody>
             </table>
-                <%} else{ %>
-                <table>
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>날짜</th>
-                        <th>조회수</th>
-                    </tr>
-                </thead>
-                <tbody>
-                 </tbody>
-            </table>
-                                <%} %>
             <br>
-            <a href="commu_write.jsp" class="commu_btn">글쓰기</a>
+            <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
         </div>
         <!-- footer -->
         <div id="footer">
