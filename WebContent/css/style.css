@@ -61,6 +61,11 @@ h1{
 	margin: 0 auto;
 	margin-bottom:0.5em;
 }
+.life_hr{
+	width :0em;
+	margin: 0 auto;
+	margin-bottom:2em;
+}
 h3{color: #726973;}
 h4{color:#726973;}
 /* 지울것 임시지정*/
