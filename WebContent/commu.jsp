@@ -28,8 +28,8 @@
             <a class="title"></a>
             <h1>커뮤니티</h1>
         </div>
-        <div id="content" class="page commu">
-            <table>
+        <div class="page commu">
+            <table class="commu_table" id='contents'>
                 <thead>
                     <tr>
                         <th>번호</th>

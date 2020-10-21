@@ -1,34 +1,31 @@
 function tableCreate(dt){
 
     var tc = new Array();
-    var html = `<table>
-    <thead>
-        <tr>
-            <th>번호</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>날짜</th>
-           
-        </tr>
-    </thead><tbody>`;
+    var html = `<thead>
+                    <tr>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                    </tr>
+                </thead>
+                <tbody>`;
    
 
     for(var q=0;q<dt.length;q++){
         html += '<tr>';
-        html += '<td>'+dt[q].po_num+'</td>';
         html += '<td>'+dt[q].po_title+'</td>';
         html += '<td>'+dt[q].email+'</td>';
         html += '<td>'+dt[q].time.substring(0,16)+'</td>';
         html += '</tr>';
     }
-<<<<<<< HEAD
-    html += `</tbody></table>`;
-=======
-    html += `<a  href="commu_write.jsp" class="commu_btn">글쓰기</a></tbody></html>`;
->>>>>>> branch 'master' of https://github.com/DhKang5014/Mamitto.git
+
+    html += `</tbody>`;
+
+   
+
                 
-    $("#content").empty();
-    $("#content").append(html);
+    $("#contents").empty();
+    $("#contents").append(html);
     
 }
 const getCookieValues = (key) => {
