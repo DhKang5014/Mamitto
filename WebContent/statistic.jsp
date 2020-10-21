@@ -169,9 +169,9 @@
     	         );
 
     	        var options4 = { 
-    	          title: 'Company Performance',
+    	          title: 'Body Check',
     	          curveType: 'function',
-    	          legend: { position: 'bottom' }
+    	          legend: { position: 'top' }
     	        };
 
     	        var chart4 = new google.visualization.LineChart(document.getElementById('columnchart_material4'));
