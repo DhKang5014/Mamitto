@@ -56,6 +56,11 @@ h1{
     width:1em;
     margin: 0 auto;
 }
+.life_hr{
+	width :0em;
+	margin: 0 auto;
+	margin-bottom:2em;
+}
 .commu_hr{
 	width :0em;
 	margin: 0 auto;
