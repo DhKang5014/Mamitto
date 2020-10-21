@@ -82,8 +82,44 @@ $(function(){
             // $(".pop_bg").css("display","block");
             $(".pop_bg").fadeIn();
         });
+        
+        //alam_pop
+        $(".menu").on("click", function(){
+            $("#alam_pop").stop().animate({"top":"0px"},"slow");
+            setInterval(function(){
+                $("#alam_pop").animate({"background-color":"#ff4a4a"},"slow",function(){
+                    $(this).css("background-color","rgb(250, 244, 244)");
+                });
+            },100);
+            setInterval(function(){
+                $("#alam_pop").animate({"background-color":"#fdfdfd"},"slow",function(){
+                    $(this).css("background-color","#ff4a4a");
+                });
+            },100);
+        });
+
+
+        $("#alam_pop > h2").on("click", function(){
+            
+            $("#alam_pop").animate({"top":"-81px"},"slow");
+        });
+        $('.menu').on('click',function(){
+            $("#alam_pop").css('display','block')
+        })
+        $("#alam_pop").on('click',function(){
+            $("#alam_pop").css('display','none')
+        })
+        
+
+
+       
+
+        
+     
+        
     
-    
+
+
     
         // baby_life------------------------------------------------
         // date-------------------
@@ -144,7 +180,6 @@ $(function(){
             $("#columnchart_material1").css("display","block");
             $("#columnchart_material2").css("display","none");
             $("#columnchart_material3").css("display","none");
-            $("#columnchart_material4").css("display","none");
             $(this).children("img").attr("src","../img/meal2.png");
             $(".statistic > ul > li:nth-child(2) > img ").attr("src","../img/defe1.png");
             $(".statistic > ul > li:nth-child(3) > img ").attr("src","../img/sleep1.png");
@@ -153,9 +188,8 @@ $(function(){
         });
         $(".statistic > ul > li:nth-child(2)").on("click",function(){
             $("#columnchart_material1").css("display","none");
-            $("#columnchart_material2").css("display","block");
             $("#columnchart_material3").css("display","none");
-            $("#columnchart_material4").css("display","none");
+            $("#columnchart_material2").css("display","block");
             $(this).children("img").attr("src","../img/defe2.png");
             $(".statistic > ul > li:nth-child(1) > img ").attr("src","../img/meal1.png");
             $(".statistic > ul > li:nth-child(3) > img ").attr("src","../img/sleep1.png");
@@ -165,7 +199,6 @@ $(function(){
             $("#columnchart_material1").css("display","none");
             $("#columnchart_material2").css("display","none");
             $("#columnchart_material3").css("display","block");
-            $("#columnchart_material4").css("display","none");
             $(this).children("img").attr("src","../img/sleep2.png");
             $(".statistic > ul > li:nth-child(1) > img ").attr("src","../img/meal1.png");
             $(".statistic > ul > li:nth-child(2) > img ").attr("src","../img/defe1.png");
@@ -182,7 +215,6 @@ $(function(){
             $(".statistic > ul > li:nth-child(1) > img ").attr("src","../img/meal1.png");
             $(".statistic > ul > li:nth-child(2) > img ").attr("src","../img/defe1.png");
             $(".statistic > ul > li:nth-child(3) > img ").attr("src","../img/sleep1.png");
-    
         });
 
         

@@ -112,7 +112,7 @@
                 <div class="menu"><img src="img/left_icon.png" width="50px"></div>
                 <a href="index.jsp" class="logo"><img src="img/sub_title2.png" width="100px"></a>
             </div>
-            <div class="home"><a href="my_page.jsp"></a></div>
+            <div class="home"><a href="index.jsp"></a></div>
         </div>
          <!-- bottom_nav -->
          <div class="bottom_nav">

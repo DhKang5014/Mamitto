@@ -61,7 +61,7 @@ public class JoinBabyServiceCon implements Command{
 		if (cnt == 0) {
 			moveURL = "fail.jsp";
 		} else {
-			moveURL = "index.jsp";
+			moveURL = "BodyCheckServiceCon.do?height=0&weight=0";
 		}
 		return moveURL;
 		
