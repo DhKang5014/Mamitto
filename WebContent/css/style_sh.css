@@ -87,7 +87,7 @@ input{
 .btn{
     margin: 0 auto;
     width: 20em;
-    /*background-color:#ff4a91;*/
+    /* background-color:#ff4a91; */
     background: linear-gradient(to left, #fcc4d1, #d7c0f8);
     border-style: none;
     height: 3em;
@@ -102,4 +102,18 @@ input{
     line-height: 2.5em;
 }
 
-
+#footer{
+    min-width: 100%;
+    background-color: #fdfdfd;
+    /* exam  */
+    height: 100px;
+    text-align: center;
+    font-size: 0.5em;
+    color: #888;
+} 
+.ft_height{
+    margin-top: 18em;
+}
+.ft_height2{
+    margin-top: 30em;
+}
