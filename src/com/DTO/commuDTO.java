@@ -31,7 +31,6 @@ public class commuDTO {
 
 
 	public commuDTO(String email) {
-		super();
 		this.email = email;
 	}
 

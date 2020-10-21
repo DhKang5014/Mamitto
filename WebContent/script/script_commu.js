@@ -21,7 +21,7 @@ function tableCreate(dt){
         html += '<td>'+dt[q].time.substring(0,16)+'</td>';
         html += '</tr>';
     }
-    html += `</tbody></html>`;
+    html += `<a  href="commu_write.jsp" class="commu_btn">글쓰기</a></tbody></html>`;
                 
     $("#content").empty();
     $("#content").append(html);

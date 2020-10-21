@@ -36,7 +36,7 @@ public class commuDAO extends DAO{
 	
 	public ArrayList<commuDTO> selectCommu(String sql, String email) {
 		psmt(sql);
-		dto_array = new ArrayList<commuDTO>();
+		ArrayList<commuDTO> to_array = new ArrayList<commuDTO>();
 		ArrayList<commuDTO> result = null;
 		try {
 			int po_num =0;
@@ -57,7 +57,7 @@ public class commuDAO extends DAO{
 				email = rs.getString(5);
 				time = rs.getString(6);
 				dto_out = new commuDTO(po_num, title, content, po_pw, email, time);
-				dto_array.add(dto_out);
+				to_array.add(dto_out);
 			}
 			
 		} catch (SQLException e) {
@@ -65,8 +65,8 @@ public class commuDAO extends DAO{
 			e.printStackTrace();
 		} finally {
 			close();
-			if(dto_array.size()>0) {
-				result = dto_array;
+			if(to_array.size()>0) {
+				result = to_array;
 			}
 		}
 		return result;
