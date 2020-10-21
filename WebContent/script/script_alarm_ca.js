@@ -3,6 +3,16 @@
 			  go();
 			}
 	function go(){
+		function aj(urls){
+			$.ajax(
+	            { 
+	                url: urls, 
+	                method: "GET", // HTTP 요청 메소드(GET, POST 등) 
+	                //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+	            })
+		}
+
+
 	  const getCookieValue = (key) => {
 	      let cookieKey = key + "="; 
 	      let result = "";
@@ -44,9 +54,19 @@
 	                }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
 	            .done(function(data) { 
 	                   console.log(data);
-					   // 알람이 가야한다.!!
 					   
-					   
+
+
+					   // 2. 카메라 인식 기능을 다시 실행해야 한다.
+					 	var urls = "http://172.30.1.33:8401/baby"  
+					   aj(urls);
+
+						// 1. 알람이 가야한다.!!
+						if(data == '1'){
+							location.replace('index.jsp?alarm=1');
+					   }
+
+
 	                }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
 	            .fail(function(xhr, status, errorThrown) { 
 	                    alert("실패");

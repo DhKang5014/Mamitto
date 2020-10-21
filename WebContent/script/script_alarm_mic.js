@@ -46,6 +46,12 @@
                      console.log(data);
                      //알람이 가야한다.!!!!
                      
+                    // 1. 알람이 가야한다.!!
+                    if(data == '1'){
+                      location.replace('index.jsp?alarm=1');
+					   }
+                     
+                     
                   }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
               .fail(function(xhr, status, errorThrown) { 
                       alert("실패");

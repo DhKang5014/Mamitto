@@ -1,6 +1,7 @@
 package com.ajax;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 
 import javax.servlet.ServletException;
@@ -8,8 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.DAO.insert_cameraDAO;
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class SaveAlarmMic
@@ -55,6 +58,26 @@ public class SaveAlarmMic extends HttpServlet {
 			System.out.println("insert success ! ");
 		}
 			
+		// Get User Email Login
+		HttpSession session = request.getSession();
+
+		// output json
+		PrintWriter out = null;
+		try {
+			out = response.getWriter();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		//
+
+		if (cnt > 0) {
+			System.out.println("select success");
+			String json = new Gson().toJson(cnt);
+			out.print(json);
+		} else {
+			System.out.println("select fail");
+		}
 	}
 
 }
