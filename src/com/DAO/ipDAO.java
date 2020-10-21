@@ -40,7 +40,7 @@ public class ipDAO extends DAO{
 				System.out.println("select_trafficDAO >> ip >> " + ip);
 				System.out.println("select_trafficDAO >> email >> " + email);
 				//
-				ipDTO dto = new ipDTO(ip, email);
+				ipDTO dto = new ipDTO(email, ip);
 				i++;
 				// 
 				ar.add(dto);

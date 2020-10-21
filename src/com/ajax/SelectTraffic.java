@@ -18,8 +18,8 @@ import com.DAO.select_trafficDAO;
 import com.DTO.mealDTO;
 import com.google.gson.Gson;
 
-@WebServlet("/SelectTaffic")
-public class SelectTaffic extends HttpServlet {
+@WebServlet("/SelectTraffic")
+public class SelectTraffic extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -42,7 +42,6 @@ public class SelectTaffic extends HttpServlet {
 		System.out.println("email >> " + email);
 
 		// Save Historys
-
 		String sql = "select * from history where email = ? ";
 		select_trafficDAO dao = new select_trafficDAO();
 		ArrayList<trafficDTO> arr = dao.select(sql, email);

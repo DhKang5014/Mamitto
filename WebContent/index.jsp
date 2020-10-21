@@ -29,11 +29,11 @@
         <div id="content" class="index_con">
             <div class="meno">
                 <!-- 영상 부분 -->
-                <iframe id="myFrame" src="" style="height:100%;width:100%"></iframe>
+                <img id="myFrame" src="" style="height:100%;width:100%"></img>
                 <a class="my_btn play_btn btn_color_linear" id="asdf">IP 입력이 필요합니다.</a>
             </div>
             <div class="page">
-                <ul class="life_list index_alam">
+                <ul class="life_list index_alam" id='alarms'>
                     <li class="defecate">
                         <a class="alam_left_p" id="index_red">위험</a>
                         <spna>2020.10.17</spna>

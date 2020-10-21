@@ -10,17 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.insert_cameraDAO;
-import com.DAO.update_mealDAO;
 
 /**
- * Servlet implementation class SaveAlarmCa
+ * Servlet implementation class SaveAlarmMic
  */
-@WebServlet("/SaveAlarmCa")
-public class SaveAlarmCa extends HttpServlet {
-
+@WebServlet("/SaveAlarmMic")
+public class SaveAlarmMic extends HttpServlet {
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get in the the Save Meal\
-		System.out.println("In com.ajax/SaveAlarmCa Service >>");
+		System.out.println("In com.ajax/SaveAlarmMic Service >>");
 
 		// Encoding
 		try {
@@ -33,7 +32,7 @@ public class SaveAlarmCa extends HttpServlet {
 		
 		// get email, cur time
 		String email = request.getParameter("email");
-		String alarm = "낙상";
+		String alarm = "울음";
 		int level = Integer.parseInt(request.getParameter("level"));
 		
 		// check email, curtime
@@ -55,7 +54,7 @@ public class SaveAlarmCa extends HttpServlet {
 		}else {
 			System.out.println("insert success ! ");
 		}
-		
+			
 	}
 
 }

@@ -4,16 +4,28 @@ public class trafficDTO {
 	int act_num;
 	String action;
 	String act_time;
+	int level;
 	String email;
 
-	public trafficDTO(int act_num, String action, String act_time, String email) {
+	public trafficDTO(int act_num, String action, String act_time, int level , String email) {
 		super();
 		this.act_num = act_num;
 		this.action = action;
 		this.act_time = act_time;
+		this.level = level;
 		this.email = email;
+		
+	}
+	
+
+	public int getLevel() {
+		return this.level;
 	}
 
+	public void setLevel(int level) {
+		this.level = level;
+	}
+	
 	public int getAct_num() {
 		return act_num;
 	}

@@ -12,8 +12,10 @@ public class select_trafficDAO extends DAO{
 
 	public ArrayList<trafficDTO> select(String sql, String email) {
 		System.out.println("I'm in Select_traffic DAO! ");
-		
+		// print sql query
+		System.out.println("sql >> " + sql);
 		psmt(sql);
+		
 		// ArrayList
 		ArrayList<trafficDTO> ar = new ArrayList<trafficDTO>();
 		// Result set
@@ -23,6 +25,8 @@ public class select_trafficDAO extends DAO{
 		int act_num = 0;
 		String action = null;
 		String act_time = null;
+		int level = 0;
+		
 		//email already get -- 
 		
 		// print parameters
@@ -35,21 +39,22 @@ public class select_trafficDAO extends DAO{
 		try {
 			getPsmt().setString(1, email);
 			rs = getPsmt().executeQuery();
-			int i = 0;
+			//int i = 0;
 			while (rs.next()) {
 				// 
-				act_num = rs.getInt(1);
-				action = rs.getString(2);
-				act_time = rs.getString(3);
-				
+				act_num = rs.getInt("act_num");
+				action = rs.getString("action");
+				act_time = rs.getString("act_time");
+				level = rs.getInt("level");
+				email = rs.getString("email");
 				// 
 				System.out.println("select_trafficDAO >> act_num >> " + act_num);
 				System.out.println("select_trafficDAO >> action >> " + action);
 				System.out.println("select_trafficDAO >> act_time >> " + act_time);
+				System.out.println("select_trafficDAO >> level >> " + level);
 				System.out.println("select_trafficDAO >> email >> " + email);
 				//
-				mealDTO dto = new mealDTO(rh_num, rh_category, rh_time, email);
-				i++;
+				trafficDTO dto = new trafficDTO(act_num, action, act_time, level, email);
 				// 
 				ar.add(dto);
 			}

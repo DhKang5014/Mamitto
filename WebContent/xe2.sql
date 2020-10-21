@@ -48,10 +48,12 @@ CREATE TABLE "POSTS" (
 	"PO_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL
 );
 
+
 CREATE TABLE "HISTORY" (
 	"ACT_NUM"	NUMBER		NOT NULL,
 	"ACTION"	VARCHAR2(100)		NULL,
 	"ACT_TIME"	TIMESTAMP	DEFAULT SYSTIMESTAMP	NULL,
+	"LEVEL"	NUMBER		NULL,
 	"EMAIL"	VARCHAR2(100)		NOT NULL
 );
 
@@ -114,3 +116,10 @@ REFERENCES "MEMBERS" (
 
 select * from rhythm;
 
+select * from history;
+
+
+insert into history values(act_num_sequence.nextval, '울음', sysdate, 1, '123');
+insert into history values(act_num_sequence.nextval, '울음', sysdate, 2, '123');
+insert into history values(act_num_sequence.nextval, '낙상', sysdate, 2, '123');
+insert into history values(act_num_sequence.nextval, '낙상', sysdate, 1, '123');

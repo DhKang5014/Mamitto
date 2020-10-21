@@ -21,11 +21,11 @@ function tableCreate(dt){
         html += '<td>'+dt[q].time.substring(0,16)+'</td>';
         html += '</tr>';
     }
-    html += `</tbody></html>`;
+    html += `</tbody></table>`;
                 
     $("#content").empty();
     $("#content").append(html);
-                
+    
 }
 const getCookieValues = (key) => {
     let cookieKey = key + "="; 
