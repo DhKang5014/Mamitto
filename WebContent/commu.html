@@ -34,42 +34,49 @@
         <!-- content -->
         <div class="life_title">
             <a class="title"></a>
-            <h1>커뮤니티</h1>
+            <h1>커뮤니티 게시판</h1>
         </div>
+        <hr class="life_hr commu_hr">
         <div id="content" class="page commu">
-            <table>
+            <div id="search">
+                <form action="">
+                    <select name="">
+                        <option value="제목">제목</option>
+                        <option value="작성자">작성자</option>
+                    </select>
+                    <input type="search">
+                    <input type="submit">
+                </form>
+            </div>
+            <table class="commu_table">
                 <thead>
                     <tr>
-                        <th>번호</th>
                         <th>제목</th>
                         <th>작성자</th>
                         <th>날짜</th>
-                        <th>조회수</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th>1</th>
-                        <th>제목제목제목</th>
-                        <th>유유</th>
-                        <th>날짜날짜</th>
-                        <th>1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <th>2</th>
-                        <th>제목제목제목</th>
-                        <th>유유</th>
-                        <th>날짜날짜</th>
-                        <th>1</th>
+                        <td><a href="#">제목적는 부분</a></td>  <!--제목을 클릭하면 내용이 보여져야함 -->
+                        <td>호랭이</td>
+                        <td>2020.10.17</td>
                     </tr>
+                    <tr>
+                        <td><a href="#">제목적는 부분</a></td>
+                        <td>호랭이</td>
+                        <td>2020.10.17</td>
+                    </tr>
+                   
                 </tbody>
             </table>
             <br>
             <a  href="commu_write.html" class="commu_btn">글쓰기</a>
-        </div>
-        <!-- footer -->
-        <div id="footer">
-    
         </div>
     </div>
 </body>

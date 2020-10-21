@@ -28,9 +28,10 @@
 		<!-- content -->
 		<div id="content" class="video_con">
 			<div class="life_title_box">
-				<div class="life_title">
+				<div>
 					<a class="title"></a>
 					<h1>육아리듬 체크</h1>
+					<hr class="life_hr">
 				</div>
 				<ul class="life_icon">
 					<li><img src="img/new_life1.png" alt="" width="80px"></li>

@@ -29,14 +29,29 @@
             <h1>커뮤니티</h1>
         </div>
         <div id="content" class="page commu">
-            
+            <table>
+                <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>제목</th>
+                        <th>작성자</th>
+                        <th>날짜</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+             
+                </tbody>
+            </table>
             <br>
             <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
         </div>
-        <!-- footer -->
-        <div id="footer">
-    		
-        </div>
+
     </div>
 </body>
 </html>

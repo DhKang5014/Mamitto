@@ -49,7 +49,7 @@
                         <input type="radio" id='baby_gender_woman' name='baby_gender' value="여자">	
                     </div>
                 </div>    
-                <input type="submit" value="Done" class="btn">
+                <input type="submit" value="등록하기" class="btn">
             </form>
         </div>
         <!-- footer -->

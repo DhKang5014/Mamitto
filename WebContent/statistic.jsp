@@ -52,10 +52,6 @@
               <div id="columnchart_material4" style="width: 30em; height: 20em;"></div>
             </div>
         </div>
-        
-        <!-- footer -->
-        <div id="footer">
-        </div>
         </div>
     <script>
     //columnchart_material1----------------------------------------
@@ -173,9 +169,9 @@
     	         );
 
     	        var options4 = { 
-    	          title: 'Company Performance',
+    	          title: 'Body Check',
     	          curveType: 'function',
-    	          legend: { position: 'bottom' }
+    	          legend: { position: 'top' }
     	        };
 
     	        var chart4 = new google.visualization.LineChart(document.getElementById('columnchart_material4'));

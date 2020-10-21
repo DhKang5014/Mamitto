@@ -33,7 +33,7 @@
                         <input type="text" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
                     </div>
                     <div>
-                        <input type="submit" value="Login" class="btn">
+                        <input type="submit" value="로그인" class="btn">
                         <a href="join_page.jsp" class="btn a_btn">회원가입</a>
                     </div>
                 </form>
