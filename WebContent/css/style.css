@@ -56,6 +56,12 @@ h1{
     width:1em;
     margin: 0 auto;
 }
+#life_hr{
+	width :0em;
+	margin: 0 auto;
+	margin-bottom:2em;
+}
+
 h3{color: #726973;}
 h4{color:#726973;}
 /* 지울것 임시지정*/
@@ -665,6 +671,7 @@ h4{color:#726973;}
 }
 .life_title{
     margin-top: 5em;
+    margin: 0 auto;
 }
 .life_icon{
     width: 100%;

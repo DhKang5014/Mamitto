@@ -31,6 +31,7 @@
 				<div class="life_title">
 					<a class="title"></a>
 					<h1>육아리듬 체크</h1>
+					<hr id="life_hr">
 				</div>
 				<ul class="life_icon">
 					<li><img src="img/new_life1.png" alt="" width="80px"></li>

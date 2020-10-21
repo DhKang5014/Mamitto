@@ -63,6 +63,7 @@ $(function(){
         setInterval(function(){
             $(".page").animate({"margin-top":"0em"},"slow");
             $("#move").animate({"width":"8em"},"slow")
+            $("#life_hr").animate({"width":"8em"},"slow")
         });
       
         //my_page ---------------------------------------------------
