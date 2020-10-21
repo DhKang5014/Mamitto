@@ -29,7 +29,7 @@
                         <td><input type="text" name="title" class="write_width" placeholder="제목을 입력해주세요."></td>
                     </tr>
                     <tr>
-                        <td><input type="text" name="name" class="write_width" placeholder="이름을 입력해주세요."></td>
+                        <td><input type="text" name="name" class="write_width" placeholder="이름을 입력해주세요." value="<%= email%>"></td>
                     </tr>
                     <tr>
                         <td><textarea name="content" class="td_write write_width" placeholder="내용을 입력해 주세요."></textarea></td>

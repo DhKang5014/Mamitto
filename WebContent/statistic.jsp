@@ -140,12 +140,13 @@
     	      google.charts.setOnLoadCallback(drawChart4);
 					
     	          <% String dataset4 = "'day', 'height', 'weight',";
+    	          if (to_array.size()>0){
     	          for (int i = 0; i < to_array.size(); i++) {  
     	        	 if(i != to_array.size()-1){
     				dataset4 +=  "\'"+ to_array.get(i).getDay() +"\'," +to_array.get(i).getHeight() + "," +to_array.get(i).getWeight()+",";
     				 }else {
     				dataset4 += "\'"+ to_array.get(i).getDay() +"\'," +to_array.get(i).getHeight() + "," +to_array.get(i).getWeight();
-    				 }} 
+    				 }}}; 
     				 
     				 %>
 				var dataset4 = [<%=dataset4%>];
