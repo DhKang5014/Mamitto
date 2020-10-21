@@ -1,5 +1,3 @@
-
-
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.DAO.selectDAO"%>
 <%@page import="com.model.master.DTO"%>

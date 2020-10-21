@@ -30,8 +30,8 @@
         </div>
         
         <div id="content" class="page my_page">
-        <form action="LogoutServiceCon.do" class="login_con join_con">
-                <input type="submit" value="로그아웃" class="btn my_btn btn_color_linear">
+        <form action="join_baby_page.jsp" class="login_con join_con">
+                <input type="submit" value="아이추가" class="btn my_btn">
             </form>
             <div class="my">
                 <h3 id="baby_name"><%=baby_name%></h3>
@@ -77,8 +77,8 @@
             <!--  -->
             <!-- action 값 조율필요 -->
             <!--  -->
-            <form action="join_baby_page.jsp" class="login_con join_con">
-                <input type="submit" value="아이추가" class="btn my_btn">
+            <form action="LogoutServiceCon.do" class="login_con join_con">
+                <input type="submit" value="로그아웃" class="btn my_btn btn_color_linear">
             </form>
             <div class="my_footer"></div>
         </div>
