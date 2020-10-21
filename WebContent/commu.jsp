@@ -33,10 +33,7 @@
             <br>
             <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
         </div>
-        <!-- footer -->
-        <div id="footer">
-    		
-        </div>
+
     </div>
 </body>
 </html>
