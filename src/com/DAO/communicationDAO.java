@@ -46,10 +46,12 @@ public class communicationDAO extends DAO{
 				System.out.println("select_mealDAO >> time >> " + time);
 				System.out.println("select_mealDAO >> email >> " + email);
 				//
-				communicationDTO dto = new communicationDTO(po_num, po_title, po_content, po_pw, time, email);
-				i++;
-				//
-				ar.add(dto);
+				if(po_pw.equals("공개")) {
+					communicationDTO dto = new communicationDTO(po_num, po_title, po_content, po_pw, time, email);
+					i++;
+					//
+					ar.add(dto);
+				}
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

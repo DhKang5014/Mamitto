@@ -26,9 +26,22 @@
         <!-- content -->
         <div class="life_title">
             <a class="title"></a>
-            <h1>커뮤니티</h1>
+            <h1>커뮤니티 게시판</h1>
         </div>
+
+        <hr class="life_hr commu_hr">
+        
         <div class="page commu">
+            <div id="search">
+                <form action="">
+                    <select name="">
+                        <option value="제목">제목</option>
+                        <option value="작성자">작성자</option>
+                    </select>
+                    <input type="search">
+                    <input type="submit">
+                </form>
+            </div>
             <table class="commu_table" id='contents'>
                 <thead>
                     <tr>
