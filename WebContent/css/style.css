@@ -376,11 +376,12 @@ h4{color:#726973;}
 #alam_pop{
     position: fixed;
     height: 5em;
-    background-color: red;
+    background-color: #fd5050;
     top:-81px;
     left:0;
     right:0;
     border-radius: 0.5em;
+    
 }
 #alam_pop {padding-left: 1em;}
 #alam_pop > h2{
@@ -396,7 +397,7 @@ h4{color:#726973;}
 }
 .defecate>img:nth-child(4){
     position: absolute;
-    top:-13px;
+    top:-13px; 
     right:5px;
 }
 

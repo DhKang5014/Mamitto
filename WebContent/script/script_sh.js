@@ -36,6 +36,17 @@ $(function(){
         $(".logo").on("click",function(){
             window.location.reload();
         });
+        
+       
+//        var pw_check = $("#pw").val();
+//        
+//        if(pw_check.length){
+//        	if(pw_check.length< 6 || pw_check.length > 8){
+//            	alert("비밀번호를 다시 입력해주세요");
+//            	$("#pw_check_on").css("display","block");
+//            	$("#pw_check_off").css("display","none");
+//            }
+//        }
     
         // open --------------------------------------------------
         setInterval(function(){
@@ -87,13 +98,13 @@ $(function(){
         $(".menu").on("click", function(){
             $("#alam_pop").stop().animate({"top":"0px"},"slow");
             setInterval(function(){
-                $("#alam_pop").animate({"background-color":"#ff4a4a"},"slow",function(){
-                    $(this).css("background-color","rgb(250, 244, 244)");
+                $("#alam_pop").animate({"display":"block"},"slow",function(){
+                    $(this).css("display","none");
                 });
             },100);
             setInterval(function(){
-                $("#alam_pop").animate({"background-color":"#fdfdfd"},"slow",function(){
-                    $(this).css("background-color","#ff4a4a");
+                $("#alam_pop").animate({"display":"none"},"slow",function(){
+                    $(this).css("display","block");
                 });
             },100);
         });
