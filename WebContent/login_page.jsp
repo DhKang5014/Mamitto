@@ -39,6 +39,7 @@
                 </form>
             </div>
         </div>
+        
         <div id="footer" class="ft_height">
             <span>(주) Future I Zation</span>
             <br>
