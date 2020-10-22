@@ -84,7 +84,7 @@ input{
 
 #join_check_box{
 	width:20em;
-	height:3em;
+	height:2.5em;
 }
 
 #join_check_box > input{
@@ -127,13 +127,18 @@ input{
 .btn{
     margin: 0 auto;
     width: 20em;
-    /*background-color:#ff4a91;*/
-    background: linear-gradient(to left, #fcc4d1, #d7c0f8);
+    /* background-color:#ff4a91; */
+    
     border-style: none;
     height: 3em;
     color: #fdfdfd;
     border-radius: 0.5em;
 }
+.btn_colorline{background: linear-gradient(to left, #fcc4d1, #d7c0f8);}
+.btn_color{
+	/*background-color:#ffb9cb;*/
+	background-color:#fb9fb7;
+	}
 .a_btn{
     margin-top:1em;
     width: 16.7em;

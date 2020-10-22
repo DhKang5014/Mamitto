@@ -38,15 +38,15 @@ $(function(){
         });
         
        
-//        var pw_check = $("#pw").val();
-//        
-//        if(pw_check.length){
-//        	if(pw_check.length< 6 || pw_check.length > 8){
-//            	alert("비밀번호를 다시 입력해주세요");
-//            	$("#pw_check_on").css("display","block");
-//            	$("#pw_check_off").css("display","none");
-//            }
-//        }
+        //join --------------------------------------------------
+//        $(document).ready(function(){
+//        	$("#pw").off("focus").on("focus", function(){
+//        		var value = $(this).val();
+//        		$()
+//        		
+//        	}); //on
+//        }); //ready
+        
     
         // open --------------------------------------------------
         setInterval(function(){

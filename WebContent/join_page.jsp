@@ -29,7 +29,7 @@
                     <div class="form_box">
                         <div id="join_check_box">
                         	<input type="text" class="join_txt" id="email" name="email" placeholder="이메일을 입력해주세요.">
-							<a class="btn">중복확인</a>
+							<a class="btn btn_color">중복확인</a>
                         </div>
                         <span class="join_check join_mg" id="id_check">*이메일 형식으로 입력</span>
                         <span class="join_check join_mg" id="id_check_on">*사용가능 합니다.</span>
@@ -39,11 +39,11 @@
             			<span class="join_check join_mg pw_check" id="pw_check_on">*사용 가능합니다.</span>
                         <span class="join_check join_mg pw_check" id="pw_check_off">*비밀번호를 다시 입력해 주세요.</span>
                         <input type="text" class="join_txt join_mg" id="name" name="name" value="" placeholder="이름을 입력해주세요.">
-                        <input type="text" class="join_txt join_mg" id="age" name="age" value="" placeholder="나이를 선택해주세요">
+                        <input type="number" class="join_txt join_mg" id="age" name="age" value="" placeholder="나이를 선택해주세요">
                         <input type="text" class="join_txt join_mg" id="tel" name="tel" value="" placeholder="휴대폰번호를 입력해주세요">
                     </div>
                     <div>
-                        <input type="submit" value="회원가입 완료" class="btn">
+                        <input type="submit" value="회원가입 완료" class="btn btn_colorline">
                     </div>
                 </form>
             </div>
