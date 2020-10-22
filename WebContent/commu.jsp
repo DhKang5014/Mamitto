@@ -39,7 +39,8 @@
                         <option value="email">작성자</option>
                     </select>
                     <input type="search" id="search_val" name="search_val">
-                    <input type="submit" id="search_btn">
+<!--                     <button onclick="" id="search_btn">검색</button> -->
+                    <input type="button" id="search_btn" onclick="sear(); return false;">
                 </form>
             </div>
             <table class="commu_table" id='contents'>

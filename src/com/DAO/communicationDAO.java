@@ -61,7 +61,7 @@ public class communicationDAO extends DAO{
 		return ar;
 	}
 	
-	public ArrayList<communicationDTO> select(String sql, String search_type, String search_val) {
+	public ArrayList<communicationDTO> select(String sql, String search_val) {
 		psmt(sql);
 		//
 		ArrayList<communicationDTO> ar = new ArrayList<communicationDTO>();
@@ -76,8 +76,7 @@ public class communicationDAO extends DAO{
 		String email = null;
 			
 		try {
-			getPsmt().setString(1, search_type);
-			getPsmt().setString(2, search_val);
+			getPsmt().setString(1, search_val);
 			rs = getPsmt().executeQuery();
 			int i = 0;
 			while (rs.next()) {

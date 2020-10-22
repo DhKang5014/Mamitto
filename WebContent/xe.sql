@@ -189,5 +189,6 @@ select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where em
 
 select * from posts;
 select po_num, po_title, po_content, po_pw, email, to_char(po_time, 'MM/dd/YY HH24:mi') as day from posts where email='admin' or po_pw='공개' order by day desc;
+select * from posts where po_title like '%확인%';
 
 select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'admin' and rh_category = 'sleep' and to_char(rh_time, 'mm-dd') between to_char(rh_time-7, 'mm-dd') and to_char(rh_time, 'mm-dd') group by to_char(rh_time, 'mm-dd') order by day
