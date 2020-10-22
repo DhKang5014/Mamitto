@@ -34,7 +34,7 @@
                         <span class="join_check join_mg" id="id_check">*이메일 형식으로 입력</span>
                         <span class="join_check join_mg" id="id_check_on">*사용가능 합니다.</span>
                         <span class="join_check join_mg" id="id_check_off">*이미 가입된 이메일 입니다.</span>
-                        <input type="password" class="join_txt" id="pw" name="pw" placeholder="비밀번호를 입력해주세요.">
+                        <input type="password" class="join_txt" id="pw" name="pw" placeholder="비밀번호를 입력해주세요." pattern=".{6,8}" required>
                         <span class="join_check join_mg pw_check" id="pw_check">*6~8자리 영문, 숫자 입력 가능합니다.</span>
             			<span class="join_check join_mg pw_check" id="pw_check_on">*사용 가능합니다.</span>
                         <span class="join_check join_mg pw_check" id="pw_check_off">*비밀번호를 다시 입력해 주세요.</span>

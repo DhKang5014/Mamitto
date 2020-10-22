@@ -39,14 +39,19 @@ $(function(){
         
        
         //join --------------------------------------------------
-//        $(document).ready(function(){
-//        	$("#pw").off("focus").on("focus", function(){
-//        		var value = $(this).val();
-//        		$()
+//        function check(){
+//        	
+//        	var pw = $("#pw");
+//        	
+//        	 if(pw.value.length < 6 || pw.value.length > 8){
+//        		pw.focus();
+//        		alert("비밀번호는 6~8자리로 입력해 주세요.")
 //        		
-//        	}); //on
-//        }); //ready
-        
+//        		return false;
+//        	 }
+//        	 return true;
+//        }
+//        
     
         // open --------------------------------------------------
         setInterval(function(){
