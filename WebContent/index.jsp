@@ -36,16 +36,19 @@
                         <a class="alam_left_p" id="index_red">위험</a>
                         <span>2020.10.17</span>
                         <span class='meal_color'id="index_red2">위험 합니다.</span>
+                        <img src="img/alam_cion4.png">
                     </li>
                     <li class="defecate">
                         <a class="alam_left_y">주의</a>
                         <span>2020.10.17</span>
                         <span class='sleep_color'>주의가 필요 합니다.</span>
+                        <img src="img/alam_cion3.png">
                     </li>
                     <li class="defecate"> 
                         <a class="alam_left_y" id="index_green">안전</a>
                         <span>2020.10.17</span>
                         <span class='meal_color' id="index_green2">위험 합니다.</span>
+                        <img src="img/alam_cion2.png">
                     </li>  
                 </ul>
 
@@ -90,6 +93,10 @@
                     <input type="submit" value="전송" class="btn my_btn btn_color">
                 </form>
             </div>
+        </div>
+        <div id="alam_pop">
+            <img src="img/alam_cion1.png">
+            <h2>위험 경고!</h2>
         </div>
     </div>
     <p>

@@ -22,16 +22,20 @@
             <div>
             <!-- a 태그 로고작업예정 -->
                 <a href="#"></a>
-            	<h2>회원가입</h2>
+               <h2>회원가입</h2>
             </div>
             <div>
                 <form action="JoinServiceCon.do" method="post" class="login_box">
                     <div class="form_box">
-                        <input type="text" id="email" name="email" value="" placeholder="아이디를 입력해주세요.">
-                        <input type="password" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
-                        <input type="text" id="name" name="name" value="" placeholder="이름을 입력해주세요.">
-                        <input type="text" id="age" name="age" value="" placeholder="나이를 선택해주세요">
-                        <input type="text" id="tel" name="tel" value="" placeholder="휴대폰번호를 입력해주세요">
+                        <input type="text" class="join_txt" id="email" name="email" placeholder="이메일을 입력해주세요.">
+                        <span class="join_check join_mg" id="id_check_off">*이메일 형식으로 입력</span>
+                        <span class="join_check join_mg" id="id_check_on">*이미 가입된 이메일 입니다.</span>
+                        <input type="password" class="join_txt" id="pw" name="pw" placeholder="비밀번호를 입력해주세요.">
+                        <span class="join_check join_mg pw_check" id="pw_check_off">*6~8자리 영문, 숫자 입력 가능합니다.</span>
+                        <span class="join_check join_mg pw_check" id="pw_check_on">*비밀번호를 다시 입력해 주세요.</span>
+                        <input type="text" class="join_txt join_mg" id="name" name="name" value="" placeholder="이름을 입력해주세요.">
+                        <input type="text" class="join_txt join_mg" id="age" name="age" value="" placeholder="나이를 선택해주세요">
+                        <input type="text" class="join_txt join_mg" id="tel" name="tel" value="" placeholder="휴대폰번호를 입력해주세요">
                     </div>
                     <div>
                         <input type="submit" value="회원가입 완료" class="btn">
@@ -39,7 +43,6 @@
                 </form>
             </div>
         </div>
-        
     </div>
 </body>
 </html>
