@@ -43,7 +43,7 @@ public class SelectCheckEmail extends HttpServlet {
 		
 		
 		// Save Meal BG
-		String sql = "select * from members";
+		String sql = "select * from members where email = ?";
 		System.out.println("sql >> " + sql);
 		
 		// update dao
