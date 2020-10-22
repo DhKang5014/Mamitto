@@ -381,29 +381,27 @@ function check() {
 		        }, // HTTP 요청과 함께 서버로 보낼 데이터 
 		        method: "POST", // HTTP 요청 메소드(GET, POST 등) 
 		        //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-		        }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+		    }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
 		    .done(function(data) { 
 		           console.log(data);
+		           $("#check_btn").on("click",function(){  // 별도로 빼야하나??
+					  console.log("check_btn");
+					  $('#id_check').css('display','none');  // 기존에 있던 이메일 형식부분 안보이게 
+					  
+					  if (data >0) {
+						  $('#id_check_on').css('display','none'); 
+						  $('#id_check_off').css('display','block');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게				
+					} else {				
+					  $('#id_check_on').css('display','block'); 
+					  $('#id_check_off').css('display','none');
+					}
+		           });
 		           
-		           
-		        }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+		    }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
 		    .fail(function(xhr, status, errorThrown) { 
 		            alert("실패"); 
 		})
 		
 		// 클릭 있을 때 selectcheckemail 을 돌아 나온 data int 값에 따라 표시 값 변경
-		$("#asdf").on("click",function(){  
-			  console.log("check_btn");
-			  
-			  if (data >0) {
-				  $('#id_check_on').css('display','block'); 
-				  $('#id_check_off').css('display','none');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게				
-			}
-			  $('#id_check_on').css('display','block'); 
-			  $('#id_check_off').css('display','none');
-			});
+
 }
-
-
-
-
