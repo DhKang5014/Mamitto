@@ -49,14 +49,5 @@
             <span>강다훈, 이태민, 최웅식, 조규범, 정세희</span>
         </div>
     </div>
-    
-    <script type="text/javascript">
-    $("#check_btn").on("click",function(){  // 별도로 빼야하나??
-		  console.log("check_btn");
-		  $('#id_check').css('display','none');  // 기존에 있던 이메일 형식부분 안보이게 
-		check();
-	});
-
-    </script>
 </body>
 </html>
