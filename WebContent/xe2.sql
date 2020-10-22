@@ -118,6 +118,10 @@ select * from rhythm;
 
 select * from history;
 
+select * from babys;
+
+update babys set cam_ip = '172.30.1.39' where email ='123';
+
 
 insert into history values(act_num_sequence.nextval, '울음', sysdate, 1, '123');
 insert into history values(act_num_sequence.nextval, '울음', sysdate, 2, '123');

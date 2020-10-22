@@ -49,5 +49,13 @@
             </div>
         </div>
     </div>
+        <script type="text/javascript">
+    $("#check_btn").on("click",function(){
+		  console.log("check_btn");
+		  $('#id_check').css('display','none');  // 기존에 있던 이메일 형식부분 안보이게 
+		check();   //script의 check 기능 실행
+	});
+
+    </script>
 </body>
 </html>

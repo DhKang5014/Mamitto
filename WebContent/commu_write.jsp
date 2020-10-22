@@ -40,7 +40,7 @@
                     <tr>
                         <td>
                             <label for="email">공개</label>
-                            <input type="radio" name="password" value="공개">&nbsp
+                            <input type="radio" name="password" value="공개" checked>&nbsp
                             <label for="email">비공개</label> 
                             <input type="radio" name="password" value="비공개">
                         </td>

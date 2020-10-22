@@ -29,6 +29,7 @@
     </script>
   </head>
   <body>
+  <a href="sms:01012345678?body=내용!!">문자전송</a>
     <div id="columnchart_material4" style="width: 900px; height: 500px"></div>
   </body>
 </html>
