@@ -82,13 +82,14 @@ input{
 
 .join_mg{margin-bottom: 1em;}
 
-#id_check_off{display:block;}
+#pw_check{display:block;}
 #id_check_on{display:none;}
+#id_check_off{display:none;}
 
-
-
-#pw_check_off{display:block;}
+#pw_check{display:block;}
 #pw_check_on{display:none;}
+#pw_check_off{display:none;}
+
 
 .join_check{
    font-size:0.5em;
@@ -119,5 +120,21 @@ input{
     text-align: center;
     height: 2.5em;
     line-height: 2.5em;
+}
+
+#footer{
+    min-width: 100%;
+    background-color: #fdfdfd;
+    /* exam  */
+    height: 100px;
+    text-align: center;
+    font-size: 0.5em;
+    color: #888;
+} 
+.ft_height{
+    margin-top: 18em;
+}
+.ft_height2{
+    margin-top: 30em;
 }
 
