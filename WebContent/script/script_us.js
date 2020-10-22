@@ -393,9 +393,14 @@ function check() {
 		
 		// 클릭 있을 때 selectcheckemail 을 돌아 나온 data int 값에 따라 표시 값 변경
 		$("#asdf").on("click",function(){  
-			  console.log("play_btn");
-			  $('#email').css('display','block');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게
-			  $('#email').val(email);
+			  console.log("check_btn");
+			  
+			  if (data >0) {
+				  $('#id_check_on').css('display','block'); 
+				  $('#id_check_off').css('display','none');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게				
+			}
+			  $('#id_check_on').css('display','block'); 
+			  $('#id_check_off').css('display','none');
 			});
 }
 
