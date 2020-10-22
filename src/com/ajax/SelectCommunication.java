@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.DAO.communicationDAO;
 import com.DTO.communicationDTO;
@@ -35,7 +34,7 @@ public class SelectCommunication extends HttpServlet {
 		// get email, cur times
 		String email = request.getParameter("email");
 		String search_type = request.getParameter("search_type");
-		String search_val = request.getParameter("search_val");
+		String search_val = "%"+request.getParameter("search_val")+"%";
 		
 		// check email, curtime
 		System.out.println("email >> " + email);
@@ -45,10 +44,12 @@ public class SelectCommunication extends HttpServlet {
 		
 		// Save Meal BG
 		String sql = null;
-		if (search_val == null) {
+		if (search_type == null) {
 			sql = "select * from posts";	
+		}else if (search_type.equals("email")) {
+			sql = "select * from posts where email like ?";
 		}else {
-			sql = "select * from posts where ? = ?";
+			sql = "select * from posts where po_title like ?";
 		}
 		System.out.println("sql >> " + sql);
 		
@@ -56,15 +57,13 @@ public class SelectCommunication extends HttpServlet {
 		communicationDAO dao = new communicationDAO();
 		ArrayList<communicationDTO> arr = new ArrayList<communicationDTO>();
 
-		if (search_val == null) {
-			arr = dao.select(sql);	
+		if (search_type == null) {
+			arr = dao.select(sql);
 		}else {
-			arr = dao.select(sql, search_type, search_val);
+			arr = dao.select(sql, search_val);
 		}
 		
 		int cnt = arr.size();
-		// Get User Email Login
-		HttpSession session = request.getSession();
 				
 		// output json
 		PrintWriter out = null;
