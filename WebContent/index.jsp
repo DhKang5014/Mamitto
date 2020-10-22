@@ -3,6 +3,7 @@
 <%@page import="com.model.master.DTO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +17,76 @@
     <script src="script/script_sh.js"></script>
     <script src='script/script_dh.js'></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-  	<script type="text/javascript" src="js/jquery.ajax-cross-origin.min.js"></script>
+  	<script src="script/script_firebase_dh.js"></script>
+  	<script>
+
+
+  	'use strict';
+
+  	/* eslint-disable max-len */
+
+  	const applicationServerPublicKey = 'AAAANUG2TQI:APA91bHHSlCUE4eXB4R4avQPr9i_UA1M_Dbflp9lwCKg284_6ZbMdvBioZY5hhvjLvWk-ZFt_OON80cXyqbpl8au0ZN_PSQQcKyPrKQSk9jfSM6IMkxKwPAO35QbiCOjiKdDd7GkBpKs';
+
+  	/* eslint-enable max-len */
+
+  	function urlB64ToUint8Array(base64String) {
+  	  const padding = '='.repeat((4 - base64String.length % 4) % 4);
+  	  const base64 = (base64String + padding)
+  	    .replace(/\-/g, '+')
+  	    .replace(/_/g, '/');
+
+  	  const rawData = window.atob(base64);
+  	  const outputArray = new Uint8Array(rawData.length);
+
+  	  for (let i = 0; i < rawData.length; ++i) {
+  	    outputArray[i] = rawData.charCodeAt(i);
+  	  }
+  	  return outputArray;
+  	}
+	
+  	self.addEventListener('push', function(event) {
+  	  console.log('[Service Worker] Push Received.');
+  	  console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
+
+  	  const title = 'Push Codelab';
+  	  const options = {
+  	    body: 'Yay it works.',
+  	    icon: 'images/icon.png',
+  	    badge: 'images/badge.png'
+  	  };
+
+  	  event.waitUntil(self.registration.showNotification(title, options));
+  	});
+
+  	self.addEventListener('notificationclick', function(event) {
+  	  console.log('[Service Worker] Notification click Received.');
+
+  	  event.notification.close();
+
+  	  event.waitUntil(
+  	    clients.openWindow('https://developers.google.com/web/')
+  	  );
+  	});
+
+  	self.addEventListener('pushsubscriptionchange', function(event) {
+  	  console.log('[Service Worker]: \'pushsubscriptionchange\' event fired.');
+  	  const applicationServerKey = urlB64ToUint8Array(applicationServerPublicKey);
+  	  event.waitUntil(
+  	    self.registration.pushManager.subscribe({
+  	      userVisibleOnly: true,
+  	      applicationServerKey: applicationServerKey
+  	    })
+  	    .then(function(newSubscription) {
+  	      // TODO: Send to application server
+  	      console.log('[Service Worker] New subscription: ', newSubscription);
+  	    })
+  	  );
+  	});
+  	
+
+
+  	
+  	</script>
 
 
 	
@@ -29,14 +99,6 @@
 	<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-analytics.js"></script>
 	
 	
-      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
-
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="/__/firebase/6.2.0/firebase-app.js"></script>
-
-  <!-- Add Firebase products that you want to use -->
-  
-  <script src="/__/firebase/6.2.0/firebase.js"></script>
     <title>mamiddo</title>
 </head>
 <body>
@@ -131,7 +193,11 @@
      <a href="https://web-push-codelab.glitch.me/">Push Companion</a>
       <pre><code class="js-subscription-json"></code></pre>
     </section>
-  
+    <!--    -->
+    <button id="subscribe">
+      Subscribe
+    </button>
+    <!--    -->
   <script src="scripts/main.js"></script>
   <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
@@ -158,12 +224,42 @@
 	  firebase.initializeApp(firebaseConfig);
 	  firebase.analytics();
 	  
-	  var a= firebase.database().ref().child('text');
+	  
+	  function notify() {
+	        if (Notification.permission !== 'granted') {
+	            alert('notification is disabled');
+	        }
+	        else {
+	            var notification = new Notification('Notification title', {
+	                icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+	                body: 'Notification text',
+	            });
+
+	            notification.onclick = function () {
+	                window.open('http://google.com');
+	            };
+	        }
+	  }
+	  
+	  
+	  
+	  
+	  var a= firebase.database().ref().child('info').child('info1');
 	  console.log(a);
 	  a.on('value', snap => bigOne.value = snap.val());
-	    
-  
+	  a.on('value', snap => notify());	  
+	  	
+    var database = firebase.database();
+    
+    function writeUserData(userId, name, email, imageUrl) {
+       firebase.database().ref('users/' + userId).set({
+       username: name,
+       email: email,
+        profile_picture : imageUrl
+      });
+    }
+	  
 	</script>
- 
+  
 </body>
 </html>
