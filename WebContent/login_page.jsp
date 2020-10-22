@@ -30,7 +30,7 @@
                 <form action="LoginServiceCon.do" method="post" class="login_box">
                     <div class="form_box">
                         <input type="text" id="email" name="email" value="" placeholder="아이디를 입력해주세요.">
-                        <input type="text" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
+                        <input type="password" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
                     </div>
                     <div>
                         <input type="submit" value="로그인" class="btn">

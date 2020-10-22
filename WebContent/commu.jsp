@@ -40,7 +40,7 @@
                     </select>
                     <input type="search" id="search_val" name="search_val">
 <!--                     <button onclick="" id="search_btn">검색</button> -->
-                    <input type="button" id="search_btn" onclick="sear(); return false;">
+                    <input type="button" id="search_btn" value="검색" onclick="sear(); return false;">
                 </form>
             </div>
             <table class="commu_table" id='contents'>
