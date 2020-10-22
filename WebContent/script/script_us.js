@@ -384,14 +384,19 @@ function check() {
 		        }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
 		    .done(function(data) { 
 		           console.log(data);
-		           data = JSON.parse(data);
-		           console.log(data);//
-		           tableCreate(data);
+		           
+		           
 		        }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
 		    .fail(function(xhr, status, errorThrown) { 
 		            alert("실패"); 
 		})
-
+		
+		// 클릭 있을 때 selectcheckemail 을 돌아 나온 data int 값에 따라 표시 값 변경
+		$("#asdf").on("click",function(){  
+			  console.log("play_btn");
+			  $('#email').css('display','block');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게
+			  $('#email').val(email);
+			});
 }
 
 
