@@ -45,7 +45,7 @@
             <br>
             <span>만든 사람들</span>
             <br>
-            <spna>강다훈, 이태민, 최웅식, 조규범, 정세희</spna>
+            <span>강다훈, 이태민, 최웅식, 조규범, 정세희</span>
         </div>
     </div>
 </body>

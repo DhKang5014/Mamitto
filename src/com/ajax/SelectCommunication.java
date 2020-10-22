@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.DAO.communicationDAO;
 import com.DTO.communicationDTO;
@@ -65,8 +64,6 @@ public class SelectCommunication extends HttpServlet {
 		}
 		
 		int cnt = arr.size();
-		// Get User Email Login
-		HttpSession session = request.getSession();
 				
 		// output json
 		PrintWriter out = null;

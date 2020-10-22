@@ -29,7 +29,6 @@ public class communicationDAO extends DAO{
 		try {
 			
 			rs = getPsmt().executeQuery();
-			int i = 0;
 			while (rs.next()) {
 				//
 				po_num = rs.getInt("po_num");
@@ -48,7 +47,6 @@ public class communicationDAO extends DAO{
 				//
 				if(po_pw.equals("공개")) {
 					communicationDTO dto = new communicationDTO(po_num, po_title, po_content, po_pw, time, email);
-					i++;
 					//
 					ar.add(dto);
 				}
@@ -78,7 +76,6 @@ public class communicationDAO extends DAO{
 		try {
 			getPsmt().setString(1, search_val);
 			rs = getPsmt().executeQuery();
-			int i = 0;
 			while (rs.next()) {
 				//
 				po_num = rs.getInt("po_num");
@@ -97,7 +94,6 @@ public class communicationDAO extends DAO{
 				//
 				if(po_pw.equals("공개")) {
 					communicationDTO dto = new communicationDTO(po_num, po_title, po_content, po_pw, time, email);
-					i++;
 					//
 					ar.add(dto);
 				}
@@ -117,7 +113,6 @@ public class communicationDAO extends DAO{
 		try {
 
 			rs = getPsmt().executeQuery();
-			int i = 0;
 			while (rs.next()) {
 				//
 				cnt = rs.getInt(1);
