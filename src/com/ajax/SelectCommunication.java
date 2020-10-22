@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.DAO.communicationDAO;
-import com.DAO.update_sleepDAO;
 import com.DTO.communicationDTO;
 import com.google.gson.Gson;
 
@@ -35,19 +34,33 @@ public class SelectCommunication extends HttpServlet {
 
 		// get email, cur times
 		String email = request.getParameter("email");
-		
+		String search_type = request.getParameter("search_type");
+		String search_val = request.getParameter("search_val");
 		
 		// check email, curtime
 		System.out.println("email >> " + email);
+		System.out.println("search_type >> " + search_type);
+		System.out.println("search_val >> " + search_val);
 		
 		
 		// Save Meal BG
-		String sql = "select * from posts";
+		String sql = null;
+		if (search_val == null) {
+			sql = "select * from posts";	
+		}else {
+			sql = "select * from posts where ? = ?";
+		}
 		System.out.println("sql >> " + sql);
 		
 		// update dao
 		communicationDAO dao = new communicationDAO();
-		ArrayList<communicationDTO> arr = dao.select(sql);
+		ArrayList<communicationDTO> arr = new ArrayList<communicationDTO>();
+
+		if (search_val == null) {
+			arr = dao.select(sql);	
+		}else {
+			arr = dao.select(sql, search_type, search_val);
+		}
 		
 		int cnt = arr.size();
 		// Get User Email Login

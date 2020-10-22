@@ -34,18 +34,18 @@
                 <ul class="life_list index_alam" id='alarms'>
                     <li class="defecate">
                         <a class="alam_left_p" id="index_red">위험</a>
-                        <spna>2020.10.17</spna>
-                        <spna class='meal_color'id="index_red2">위험 합니다.</spna>
+                        <span>2020.10.17</span>
+                        <span class='meal_color'id="index_red2">위험 합니다.</span>
                     </li>
                     <li class="defecate">
                         <a class="alam_left_y">주의</a>
-                        <spna>2020.10.17</spna>
-                        <spna class='sleep_color'>주의가 필요 합니다.</spna>
+                        <span>2020.10.17</span>
+                        <span class='sleep_color'>주의가 필요 합니다.</span>
                     </li>
                     <li class="defecate"> 
                         <a class="alam_left_y" id="index_green">안전</a>
-                        <spna>2020.10.17</spna>
-                        <spna class='meal_color' id="index_green2">위험 합니다.</spna>
+                        <span>2020.10.17</span>
+                        <span class='meal_color' id="index_green2">위험 합니다.</span>
                     </li>  
                 </ul>
 

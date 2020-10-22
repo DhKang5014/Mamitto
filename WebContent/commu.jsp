@@ -33,13 +33,13 @@
         
         <div class="page commu">
             <div id="search">
-                <form action="">
-                    <select name="">
-                        <option value="제목">제목</option>
-                        <option value="작성자">작성자</option>
+                <form action="" method="post">
+                    <select id="search_type" name="search_type">
+                        <option value="po_title">제목</option>
+                        <option value="email">작성자</option>
                     </select>
-                    <input type="search">
-                    <input type="submit">
+                    <input type="search" id="search_val" name="search_val">
+                    <input type="submit" id="search_btn">
                 </form>
             </div>
             <table class="commu_table" id='contents'>
@@ -64,7 +64,7 @@
             <br>
             <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
         </div>
-
     </div>
+
 </body>
 </html>
