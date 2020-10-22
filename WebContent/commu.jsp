@@ -46,7 +46,6 @@
             <table class="commu_table" id='contents'>
                 <thead>
                     <tr>
-                        <th>번호</th>
                         <th>제목</th>
                         <th>작성자</th>
                         <th>날짜</th>
@@ -54,7 +53,6 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th></th>
                         <th></th>
                         <th></th>
                         <th></th>
@@ -72,14 +70,7 @@
     function tableCreate(dt){
     	
 	    var tc = new Array();
-	    var html = `<thead>
-	                    <tr>
-	                        <th>제목</th>
-	                        <th>작성자</th>
-	                        <th>날짜</th>
-	                    </tr>
-	                </thead>
-	                <tbody>`;
+	    var html = '<thead><tr><th>제목</th><th>작성자</th><th>날짜</th></tr></thead><tbody>';
 	   
 	    for(var q=0;q<dt.length;q++){
 	        html += '<tr>';
@@ -88,7 +79,7 @@
 	        html += '<td>'+dt[q].time.substring(0,16)+'</td>';
 	        html += '</tr>';
 	    }
-	    html += `</tbody>`;
+	    html += '</tbody>';
 	               
 	    $("#contents").empty();
 	    $("#contents").append(html);
