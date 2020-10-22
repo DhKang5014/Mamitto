@@ -12,6 +12,30 @@ public class selectDAO extends DAO {
 	ArrayList<DTO> dto_array = null;
 	String data[] = {"meal", "sleep", "defecate"};
 	
+	public int checkEmail(String sql, String mail) {
+		psmt(sql);
+		int i = 0;
+		String email = null;
+		try {
+			getPsmt().setString(1, mail);
+			System.out.println("psmt 세팅");
+			rs = getPsmt().executeQuery();
+			System.out.println("sql execute");
+			while (rs.next()) {
+				email = rs.getString(1);
+				System.out.println("email 중복체크 >> "+email );
+				i++;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return i;
+	}
+	
 	// email을 통한 아이 정보값 찾기
 	public ArrayList<DTO> select(String sql, String mail) {
 		psmt(sql);

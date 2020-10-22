@@ -376,19 +376,30 @@ h4{color:#726973;}
 #alam_pop{
     position: fixed;
     height: 5em;
-    background-color: red;
+    background-color: #fd5050;
     top:-81px;
     left:0;
     right:0;
     border-radius: 0.5em;
+    
 }
+#alam_pop {padding-left: 1em;}
 #alam_pop > h2{
-    text-align: center;
-    line-height: 3em;
-    width: 100%;
+    text-align: left;
+    line-height: 3.5em;
+    width: 62%;
     color:#fdfdfd;
+    float: right;
 }
 
+.defecate{
+    position: relative;
+}
+.defecate>img:nth-child(4){
+    position: absolute;
+    top:-13px; 
+    right:5px;
+}
 
 
 /* login_page -----------------------------------------------*/
@@ -772,6 +783,7 @@ h4{color:#726973;}
     margin-left: 1em;
     cursor: pointer;
 }
+
 .defecate_color{
     color:#5096e6;
     font-weight: bold;
@@ -994,7 +1006,7 @@ h4{color:#726973;}
     color:rgb(185, 185, 185);
 }
 .commu_table> tbody >tr>td:nth-child(3){
-    width: 3em;
+    width: 16em;
     color:rgb(185, 185, 185);
 }
 

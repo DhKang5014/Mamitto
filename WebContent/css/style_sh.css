@@ -70,16 +70,56 @@ input{
 
 }
 
-#email, #pw, #name, #age, #tel{
+.join_txt{
     width: 20em;
     height: 3em;
     padding-left:1em;
     border-style: none;
     border: solid 1px #ffb9dd;
     border-radius: 0.5em;
-    margin-bottom: 1em; 
     box-sizing: border-box;
 }
+
+.join_mg{margin-bottom: 1em;}
+
+#join_check_box{
+	width:20em;
+	height:2.5em;
+}
+
+#join_check_box > input{
+	float: left;
+	width:16em;
+}
+#join_check_box > a{
+	width: 4.5em;
+	float: left;
+	height:3.5em;
+	font-size: 0.7em;
+	margin-left:0.5em;
+	line-height:3.5em;
+}
+
+
+
+#pw_check{display:block;}
+#id_check_on{display:none;}
+#id_check_off{display:none;}
+
+#pw_check{display:block;}
+#pw_check_on{display:none;}
+#pw_check_off{display:none;}
+
+
+.join_check{
+   font-size:0.5em;
+   text-align: left;
+   display:inherit;
+   color: red;
+   margin-bottom: 1em;
+   padding-left: 1em
+}
+
 .form_box{
     margin-bottom: 3em;
 }
@@ -88,12 +128,17 @@ input{
     margin: 0 auto;
     width: 20em;
     /* background-color:#ff4a91; */
-    background: linear-gradient(to left, #fcc4d1, #d7c0f8);
+    
     border-style: none;
     height: 3em;
     color: #fdfdfd;
     border-radius: 0.5em;
 }
+.btn_colorline{background: linear-gradient(to left, #fcc4d1, #d7c0f8);}
+.btn_color{
+	/*background-color:#ffb9cb;*/
+	background-color:#fb9fb7;
+	}
 .a_btn{
     margin-top:1em;
     width: 16.7em;
@@ -117,3 +162,4 @@ input{
 .ft_height2{
     margin-top: 30em;
 }
+

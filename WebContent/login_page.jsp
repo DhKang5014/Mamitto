@@ -29,23 +29,24 @@
             <div>
                 <form action="LoginServiceCon.do" method="post" class="login_box">
                     <div class="form_box">
-                        <input type="text" id="email" name="email" value="" placeholder="아이디를 입력해주세요.">
-                        <input type="text" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
+                        <input type="text" class="join_txt join_mg" id="email" name="email" value="" placeholder="아이디를 입력해주세요.">
+                        <input type="password" class="join_txt join_mg" id="pw" name="pw" value="" placeholder="비밀번호를 입력해주세요.">
                     </div>
                     <div>
-                        <input type="submit" value="로그인" class="btn">
-                        <a href="join_page.jsp" class="btn a_btn">회원가입</a>
+                        <input type="submit" value="로그인" class="btn btn_colorline">
+                        <a href="join_page.jsp" class="btn a_btn btn_colorline">회원가입</a>
                     </div>
                 </form>
             </div>
         </div>
+        
         <div id="footer" class="ft_height">
             <span>(주) Future I Zation</span>
             <br>
             <br>
             <span>만든 사람들</span>
             <br>
-            <spna>강다훈, 이태민, 최웅식, 조규범, 정세희</spna>
+            <span>강다훈, 이태민, 최웅식, 조규범, 정세희</span>
         </div>
     </div>
 </body>

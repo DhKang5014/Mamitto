@@ -12,15 +12,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.DAO.communicationDAO;
+import com.DAO.joinDAO;
+import com.DAO.selectDAO;
 import com.DTO.communicationDTO;
 import com.google.gson.Gson;
+import com.model.master.DAO;
 
-@WebServlet("/SelectCommunication")
-public class SelectCommunication extends HttpServlet {
+@WebServlet("/SelectCheckEmail")
+public class SelectCheckEmail extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get in the the Save Meal\
-		System.out.println("In com.ajax/SelectCommunication Service >>");
+		System.out.println("In com.ajax/SelectCheckEmail Service >>");
+		int cnt = 0;
 
 		// Encoding
 		try {
@@ -33,38 +37,20 @@ public class SelectCommunication extends HttpServlet {
 
 		// get email, cur times
 		String email = request.getParameter("email");
-		String search_type = request.getParameter("search_type");
-		String search_val = "%"+request.getParameter("search_val")+"%";
 		
 		// check email, curtime
 		System.out.println("email >> " + email);
-		System.out.println("search_type >> " + search_type);
-		System.out.println("search_val >> " + search_val);
 		
 		
 		// Save Meal BG
-		String sql = null;
-		if (search_type == null) {
-			sql = "select * from posts";	
-		}else if (search_type.equals("email")) {
-			sql = "select * from posts where email like ?";
-		}else {
-			sql = "select * from posts where po_title like ?";
-		}
+		String sql = "select * from members where email = ?";
 		System.out.println("sql >> " + sql);
 		
 		// update dao
-		communicationDAO dao = new communicationDAO();
-		ArrayList<communicationDTO> arr = new ArrayList<communicationDTO>();
+		selectDAO dao = new selectDAO();
 
-		if (search_type == null) {
-			arr = dao.select(sql);
-		}else {
-			arr = dao.select(sql, search_val);
-		}
-		
-		int cnt = arr.size();
-				
+		cnt = dao.checkEmail(sql, email);
+
 		// output json
 		PrintWriter out = null;
 		try {
@@ -76,7 +62,7 @@ public class SelectCommunication extends HttpServlet {
 		// 
 		if(cnt>0) {
 			System.out.println("select success");
-			String json = new Gson().toJson(arr);
+			String json = new Gson().toJson(cnt);
 			out.print(json);
 		}else {
 			System.out.println("select fail");
