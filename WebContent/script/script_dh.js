@@ -2,7 +2,9 @@ window.onload = function(){
   goes();
 }
 let email = '';
+let html = '';
 function goes(){
+	
   const getCookieValue = (key) => {
       let cookieKey = key + "="; 
       let result = "";
@@ -29,12 +31,12 @@ function goes(){
 
   $.ajax(
           { 
-              url: "../../SelectIP", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+              url: "../../SelectIP", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
               data: {
                   email : email
-              }, // HTTP 요청과 함께 서버로 보낼 데이터 
-              method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-              //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+              }, // HTTP 요청과 함께 서버로 보낼 데이터
+              method: "POST", // HTTP 요청 메소드(GET, POST 등)
+              // dataType: "json" // 서버에서 보내줄 데이터의 타입
               }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
           .done(function(data) { 
                  console.log('data',data);
@@ -48,12 +50,12 @@ function goes(){
                       $('#asdf').css('display','none');
                     }
                 }
-              }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+              }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨.
           .fail(function(xhr, status, errorThrown) { 
                   alert("실패");
   });
   
-  // create table 
+  // create table
 	function ifcon(html,i,dt){
 		if(i=='1'){
 			html += '<li class="defecate">';
@@ -70,13 +72,34 @@ function goes(){
 		}
 		return html;
 	}
-
+	
+	function saveAlarm(data,ac){
+		if(data != ''){
+      	    data = JSON.stringify(data)
+			console.log(JSON.stringify(data));
+			
+			if(data.length>0){
+				//Save 위험 카메라
+				JSON.stringify(data);
+    			 $.ajax({
+    				url : "../../SaveAlarm"+ac,
+    				data: {
+                        email : email,
+                        level : data.level,
+                        action : data.action
+                    },
+    			 }).done(function(data){
+    				 console.log("save success of alarm camera");
+    			 });
+    			 tableCreate(data);
+    		}
+  	    }
+	}
+	
 
   function tableCreate(dt){
 
 	    var tc = new Array();
-	    var html = '';
-	   
 	    
 	    for(var q=0;q<dt.length;q++){
 	       html = ifcon(html,dt[q].level,dt[q]);
@@ -88,12 +111,12 @@ function goes(){
   
   $.ajax(
           { 
-              url: "../../SelectTraffic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+              url: "../../SelectTraffic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
               data: {
                   email : email
-              }, // HTTP 요청과 함께 서버로 보낼 데이터 
-              method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-              //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+              }, // HTTP 요청과 함께 서버로 보낼 데이터
+              method: "POST", // HTTP 요청 메소드(GET, POST 등)
+              // dataType: "json" // 서버에서 보내줄 데이터의 타입
               }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
           .done(function(data) { 
                  console.log('traffic',data);
@@ -109,29 +132,100 @@ function goes(){
                       
                     }
                 }
+                  
+                  
+                  
+                  
                 $.ajax(
                   { 
-                      url: "http://172.30.1.33:8401/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+                	  // crossOrigin : true,
+                      url: "http://172.30.1.33:8401/baby", // 클라이언트가 HTTP 요청을
+															// 보낼 서버의 URL 주소
+                      type: 'GET',
                       data: {
                           email : email
-                      }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                      method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                      //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-                  })
-                  $.ajax(
-                    { 
-                        url: "http://172.30.1.33:8402/mic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                        data: {
-                            email : email
-                        }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                        method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                        //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-                  })
-
-              }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-          .fail(function(xhr, status, errorThrown) { 
-                  alert("실패");
-  });
+                      }, // HTTP 요청과 함께 서버로 보낼 데이터
+                      method: "POST", // HTTP 요청 메소드(GET, POST 등)
+                      dataType: "json", // 서버에서 보내줄 데이터의 타입
+                      responseType:'application/json',
+                      xhrFields: {
+                  	    withCredentials: false
+                  	  },cache:false,
+                      async: false,
+                      crossDomain: true,
+                      success: function(data) {
+                  	    console.log(data);
+                  	    console.log(JSON.parse(data));
+                  	  	
+                  	    
+                  	    saveAlarm(data,"Ca");
+            			
+            			
+            			
+                	  },error: function(error) {
+                  	    console.log("FAIL....=================");
+            			console.log(error);
+            			console.log(JSON.stringify(error));
+            				
+                	  }
+                	})
+                  .done(function(data) { 
+                      console.log('End first (Cameara)', data);
+                    }
+                 )
+                  
+                  
+                  
+                  
+                  
+                  
+                 $.ajax(
+                  { 
+                	  // crossOrigin : true,
+                      url: "http://172.30.1.33:8402/mic", // 클라이언트가 HTTP 요청을
+															// 보낼 서버의 URL 주소
+                      type: 'GET',
+                      data: {
+                          email : email
+                      }, // HTTP 요청과 함께 서버로 보낼 데이터
+                      method: "POST", // HTTP 요청 메소드(GET, POST 등)
+                      dataType: "json", // 서버에서 보내줄 데이터의 타입
+                      responseType:'application/json',
+                      xhrFields: {
+                  	    withCredentials: false
+                  	  },cache:false,
+                      async: false,
+                      crossDomain: true,
+                      success: function(data) {
+                  	    console.log(data);
+            			console.log(JSON.stringify(data));
+            			
+            			saveAlarm(data,"Mic");
+            			//saveAlarm(data,"Mic");
+            			/*$.ajax({
+            				url : "../../SaveAlarmMic",
+            				data: {
+                                email : email,
+                                level : level,
+                                action : action
+                            },
+            			 }).done(function(data){
+            				 console.log("save success of alarm MIC");
+            			 });
+            			location.replace("index.jsp");
+            			*/
+            			
+                	  },error: function(error) {
+                  	    console.log("FAIL....=================");
+            			console.log(error);
+            			console.log(JSON.stringify(error));
+                	  }
+                	})
+                  .done(function(data) { 
+                      console.log('End first (MIC)', data);
+                    }
+                 )
+          		});
   
 }
 $("#asdf").on("click",function(){
