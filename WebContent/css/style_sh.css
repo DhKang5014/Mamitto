@@ -82,6 +82,26 @@ input{
 
 .join_mg{margin-bottom: 1em;}
 
+#join_check_box{
+	width:20em;
+	height:3em;
+}
+
+#join_check_box > input{
+	float: left;
+	width:16em;
+}
+#join_check_box > a{
+	width: 4.5em;
+	float: left;
+	height:3.5em;
+	font-size: 0.7em;
+	margin-left:0.5em;
+	line-height:3.5em;
+}
+
+
+
 #pw_check{display:block;}
 #id_check_on{display:none;}
 #id_check_off{display:none;}

@@ -27,8 +27,9 @@
             <div>
                 <form action="JoinServiceCon.do" method="post" class="login_box">
                     <div class="form_box">
-                        <div>
+                        <div id="join_check_box">
                         	<input type="text" class="join_txt" id="email" name="email" placeholder="이메일을 입력해주세요.">
+							<a class="btn">중복확인</a>
                         </div>
                         <span class="join_check join_mg" id="id_check">*이메일 형식으로 입력</span>
                         <span class="join_check join_mg" id="id_check_on">*사용가능 합니다.</span>
