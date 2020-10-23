@@ -50,6 +50,7 @@
                     <select name="">
                         <option value="제목">제목</option>
                         <option value="작성자">작성자</option>
+                        
                     </select>
                     <input type="search">
                     <input type="submit" value="검색">
@@ -92,14 +93,16 @@
 	    var html = "<tbody>";
 	   
 	    for(var q=0;q<dt.length;q++){
+	    	var jbRandom = Math.random();
 	    	html += `
             	<tr>
-                <td>
+                <td onclick="gotos(`+dt[q].po_num+`)">
                     <a href="#">[ 제목 ] `+dt[q].po_title+`</a>  <!--제목을 클릭하면 내용이 보여져야함 -->
                     <spna>
                         <a class="sub_title">`+ dt[q].time +`</a>
                         <a class="sub_title sc_sub">`+ dt[q].email +`      `+ dt[q].po_content.substring(0,30) +`</a>
                     </spna>  
+                    <span class="num">조회수 `+ Math.floor( jbRandom * 10 )+`</span> 
                 </td>     
             </tr>`;
 	    }
@@ -168,6 +171,7 @@
 	function gotos(i){
 		console.log("i",i);
 		location.replace('commu_con.jsp?id="'+i+'\"')
+		console.log();
 	}
     </script>
 </body>
