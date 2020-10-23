@@ -20,46 +20,67 @@
 </head>
 <body>
     <!-- content  -->
+    <!-- content  -->
     <div id="bk">
         <!-- nav -->
-		<%@ include file = "menu.jsp" %>
+        <div id="main_header">
+            <div class="left_icon">
+                <div class="menu"><img src="img/left_icon.png" width="50px"></div>
+                <a href="index.html" class="logo"><img src="img/sub_title2.png" width="100px"></a>
+            </div>
+            <div class="right_icon"><a href="my_page.html"></a></div>
+        </div>
+        <!-- bottom_nav -->
+        <div class="bottom_nav">
+            <ul>
+                <li><a href="statistic.html">통계</a></li>
+                <li><a href="baby_life.html">육아리듬</a></li>
+                <li><a href="commu.html">커뮤니티</a></li>
+            </ul>
+        </div>
         <!-- content -->
         <div class="life_title">
             <a class="title"></a>
             <h1>커뮤니티 게시판</h1>
         </div>
-
         <hr class="life_hr commu_hr">
-        
-        <div class="page commu">
+        <div id="content" class="page commu">
             <div id="search">
-                <form action="" method="post">
-                    <select id="search_type" name="search_type">
-                        <option value="po_title">제목</option>
-                        <option value="email">작성자</option>
+                <form action="">
+                    <select name="">
+                        <option value="제목">제목</option>
+                        <option value="작성자">작성자</option>
                     </select>
-                    <input type="search" id="search_val" name="search_val">
-<!--                     <button onclick="" id="search_btn">검색</button> -->
-                    <input type="button" id="search_btn" value="검색" onclick="search()">
+                    <input type="search">
+                    <input type="submit" value="검색">
                 </form>
             </div>
-            <table class="commu_table" id='contents'>
+            <table class="commu_table" id="content2">
                 <tbody>
                     <tr>
                         <td>
                             <a href="#">[제목] 마미또 이용 후기</a>  <!--제목을 클릭하면 내용이 보여져야함 -->
-                            <span>
+                            <spna>
                                 <a class="sub_title">2020.10.17</a>
                                 <a class="sub_title sc_sub">호랑이 맘</a>
-                            </span>  
+                            </spna>  
                         </td>     
                     </tr>
-                    <!-- 여기까지 한줄 -->                  
+                    <!-- 여기까지 한줄 -->
+                    <tr>
+                        <td>
+                            <a href="#">[제목] 마미또 이용 후기</a>  <!--제목을 클릭하면 내용이 보여져야함 -->
+                            <spna>
+                                <a class="sub_title">2020.10.17</a>
+                                <a class="sub_title sc_sub">호랑이 맘</a>
+                            </spna>  
+                        </td>     
+                    </tr>
                    
                 </tbody>
             </table>
             <br>
-            <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
+            <a  href="commu_write.html" class="commu_btn">글쓰기</a>
         </div>
     </div>
     <script src="script/script_commu.js"></script>
@@ -68,21 +89,27 @@
     function tableCreate(dt){
     	
 	    var tc = new Array();
-	    var html = '<thead><tr><th>제목</th><th>작성자</th><th>날짜</th></tr></thead><tbody>';
+	    var html = "<tbody>";
 	   
 	    for(var q=0;q<dt.length;q++){
-	        html += '<tr>';
-	        html += '<td>'+dt[q].po_title+'</td>';
-	        html += '<td>'+dt[q].email+'</td>';
-	        html += '<td>'+dt[q].time.substring(0,16)+'</td>';
-	        html += '</tr>';
+	    	html += `
+            	<tr>
+                <td>
+                    <a href="#">[ 제목 ] `+dt[q].po_title+`</a>  <!--제목을 클릭하면 내용이 보여져야함 -->
+                    <spna>
+                        <a class="sub_title">`+ dt[q].time +`</a>
+                        <a class="sub_title sc_sub">`+ dt[q].email +`      `+ dt[q].po_content.substring(0,30) +`</a>
+                    </spna>  
+                </td>     
+            </tr>`;
 	    }
 	    html += '</tbody>';
 	               
-	    $("#contents").empty();
-	    $("#contents").append(html);
+	    $("#content2").empty();
+	    $("#content2").append(html);
 	    
 	}
+    
     
     
     const getCookieValue = (key) => {
@@ -135,8 +162,13 @@
 			            alert("실패");
 			})
 	
-	}
+	}search();
 	//
+	
+	function gotos(i){
+		console.log("i",i);
+		location.replace('commu_con.jsp?id="'+i+'\"')
+	}
     </script>
 </body>
 </html>

@@ -340,7 +340,19 @@
       });
     }
 	
-
+function ringing(){
+	$("#alam_pop").stop().animate({"top":"0px"},"slow");
+    setInterval(function(){
+        $("#alam_pop").animate({"background-color":"#ff4a4a"},"slow",function(){
+            $(this).css("background-color","rgb(250, 244, 244)");
+        });
+    },100);
+    setInterval(function(){
+        $("#alam_pop").animate({"background-color":"#fdfdfd"},"slow",function(){
+            $(this).css("background-color","#ff4a4a");
+        });
+    },100);
+}
 function camera(){
      $.ajax(
        { 
@@ -357,9 +369,10 @@ function camera(){
      	  
      	  
      	  //db 저장하는 코드
-     	 var lv = '0';
+     	 var lv = '2';
     	  if(dat['level'] == '위험'){
     		  lv = '1';
+    		  ringing();
     	  }
     	  
     	   saveFall(email,dat['action'],lv);
@@ -388,9 +401,10 @@ function mic(){
      	  
      	  
      	  // db에 저장하는 코드
-			var lv = '0';
+			var lv = '2';
      	  if(data['level'] == '위험'){
      		  lv = '1';
+     		 ringing();
      	  }
      	  
      	   saveFall(email,data['action'],lv);

@@ -106,6 +106,7 @@ $(function(){
         });
         
         //alam_pop
+        
         $(".menu").on("click", function(){
             $("#alam_pop").stop().animate({"top":"0px"},"slow");
             setInterval(function(){
