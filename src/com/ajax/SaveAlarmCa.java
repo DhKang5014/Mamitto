@@ -24,7 +24,7 @@ public class SaveAlarmCa extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get in the the Save Meal\
 		System.out.println("In com.ajax/SaveAlarmCa Service >>");
-
+		
 		// Encoding
 		try {
 			request.setCharacterEncoding("UTF-8");

@@ -104,7 +104,7 @@
 	  
     
     
-    var a= firebase.database().ref().child('text');
+    var a = firebase.database().ref().child('text');
     console.log(a);
     a.on('value', snap => bigOne.value = snap.val());
     a.on('value', snap => notify());	  

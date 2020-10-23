@@ -19,7 +19,7 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
   	<script src="script/script_firebase_dh.js"></script>
   	<script>
-
+	
 
   	'use strict';
 
@@ -225,12 +225,12 @@
 	  firebase.analytics();
 	  
 	  
-	  function notify() {
+	  function notify(title) {
 	        if (Notification.permission !== 'granted') {
 	            alert('notification is disabled');
 	        }
 	        else {
-	            var notification = new Notification('Notification title', {
+	            var notification = new Notification(title, {
 	                icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
 	                body: 'Notification text',
 	            });
@@ -244,12 +244,93 @@
 	  
 	  
 	  
-	  var a= firebase.database().ref().child('info').child('info1');
-	  console.log(a);
+	  var a = firebase.database().ref().child('info').child('info1');
+		
+	  function fall_alarm(){
+		 
+		
+				if(bValue == '위험'){
+					  var titles = "아이가 떨어질 것 같아요!(낙상)";
+					  notify(titles);
+					  console.log(titles);
+				}
+				else if(bValue == '안전'){
+					  var titles = "아이가 잘 자고 있어요.(낙상)";
+					  notify(titles);
+					  console.log(titles);
+				}
+		
+	  }
+	  function cry_alarm(){
+
+
+				if(bValue== '위험'){
+					  var titles = "아이가 울고 있어요!(울음)";
+					  notify(titles);
+					  console.log(titles);
+				}
+				else if(bValue == '안전'){
+					  var titles = "아이가 잘 자고 있어요.(울음)";
+					  notify(titles);
+					  console.log(titles);
+				}
+		};
+	  
+	  function turn_alarm(){
+		 
+		
+				if(bValue == '위험'){
+					  var titles = "아이가 뒤집기를 하고 있어요!(뒤집기)";
+					  notify(titles);
+					  console.log(titles);
+				}
+				else if(bValue == '안전'){
+					  var titles = "아이가 잘 자고 있어요.";
+					  notify(titles);
+					  console.log(titles);
+				}
+
+	  }
+	  
+	  var ii = 0;
+	  var ij = 0;
+	  var ik = 0;
+	  // snap => 변화되는 값 확인 
+	  var b = firebase.database().ref().child('info').child('info2');
+	  var bValue;
+	  b.on('value', snap => bValue = snap.val());
 	  a.on('value', snap => bigOne.value = snap.val());
-	  a.on('value', snap => notify());	  
-	  	
+	  a.on('value', snap => 
+{
+	if(snap.val() == '낙상'){
+		 if(ii != 0)
+		  fall_alarm();
+		  
+		  ii++;
+		  console.log("ii",ii);
+	}else if(snap.val() == '울음'){
+		if(ij != 0)	
+			cry_alarm();
+			
+			  ij++;
+			  console.log("ij",ij);
+	}
+	else if(snap.val() == '뒤집기'){
+		if(ik != 0)	 
+			turn_alarm();
+			
+			  ik++;
+			  console.log("ik",ik);
+	}
+}
+);
+	  
+	 
+	// 데이터 베이스 객체를 불러오는 코드
     var database = firebase.database();
+     
+    // db에 접속하는 코드
+    var rootRef = database.ref().child('info');
     
     function writeUserData(userId, name, email, imageUrl) {
        firebase.database().ref('users/' + userId).set({
@@ -258,7 +339,117 @@
         profile_picture : imageUrl
       });
     }
-	  
+	
+
+function camera(){
+     $.ajax(
+       { 
+           url: "http://172.30.1.33:8403/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+           data: {
+               email : email
+           }, // HTTP 요청과 함께 서버로 보낼 데이터 
+           method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+           dataType: "json" // 서버에서 보내줄 데이터의 타입 
+           
+       }).done(function(dat){
+     	  console.log(dat);
+     	  console.log("camera 검출 완료");
+     	  
+     	  
+     	  //db 저장하는 코드
+     	 var lv = '0';
+    	  if(data['level'] == '위험'){
+    		  lv = '1';
+    	  }
+    	  
+    	   saveFall(email,dat['action'],lv);
+     	  
+     	  
+     	  rootRef.set({
+     	      info1: dat['action'],
+     	      info2: dat['level']
+     	  });
+     	   
+       });
+}
+function mic(){
+       $.ajax(
+         { 
+             url: "http://172.30.1.33:8404/mic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+             data: {
+                 email : email
+             }, // HTTP 요청과 함께 서버로 보낼 데이터 
+             method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+             dataType: "json" // 서버에서 보내줄 데이터의 타입 
+       }).done(function(data){
+     	  console.log(data);
+     	  console.log("mic 검출 완료");
+     	  
+     	  
+     	  
+     	  // db에 저장하는 코드
+			var lv = '0';
+     	  if(data['level'] == '위험'){
+     		  lv = '1';
+     	  }
+     	  
+     	   saveFall(email,data['action'],lv);
+     	  
+     	  
+     	  
+     	  rootRef.set({
+     	      info1:data['action'],
+     	      info2:data['level']
+     	  });
+     	 
+      });
+}
+
+setInterval(function(){mic();camera(); }, 15000);
+
+
+
+     
+    /* 
+    
+    // db에 접속하는 코드
+    var rootRef = database.ref().child('info');
+    
+    // db에 저장하는 코드
+    rootRef.set({
+        info1:$('#info1').val(),
+        info2:$('#info2').val()
+    }); 
+    
+    */
+    //Save Alarm fall
+    function saveFall(email,alarm,level){
+    	var inputs = "";
+    	if(alarm =='낙상'){
+    		inputs = "Ca";
+    	}else if(alarm == '울음'){
+    		inputs = 'Mic';
+    	}else if(alar == '뒤집기'){
+    		inputs = 'Turn';
+    	}
+    
+    	$.ajax(
+    	         { 
+    	             url: "../../SaveAlarm"+inputs, // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+    	             data: {
+    	                 email : email,
+    	                 alarm : alarm,
+    	                 level : level
+    	             }, // HTTP 요청과 함께 서버로 보낼 데이터 
+    	             method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+    	             dataType: "json" // 서버에서 보내줄 데이터의 타입 
+       }).done(function(data){
+     	  console.log(data);
+     	  console.log("세이브 완료");
+
+		});
+    }
+    
 	</script>
   
 </body>
