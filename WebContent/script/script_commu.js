@@ -8,20 +8,18 @@ function goes(){
 	function tableCreate(dt){
 	
 	    var tc = new Array();
-	    var html = `<thead>
-	                    <tr>
-	                        <th>제목</th>
-	                        <th>작성자</th>
-	                        <th>날짜</th>
-	                    </tr>
-	                </thead>
-	                <tbody>`;
+	    var html ='<tbody>';
 	   
 	    for(var q=0;q<dt.length;q++){
 	        html += '<tr>';
-	        html += '<td>'+dt[q].po_title+'</td>';
-	        html += '<td>'+dt[q].email+'</td>';
-	        html += '<td>'+dt[q].time.substring(0,16)+'</td>';
+	        html += '<td>';
+	        html += '<a>'+'[제목]'+dt[q].po_title+'</a>';
+	        html += '<span>';
+	        html += '<a class="sub_title">'+dt[q].email+'</a>';
+	        html += '<a class="sub_title sc_sub">'+dt[q].time.substring(0,16)+'</a>';
+	        html += '</span>';
+	        html += '<span class="num">'+조회수0+'</span>';
+	        html += '</td>';
 	        html += '</tr>';
 	    }
 	    html += `</tbody>`;
