@@ -160,3 +160,30 @@ if ('serviceWorker' in navigator && 'PushManager' in window) {
   console.warn('Push messaging is not supported');
   pushButton.textContent = 'Push Not Supported';
 }
+
+const subscribeButton = document.getElementById('subscribe');
+
+subscribeButton.addEventListener("click", subscribeToNotifications);
+
+function subscribeToNotifications() {
+  FIREBASE_MESSAGING.requestPermission();
+}
+
+function subscribeToNotifications() {
+  FIREBASE_MESSAGING.requestPermission()
+	.then(function() {
+	  console.log('Notification permission granted.');
+	  return FIREBASE_MESSAGING.getToken();
+	})
+	.then(function(currentToken){
+        console.log(currentToken);
+
+        FIREBASE_DATABASE.ref('currentToken').push({
+        	currentToken : currentToken,
+        	uid: FIREBASE_AUTH.currentUser.uid
+        });
+	})
+	.catch(function(err) {
+	  console.log('Unable to get permission to notify.', err);
+	});
+}

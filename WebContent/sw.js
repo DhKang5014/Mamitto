@@ -81,3 +81,4 @@ self.addEventListener('pushsubscriptionchange', function(event) {
     })
   );
 });
+firebase.messaging();

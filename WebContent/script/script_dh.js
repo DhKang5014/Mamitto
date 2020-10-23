@@ -6,7 +6,7 @@ let email = '';
 let html = '';
 
 function goes(){
-	
+
   const getCookieValue = (key) => {
       let cookieKey = key + "="; 
       let result = "";
@@ -121,9 +121,9 @@ function goes(){
               method: "POST", // HTTP 요청 메소드(GET, POST 등)
               // dataType: "json" // 서버에서 보내줄 데이터의 타입
               }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-          .done(function(data) { 
+.done(function(data) { 
                  console.log('traffic',data);
-                  if(data != ''){
+                  if(data != ''){//
                     data = JSON.parse(data);
                     var html = tableCreate(data);
                     if(data.length != 0){
@@ -134,31 +134,43 @@ function goes(){
                       $("#alarms").append(html);
                       
                     }
-
-            }
-            $.ajax(
-              { 
-                  url: "http://172.30.1.33:8401/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                  data: {
-                      email : email
-                  }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                  method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                  //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-              })
-              $.ajax(
-                { 
-                    url: "http://172.30.1.33:8402/mic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-                    data: {
-                        email : email
-                    }, // HTTP 요청과 함께 서버로 보낼 데이터 
-                    method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-                    //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-              })
-
-          }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-      .fail(function(xhr, status, errorThrown) { 
+                 }// end if
+}) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+.fail(function(xhr, status, errorThrown) { 
               alert("실패");
-          });
+});
+//
+  
+  
+  
+//
+	$(".play_btn").on("click",function(){
+		  console.log("play_btn");
+		  $('#email').css('display','block');
+		  $('#email').val(email);
+		});
+	  // Your web app's Firebase configuration
+	  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+	  var firebaseConfig = {
+	    apiKey: "AIzaSyABALGEjxe6qKFf8tmKmKtiDJggsO4Hvho",
+	    authDomain: "mamiddo-cebd2.firebaseapp.com",
+	    databaseURL: "https://mamiddo-cebd2.firebaseio.com",
+	    projectId: "mamiddo-cebd2",
+	    storageBucket: "mamiddo-cebd2.appspot.com",
+	    messagingSenderId: "228735732994",
+	    appId: "1:228735732994:web:3191bb5a5b87260051c61b",
+	    measurementId: "G-C3P0NF9J06"
+	  };
+	  // Initialize Firebase
+	  firebase.initializeApp(firebaseConfig);
+	  firebase.analytics();
+	  
+	  
+	  
+	  
+	 
+  
+  
   
 	}  //function goes() 끝
 
@@ -167,3 +179,6 @@ $("#asdf").on("click",function(){
   $('#email').css('display','block');
   $('#email').val(email);
 });
+
+
+
