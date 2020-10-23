@@ -36,28 +36,34 @@ $(function(){
         $(".logo").on("click",function(){
             window.location.reload();
         });
-        
-       
-        //join --------------------------------------------------
-//        function check(){
-//        	
-//        	var pw = $("#pw");
-//        	
-//        	 if(pw.value.length < 6 || pw.value.length > 8){
-//        		pw.focus();
-//        		alert("비밀번호는 6~8자리로 입력해 주세요.")
-//        		
-//        		return false;
-//        	 }
-//        	 return true;
-//        }
-//        
     
+        $("#banner").on("click",function(){
+           $(document).load()
+        });
+
         // open --------------------------------------------------
         setInterval(function(){
             $("#open").fadeOut();
         },1000);
     
+
+        //join pasword
+       
+        $("#pw").blur(function(){
+            var pw= $("#pw").val();
+            if( pw.length < 6){
+                $("#pw_check_off").css("display","block");
+                $("#pw_check").css("display","none");
+                $("#pw_check_on").css("display","none");
+            }else{
+                $("#pw_check_on").css("display","block");
+                $("#pw_check").css("display","none");
+                $("#pw_check_off").css("display","none");
+            }
+        });
+       
+        
+
         // menu  ---------------------------------------------------
         var cnt = 1;
         $(".menu").on("click",function(){
@@ -103,13 +109,13 @@ $(function(){
         $(".menu").on("click", function(){
             $("#alam_pop").stop().animate({"top":"0px"},"slow");
             setInterval(function(){
-                $("#alam_pop").animate({"display":"block"},"slow",function(){
-                    $(this).css("display","none");
+                $("#alam_pop").animate({"background-color":"#ff4a4a"},"slow",function(){
+                    $(this).css("background-color","rgb(250, 244, 244)");
                 });
             },100);
             setInterval(function(){
-                $("#alam_pop").animate({"display":"none"},"slow",function(){
-                    $(this).css("display","block");
+                $("#alam_pop").animate({"background-color":"#fdfdfd"},"slow",function(){
+                    $(this).css("background-color","#ff4a4a");
                 });
             },100);
         });
@@ -238,38 +244,7 @@ $(function(){
 
     });
 
-function check() {
 
-	console.log("email insert");
-	var emails = $("#email").val();
-	$.ajax(
-		    { 
-		        url: "../../SelectCheckEmail", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
-		        data: {
-		            email : emails,
-		        }, // HTTP 요청과 함께 서버로 보낼 데이터 
-		        method: "POST", // HTTP 요청 메소드(GET, POST 등) 
-		        //dataType: "json" // 서버에서 보내줄 데이터의 타입 
-		    }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
-		    .done(function(data) { 
-		           console.log(data);
-  
-					  if (data >0) {
-						  $('#id_check_on').css('display','none'); 
-						  $('#id_check_off').css('display','block');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게				
-					} else {				
-					  $('#id_check_on').css('display','block'); 
-					  $('#id_check_off').css('display','none');
-					}
-
-		    }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
-		    .fail(function(xhr, status, errorThrown) { 
-		            alert("실패"); 
-		})
-		
-		// 클릭 있을 때 selectcheckemail 을 돌아 나온 data int 값에 따라 표시 값 변경
-
-}
 
 
     
