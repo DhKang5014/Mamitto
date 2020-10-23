@@ -76,16 +76,16 @@
 				</forms>
 			</div>
 		</div>
-
+		
 		<div class="sleep_bg">
 			<div class="sleep_con">
 				<h2>수면시간 설정</h2>
 				<forms> <label>시작시간</label> <input type="datetime-local" name="time1"
 					value="">
 				<br>
-				<label>끝시간</label> <input type="datetime-local" name="time2" value="">
-				<input type="submit" value="입력" class="btn btn_color_linear"
-					onclick="sleep_bg_save()"> </forms>
+				<label class="sleep_lb">끝시간</label> <input type="datetime-local" name="time2" value="">
+				<input type="submit" value="입력" class="btn btn_color_linear"  id="sleep_btn"
+					onclick="sleep_bg_save()"> </forms> 
 			</div>
 		</div>
 

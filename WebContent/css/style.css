@@ -301,12 +301,14 @@ h4{color:#726973;}
     width:10em;
     height:1.5em;
     border-radius: 0.5em;
+    padding-left:0.5em;
 }
 .pop_con2{
     margin-left:1.5em;
     width:10em;
     height:1.5em;
     border-radius: 0.5em;
+    padding-left:0.5em;
 }
 .pop_bg input{
     border: solid 1px #ddd;
@@ -973,7 +975,12 @@ h4{color:#726973;}
 .sleep_con> forms > input:last-child{
     width:13em;
 }
-
+.sleep_lb{
+	margin-right:1em;
+}
+#sleep_btn{
+	margin-top:0em;
+}
 /* ------------------------------------------ */
 .commu_table{
     border-collapse: collapse;

@@ -65,21 +65,21 @@ $(function(){
         
 
         // menu  ---------------------------------------------------
-        var cnt = 1;
-        $(".menu").on("click",function(){
-            if(cnt %2 != 0){
-                $(".menu_bar").animate({left:"0em"},"slow");
-                cnt++;
-            }else if(cnt %2 == 0){
-                $(".menu_bar").animate({left:"-25em"},"slow");
-                cnt++;
-            }
-        });
-    
-         $(".menu_bar").on("click",function(){
-            $(".menu_bar").animate({left:"-25em"},"slow");
-            cnt++;
-        });
+//        var cnt = 1;
+//        $(".menu").on("click",function(){
+//            if(cnt %2 != 0){
+//                $(".menu_bar").animate({left:"0em"},"slow");
+//                cnt++;
+//            }else if(cnt %2 == 0){
+//                $(".menu_bar").animate({left:"-25em"},"slow");
+//                cnt++;
+//            }
+//        });
+//    
+//         $(".menu_bar").on("click",function(){
+//            $(".menu_bar").animate({left:"-25em"},"slow");
+//            cnt++;
+//        });
     
         // content-page----------------------------------------------
         setInterval(function(){
