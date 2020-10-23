@@ -165,6 +165,7 @@ insert into bodycheck(bd_num, bd_height, bd_weight, email) values (bd_num_sequen
 delete babys where email = 'aaaa';
 
 update babys set cam_ip = 111 where email = 'admin'
+update posts set po_pw = '공개' where email = 'admin'
 update rhythm set rh_sleep = systimestamp where email = 'admin' and rh_num = 5;
 
 b.baby_birth+50 as fifty, b.baby_birth+100 as hundred

@@ -44,22 +44,18 @@
                 </form>
             </div>
             <table class="commu_table" id='contents'>
-                <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>작성자</th>
-                        <th>날짜</th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <td>
+                            <a href="#">[제목] 마미또 이용 후기</a>  <!--제목을 클릭하면 내용이 보여져야함 -->
+                            <span>
+                                <a class="sub_title">2020.10.17</a>
+                                <a class="sub_title sc_sub">호랑이 맘</a>
+                            </span>  
+                        </td>     
                     </tr>
-             
+                    <!-- 여기까지 한줄 -->                  
+                   
                 </tbody>
             </table>
             <br>
@@ -72,14 +68,7 @@
     function tableCreate(dt){
     	
 	    var tc = new Array();
-	    var html = `<thead>
-	                    <tr>
-	                        <th>제목</th>
-	                        <th>작성자</th>
-	                        <th>날짜</th>
-	                    </tr>
-	                </thead>
-	                <tbody>`;
+	    var html = '<thead><tr><th>제목</th><th>작성자</th><th>날짜</th></tr></thead><tbody>';
 	   
 	    for(var q=0;q<dt.length;q++){
 	        html += '<tr>';
@@ -88,7 +77,7 @@
 	        html += '<td>'+dt[q].time.substring(0,16)+'</td>';
 	        html += '</tr>';
 	    }
-	    html += `</tbody>`;
+	    html += '</tbody>';
 	               
 	    $("#contents").empty();
 	    $("#contents").append(html);

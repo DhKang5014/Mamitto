@@ -358,7 +358,7 @@ function camera(){
      	  
      	  //db 저장하는 코드
      	 var lv = '0';
-    	  if(data['level'] == '위험'){
+    	  if(dat['level'] == '위험'){
     		  lv = '1';
     	  }
     	  
