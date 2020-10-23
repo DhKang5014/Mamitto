@@ -979,9 +979,16 @@ h4{color:#726973;}
 .sub_title{
     color: #ddd;
     float:left;
+    font-size: 0.85em;
 }
 .sc_sub{
     margin-left:0.5em;
+}
+.num{
+    float:right;
+    margin-right:0.5em;
+    font-size: 0.78em;
+    color:#ddd;
 }
 .commu_table> thead >tr{
     /* background-color: #fcd2dc; */
@@ -999,6 +1006,23 @@ h4{color:#726973;}
 .commu_table> tbody > tr > td > a{
     margin-bottom: 0.5em;
 }
+
+/* .commu_table> tbody >tr>td:nth-child(1){
+    width: 16em;
+    text-align: left;
+    padding-left: 1em;
+    
+}
+.commu_table> tbody >tr>td:nth-child(2){
+    width: 10em;
+    text-align: center;
+    color:rgb(185, 185, 185);
+}
+.commu_table> tbody >tr>td:nth-child(3){
+    width: 16em;
+    color:rgb(185, 185, 185);
+} */
+
 
 .commu_btn{
     margin-top: 1em;

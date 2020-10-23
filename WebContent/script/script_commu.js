@@ -18,7 +18,7 @@ function goes(){
 	        html += '<a class="sub_title">'+dt[q].email+'</a>';
 	        html += '<a class="sub_title sc_sub">'+dt[q].time.substring(0,16)+'</a>';
 	        html += '</span>';
-	        html += '<span class="num">'+조회수0+'</span>';
+	        html += '<span class="num">'+"조회수0"+'</span>';
 	        html += '</td>';
 	        html += '</tr>';
 	    }
