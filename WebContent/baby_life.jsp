@@ -70,9 +70,11 @@
 		<div class="meal_bg">
 			<div class="meal_con">
 				<h2>수유</h2>
-				<forms> <label>수유</label> <input type="number" name="mL"
-					value="" id="mL"> <label>mL</label> <input type="submit"
-					value="입력" class="btn btn_color_linear" onclick="meal_bg_save()">
+				<forms> 
+					<label>수유</label> 
+					<input type="number" name="mL" value="" id="mL"> 
+					<label>mL</label> 
+					<input type="submit" value="입력" class="btn btn_color_linear" onclick="meal_bg_save()">
 				</forms>
 			</div>
 		</div>
