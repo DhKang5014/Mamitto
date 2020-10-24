@@ -496,7 +496,7 @@ setInterval(function(){mic();camera(); }, 10000);
     	             dataType: "json" // 서버에서 보내줄 데이터의 타입 
        }).done(function(data){
      	  console.log(data);
-     	  console.log("세이브 완료");
+     	  console.log("세이브 완료2");
 		
 		});
     }
