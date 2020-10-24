@@ -3,7 +3,7 @@ window.onload = function(){
 }
 let email = '';
 
-let html = '';
+var html = '';
 
 function goes(){
 
@@ -110,8 +110,8 @@ function goes(){
 
 	    return html;            
 	}
-  
-  $.ajax(
+
+$.ajax(
           { 
               url: "../../SelectTraffic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
               data: {
@@ -125,16 +125,32 @@ function goes(){
                  console.log('traffic',data);
                   if(data != ''){//
                     data = JSON.parse(data);
-                    var html = tableCreate(data);
-                    if(data.length != 0){
-                      // ip 카메라 작동
-                      console.log('traffic success');
-                      console.log(html);
-                      $("#alarms").empty();
-                      $("#alarms").append(html);
-                      
+                    console.log(data);
+                    console.log(typeof(data));
+                    if(data.length <=3){
+                    	var html = tableCreate(data);
+	                    if(data.length != 0){
+	                      // ip 카메라 작동
+	                      console.log('traffic success');
+	                      console.log(html);
+	                      $("#alarms").empty();
+	                      $("#alarms").append(html);
+	                    }
+                    }else{
+                    	var da = new Array();
+                    	for(var ko=0;ko<4;ko++){
+                    		da.push(data[ko]);
+                    	}
+                    	var html = tableCreate(da);
+	                    if(data.length != 0){
+	                      // ip 카메라 작동
+	                      console.log('traffic success');
+	                      console.log(html);
+	                      $("#alarms").empty();
+	                      $("#alarms").append(html);
+	                    }
                     }
-                 }// end if
+         }// end if
 }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
 .fail(function(xhr, status, errorThrown) { 
               alert("실패");

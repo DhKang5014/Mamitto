@@ -42,7 +42,7 @@ public class SelectTraffic extends HttpServlet {
 		System.out.println("email >> " + email);
 
 		// Save Historys
-		String sql = "select * from history where email = ? ";
+		String sql = "select * from history where email = ? order by act_time desc";
 		select_trafficDAO dao = new select_trafficDAO();
 		ArrayList<trafficDTO> arr = dao.select(sql, email);
 

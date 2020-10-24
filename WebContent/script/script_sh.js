@@ -106,34 +106,7 @@ $(function(){
         });
         
         //alam_pop
-        
-        $(".menu").on("click", function(){
-            $("#alam_pop").stop().animate({"top":"0px"},"slow");
-            setInterval(function(){
-                $("#alam_pop").animate({"background-color":"#ff4a4a"},"slow",function(){
-                    $(this).css("background-color","rgb(250, 244, 244)");
-                });
-            },100);
-            setInterval(function(){
-                $("#alam_pop").animate({"background-color":"#fdfdfd"},"slow",function(){
-                    $(this).css("background-color","#ff4a4a");
-                });
-            },100);
-        });
-
-
-        $("#alam_pop > h2").on("click", function(){
-            
-            $("#alam_pop").animate({"top":"-81px"},"slow");
-        });
-        $('.menu').on('click',function(){
-            $("#alam_pop").css('display','block')
-        })
-        $("#alam_pop").on('click',function(){
-            $("#alam_pop").css('display','none')
-        })
-        
-
+     
 
        
 

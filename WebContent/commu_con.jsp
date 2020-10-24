@@ -114,6 +114,9 @@
 	
 	getPost(po_num);
 	
+	function ch_location(){
+		location.replace('commu_write.jsp');
+	}
 	</script>
 </body>
 </html>

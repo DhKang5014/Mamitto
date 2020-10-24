@@ -110,7 +110,7 @@
         <!-- content -->
         <div id="content" class="index_con">
             <div class="meno">
-                <!-- 영상 부분 --><input type='text' id ='bigOne'>
+                <!-- 영상 부분 --><input type='text' id ='bigOne' style="display:none">
                 <img id="myFrame" src="" style="height:100%;width:100%"></img>
                 <a class="my_btn play_btn btn_color_linear" id="asdf">IP 입력이 필요합니다.</a>
             </div>
@@ -251,12 +251,12 @@
 		
 				if(bValue == '위험'){
 					  var titles = "아이가 떨어질 것 같아요!(낙상)";
-					  notify(titles);
+					  //notify(titles);
 					  console.log(titles);
 				}
 				else if(bValue == '안전'){
 					  var titles = "아이가 잘 자고 있어요.(낙상)";
-					  notify(titles);
+					 
 					  console.log(titles);
 				}
 		
@@ -266,12 +266,12 @@
 
 				if(bValue== '위험'){
 					  var titles = "아이가 울고 있어요!(울음)";
-					  notify(titles);
+					  //notify(titles);
 					  console.log(titles);
 				}
 				else if(bValue == '안전'){
 					  var titles = "아이가 잘 자고 있어요.(울음)";
-					  notify(titles);
+					  
 					  console.log(titles);
 				}
 		};
@@ -281,12 +281,12 @@
 		
 				if(bValue == '위험'){
 					  var titles = "아이가 뒤집기를 하고 있어요!(뒤집기)";
-					  notify(titles);
+					  //notify(titles);
 					  console.log(titles);
 				}
 				else if(bValue == '안전'){
 					  var titles = "아이가 잘 자고 있어요.";
-					  notify(titles);
+					  
 					  console.log(titles);
 				}
 
@@ -299,10 +299,10 @@
 	  var b = firebase.database().ref().child('info').child('info2');
 	  var bValue;
 	  b.on('value', snap => bValue = snap.val());
-	  a.on('value', snap => bigOne.value = snap.val());
 	  a.on('value', snap => 
 {
-	if(snap.val() == '낙상'){
+	bigOne.value = snap.val();
+	/* if(snap.val() == '낙상'){
 		 if(ii != 0)
 		  fall_alarm();
 		  
@@ -321,7 +321,7 @@
 			
 			  ik++;
 			  console.log("ik",ik);
-	}
+	} */
 }
 );
 	  
@@ -341,7 +341,8 @@
     }
 	
 function ringing(){
-	$("#alam_pop").stop().animate({"top":"0px"},"slow");
+	 $("#alam_pop").css('display','block');
+	$("#alam_pop").animate({"top":"0px"},"slow");
     setInterval(function(){
         $("#alam_pop").animate({"background-color":"#ff4a4a"},"slow",function(){
             $(this).css("background-color","rgb(250, 244, 244)");
@@ -353,10 +354,21 @@ function ringing(){
         });
     },100);
 }
+
+$("#alam_pop > h2").on("click", function(){
+    
+    $("#alam_pop").animate({"top":"-81px"},"slow");
+});
+$('.menu').on('click',function(){
+    $("#alam_pop").css('display','block')
+})
+$("#alam_pop").on('click',function(){
+    $("#alam_pop").css('display','none')
+})
 function camera(){
      $.ajax(
        { 
-           url: "http://172.30.1.33:8403/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+           url: "http://172.30.1.33:8411/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
            data: {
                email : email
            }, // HTTP 요청과 함께 서버로 보낼 데이터 
@@ -369,13 +381,20 @@ function camera(){
      	  
      	  
      	  //db 저장하는 코드
-     	 var lv = '2';
+     	 var lv = '3';
     	  if(dat['level'] == '위험'){
     		  lv = '1';
     		  ringing();
+    		  saveFall(email,dat['action'],lv);
+    		  def_select(email);
     	  }
-    	  
-    	   saveFall(email,dat['action'],lv);
+    	  else if(dat['level'] == '주의'){
+    		  lv = '2';
+    		  saveFall(email,dat['action'],lv);
+    		  def_select(email);
+    	  }
+    	  	//위험일 때만 DB 저장
+    	   //saveFall(email,dat['action'],lv);
      	  
      	  
      	  rootRef.set({
@@ -397,20 +416,19 @@ function mic(){
        }).done(function(data){
      	  console.log(data);
      	  console.log("mic 검출 완료");
-     	  
-     	  
+
      	  
      	  // db에 저장하는 코드
-			var lv = '2';
+			var lv = '3';
      	  if(data['level'] == '위험'){
      		  lv = '1';
      		 ringing();
+     		 saveFall(email,data['action'],lv);
+     		def_select(email);
      	  }
-     	  
-     	   saveFall(email,data['action'],lv);
-     	  
-     	  
-     	  
+     	  // saveFall 저장
+     	  // saveFall(email,data['action'],lv);
+			
      	  rootRef.set({
      	      info1:data['action'],
      	      info2:data['level']
@@ -419,7 +437,7 @@ function mic(){
       });
 }
 
-setInterval(function(){mic();camera(); }, 15000);
+setInterval(function(){mic();camera(); }, 10000);
 
 
 
@@ -460,10 +478,108 @@ setInterval(function(){mic();camera(); }, 15000);
        }).done(function(data){
      	  console.log(data);
      	  console.log("세이브 완료");
-
+		
 		});
     }
     
+
+    function insert_alarms(action, act_time){
+    	var html = '';
+    	let today = new Date();   
+
+    	let year = today.getFullYear(); // 년도
+    	let month = today.getMonth() + 1;  // 월
+    	let date = today.getDate();  // 날짜
+    	let day = today.getDay();
+    	html += '<li class="defecate">';
+        html += '<a class="alam_left_p" id="index_red">위험</a>';
+        html += '<spna class="fonts" style="color:#ff4a4a">'+ action + "</spna><spna> " + act_time+'</spna>';
+        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna>';
+        html += '</li>';
+    	$("<li class='defecate' id='defecate"+i+"'><a class='alam_left_b'>배변</a><span id='s_ck"+i+"'></span><spna class='defecate_color'>배변 시간<a id='defe_pop" + i + "' onclick='defe_pop("+i+")'>check</a></span><a class='alam_icon' onclick='defecate("+i+")'></a><a class='correction' onclick='defe_pop("+i+")'></a></li>").prependTo(".life_list");
+        var s_ck = $("ck"+i);
+        $("#s_ck"+i).text($.clock() +" 배변시간");
+        curtime = '' + $.clock();
+        
+        console.log(emails, curtime);
+        
+    };
+    function def_select(email){
+		html = '';
+    	$.ajax(
+    	          { 
+    	              url: "../../SelectTraffic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소
+    	              data: {
+    	                  email : email
+
+    	              }, // HTTP 요청과 함께 서버로 보낼 데이터
+    	              method: "POST", // HTTP 요청 메소드(GET, POST 등)
+    	              // dataType: "json" // 서버에서 보내줄 데이터의 타입
+    	              }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+    	.done(function(data) { 
+    	                 console.log('traffic',data);
+    	                  if(data != ''){//
+    	                    data = JSON.parse(data);
+    	                    console.log(data);
+    	                    console.log(typeof(data));
+    	                    if(data.length <=3){
+    	                    	var html = tableCreate(data);
+    		                    if(data.length != 0){
+    		                      // ip 카메라 작동
+    		                      console.log('traffic success');
+    		                      console.log(html);
+    		                      $("#alarms").empty();
+    		                      $("#alarms").append(html);
+    		                    }
+    	                    }else{
+    	                    	var da = new Array();
+    	                    	for(var ko=0;ko<4;ko++){
+    	                    		da.push(data[ko]);
+    	                    	}
+    	                    	var html = tableCreate(da);
+    		                    if(data.length != 0){
+    		                      // ip 카메라 작동
+    		                      console.log('traffic success');
+    		                      console.log(html);
+    		                      $("#alarms").empty();
+    		                      $("#alarms").append(html);
+    		                    }
+    	                    }
+    	         }// end if
+    	}) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+    	.fail(function(xhr, status, errorThrown) { 
+    	              alert("실패");
+    	});
+    }
+    function tableCreate(dt){
+
+	    var tc = new Array();
+	    
+	    for(var q=0;q<dt.length;q++){
+	       html = ifcon(html,dt[q].level,dt[q]);
+	    }
+	    html += ``;
+
+	    return html;            
+	}
+    
+    function ifcon(html,i,dt){
+		if(i=='1'){
+			html += '<li class="defecate">';
+	        html += '<a class="alam_left_p" id="index_red">위험</a>';
+	        html += '<spna class="fonts" style="color:#ff4a4a">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
+	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna>';
+	        html += '</li>';
+		}else if(i=='2'){
+			html += '<li class="defecate">';
+	        html += '<a class="alam_left_y" id="index_yellow">주의</a>';
+	        html += '<spna class="fonts" style="color:#fbb554">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
+	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna>';
+	        html += '</li>';
+		}
+		return html;
+	}
+
 	</script>
   
 </body>
