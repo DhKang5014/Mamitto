@@ -267,7 +267,7 @@ function check() {
                      $('#id_check_off').css('display','block');  // 필요한 문장보여주기, 불필요한것은 none으로 안보이게            
                 } else {            
                   $('#id_check_on').css('display','block'); 
-                  $('#id_check_off').css('display','none');
+                  $('#id_check_off').css('display','none'); 
                 }
                   
            }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
