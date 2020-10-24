@@ -63,14 +63,14 @@ function goes(){
 		if(i=='1'){
 			html += '<li class="defecate">';
 	        html += '<a class="alam_left_p" id="index_red">위험</a>';
-	        html += '<spna class="fonts" style="color:#ff4a4a">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
-	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna>';
+	        html += '<spna class="fonts" style="color:#ff4a4a">'+ dt.action +'/'+dt.act_time+"</spna>";
+	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna><img src="img/alam_cion4.png"></img>';
 	        html += '</li>';
 		}else if(i=='2'){
 			html += '<li class="defecate">';
 	        html += '<a class="alam_left_y" id="index_yellow">주의</a>';
-	        html += '<spna class="fonts" style="color:#fbb554">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
-	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna>';
+	        html += '<spna class="fonts" style="color:#fbb554">'+ dt.action +'/'+dt.act_time+"</spna>";
+	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna><img src="img/alam_cion3.png"></img>';
 	        html += '</li>';
 		}
 		return html;

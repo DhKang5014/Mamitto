@@ -349,7 +349,7 @@ h4{color:#726973;}
 }
 /* index alam color */
 #index_red{background-color: #ff4a4a;}
-#index_red2{color: #ff4a4a;}
+#index_red2{color: #ff4a4a; float:inline}
 
 #index_green{background-color: #87ded2;}
 #index_green2{color: #87ded2;}

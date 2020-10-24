@@ -38,7 +38,7 @@ public class GetSequence_baby_life extends HttpServlet {
 
 		// Save Historys
 		
-		String sql = " SELECT last_number FROM USER_SEQUENCES WHERE SEQUENCE_NAME = UPPER('rh_num_sequence')";
+		String sql = "select rh_num_sequence.nextval from dual";
 		select_mealDAO dao = new select_mealDAO();
 		int cnt = dao.select_size(sql);
 		

@@ -373,7 +373,7 @@ const getCookieValue = (key) => {
 
 //select * from rhythm where email = ? ;
 arrayList_history = null;
-
+//var i = 0;
 $.select_history = function(){
 
     email = getCookieValue('email').replace('\"','').replace('\"','');
@@ -425,6 +425,8 @@ $.select_history = function(){
                         }
                     }
                }
+              
+             getIndex();
             }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
         .fail(function(xhr, status, errorThrown) { 
                 alert("실패");
@@ -433,8 +435,8 @@ $.select_history = function(){
 $.select_history();
 // END
 
-var i = 0;
-$.ajax(
+
+/*$.ajax(
     { 
         url: "../../GetSequence_baby_life", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
         //data: {
@@ -450,11 +452,31 @@ $.ajax(
     }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
     .fail(function(xhr, status, errorThrown) { 
             alert("실패");
-}) //;
-
-
-
-
+}) */
+//;
+let i = 0;
+function getIndex(){
+	$.ajax(
+		    { 
+		        url: "../../GetSequence_baby_life", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+		        async: false,
+		        //data: {
+		        //    email : email,
+		        //    curtime : curtime
+		        //}, // HTTP 요청과 함께 서버로 보낼 데이터 
+		        //method: "POST", // HTTP 요청 메소드(GET, POST 등) 
+		        //dataType: "json" // 서버에서 보내줄 데이터의 타입 
+		        }) // HTTP 요청이 성공하면 요청한 데이터가 done() 메소드로 전달됨.
+		    .done(function(data) { 
+		        console.log('sequence size' , data)
+		        i = Number(data)+1;
+		      
+		    }) // HTTP 요청이 실패하면 오류와 상태에 관한 정보가 fail() 메소드로 전달됨. 
+		    .fail(function(xhr, status, errorThrown) { 
+		            alert("실패");
+	}) //;
+	console.log("asdfsdafsdafsdafsa333333",i);
+}
 
 $.create_li_1 = function(q, t){
     // a tag에 직접 onclick 이벤트를 걸어서 카운팅
@@ -463,7 +485,7 @@ $.create_li_1 = function(q, t){
     var m_ck = $("ck"+q);
     $("#m_ck"+q).text($.clockChange(t)+" 식사시간");
     curtime = '' + $.clockChange(t);
-    i = q+1;
+    
     email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
 }
@@ -473,7 +495,7 @@ $.create_li_2 = function(q, t){
     var s_ck = $("ck"+q);
     $("#s_ck"+q).text($.clockChange(t) +" 배변시간");
     curtime = '' + $.clockChange(t);
-    i = q+1;
+    
     email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     
@@ -484,7 +506,7 @@ $.create_li_3 = function(q, t) {
     var d_ck = $("ck"+q);
     $("#d_ck"+q).text($.clockChange(t)+ " 취짐시간");
     curtime = '' + $.clockChange(t);
-    i = q+1;
+    
     email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
 }
@@ -492,6 +514,7 @@ $.create_li_3 = function(q, t) {
 $(".life_icon > li:nth-child(1) > img").on("click",function(){
     // a tag에 직접 onclick 이벤트를 걸어서 카운팅
     // document.getElementById("divClock").innerText = ampm + hours +":"+minutes+":"+seconds;
+	console.log("index", i );
 	$("<li class='meal' id='meal"+i+"'><a class='alam_left_p'>식사</a><span id='m_ck"+i+"'><br></span><spna class='meal_color'>식사 시간<a id='meal_pop"+i+"' onclick='meal_pop("+i+")'>check</a></span><a class='alam_icon' onclick='meal("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
     var m_ck = $("ck"+i);
     $("#m_ck"+i).text($.clock()+" 식사시간");
@@ -520,6 +543,7 @@ $(".life_icon > li:nth-child(1) > img").on("click",function(){
 
 
 $(".life_icon > li:nth-child(2) > img").on("click",function(){
+	//var i = getIndex();
 	$("<li class='defecate' id='defecate"+i+"'><a class='alam_left_b'>배변</a><span id='s_ck"+i+"'></span><spna class='defecate_color'>배변 시간<a id='defe_pop" + i + "' onclick='defe_pop("+i+")'>check</a></span><a class='alam_icon' onclick='defecate("+i+")'></a><a class='correction' onclick='defe_pop("+i+")'></a></li>").prependTo(".life_list");
     var s_ck = $("ck"+i);
     $("#s_ck"+i).text($.clock() +" 배변시간");
@@ -548,6 +572,7 @@ $(".life_icon > li:nth-child(2) > img").on("click",function(){
 
 
 $(".life_icon > li:nth-child(3) > img").on("click",function(){
+	//var i = getIndex();
 	$("<li class='sleep' id='sleep"+i+"'><a class='alam_left_y'>수면</a><span id='d_ck"+i+"'></span><spna class='sleep_color'>취침 시간<a id='sleep_pop" + i+ "' onclick='sleep_pop("+i+")'>check</a></span><a class='alam_icon' onclick='sleep("+i+")'></a><a class='correction' onclick='sleep_pop("+i+")'></a></li>").prependTo(".life_list");
      var d_ck = $("ck"+i);
     $("#d_ck"+i).text($.clock()+ " 수면시간");

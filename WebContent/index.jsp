@@ -511,9 +511,9 @@ setInterval(function(){mic();camera(); }, 10000);
     	let date = today.getDate();  // 날짜
     	let day = today.getDay();
     	html += '<li class="defecate">';
-        html += '<a class="alam_left_p" id="index_red">위험</a>';
-        html += '<spna class="fonts" style="color:#ff4a4a">'+ action + "</spna><spna> " + act_time+'</spna>';
-        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna>';
+        html += '<a class="alam_left_p" id="index_red">'+'위험'+'</a>';
+        html += '<spna class="fonts" style="color:#ff4a4a">'+ action+"</span>";
+        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna><img src="img/alam_cion4.png"></img>';
         html += '</li>';
     	$("<li class='defecate' id='defecate"+i+"'><a class='alam_left_b'>배변</a><span id='s_ck"+i+"'></span><spna class='defecate_color'>배변 시간<a id='defe_pop" + i + "' onclick='defe_pop("+i+")'>check</a></span><a class='alam_icon' onclick='defecate("+i+")'></a><a class='correction' onclick='defe_pop("+i+")'></a></li>").prependTo(".life_list");
         var s_ck = $("ck"+i);
@@ -583,17 +583,17 @@ setInterval(function(){mic();camera(); }, 10000);
 	}
     
     function ifcon(html,i,dt){
-		if(i=='1'){
+    	if(i=='1'){
 			html += '<li class="defecate">';
 	        html += '<a class="alam_left_p" id="index_red">위험</a>';
-	        html += '<spna class="fonts" style="color:#ff4a4a">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
-	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna><img src="img/alam_cion4.png">';
+	        html += '<spna class="fonts" style="color:#ff4a4a">'+ dt.action +'/'+dt.act_time + "</spna>";
+	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna><img src="img/alam_cion4.png"></img>';
 	        html += '</li>';
 		}else if(i=='2'){
 			html += '<li class="defecate">';
 	        html += '<a class="alam_left_y" id="index_yellow">주의</a>';
-	        html += '<spna class="fonts" style="color:#fbb554">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
-	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna><img src="img/alam_cion3.png">';
+	        html += '<spna class="fonts" style="color:#fbb554">'+ dt.action +'/'+dt.act_time + "</spna>";
+	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna><img src="img/alam_cion3.png"></img>';
 	        html += '</li>';
 		}
 		return html;
