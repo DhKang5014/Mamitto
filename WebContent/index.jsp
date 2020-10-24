@@ -387,7 +387,7 @@ $("#alam_pop").on('click',function(){
 function camera(){
      $.ajax(
        { 
-           url: "http://172.30.1.33:8411/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+           url: "http://172.30.1.33:8412/baby", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
            data: {
                email : email
            }, // HTTP 요청과 함께 서버로 보낼 데이터 
@@ -426,7 +426,7 @@ function camera(){
 function mic(){
        $.ajax(
          { 
-             url: "http://172.30.1.33:8404/mic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
+             url: "http://172.30.1.33:8425/mic", // 클라이언트가 HTTP 요청을 보낼 서버의 URL 주소 
              data: {
                  email : email
              }, // HTTP 요청과 함께 서버로 보낼 데이터 

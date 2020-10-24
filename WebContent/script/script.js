@@ -327,15 +327,15 @@ $.clockChange = function(t){
     var hours = now.split(':')[0].slice(-2);
     var minutes = now.split(':')[1];
     var seconds = now.split(':')[2].slice(0, 2);
-
+    var ampm = "";
     if(hours > 12){
         hours -= 12;
          var ampm = "오후";
     }else{
         var ampm = "오전";
     }
-    if(hours < 10){
-        hours = "0"+hours;
+    if(ampm == '오후' && hours < 10){
+        hours = '0'+""+hours;
     }
     if(minutes < 10){
         minutes = minutes;

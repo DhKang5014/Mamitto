@@ -45,11 +45,11 @@ public class SelectCommunication extends HttpServlet {
 		// Save Meal BG
 		String sql = null;
 		if (search_type == null) {
-			sql = "select * from posts";	
+			sql = "select * from posts  order by po_num desc";	
 		}else if (search_type.equals("email")) {
-			sql = "select * from posts where email like ?";
+			sql = "select * from posts where email like ? order by po_num desc";
 		}else {
-			sql = "select * from posts where po_title like ?";
+			sql = "select * from posts where po_title like ?  order by po_num desc";
 		}
 		System.out.println("sql >> " + sql);
 		
