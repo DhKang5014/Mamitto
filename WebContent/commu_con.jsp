@@ -42,19 +42,19 @@
                     <tr>
                         <td class="commu_con"id="title_temp" ></td>
                     </tr>
+                    <tr id ="commu_line"></tr>
                     <tr>
                         <td class="commu_con write_con" id="content_temp"></td>
                     </tr>
-                    <tr class="check">
+                    <tr class="check commu_con_mg">
                         <th>공개여부</th>
                     </tr>
-                    <tr>
+                    <tr class="commu_con_mg">
                         <td>
                             <label for="email" id="private">공개</label>
                         </td>
                     </tr>
                 </table>
-                <br>
                 <!-- <input class="commu_btn commu_write_btn" type="submit" value="등록">  -->
                 <input class="commu_btn commu_write_btn commu_write_btn2" type="reset" value="작성하러 가기" onClick="ch_location()">
 

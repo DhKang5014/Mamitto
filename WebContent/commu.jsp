@@ -81,7 +81,7 @@
                 </tbody>
             </table>
             <br>
-            <a  href="commu_write.html" class="commu_btn">글쓰기</a>
+            <a  href="commu_write.jsp" class="commu_btn">글쓰기</a>
         </div>
     </div>
     <script src="script/script_commu.js"></script>
