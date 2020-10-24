@@ -53,7 +53,7 @@
 				<%} else { %>
 				<form action="login_page.jsp" class="login_box">
 					<div>
-                        <input type="submit" value="로그인페이지 이동" class="btn">
+                        <input type="submit" value="로그인페이지 이동" class="btn btn_colorline">
                     </div>
 				</form>
 				<%} %>   
