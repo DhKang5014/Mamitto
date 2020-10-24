@@ -139,13 +139,13 @@
     	      google.charts.load('current', {'packages':['corechart']});
     	      google.charts.setOnLoadCallback(drawChart4);
 					
-    	          <% String dataset4 = "'day', 'height', 'weight',";
+    	          <% String dataset4 = "'day', 'height', 'weight*10',";
     	          if (to_array.size()>0){
     	          for (int i = 0; i < to_array.size(); i++) {  
     	        	 if(i != to_array.size()-1){
-    				dataset4 +=  "\'"+ to_array.get(i).getDay() +"\'," +to_array.get(i).getHeight() + "," +to_array.get(i).getWeight()+",";
+    				dataset4 +=  "\'"+ to_array.get(i).getDay() +"\'," +to_array.get(i).getHeight() + "," +Double.parseDouble(to_array.get(i).getWeight())*10+",";
     				 }else {
-    				dataset4 += "\'"+ to_array.get(i).getDay() +"\'," +to_array.get(i).getHeight() + "," +to_array.get(i).getWeight();
+    				dataset4 += "\'"+ to_array.get(i).getDay() +"\'," +to_array.get(i).getHeight() + "," +Double.parseDouble(to_array.get(i).getWeight())*10;
     				 }}}; 
     				 
     				 %>
@@ -172,7 +172,7 @@
     	        var options4 = { 
     	          title: 'Body Check',
     	          curveType: 'function',
-    	          legend: { position: 'top' }
+    	          legend: { position: 'auto' }
     	        };
 
     	        var chart4 = new google.visualization.LineChart(document.getElementById('columnchart_material4'));
@@ -181,6 +181,11 @@
     	      }
 
     };
+    
+    
+      
+      //
+
     </script>
 </body>
 </html>

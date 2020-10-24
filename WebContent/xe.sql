@@ -222,12 +222,13 @@ insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) value
 insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-22','sh12@naver.com');
 insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-23','sh12@naver.com');
 
+
+delete from BODYCHECK;
 select * from BODYCHECK;
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43', '3', '2020-10-17','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43.5', '3', '2020-10-18','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43.5', '3.1', '2020-10-19','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43.7', '3.3', '2020-10-20','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44', '3.5', '2020-10-21','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44.3', '3.5', '2020-10-22','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44.5', '3.8', '2020-10-23','sh12@naver.com');
-insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44.5', '3.5', '2020-10-24','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43', '3', '2020-04-17','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '54.7', '4.3', '2020-05-18','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '58.4', '5', '2020-06-19','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '61.3', '6', '2020-07-20','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '64', '7', '2020-08-21','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '66', '7.5', '2020-09-22','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '68', '8', '2020-10-23','sh12@naver.com');
