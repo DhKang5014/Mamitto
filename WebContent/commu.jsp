@@ -170,7 +170,7 @@
 	
 	function gotos(i){
 		console.log("i",i);
-		location.replace('commu_con.jsp?id="'+i+'\"')
+		location.replace('commu_con.jsp?po_num='+i);
 		console.log();
 	}
     </script>
