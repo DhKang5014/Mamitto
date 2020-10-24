@@ -20,7 +20,7 @@
   	<script src="script/script_firebase_dh.js"></script>
   	<script>
 	
-//s
+
   	'use strict';
 
   	/* eslint-disable max-len */
@@ -203,11 +203,28 @@
   <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   
   <script>
+  
+  const getCookieValue = (key) => {
+      let cookieKey = key + "="; 
+      let result = "";
+      const cookieArr = document.cookie.split(";");
+      
+      for(let i = 0; i < cookieArr.length; i++) {
+        if(cookieArr[i][0] === " ") {
+          cookieArr[i] = cookieArr[i].substring(1);
+        }
+        
+        if(cookieArr[i].indexOf(cookieKey) === 0) {
+          result = cookieArr[i].slice(cookieKey.length, cookieArr[i].length);
+          return result;
+        }
+      } 
+      return result;
+  }
 		$(".play_btn").on("click",function(){
 		  console.log("play_btn");
 		  $('#email').css('display','block');
-		  email = email.replace('\"','');
-		  email = email.replace('\"','');
+		  email = getCookieValue('email').replace('\"','').replace('\"','');
 		  $('#email').val(email);
 		});
 	  // Your web app's Firebase configuration
@@ -570,13 +587,13 @@ setInterval(function(){mic();camera(); }, 10000);
 			html += '<li class="defecate">';
 	        html += '<a class="alam_left_p" id="index_red">위험</a>';
 	        html += '<spna class="fonts" style="color:#ff4a4a">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
-	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna>';
+	        html += '<spna class="meal_color" id="index_red2">위험 합니다.</spna><img src="img/alam_cion4.png">';
 	        html += '</li>';
 		}else if(i=='2'){
 			html += '<li class="defecate">';
 	        html += '<a class="alam_left_y" id="index_yellow">주의</a>';
 	        html += '<spna class="fonts" style="color:#fbb554">'+ dt.action + "</spna><spna> " + dt.act_time+'</spna>';
-	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna>';
+	        html += '<spna class="sleep_color" id="index_yellow2">주의가 필요합니다.</spna><img src="img/alam_cion3.png">';
 	        html += '</li>';
 		}
 		return html;

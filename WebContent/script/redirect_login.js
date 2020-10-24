@@ -19,7 +19,7 @@ function goes(){
       } 
       return result;
   }
-  var email = getCookieValue('email');
+  var email = getCookieValue('email').replace('\"','').replace('\"','');
   console.log('email',typeof(email));
   if(email == ''){
 	  window.location.href = window.location.href.split('/')[0]+"//"+window.location.href.split('/')[2]+'/'+'login_page.jsp'

@@ -140,8 +140,8 @@ public class communicationDAO extends DAO{
 		//String email = null;
 			
 		try {
-			getPsmt().setString(1, email);
-			getPsmt().setInt(2, po_num);
+			//getPsmt().setString(1, email);
+			getPsmt().setInt(1, po_num);
 			rs = getPsmt().executeQuery();
 			while (rs.next()) {
 				//

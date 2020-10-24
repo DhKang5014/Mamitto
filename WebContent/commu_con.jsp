@@ -107,7 +107,7 @@
 	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 	
-	var emails = getCookieValue('email');
+	var emails = getCookieValue('email').replace('\"','').replace('\"','');
 	var po_num = getParameter('po_num');
 	console.log('po_num', po_num);
 	console.log('emails',emails);

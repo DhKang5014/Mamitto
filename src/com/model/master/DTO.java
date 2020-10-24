@@ -35,7 +35,7 @@ public class DTO {
 	String sql_insert_history = "insert into history(act_num, email, action) values (act_num_sequence.nextval, ?, ?)";
 	String sql_insert_rhythm = "insert into rhythm(rh_num, baby_num, rh_category, rh_title, rh_content) values (rh_num_sequence.nextval, ?, ?, ?, ?)";
 	String sql_select_rhythm = "select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = ? and rh_category = ? group by to_char(rh_time, 'mm-dd') order by day desc";
-	String sql_select_rhythm_range = "select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = ? and rh_category = ? and to_char(rh_time, 'mm-dd') between to_char(rh_time-7, 'mm-dd') and to_char(rh_time, 'mm-dd') group by to_char(rh_time, 'mm-dd') order by day";
+	String sql_select_rhythm_range = "select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = ? and rh_category = ? and to_char(rh_time, 'mm-dd') between to_char(SYSTIMESTAMP-6, 'mm-dd') and to_char(SYSTIMESTAMP, 'mm-dd') group by to_char(rh_time, 'mm-dd') order by day";
 	
 	//String img_path = "C:/Users/SMHRD/git/MZProject/MZ/WebContent/upload";
 	//String sql_join = "insert into USERS values ( ? , ? , ? , ? , ? )";

@@ -44,7 +44,8 @@ function goes(){
                  console.log('data',data);
                  if(data!=''){
                     data = JSON.parse(data);
-                    if(data.length != 0){
+                    console.log(data);
+                    if(data[0].ip != undefined){
                       // ip 카메라 작동
                       console.log('asdf');
                       console.log('http://'+data[0].ip+":8081");

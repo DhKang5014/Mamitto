@@ -20,7 +20,7 @@ public class SelectCommucationSpecific extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Get in the the Save Meal\
-		System.out.println("In com.ajax/SelectCommunication Service >>");
+		System.out.println("In com.ajax/SelectCommunicationSpecific Service >>");
 
 		// Encoding
 		try {
@@ -41,7 +41,7 @@ public class SelectCommucationSpecific extends HttpServlet {
 		
 		
 		// Save Meal BG
-		String sql = "select * from posts where email = ? and po_num = ? ";
+		String sql = "select * from posts where po_num = ? ";
 		System.out.println("sql >> " + sql);
 		
 		// update dao

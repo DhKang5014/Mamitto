@@ -29,7 +29,7 @@
 	      } 
 	      return result;
 	  }
-	  var email = getCookieValue('email');
+	  var email = getCookieValue('email').replace('\"','').replace('\"','');
 	  console.log(email);
 	  console.log('window',window.location.href);
 	  var site = window.location.href.split('/')[2];

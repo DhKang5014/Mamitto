@@ -192,4 +192,42 @@ select * from posts;
 select po_num, po_title, po_content, po_pw, email, to_char(po_time, 'MM/dd/YY HH24:mi') as day from posts where email='admin' or po_pw='공개' order by day desc;
 select * from posts where po_title like '%확인%';
 
+select to_char(rh_time-7, 'mm-dd') as day from RHYTHM where email = 'sh12@naver.com' and rh_category = 'meal' and to_char(rh_time, 'mm-dd') between to_char(SYSTIMESTAMP-7, 'mm-dd') and to_char(SYSTIMESTAMP, 'mm-dd');
 select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'admin' and rh_category = 'sleep' and to_char(rh_time, 'mm-dd') between to_char(rh_time-7, 'mm-dd') and to_char(rh_time, 'mm-dd') group by to_char(rh_time, 'mm-dd') order by day
+select count(rh_category), to_char(rh_time, 'mm-dd') as day from rhythm where email = 'sh12@naver.com' and rh_category = 'meal' and to_char(rh_time, 'mm-dd') between to_char(rh_time-7, 'mm-dd') and to_char(rh_time, 'mm-dd') group by to_char(rh_time, 'mm-dd') order by day
+
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-17','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-18','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-19','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-20','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-21','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-22','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_time, email) values (rh_num_sequence.nextval, 'meal', '100', '2020-10-23','sh12@naver.com');
+
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-16','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-17','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-18','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-19','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-20','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-21','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-22','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_defecate, rh_time, email) values (rh_num_sequence.nextval, 'defecate', '많음', '2020-10-23','sh12@naver.com');
+
+select * from rhythm where email = 'sh12@naver.com' and rh_category = 'sleep';
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-17','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-18','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-19','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-20','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-21','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-22','sh12@naver.com');
+insert into rhythm(rh_num, rh_category, rh_meal, rh_sleep, rh_time, email) values (rh_num_sequence.nextval, 'sleep', '100', '2020-10-23', '2020-10-23','sh12@naver.com');
+
+select * from BODYCHECK;
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43', '3', '2020-10-17','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43.5', '3', '2020-10-18','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43.5', '3.1', '2020-10-19','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '43.7', '3.3', '2020-10-20','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44', '3.5', '2020-10-21','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44.3', '3.5', '2020-10-22','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44.5', '3.8', '2020-10-23','sh12@naver.com');
+insert into bodycheck(bd_num, bd_height, bd_weight, bd_time, email) values (bd_num_sequence.nextval, '44.5', '3.5', '2020-10-24','sh12@naver.com');

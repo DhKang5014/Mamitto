@@ -39,7 +39,7 @@ function meal_pop(num){
     $(".meal_con").css("display","block");
 }
 function meal_bg_save(){
-	email = getCookieValue('email');
+	email = getCookieValue('email').replace('\"','').replace('\"','');
     curtime = '' + $.clock();
     func_ajax(email,curtime,temp,"meal");
     $(".meal_bg").css("display","none");
@@ -52,7 +52,7 @@ function defe_pop(num){
     $(".defe_con").css("display","block");
 }
 function defe_bg_save(){
-	email = getCookieValue('email');
+	email = getCookieValue('email').replace('\"','').replace('\"','');
     curtime = '' + $.clock();
     func_ajax(email,curtime,temp,"defecate");
     $(".defe_bg").css("display","none");
@@ -65,7 +65,7 @@ function sleep_pop(num){
     $(".sleep_con").css("display","block");
 }
 function sleep_bg_save(){
-	email = getCookieValue('email');
+	email = getCookieValue('email').replace('\"','').replace('\"','');
     curtime = '' + $.clock();
     func_ajax2(email,curtime,temp,"sleep");
     $(".sleep_bg").css("display","none");
@@ -196,7 +196,7 @@ function meal(i){
     $('li#meal'+i).remove();
     
     curtime = '' + $.clock();
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     $.ajax(
         { 
@@ -223,7 +223,7 @@ function sleep(j){
     
     
     curtime = '' + $.clock();
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     $.ajax(
         { 
@@ -248,7 +248,7 @@ function defecate(k){
    $('li#defecate'+k).remove();
 
    curtime = '' + $.clock();
-    email = getCookieValue('email');
+    email = ('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     $.ajax(
         { 
@@ -376,7 +376,7 @@ arrayList_history = null;
 
 $.select_history = function(){
 
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     curtime = '' + $.clock();
 	var path = window.location.pathname;
 	console.log(path);
@@ -464,7 +464,7 @@ $.create_li_1 = function(q, t){
     $("#m_ck"+q).text($.clockChange(t)+" 식사시간");
     curtime = '' + $.clockChange(t);
     i = q+1;
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
 }
 
@@ -474,7 +474,7 @@ $.create_li_2 = function(q, t){
     $("#s_ck"+q).text($.clockChange(t) +" 배변시간");
     curtime = '' + $.clockChange(t);
     i = q+1;
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     
 }
@@ -485,7 +485,7 @@ $.create_li_3 = function(q, t) {
     $("#d_ck"+q).text($.clockChange(t)+ " 취짐시간");
     curtime = '' + $.clockChange(t);
     i = q+1;
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
 }
 
@@ -497,7 +497,7 @@ $(".life_icon > li:nth-child(1) > img").on("click",function(){
     $("#m_ck"+i).text($.clock()+" 식사시간");
     curtime = '' + $.clock();
     i++;
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     $.ajax(
         { 
@@ -525,7 +525,7 @@ $(".life_icon > li:nth-child(2) > img").on("click",function(){
     $("#s_ck"+i).text($.clock() +" 배변시간");
     curtime = '' + $.clock();
     i++;
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     
     $.ajax(
@@ -553,7 +553,7 @@ $(".life_icon > li:nth-child(3) > img").on("click",function(){
     $("#d_ck"+i).text($.clock()+ " 수면시간");
     curtime = '' + $.clock();
     i++;
-    email = getCookieValue('email');
+    email = getCookieValue('email').replace('\"','').replace('\"','');
     console.log(email, curtime);
     
     $.ajax(
