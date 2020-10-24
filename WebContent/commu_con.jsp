@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="script/jquery-3.5.1.min.js"></script>
     <script src="script/script_sh.js"></script>
-    <script src="script/script_commu_con_dh.js"></script>
+   
     <title>commu_write</title>
 </head>
 <body>
@@ -81,25 +81,39 @@
 	    } 
 	    return result;
 	}
-	//
-	var emails = getCookieValue('email');
-	console.log('emails',emails);
 
-	function ch_location(){
-		
-	}
 	function getPost(i){	
 		$.ajax({
 			url : '../../SelectCommucationSpecific',
+			method: 'post',
 			data : {
 				email : emails,
 				po_num : i
 			}
 		}).done(function(data){
 			console.log(data);
+			data = JSON.parse(data);
+			console.log(data);
+			$('#title_temp').text(data[0].po_title);
+			$('#content_temp').text(data[0].po_content);
+			$('#private').text(data[0].po_pw);
 		})
 	}
-		
+	
+	function getParameter(name) {
+	    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+	    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+	        results = regex.exec(location.search);
+	    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	}
+	
+	var emails = getCookieValue('email');
+	var po_num = getParameter('po_num');
+	console.log('po_num', po_num);
+	console.log('emails',emails);
+	
+	getPost(po_num);
+	
 	</script>
 </body>
 </html>
