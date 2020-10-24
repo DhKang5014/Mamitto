@@ -206,6 +206,8 @@
 		$(".play_btn").on("click",function(){
 		  console.log("play_btn");
 		  $('#email').css('display','block');
+		  email = email.replace('\"','');
+		  email = email.replace('\"','');
 		  $('#email').val(email);
 		});
 	  // Your web app's Firebase configuration

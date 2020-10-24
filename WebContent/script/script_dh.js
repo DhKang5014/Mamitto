@@ -24,7 +24,7 @@ function goes(){
       } 
       return result;
   }
-  email = getCookieValue('email');
+  email = getCookieValue('email').replace('\"','').replace('\"','');
   console.log("email",email);
   console.log(email);
   if(email == ''){
